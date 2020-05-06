@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>hammerJs | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="hammerJS是一个优秀的、轻量级的触屏设备手势库，现在已经更新到2.04版本，跟1.0版本有点天壤地别了，毕竟改写了事件名并新增了许多方法，允许同时监听多个手势、自定义识别器，也可以识别滑动方向。 不过对于新版本的hammerJS却及其匮乏中文指引文档，就着这一点我还是上 官网 翻译下英文文档，写一篇跟大家分享吧 （其实hammer的API写的很不怎样，内容和排版都很马虎了事，建议先仔细研究">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hammerJs">
+<meta property="og:url" content="https://huangxok.github.io/blog/2017/03/27/hammerJs/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="hammerJS是一个优秀的、轻量级的触屏设备手势库，现在已经更新到2.04版本，跟1.0版本有点天壤地别了，毕竟改写了事件名并新增了许多方法，允许同时监听多个手势、自定义识别器，也可以识别滑动方向。 不过对于新版本的hammerJS却及其匮乏中文指引文档，就着这一点我还是上 官网 翻译下英文文档，写一篇跟大家分享吧 （其实hammer的API写的很不怎样，内容和排版都很马虎了事，建议先仔细研究">
+<meta property="og:image" content="http://img0.tuicool.com/VnAVFn.jpg!web">
+<meta property="og:image" content="http://img0.tuicool.com/BR7zMn2.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/NrmeUrq.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/nEVz22E.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/uq2q2e3.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/aqENNf.jpg!web">
+<meta property="article:published_time" content="2017-03-27T05:57:39.000Z">
+<meta property="article:modified_time" content="2017-03-27T05:57:39.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hammerJS">
+<meta property="article:tag" content="touch">
+<meta property="article:tag" content="pen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img0.tuicool.com/VnAVFn.jpg!web">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hammerJs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/03/27/hammerJs/" class="article-date">
+  <time datetime="2017-03-27T05:57:39.000Z" itemprop="datePublished">2017-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hammerJs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>hammerJS是一个优秀的、轻量级的触屏设备手势库，现在已经更新到2.04版本，跟1.0版本有点天壤地别了，毕竟改写了事件名并新增了许多方法，允许同时监听多个手势、自定义识别器，也可以识别滑动方向。</p>
+<p>不过对于新版本的hammerJS却及其匮乏中文指引文档，就着这一点我还是上 <a href="http://hammerjs.github.io" target="_blank" rel="noopener">官网</a> 翻译下英文文档，写一篇跟大家分享吧 <em>（其实hammer的API写的很不怎样，内容和排版都很马虎了事，建议先仔细研究 <a href="http://hammerjs.github.io/examples" target="_blank" rel="noopener">examples</a> 后再查阅。你也可以通过Aaron猪肉荣的Hammer系列文章来学习）</em> 。</p>
+<p>注：本文将所有API中提到的 “input” 翻译为 “交互”，它实际包括mousedown, mousemove, touchmove, pointercancel事件。</p>
+<h4 id="GENERAL"><a href="#GENERAL" class="headerlink" title="GENERAL"></a>GENERAL</h4><h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>HammerJS是一个开源的库，可以识别由 touch, mouse 和 pointerEvents 触发的系列手势。它非常小巧，压缩后仅有3.96kb，并没有多余的脚本依赖。</p>
+<p>你可以从 <a href="https://github.com/hammerjs/hammer.js/tree/master/" target="_blank" rel="noopener">Github</a> 上获取最新版的HammerJS，或者直接下载 <a href="http://hammerjs.github.io/dist/hammer.min.js" target="_blank" rel="noopener">压缩版</a> 或 未压缩的 <a href="http://hammerjs.github.io/dist/hammer.js" target="_blank" rel="noopener">开发版</a> 的HammerJS源码。</p>
+<p><a href="http://hammerjs.github.io/changelog" target="_blank" rel="noopener">点此</a> 获取版本变动日志。</p>
+<p>也可以 <a href="https://github.com/hammerjs/hammer.js/tree/1.1.x" target="_blank" rel="noopener">点这里</a> 获取更旧的1.1版本。</p>
+<p>2.0版本的变动：彻底重写了源码，包括可复用的识别器 <em>（recognizer）</em> 、提升了对最新移动端浏览器可用的触摸行为css属性的支持，另支持了多个hammer实例同时使用，让多用户同时使用一台设备也不在话下。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>HammerJS的使用方式非常简单，只要将库引入到文件中，并创建一个新的实例即可：</p>
+<pre class="prettyprint hljs javascript"><span style="color: #0000ff;"><span class="hljs-keyword">var</span> hammertime = <span style="color: #0000ff;"><span class="hljs-keyword">new</span> <span style="color: #000000;">Hammer(myElement, myOptions);
+hammertime.on(<span class="hljs-string">'pan'</span>, <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params">ev</span>)</span> {
+    <span class="hljs-built_in">console</span>.log(ev);
+});</span></span></span></span></span></pre>
+
+<p>它会默认为这个对象添加一系列识别器，包括 tap&lt;点&gt;, doubletap&lt;双点击&gt;, press&lt;按住&gt;, 水平方位的pan&lt;平移&gt; 和 swipe&lt;快速滑动&gt;, 以及多触点的 pinch&lt;捏放&gt; 和 rotate&lt;旋转&gt;识别器。不过呢，其中的 pinch 和 rotate 默认是不可用的，因为它们可能会导致元素被卡住，如果你想启用它们，可以加上这两句：</p>
+<pre class="prettyprint hljs dart">hammertime.<span class="hljs-keyword">get</span>(<span class="hljs-string">'pinch'</span>).<span class="hljs-keyword">set</span>({ enable: <span style="color: #0000ff;"><span class="hljs-keyword">true</span> <span style="color: #000000;">});
+hammertime.<span class="hljs-keyword">get</span>(<span class="hljs-string">'rotate'</span>).<span class="hljs-keyword">set</span>({ enable: <span style="color: #0000ff;"><span class="hljs-keyword">true</span> });</span></span></span></pre>
+
+<p>若要允许识别器识别垂直方位或全部方位的 pan 和 swipe，可以这么写：</p>
+<pre class="prettyprint hljs less"><span class="hljs-selector-tag">hammertime</span><span class="hljs-selector-class">.get</span>(<span class="hljs-string">'pan'</span><span style="color: #000000;">)<span class="hljs-selector-class">.set</span>({ <span class="hljs-attribute">direction</span>: Hammer.DIRECTION_ALL });
+<span class="hljs-selector-tag">hammertime</span><span class="hljs-selector-class">.get</span>(<span class="hljs-string">'swipe'</span>)<span class="hljs-selector-class">.set</span>({ <span class="hljs-attribute">direction</span>: Hammer.DIRECTION_VERTICAL });</span></pre>
+
+<p>另建议加上如下meta标签，防止doubletap 或 pinch 缩放了viewport：</p>
+<pre class="prettyprint hljs xml"><span style="color: #0000ff;"><span class="hljs-tag"><</span><span style="color: #800000;"><span class="hljs-tag"><span class="hljs-name">meta</span></span> <span style="color: #ff0000;"><span class="hljs-tag"><span class="hljs-attr">name</span></span><span style="color: #0000ff;"><span class="hljs-tag">=<span class="hljs-string">"viewport"</span></span><span style="color: #ff0000;"> <span class="hljs-tag"><span class="hljs-attr">content</span></span><span style="color: #0000ff;"><span class="hljs-tag">=<span class="hljs-string">"user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"</span></span><span style="color: #0000ff;"><span class="hljs-tag">></span></span></span></span></span></span></span></span></pre>
+
+
+<h4 id="更多控制"><a href="#更多控制" class="headerlink" title="更多控制"></a>更多控制</h4><p>你可以为你的实例设置属于你自己的识别器，虽然要多写一点代码，但能让你控制更多能被识别的手势：</p>
+<pre class="prettyprint hljs cs"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> mc = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> <span style="color: #000000;">Hammer.Manager(myElement, myOptions);
+
+mc.<span class="hljs-keyword">add</span>(</span> <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: <span class="hljs-number">0</span> <span style="color: #000000;">}) );
+mc.<span class="hljs-keyword">add</span>(</span> <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Hammer.Tap({ <span class="hljs-keyword">event</span>: <span class="hljs-string">'quadrupletap'</span>, taps: <span class="hljs-number">4</span> <span style="color: #000000;">}) );
+
+mc.<span class="hljs-keyword">on</span>(</span><span class="hljs-string">"pan"</span><span style="color: #000000;">, handlePan);
+mc.<span class="hljs-keyword">on</span>(</span><span class="hljs-string">"quadrupletap"</span>, handleTaps);</pre>
+
+<p>上述的代码创建了一个实例（mc），它包含了一个 pan 和一个 quadrupletap 手势，识别器实例会在它们被添加（add）之后就不断地执行，且（一个识别器实例）只能识别一个（手势）。</p>
+<h4 id="贴士和窍门"><a href="#贴士和窍门" class="headerlink" title="贴士和窍门"></a>贴士和窍门</h4><h4 id="1-试着避免垂直方向上的-pan-swipe"><a href="#1-试着避免垂直方向上的-pan-swipe" class="headerlink" title="1. 试着避免垂直方向上的 pan/swipe"></a>1. 试着避免垂直方向上的 pan/swipe</h4><p>垂直方向上的平移操作一般是用来滚动你的页面的，而且有些（过时的）浏览器不会传递事件，导致Hammer无法识别这些手势。你可以尝试换另一种可替换的途径来实现相同的动作。</p>
+<h4 id="2-在设备上做测试"><a href="#2-在设备上做测试" class="headerlink" title="2. 在设备上做测试"></a>2. 在设备上做测试</h4><p>有时候Hammer需要做一些调整，像swipe的速率或其它阈值，如果你在一台反应较慢的设备上做测试，那么你要保证你的回调越简单越好。有些站点例如 <a href="http://jankfree.org/" target="_blank" rel="noopener">JankFree.org</a> 上有专门的文章来介绍如何提升展示效果。</p>
+<h4 id="3-去掉Windows-Phone点击时的高亮效果"><a href="#3-去掉Windows-Phone点击时的高亮效果" class="headerlink" title="3. 去掉Windows Phone点击时的高亮效果"></a>3. 去掉Windows Phone点击时的高亮效果</h4><p>你在Windows Phone上的IE10和IE11里tap某元素时，会有一个小小的tap高亮效果，加上这个meta标签可以取消这种效果：</p>
+<pre class="prettyprint hljs xml"><span class="hljs-tag"><<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"msapplication-tap-highlight"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"no"</span> /></span></pre>
+
+<h4 id="4-“我怎么选择不了文本了！”"><a href="#4-“我怎么选择不了文本了！”" class="headerlink" title="4. “我怎么选择不了文本了！”"></a>4. “我怎么选择不了文本了！”</h4><p>Hammer设置了一个属性用来提升桌面平移操作的用户体验（UX）。常规来说，当你在桌面级浏览器上拖动页面时，你应该是可以正常选中文本的，但user-select这个CSS属性禁用了这功能。如果你在意文本选择功能，同时觉得桌面级的体验没必要太尽善尽美，你可以很轻松地取消这个默认选项——确保在创建实例之前执行：</p>
+<pre class="prettyprint hljs css"><span style="color: #0000ff;"><span class="hljs-selector-tag">delete</span></span> <span class="hljs-selector-tag">Hammer</span><span class="hljs-selector-class">.defaults</span><span class="hljs-selector-class">.cssProps</span><span class="hljs-selector-class">.userSelect</span>;</pre>
+
+<div>
+
+<p>5. “在tap之后，导致触发了一个click事件，我不想这样！”</p>
+<p>这种click事件我们称之为一个“幽灵点击”事件，我创建了一个小函数来避免触摸后导致click，对此， <a href="https://developers.google.com/mobile/articles/fast_buttons#ghost" target="_blank" rel="noopener">Ryan Fioravanti的文章</a> 给了我很大的灵感。</p>
+</div>
+
+<h4 id="浏览器-终端的支持"><a href="#浏览器-终端的支持" class="headerlink" title="浏览器/终端的支持"></a>浏览器/终端的支持</h4><p>无须担心你的浏览器或系统不在下方的列表上，Harmmer可以运行在除了IE8-的任何地方。浏览器若对触摸行为（touch-action）提供原生支持，那么对比那些不支持的浏览器，会有更好的体验。查看 <a href="http://hammerjs.github.io/touch-action/" target="_blank" rel="noopener">touch-action</a> 页面了解更多。</p>
+<figure class="image-box">
+                <img src="http://img0.tuicool.com/VnAVFn.jpg!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p><a href="http://codepen.io/jtangelder/pen/lgELw" target="_blank" rel="noopener">1. 基础实例</a></p>
+<p><a href="http://codepen.io/jtangelder/pen/ABFnd" target="_blank" rel="noopener">2. 垂直方向的pan识别器</a></p>
+<p><a href="http://codepen.io/jtangelder/pen/zKHDk" target="_blank" rel="noopener">3. 同时识别（用RecognizeWith实现）Pinch和Rotate</a></p>
+<p><a href="http://codepen.io/jtangelder/pen/qeCAs" target="_blank" rel="noopener">4. 用RecognizeWith操作Quadrupletap（自定义的，表示4个tap）识别器</a></p>
+<p><a href="http://codepen.io/jtangelder/pen/pBuIw" target="_blank" rel="noopener">5. SingleTap&lt;单点&gt;和DoubleTap&lt;双点击&gt;(配合recognizeWith/requireFailure)</a></p>
+<p>更多实例可以查看 <a href="https://github.com/hammerjs/hammer.js/tree/master/tests" target="_blank" rel="noopener">github上的库文件</a> 。</p>
+<h4 id="HAMMER"><a href="#HAMMER" class="headerlink" title="HAMMER"></a>HAMMER</h4><h4 id="常规API"><a href="#常规API" class="headerlink" title="常规API"></a>常规API</h4><p>Hammer</p>
+<p>Hammer.defaults</p>
+<p>Hammer.Manager</p>
+<p>Hammer.Recognizer</p>
+<p>Hammer.input event</p>
+<p>Event object</p>
+<p>Constants</p>
+<p>Utils</p>
+<h4 id=""><a href="#" class="headerlink" title="=============================="></a>==============================</h4><h4 id="Hammer"><a href="#Hammer" class="headerlink" title="Hammer"></a>Hammer</h4><p>创建并返回一个带有系列默认识别器集合的Manager实例，该集合内包含了诸如 tap, doubletap, pan, swipe, press, pinch 和 rotate 识别器。你应该在初始化时执行它，其语法为：</p>
+<p>Contructor(HTMLElement, [options])</p>
+<p>参数里一个是你的页面元素，另一个是可选的识别器选项options，options会融入Hammer.defaults中去，当然，在Hammer.defaults.preset中定义的识别器集合也会被添加进来。</p>
+<p>如果识别器选项options为空，那么初始化的时候不会有额外的识别器被添加进来：</p>
+<pre class="prettyprint hljs dart"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> myElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hitarea'</span><span style="color: #000000;">);</span> <span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> mc = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Hammer(myElement);</pre>
+
+<p>==============================</p>
+<h4 id="Hammer-defaults"><a href="#Hammer-defaults" class="headerlink" title="Hammer.defaults"></a>Hammer.defaults</h4><p>创建实例时初始化的默认值，包括你定义的options选择器项。其属性包括：</p>
+<h4 id="touchAction-‘compute’"><a href="#touchAction-‘compute’" class="headerlink" title="touchAction: ‘compute’"></a>touchAction: ‘compute’</h4><p>其值可为 <em>compute, auto, pan-y, pan-x</em> 或 <em>none</em> 。默认选项会基于识别器为你选择一个正确值。</p>
+<div>
+
+<p>domEvents: false</p>
+<p>让Hammer也能禁用DOM事件。若不禁用会有些慢，故默认是禁用的。如果你想实现事件委托，那么建议你将其设为true。</p>
+</div>
+
+<div>
+
+<p>enable: true</p>
+<p>接受一个boolean值, 或返回一个boolean值的函数。（官网就这样一句话，也没说具体啥作用，汗~）</p>
+</div>
+
+<div>
+
+<p><span>cssProps: {….}</span></p>
+<p>可以改善交互事件操作的系列css属性。更多详情可以查阅 <a href="http://hammerjs.github.io/jsdoc/Hammer.defaults.cssProps.html" target="_blank" rel="noopener">JSDoc</a> 。</p>
+</div>
+
+<div>
+
+<p><span>preset: [….]</span></p>
+<p>调用Hammer()的时候就安装了默认的识别器。如果建立一个新的Manager，这些将被跳过。</p>
+</div>
+
+<p>==============================</p>
+<h4 id="Hammer-Manager"><a href="#Hammer-Manager" class="headerlink" title="Hammer.Manager"></a>Hammer.Manager</h4><p>Manager是所有识别器实例的容器，它为你的元素安装了交互事件监听器，并设置了触摸事件特性。</p>
+<p>constructor(HTMLElement, [options])</p>
+<p>参数为你的元素（HTMLElement）和选项（options），选项将合并到Hammer.defaults中去：</p>
+<pre class="prettyprint hljs verilog"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> mc = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Hammer<span class="hljs-variable">.Manager</span>(myElement);</pre>
+
+<p>你可以在选项中使用 recognizers 来设置一个初始化识别器，它是一个数组，写法如下：</p>
+<pre class="prettyprint hljs groovy"><span style="color: #0000ff;">var</span> mc = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> <span style="color: #000000;">Hammer.Manager(myElement, {
+ <span class="hljs-symbol">recognizers:</span> [</span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">RecognizerClass, [options], [recognizeWith, ...], [requireFailure, ...]</span></span>
+ <span style="color: #000000;">[Hammer.Rotate],
+        [Hammer.Pinch, { <span class="hljs-string">enable:</span></span> <span style="color: #0000ff;"><span class="hljs-literal">false</span></span> }, [<span class="hljs-string">'rotate'</span><span style="color: #000000;">]],
+        [Hammer.Swipe,{ <span class="hljs-string">direction:</span> Hammer.DIRECTION_HORIZONTAL }],
+    ]
+});</span></pre>
+
+<h4 id="set-options"><a href="#set-options" class="headerlink" title="set(options)"></a>set(options)</h4><p>修改一个Manager实例的选项，该方法是推荐使用的，它可以在需要的时候更新touchAction的值：</p>
+<pre class="hljs css"><span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.set</span>({ <span class="hljs-attribute">enable</span>: <span style="color: #0000ff;">true</span> });</pre>
+
+<h3 id="get-string-add-Recognizer-和-remove-Recognizer"><a href="#get-string-add-Recognizer-和-remove-Recognizer" class="headerlink" title="get(string), add(Recognizer) 和 remove(Recognizer)"></a><span>get(string), add(Recognizer)</span> 和 <span>remove(Recognizer)</span></h3><div>
+
+<p>添加一个新的Recognizer实例到Manager中，添加的顺序跟识别器执行的顺序一致。get方法会返回被添加的Recognizer实例。</p>
+<p>get和remove方法都把一个（识别器中的）事件名或识别器实例来作为一个参数。</p>
+<p>Add 和 remove 方法也接受一个识别器数组来作为参数：</p>
+</div>
+
+<pre class="prettyprint hljs less"><span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">both return instance of myPinchRecognizer</span></span>
+<span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.get</span>(<span class="hljs-string">'pinch'</span><span style="color: #000000;">);
+<span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.get</span>(myPinchRecognizer);</span></pre>
+
+<pre class="prettyprint hljs less"><span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.add</span>(myPinchRecognizer); <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">returns the recognizer</span></span>
+<span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.add</span>([mySecondRecogizner, myThirdRecognizer]);</pre>
+
+<pre class="prettyprint hljs less"><span style="color: #000000;"><span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.remove</span>(myPinchRecognizer);
+<span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.remove</span>(</span><span class="hljs-string">'rotate'</span><span style="color: #000000;">);
+<span class="hljs-selector-tag">mc</span><span class="hljs-selector-class">.remove</span>([myPinchRecognizer,</span> <span class="hljs-string">'rotate'</span>]);</pre>
+
+<h3 id="on-events-handler-和-off-events-handler"><a href="#on-events-handler-和-off-events-handler" class="headerlink" title="on(events, handler) 和 .off(events, [handler])"></a><span>on(events, handler)</span> 和 <span>.off(events, [handler])</span></h3><p>监听由被添加的识别器触发的事件，或者移除那些绑定了的事件。参数中将事件通过空格隔开可处理多个事件：</p>
+<pre class="prettyprint hljs javascript">mc.on(<span class="hljs-string">"pinch"</span>, <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params">ev</span>)</span> {
+    <span class="hljs-built_in">console</span>.log(ev.scale);
+});</span></pre>
+
+<h3 id="stop-force"><a href="#stop-force" class="headerlink" title="stop([force])"></a><span>stop([force])</span></h3><p>停止当前交互会话的识别器（Stop recognizing for the current input session）。当使用force参数时，将强制立刻停止识别器执行周期。</p>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy()"></a><span>destroy()</span></h3><p>解绑所有交互事件并让manager失去作用，但它没有解绑任何dom事件监听器。</p>
+<p>==============================</p>
+<h4 id="Hammer-Recognizer"><a href="#Hammer-Recognizer" class="headerlink" title="Hammer.Recognizer"></a>Hammer.Recognizer</h4><p>每一个识别器都是从这个类中扩展出来的，所有识别器都会有一个enable选项，其值为boolean或者一个回调函数，用来启用/禁用非底层的识别器。</p>
+<p>constructor([options])</p>
+<p>只有选项作为参数：</p>
+<pre class="prettyprint hljs cs"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> pinch = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Hammer.Pinch(); <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"><span class="hljs-comment">创建一个识别器</span></span>
+mc.<span class="hljs-keyword">add</span>(pinch); <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">添加到Manager实例中</span></span></pre>
+
+<h4 id="set-options-1"><a href="#set-options-1" class="headerlink" title="set(options)"></a>set(options)</h4><p>在识别器实例中修改一个选项。该方法是推荐使用的，它可以在需要的时候更新touchAction的值。</p>
+<p><span>recognizeWith(otherRecognizer) </span> 和 <span>dropRecognizeWith(otherRecognizer)</span></p>
+<div>
+
+<p>在当前识别器运行的时候同步运行所给的其它识别器（otherRecognizer），当你需要在最后结合pan和swipe手势时，或者需要同时pinch和ratate一个对象时，它会很有帮助。</p>
+<p>移除这种联系时，只会移除当前识别器上的连接，而不是其它识别器（otherRecognizer）上的连接。</p>
+<p>这两个方法都支持一个识别器组成的数组来作为参数。</p>
+<p>如果识别器被添加到了Manager上，那么该方法也支持将其它识别器(otherRecognizer)的事件名 <em>（字符串形式）</em> 来作为参数。</p>
+</div>
+
+<p><a href="http://hammerjs.github.io/recognize-with" target="_blank" rel="noopener">了解更多recognizeWith</a></p>
+<p><span>requireFailure(otherRecognizer) </span> 和 <span>dropRequireFailure(otherRecognizer)</span></p>
+<div>
+
+<p>只有当其它识别器（otherRecognizer）无效时才执行该识别器。</p>
+<p>移除这种联系时，只会移除当前识别器上的连接，而不是其它识别器（otherRecognizer）上的连接。</p>
+<p>这两个方法都支持一个识别器组成的数组来作为参数。</p>
+<p>如果识别器被添加到了Manager上，那么该方法也支持将其它识别器(otherRecognizer)的事件名 <em>（字符串形式）</em> 来作为参数。</p>
+</div>
+
+<p><a href="http://hammerjs.github.io/require-failure" target="_blank" rel="noopener">了解更多requireFailure</a></p>
+<p>==============================</p>
+<h4 id="Hammer-input-事件"><a href="#Hammer-input-事件" class="headerlink" title="Hammer.input 事件"></a>Hammer.input 事件</h4><p>hammer.input可以触发一个“秘密的”事件，它发生在每一个接收中的交互中，也让你能对原生的交互来做相关处理。它是一个小而强大的特性。</p>
+<pre class="prettyprint hljs javascript">hammertime.on(<span class="hljs-string">"hammer.input"</span>, <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params">ev</span>)</span> {
+   <span class="hljs-built_in">console</span>.log(ev.pointers);
+});</span></pre>
+
+<p>==============================</p>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>每一个Hammer触发的事件都会收到一个包含了如下属性的事件对象：</p>
+<figure class="image-box">
+                <img src="http://img0.tuicool.com/BR7zMn2.png!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+<p>==============================</p>
+<p>常量/Constants <em>（这个建议查阅源码338行起，主要是用于标志事件轮廓，可通过上文“事件对象”的direction、offsetDirection等属性来获取）</em></p>
+<p>所有常量都定义于Hammer对象中，因为它们都是二进制标识，你可以使用位运算来操作它们。MDN上有一些关于位运算的优秀 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" target="_blank" rel="noopener">文档</a> 。</p>
+<h4 id="方位-Directions"><a href="#方位-Directions" class="headerlink" title="方位/Directions"></a>方位/Directions</h4><p>用于定义一个识别器的方位，并用来读取一个事件的对应值。</p>
+<figure class="image-box">
+                <img src="http://img0.tuicool.com/NrmeUrq.png!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+<p>交互事件/Input Events</p>
+<p>Hammer匹配所有交互 (mousedown, mousemove, touchmove, pointercancel)事件类型为如下值：</p>
+<figure class="image-box">
+                <img src="http://img2.tuicool.com/nEVz22E.png!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+<h4 id="识别器状态-Recognizer-States"><a href="#识别器状态-Recognizer-States" class="headerlink" title="识别器状态/Recognizer States"></a>识别器状态/Recognizer States</h4><p>由识别器在内部定义自己的状态：</p>
+<figure class="image-box">
+                <img src="http://img2.tuicool.com/uq2q2e3.png!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+<p>==============================</p>
+<h4 id="工具-Utils"><a href="#工具-Utils" class="headerlink" title="工具/Utils"></a>工具/Utils</h4><h4 id="Hammer-on-element-types-handler"><a href="#Hammer-on-element-types-handler" class="headerlink" title="Hammer.on(element, types, handler)"></a>Hammer.on(element, types, handler)</h4><p>addEventListener的封装，可以接受多个事件类型为参数：</p>
+<pre class="prettyprint hljs javascript">Hammer.on(<span class="hljs-built_in">window</span>, <span class="hljs-string">"load resize scroll"</span>, <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params">ev</span>)</span> {
+    <span class="hljs-built_in">console</span>.log(ev.type);
+});</span></pre>
+
+<h4 id="Hammer-off-element-types-handler"><a href="#Hammer-off-element-types-handler" class="headerlink" title="Hammer.off(element, types, handler)"></a>Hammer.off(element, types, handler)</h4><p>如同Hammer.on，是removeEventListener的封装，也允许多个事件类型为参数。</p>
+<h4 id="Hammer-each-obj-handler"><a href="#Hammer-each-obj-handler" class="headerlink" title="Hammer.each(obj, handler)"></a>Hammer.each(obj, handler)</h4><p>遍历一个数组或对象：</p>
+<pre class="prettyprint hljs css"><span class="hljs-selector-tag">Hammer</span><span class="hljs-selector-class">.each</span>(<span class="hljs-selector-attr">[10,20,30,40]</span>, <span style="color: #0000ff;"><span class="hljs-selector-tag">function</span></span><span style="color: #000000;">(<span class="hljs-selector-tag">item</span>, <span class="hljs-selector-tag">index</span>, <span class="hljs-selector-tag">src</span>) { });
+<span class="hljs-selector-tag">Hammer</span><span class="hljs-selector-class">.each</span>({<span class="hljs-attribute">a</span>:</span><span class="hljs-number">10</span>, b:<span class="hljs-number">20</span>, c:<span class="hljs-number">30</span>}, <span style="color: #0000ff;"><span class="hljs-selector-tag">function</span></span>(<span class="hljs-selector-tag">item</span>, <span class="hljs-selector-tag">key</span>, <span class="hljs-selector-tag">src</span>) { });</pre>
+
+<h4 id="Hammer-merge-obj1-obj2"><a href="#Hammer-merge-obj1-obj2" class="headerlink" title="Hammer.merge(obj1, obj2)"></a>Hammer.merge(obj1, obj2)</h4><p>把obj2的属性混到obj1中去，不过obj1的已有属性不会被重写：</p>
+<pre class="prettyprint hljs swift"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> options = <span style="color: #000000;">{
+    b:</span> <span style="color: #0000ff;"><span class="hljs-literal">false</span></span> <span style="color: #000000;">};</span> <span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> defaults = <span style="color: #000000;">{
+    a:</span> <span style="color: #0000ff;"><span class="hljs-literal">true</span></span><span style="color: #000000;">,
+    b:</span> <span style="color: #0000ff;"><span class="hljs-literal">true</span></span><span style="color: #000000;">,
+    <span class="hljs-built_in">c</span>: [</span><span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span><span style="color: #000000;">]
+};
+<span class="hljs-type">Hammer</span>.merge(options, defaults);</span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">options.a == true</span></span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">options.b == false</span></span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">options.c == [1,2,3]</span></span>
+</pre>
+
+<h4 id="Hammer-extend-obj1-obj2"><a href="#Hammer-extend-obj1-obj2" class="headerlink" title="Hammer.extend(obj1, obj2)"></a>Hammer.extend(obj1, obj2)</h4><p>把obj2的属性扩展到obj1中去，不过obj1的已有属性会被重写：</p>
+<pre class="prettyprint hljs swift"><span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> obj1 = <span style="color: #000000;">{
+    a:</span> <span style="color: #0000ff;"><span class="hljs-literal">true</span></span><span style="color: #000000;">,
+    b:</span> <span style="color: #0000ff;"><span class="hljs-literal">false</span></span><span style="color: #000000;">,
+    <span class="hljs-built_in">c</span>: [</span><span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span><span style="color: #000000;">]
+};</span> <span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> obj2 = <span style="color: #000000;">{
+    b:</span> <span style="color: #0000ff;"><span class="hljs-literal">true</span></span><span style="color: #000000;">,
+    <span class="hljs-built_in">c</span>: [</span><span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span><span style="color: #000000;">]
+};
+<span class="hljs-type">Hammer</span>.extend(obj1, obj2);</span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">obj1.a == true</span></span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">obj1.b == true</span></span> <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">obj1.c == [4,5,6]</span></span>
+</pre>
+
+<h4 id="Hammer-inherit-child-base-properties"><a href="#Hammer-inherit-child-base-properties" class="headerlink" title="Hammer.inherit(child, base, [properties])"></a>Hammer.inherit(child, base, [properties])</h4><p>简单的类继承：</p>
+<pre class="prettyprint hljs javascript"><span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function"><span class="hljs-title">Animal</span>(<span class="hljs-params">name</span>)</span> {</span> <span style="color: #0000ff;"><span class="hljs-keyword">this</span></span>.name = <span style="color: #000000;">name;
+}</span> <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"> <span class="hljs-function"><span class="hljs-title">Dog</span>(<span class="hljs-params"></span>)</span> {
+    Animal.apply(</span><span style="color: #0000ff;"><span class="hljs-keyword">this</span></span><span style="color: #000000;">, <span class="hljs-built_in">arguments</span>);
+}
+Hammer.inherit(Dog, Animal, {
+    <span class="hljs-attr">bark</span>:</span> <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params"></span>)</span> {
+        alert(</span><span style="color: #0000ff;"><span class="hljs-keyword">this</span></span><span style="color: #000000;">.name);
+    }
+});</span> <span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> dog = <span style="color: #0000ff;"><span class="hljs-keyword">new</span></span> Dog(<span class="hljs-string">'Spaikie'</span><span style="color: #000000;">);
+dog.bark();</span>
+</pre>
+
+<h4 id="Hammer-bindFn-fn-scope"><a href="#Hammer-bindFn-fn-scope" class="headerlink" title="Hammer.bindFn(fn, scope)"></a>Hammer.bindFn(fn, scope)</h4><p>Function.bind的简化形式：</p>
+<pre class="prettyprint hljs javascript"><span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"> <span class="hljs-function"><span class="hljs-title">myFunction</span>(<span class="hljs-params">ev</span>)</span> {
+    <span class="hljs-built_in">console</span>.log(</span><span style="color: #0000ff;"><span class="hljs-keyword">this</span></span> === myContext); <span style="color: #008000;"><span class="hljs-comment">//</span></span><span style="color: #008000;"> <span class="hljs-comment">is true</span></span>
+<span style="color: #000000;">}</span> <span style="color: #0000ff;"><span class="hljs-keyword">var</span></span> myContext = <span style="color: #000000;">{
+    <span class="hljs-attr">a</span>:</span> <span style="color: #0000ff;"><span class="hljs-literal">true</span></span><span style="color: #000000;">,
+    <span class="hljs-attr">b</span>:</span> <span style="color: #0000ff;"><span class="hljs-literal">false</span></span> <span style="color: #000000;">};
+<span class="hljs-built_in">window</span>.addEventListener(</span><span class="hljs-string">'load'</span>, Hammer.bindFn(myFunction, myContext), <span style="color: #0000ff;"><span class="hljs-literal">false</span></span>);
+</pre>
+
+<h4 id="Hammer-prefixed-obj-name"><a href="#Hammer-prefixed-obj-name" class="headerlink" title="Hammer.prefixed(obj, name)"></a>Hammer.prefixed(obj, name)</h4><p>获取浏览器的（前缀）属性值：</p>
+<pre class="prettyprint hljs coffeescript">Hammer.prefixed(<span class="hljs-built_in">document</span>.body.style, <span class="hljs-string">'userSelect'</span><span style="color: #000000;">);</span> <span style="color: #008000;"><span class="hljs-regexp">//</span></span> <span style="color: #008000;">returns <span class="hljs-string">"webkitUserSelect"</span> <span class="hljs-literal">on</span> Chrome <span class="hljs-number">35</span></span></pre>
+
+<figure class="image-box">
+                <img src="http://img2.tuicool.com/aqENNf.jpg!web" alt="" title="" class="">
+                <p></p>
+            </figure>
+
+<p>关于hammer的API就翻译到这里，剩余的几个页面内容篇幅较少也较好读懂，请自行查阅和理解。</p>
+<p>这篇文章是10月8日提笔的，后续因为换工作、换城市的事宜被搁置、尘封在草稿箱，直到今天突然想起才决定把它写完，供打算入门hammer的朋友做个参考吧（再次吐槽hammer的api写的很草率）。</p>
+<p>共勉~</p>
+<p><a href="http://www.tuicool.com/articles/VNRjym7" target="_blank" rel="noopener">原文地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2017/03/27/hammerJs/" data-id="ck9v2b7uu000w3gs6bv62ah9t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/03/29/js-prototype/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js_prototype
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/03/22/link/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">link</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>create a blog by hexo | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="hexo 建立博客准备环境第一步：准备好git nodejs  12[git下载地址](http:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;)[node.js下载地址](http:&#x2F;&#x2F;nodejs.cn&#x2F;)  说明下：如果没有git，在windows下可以用cmd命令行，nodejs是必须安装的，第二步会依赖第一步安装的nodejs第二步：  安装全局环境变量—-      * 可以有以下两种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="create a blog by hexo">
+<meta property="og:url" content="https://huangxok.github.io/blog/2016/05/18/create-a-blog-by-hexo/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="hexo 建立博客准备环境第一步：准备好git nodejs  12[git下载地址](http:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;)[node.js下载地址](http:&#x2F;&#x2F;nodejs.cn&#x2F;)  说明下：如果没有git，在windows下可以用cmd命令行，nodejs是必须安装的，第二步会依赖第一步安装的nodejs第二步：  安装全局环境变量—-      * 可以有以下两种">
+<meta property="article:published_time" content="2016-05-18T13:40:12.000Z">
+<meta property="article:modified_time" content="2016-05-18T13:40:12.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-create-a-blog-by-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/18/create-a-blog-by-hexo/" class="article-date">
+  <time datetime="2016-05-18T13:40:12.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      create a blog by hexo
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo-建立博客"><a href="#hexo-建立博客" class="headerlink" title="hexo 建立博客"></a>hexo 建立博客</h1><h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><p>第一步：准备好git nodejs<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[git下载地址](<span class="symbol">http:</span>/<span class="regexp">/git-scm.com/download</span><span class="regexp">/)</span></span><br><span class="line"><span class="regexp">[node.js下载地址](http:/</span><span class="regexp">/nodejs.cn/</span>)</span><br></pre></td></tr></table></figure><br>  说明下：如果没有git，在windows下可以用cmd命令行，nodejs是必须安装的，第二步会依赖第一步安装的nodejs<br>第二步：<br>  安装全局环境变量—-<br>      * 可以有以下两种<br>        第一种打开安装好的git命令行工具，然后切换目录<br>        代码如下<br>        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>        第二种就是直接在windows命令行<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>        PS: “$” 这个符号是git工具命令行自带的<br>第三步：初始化博客文件夹</p>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd d/</span><br><span class="line">$ mkdir hexoblog</span><br><span class="line">$ cd /hexoblog </span><br><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></code></pre><p>  这一步是下载hexo工具，下载完成后的目录结构<br>  |-_config.yml<br>  |-package.json<br>  |-scafolds<br>  |-source<br>  | |-_drafts<br>  | |-_posts<br>  |-themes</p>
+<p>第四步：配置_config.yml文件，这个文件是关于站点设置的一些信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;configuration.html</span><br><span class="line">## Source: https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo&#x2F;</span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line">title: Hexo ##站点标题 PS：这行的&quot;Hexo ##站点标题&quot;表示注释说明，以下基本都是这样</span><br><span class="line">subtitle: ##站点副标题</span><br><span class="line">description: ##站点描述</span><br><span class="line">author: John Doe ##作者</span><br><span class="line">language: ##语言包，需要主题自带才可设置。如Jcaman自带简繁英，设置简体中文填入 zh-CN</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as ‘http:&#x2F;&#x2F;yoursite.com&#x2F;child‘ and root as ‘&#x2F;child&#x2F;‘</span><br><span class="line">url: http:&#x2F;&#x2F;yoursite.com ##站点域名</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F; ##文章永久链接格式，可添加.html后缀，如 :title.html</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads&#x2F;code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">externallink: true # Open external links in new tab</span><br><span class="line">filenamecase: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">enable: true</span><br><span class="line">line_number: true</span><br><span class="line">tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date &#x2F; Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http:&#x2F;&#x2F;momentjs.com&#x2F;docs&#x2F;#&#x2F;displaying&#x2F;format&#x2F;</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: http:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: http:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: landscape ##当前主题名称</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:iSung&#x2F;iSung.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>  PS：deploy 这个为github的一些信息<br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/18/create-a-blog-by-hexo/" data-id="ck9v2b7uq000n3gs6dgfhac71" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/05/19/markdown-syntax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          markdown syntax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/05/11/mbe-ui/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mbe_ui</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

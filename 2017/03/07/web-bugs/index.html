@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>web-bugs | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效-webkit-clip-path 是有效的 Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits &#x3D; “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，正确">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web-bugs">
+<meta property="og:url" content="https://huangxok.github.io/blog/2017/03/07/web-bugs/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效-webkit-clip-path 是有效的 Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits &#x3D; “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，正确">
+<meta property="article:published_time" content="2017-03-07T06:39:31.000Z">
+<meta property="article:modified_time" content="2017-03-07T06:39:31.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="jsxgraph">
+<meta property="article:tag" content="xulrunner">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-web-bugs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/03/07/web-bugs/" class="article-date">
+  <time datetime="2017-03-07T06:39:31.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      web-bugs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效"><a href="#Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效" class="headerlink" title="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效"></a>Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效</h3><p>-webkit-clip-path 是有效的</p>
+<h3 id="Chrome52：CSS-clip-path-url-作用于-html-元素时，如果引用的-SVG-clipPath-元素的-clipPathUnits-“userSpaceOnUse”-（这是默认值），裁剪区的坐标原点是页面原点，"><a href="#Chrome52：CSS-clip-path-url-作用于-html-元素时，如果引用的-SVG-clipPath-元素的-clipPathUnits-“userSpaceOnUse”-（这是默认值），裁剪区的坐标原点是页面原点，" class="headerlink" title="Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits = “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，"></a>Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits = “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，</h3><p>正确的应该是被裁剪的元素的原点。</p>
+<p>53修复这个问题。注意 clipPathUnits = “objectBoundingBox” 时并没有问题。</p>
+<h3 id="Chrome52-53-CSS-clip-path-url-作用于-svg-元素时，不支持到外部文件的-url，裁剪完全被忽略"><a href="#Chrome52-53-CSS-clip-path-url-作用于-svg-元素时，不支持到外部文件的-url，裁剪完全被忽略" class="headerlink" title="Chrome52-53: CSS clip-path: url() 作用于 svg 元素时，不支持到外部文件的 url，裁剪完全被忽略"></a>Chrome52-53: CSS clip-path: url() 作用于 svg 元素时，不支持到外部文件的 url，裁剪完全被忽略</h3><h3 id="Chrome52-53-CSS-clip-path-url-作用于-html-元素时，不支持到外部文件的-url，而且如果使用外部文件的-url，片段部分（-xxx）被解释为本文件内的-id"><a href="#Chrome52-53-CSS-clip-path-url-作用于-html-元素时，不支持到外部文件的-url，而且如果使用外部文件的-url，片段部分（-xxx）被解释为本文件内的-id" class="headerlink" title="Chrome52-53: CSS clip-path: url() 作用于 html 元素时，不支持到外部文件的 url，而且如果使用外部文件的 url，片段部分（#xxx）被解释为本文件内的 id"></a>Chrome52-53: CSS clip-path: url() 作用于 html 元素时，不支持到外部文件的 url，而且如果使用外部文件的 url，片段部分（#xxx）被解释为本文件内的 id</h3><h3 id="Windows-长路径"><a href="#Windows-长路径" class="headerlink" title="Windows 长路径"></a>Windows 长路径</h3><p>经过测试，moz 平台对长路径（&gt;260）的支持是不完全的：</p>
+<ul>
+<li>OS.File 支持，但需要自行添加 “\?&quot; 前缀</li>
+<li>File() 构造器不支持</li>
+<li>fetch 对 file-url 不支持</li>
+<li>file-url，img 标签不支持，video/script/link 等未测试</li>
+</ul>
+<p>Chrome 也不支持 img 的长 file-url。</p>
+<p>Firefox 的 bug:<br><a href="https://bugzilla.mozilla.org/buglist.cgi?quicksearch=long%20path&amp;list_id=13154723" target="_blank" rel="noopener">https://bugzilla.mozilla.org/buglist.cgi?quicksearch=long%20path&amp;list_id=13154723</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=744413" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=744413</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=422777" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=422777</a></p>
+<h3 id="Firefox-Changing-width-height-of-images-continuously-causes-very-high-memory-and-CPU-usage"><a href="#Firefox-Changing-width-height-of-images-continuously-causes-very-high-memory-and-CPU-usage" class="headerlink" title="Firefox: Changing width/height of images continuously causes very high memory and CPU usage"></a>Firefox: Changing width/height of images continuously causes very high memory and CPU usage</h3><p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1292446" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1292446</a><br>简单地缩放图像就会导致很高的内存和处理器占用。这也是导致备课大师图像不显示、黑屏的诱因之一。<br>测试 image-scale.html<br>Chrome 和 Edge 不存在这个问题。用 CSS transform 代替 style.width|height 也可以避免这个问题。</p>
+<h3 id="Firefox-在页面刷新时自动恢复表单字段的状态，包括-disabled-状态"><a href="#Firefox-在页面刷新时自动恢复表单字段的状态，包括-disabled-状态" class="headerlink" title="Firefox 在页面刷新时自动恢复表单字段的状态，包括 disabled 状态"></a>Firefox 在页面刷新时自动恢复表单字段的状态，包括 disabled 状态</h3><p>if disabled state is changed with javascript, the normal state doesn’t return after refreshing the page<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=654072</a></p>
+<p>参考 form-restore-ff-test.htm</p>
+<p>表单的恢复是在 DOMContentdLoaded 执行前，且不会产生 “change” 事件。</p>
+<h3 id="firefox-黑屏"><a href="#firefox-黑屏" class="headerlink" title="firefox 黑屏"></a>firefox 黑屏</h3><p>备课大师1.0.90（使用xulrunner 45）出现在某些 dell 台式机上。<br>可能与显卡和硬件加速渲染有关。<br>关闭硬件加速渲染的选项：<br>layers.acceleration.disabled;false</p>
+<p>可能相关的bug：<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=593858" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=593858</a></p>
+<p>更新：更可能的原因是 xulrunner-stub 没有用 /largememoryaware 编译，因此能使用的内存比 firefox 预期的要小一半，<br>导致一些模块出问题。改用 /largememoryaware 后似乎问题消失了。</p>
+<h3 id="xulrunner-45-远程调试崩溃"><a href="#xulrunner-45-远程调试崩溃" class="headerlink" title="xulrunner 45 远程调试崩溃"></a>xulrunner 45 远程调试崩溃</h3><p>可能相关的bug：<br>devtools.debugger.source-maps-enabled;false<br>devtools.styleeditor.source-maps-enabled;true<br>在 46 或者用 FF 46 调试 xulrunner 45 似乎没问题了。</p>
+<h3 id="chrome-url-中不能有连续的-‘-’"><a href="#chrome-url-中不能有连续的-‘-’" class="headerlink" title="chrome-url 中不能有连续的 ‘..’"></a>chrome-url 中不能有连续的 ‘..’</h3><p>chrome-url with contiguous dots (.) is not a valid url?<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1255687" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1255687</a></p>
+<h3 id="chrome-url-中的-2540-解释不正确"><a href="#chrome-url-中的-2540-解释不正确" class="headerlink" title="chrome-url 中的 %2540 解释不正确"></a>chrome-url 中的 %2540 解释不正确</h3><p>例如，在地址栏输入 chrome://myhtml/content/%2540<br>错误页面显示：Firefox 无法在 /D:/project/MyHTML/@ 找到该文件。<br>但实际上，%2540 应该解释为 %40。有类似错误的还有 “%2530” -&gt; 0 ，”%2520a” -&gt; “ a”<br>注意，只有该url映射到磁盘文件时才出现这个问题，映射到zip文件内的则不会；非windows系统未测试。</p>
+<h3 id="反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示"><a href="#反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示" class="headerlink" title="反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示"></a>反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示</h3><p>有时网页甚至变成黑屏，程序崩溃。</p>
+<h3 id="EventSource-Server-Sent-Event-doesn’t-retry-after-OS-suspend-resume"><a href="#EventSource-Server-Sent-Event-doesn’t-retry-after-OS-suspend-resume" class="headerlink" title="EventSource (Server Sent Event) doesn’t retry after OS suspend/resume"></a>EventSource (Server Sent Event) doesn’t retry after OS suspend/resume</h3><p>FF: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1251117" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1251117</a><br>Chrome: 存在，尚未报告。实际上更严重，resume 之后不发送 error 事件就中断了连接。</p>
+<h3 id="EventSource-Server-Sent-Event-doesn’t-retry-if-the-server-is-down-during-the-first-attempt-to-connect"><a href="#EventSource-Server-Sent-Event-doesn’t-retry-if-the-server-is-down-during-the-first-attempt-to-connect" class="headerlink" title="EventSource (Server Sent Event) doesn’t retry if the server is down during the first attempt to connect"></a>EventSource (Server Sent Event) doesn’t retry if the server is down during the first attempt to connect</h3><p>FF: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1251121" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1251121</a><br>Chrome: 不存在。</p>
+<h3 id="Window-open-doesn’t-resolve-relative-url-correctly-when-iframe-involved"><a href="#Window-open-doesn’t-resolve-relative-url-correctly-when-iframe-involved" class="headerlink" title="Window.open() doesn’t resolve relative url correctly when iframe involved"></a>Window.open() doesn’t resolve relative url correctly when iframe involved</h3><p>FF: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1044950" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1044950</a><br>Chrome: 存在，尚未报告</p>
+<h3 id="object-type-text-html-对错误的url仍然显示空白文档，而不是后备内容"><a href="#object-type-text-html-对错误的url仍然显示空白文档，而不是后备内容" class="headerlink" title="object type=text/html 对错误的url仍然显示空白文档，而不是后备内容"></a>object type=text/html 对错误的url仍然显示空白文档，而不是后备内容</h3><p>Chrome: 存在，尚未报告<br>FF: 无此问题</p>
+<h3 id="file-协议的-content-type"><a href="#file-协议的-content-type" class="headerlink" title="file: 协议的 content-type"></a>file: 协议的 content-type</h3><p>FF: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1037762" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1037762</a><br>XHR 设置 content-type 头为 application/xml，解释内容为 xml</p>
+<p>Chrome: 尚未报告。XHR 没有设置 content-type 头，但正确解释了内容。</p>
+<p>whatwg maillist: [whatwg] How to determine content-type of file: protocol</p>
+<h3 id="分离的-video-元素仍会导致视频加载和解码（除非设置preload-none），造成很大的内存占用"><a href="#分离的-video-元素仍会导致视频加载和解码（除非设置preload-none），造成很大的内存占用" class="headerlink" title="分离的 video 元素仍会导致视频加载和解码（除非设置preload=none），造成很大的内存占用"></a>分离的 video 元素仍会导致视频加载和解码（除非设置preload=none），造成很大的内存占用</h3><p>规范如此？</p>
+<h3 id="MutationObserver-在初始解析阶段不能及时发送事件"><a href="#MutationObserver-在初始解析阶段不能及时发送事件" class="headerlink" title="MutationObserver 在初始解析阶段不能及时发送事件"></a>MutationObserver 在初始解析阶段不能及时发送事件</h3><h3 id="getComputedStyle-用于外部文档中的节点以及分离的节点"><a href="#getComputedStyle-用于外部文档中的节点以及分离的节点" class="headerlink" title="getComputedStyle 用于外部文档中的节点以及分离的节点"></a>getComputedStyle 用于外部文档中的节点以及分离的节点</h3><p>[cssom] getComputedStyle and elements outside the tree<br>  <a href="http://lists.w3.org/Archives/Public/www-style/2010Apr/0433.html" target="_blank" rel="noopener">http://lists.w3.org/Archives/Public/www-style/2010Apr/0433.html</a></p>
+<p><a href="http://lists.w3.org/Archives/Public/www-style/2010Apr/0435.html" target="_blank" rel="noopener">http://lists.w3.org/Archives/Public/www-style/2010Apr/0435.html</a><br>  Gecko’s behavior for win.getComputedStyle(elt) is to take the element<br>elt and compute its style based on the styles of the current document of<br>window |win|.  This means that selector matching will be performed based<br>on the DOM (fragment) the element is in, but using the list of rules<br>from window |win|.  This applies to not only document rules but UA rules<br>too (so if the document in |win| is in quirks mode, quirks rules will be<br>applied to the element).</p>
+<p>This was a conscious design decision in an area where the spec was …<br>somewhat underspecific.  We did consider throwing in this situation, but<br>decided against it because it was simpler to just write the code without<br>assuming anything about window identity, etc.</p>
+<blockquote>
+<p>My question is whether this is a bug in Firefox or a feature I should<br>somehow (how?) keep.</p>
+</blockquote>
+<p>There may be things that depend on the “element not in dom tree”<br>behavior.  At least I seem to recall seeing bugs on that.  The other is<br>mostly a source of developer confusion when they use the wrong window, I<br>think…  But all use of getComputedStyle I’ve encountered is<br>conditioned on various browser sniffing, so changing this stuff is very<br>likely to cause compat issues no matter what we do.  :(</p>
+<p>-Boris</p>
+<p><a href="http://lists.w3.org/Archives/Public/www-style/2010Jul/0252.html" target="_blank" rel="noopener">http://lists.w3.org/Archives/Public/www-style/2010Jul/0252.html</a></p>
+<blockquote>
+<p>A number of Google teams have come to us with bugs of their pages<br>working in Gecko, but not WebKit due to this issue. In practice, it’s<br>not too hard to work around, so changing WebKit hasn’t been a high<br>priority, but it’s pretty clear (anecdotally anyways) that developers<br>expect the Gecko behavior.</p>
+</blockquote>
+<p>Thanks for this Ojan!</p>
+<p>It should be possible for us (Opera) to change this as well so I have<br>attempted to align the specification with Gecko. I would very much<br>appreciate feedback.</p>
+<h3 id="多重组合键"><a href="#多重组合键" class="headerlink" title="多重组合键"></a>多重组合键</h3><p>多重组合键似乎不被支持，如 ctrl+shift+Z，在FF上的contenteditable中只能检测到ctrl+Z。</p>
+<h2 id="object-中的浏览器原生支持的内容"><a href="#object-中的浏览器原生支持的内容" class="headerlink" title="object 中的浏览器原生支持的内容"></a>object 中的浏览器原生支持的内容</h2><p>如果在 object 中引用 html、svg、xhtml、xml 等浏览器原生支持的内容，浏览器的行为并不一致：<br>        html    svg xhtml<br>FF31    y       y   y<br>Cr36    y       n   y<br>E       y       n   n</p>
+<p>embed 待查。</p>
+<h2 id="Mozilla-Firefox-的"><a href="#Mozilla-Firefox-的" class="headerlink" title="Mozilla/Firefox 的"></a>Mozilla/Firefox 的</h2><h3 id="iframe-的父元素上有滚动条，则用空格-page-up-down-时导致滚动位置与滚动条位置不同步。"><a href="#iframe-的父元素上有滚动条，则用空格-page-up-down-时导致滚动位置与滚动条位置不同步。" class="headerlink" title="iframe 的父元素上有滚动条，则用空格/page up/down 时导致滚动位置与滚动条位置不同步。"></a>iframe 的父元素上有滚动条，则用空格/page up/down 时导致滚动位置与滚动条位置不同步。</h3><p>mbeditor，待确认</p>
+<h3 id="chrome-url-的-iframe-中的-html-xhtml-的事件监听器的-this-不正确"><a href="#chrome-url-的-iframe-中的-html-xhtml-的事件监听器的-this-不正确" class="headerlink" title="chrome-url 的 iframe 中的 html/xhtml 的事件监听器的 this 不正确"></a>chrome-url 的 iframe 中的 html/xhtml 的事件监听器的 this 不正确</h3><p>参考 D:\project\MyFirefoxAddon\xhtml-iframe-this<br>触发条件：</p>
+<ol>
+<li>内外两个文档都是(x)html</li>
+<li>内外两个文档都是通过 chrome-url 加载</li>
+<li>在外层文档的脚本中注册事件监听器</li>
+<li>通过 addEventListener 而不是 onclick 注册</li>
+</ol>
+<p>注意 firefox 自带的 (x)html 文档作为外层文档时，不存在这个问题，不知道为什么。例如，外层文档是<br>chrome://devtools/content/framework/connect/connect.xhtml<br>内层文档是<br>chrome://devtools/content/layoutview/view.xhtml<br>或者 chrome://xhtml-iframe-this/content/inner.html</p>
+<p>用这个方法加入 iframe:</p>
+<p>(function () {<br>  var frame = document.createElement(‘iframe’);<br>  frame.style.cssText = ‘position:absolute;top:0;width:700px;height:400px;background-color:white’;<br>  //frame.src = ‘chrome://devtools/content/framework/connect/connect.xhtml’;<br>  //frame.src = ‘chrome://devtools/content/layoutview/view.xhtml’;<br>  //frame.src = ‘chrome://devtools/content/animationinspector/animation-inspector.xhtml’;</p>
+<p>  frame.src = ‘chrome://xhtml-iframe-this/content/inner.html’;<br>  document.body.appendChild(frame);<br>  frame.onload = function() {<br>    frame.contentDocument.addEventListener(“click”, function(ev) { alert(this.nodeName)});<br>  };<br>})();</p>
+<p>则不存在问题。<br>但如果把 firefox 自带的 (x)html 文档抽离出来，则没有这种效果，参考<br>chrome://myhtml/content/view.xhtml<br>chrome://myhtml/content/animation-inspector.xhtml</p>
+<p>解决办法：不使用 this 而是使用 ev.currentTarget。</p>
+<h3 id="FF-上-outline-会包围溢出的子元素。"><a href="#FF-上-outline-会包围溢出的子元素。" class="headerlink" title="FF 上 outline 会包围溢出的子元素。"></a>FF 上 outline 会包围溢出的子元素。</h3><p>参考 <a href="http://stackoverflow.com/questions/10662902/css-outline-different-behavior-behavior-on-webkit-gecko" target="_blank" rel="noopener">http://stackoverflow.com/questions/10662902/css-outline-different-behavior-behavior-on-webkit-gecko</a><br>   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=687311" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=687311</a><br>   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=480888" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=480888</a></p>
+<p>可以用伪元素实现多重 box-shadow 来代替 outline，或者在伪元素上用 outline。<br>这个行为似乎CSS规范没有明确定义。</p>
+<h3 id="视频元素导致大量的内存占用"><a href="#视频元素导致大量的内存占用" class="headerlink" title="视频元素导致大量的内存占用"></a>视频元素导致大量的内存占用</h3><p>Reduce resource consumption <video> elements in Desktop Firefox <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1038527" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1038527</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1054170" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1054170</a></p>
+<p>FF 和 Chrome 都有此问题。即使是分离的 video 节点，也会开始加载视频，并消耗等量的内存。</p>
+<h3 id="windows-上视频文件没有及时关闭"><a href="#windows-上视频文件没有及时关闭" class="headerlink" title="windows 上视频文件没有及时关闭"></a>windows 上视频文件没有及时关闭</h3><p>On Windows, media file is locked for a long time after the web page referencing it has been unloaded<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1068596" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1068596</a><br>destroying VIDEO element does not reduce memory usage<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=962986" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=962986</a></p>
+<p>注意，即使是 detached, 不可达的 video元素，在页面unload后也是不会立即关闭相应文件的（尽管会停止播放）。<br>关闭文件的唯一方法似乎是给 src 设置不可用的 url，然后调用 load() 方法。</p>
+<p>1068596 已经修复。不过这个修复并不彻底，有时候文件仍然被锁定。重现的方法：<br>在备课大师中尝试删除打开中的、含有视频的文档。</p>
+<h3 id="svg-元素的-ClientBox-与-transform"><a href="#svg-元素的-ClientBox-与-transform" class="headerlink" title="svg 元素的 ClientBox 与 transform"></a>svg 元素的 ClientBox 与 transform</h3><p>transform 属性与 CSS transform 属性对 getBoundingClientRect() 的影响不同。</p>
+<p>getBoundingClientRect() doesn’t take CSS transform into account for SVG elements<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1066435" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1066435</a></p>
+<p>getBoundingClientRect differs from all other browsers for transformed SVG elements<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=755947" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=755947</a></p>
+<p>[CSSOM] Revisiting transforms and getBoundingClientRect()<br>  <a href="http://lists.w3.org/Archives/Public/www-style/2011May/0385.html" target="_blank" rel="noopener">http://lists.w3.org/Archives/Public/www-style/2011May/0385.html</a><br>  没有明确结论。</p>
+<p>[CSSOM] Interaction of getBoundingClientRect/getClientRects with transforms<br>  <a href="http://lists.w3.org/Archives/Public/www-style/2010Aug/0615.html" target="_blank" rel="noopener">http://lists.w3.org/Archives/Public/www-style/2010Aug/0615.html</a></p>
+<h3 id="从XHR读取的xhtml-document，无法设置-object-embed-元素的-data-src-属性"><a href="#从XHR读取的xhtml-document，无法设置-object-embed-元素的-data-src-属性" class="headerlink" title="从XHR读取的xhtml document，无法设置 object/embed 元素的 data/src 属性"></a>从XHR读取的xhtml document，无法设置 object/embed 元素的 data/src 属性</h3><p>Modifying data attribute of <object> causes NS_ERROR_UNEXPECTED exception<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1065920" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1065920</a></p>
+<h3 id="CSS-变换的-iframe-中的元素无法正确全屏"><a href="#CSS-变换的-iframe-中的元素无法正确全屏" class="headerlink" title="CSS 变换的 iframe 中的元素无法正确全屏"></a>CSS 变换的 iframe 中的元素无法正确全屏</h3><p>Fullscreen is broken for element in CSS-transformed iframe<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139412" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1139412</a>  </p>
+<p>测试：iframe-fullscreen.html</p>
+<h3 id="Letter-spacing-is-applied-to-zero-width-characters-zwsp-zwj-zwnj"><a href="#Letter-spacing-is-applied-to-zero-width-characters-zwsp-zwj-zwnj" class="headerlink" title="Letter spacing is applied to zero width characters (zwsp, zwj, zwnj)"></a>Letter spacing is applied to zero width characters (zwsp, zwj, zwnj)</h3><p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=253143" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=253143</a></p>
+<h3 id="CSS-letter-spacing-style-extends-after-last-letter-of-element-with-letter-spacing"><a href="#CSS-letter-spacing-style-extends-after-last-letter-of-element-with-letter-spacing" class="headerlink" title="CSS letter-spacing style extends after last letter of element with letter-spacing"></a>CSS letter-spacing style extends after last letter of element with letter-spacing</h3><p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=125390" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=125390</a></p>
+<h3 id="如果video的src属性是url-encoded-中文，则无法播放？"><a href="#如果video的src属性是url-encoded-中文，则无法播放？" class="headerlink" title="如果video的src属性是url-encoded 中文，则无法播放？"></a>如果video的src属性是url-encoded 中文，则无法播放？</h3><p>经查证，31以上无此问题。</p>
+<h3 id="MutationObserver-在初始解析阶段漏掉一些节点"><a href="#MutationObserver-在初始解析阶段漏掉一些节点" class="headerlink" title="MutationObserver 在初始解析阶段漏掉一些节点"></a>MutationObserver 在初始解析阶段漏掉一些节点</h3><h3 id="CSS-opacity-animation-生成了多余的-stacking-context"><a href="#CSS-opacity-animation-生成了多余的-stacking-context" class="headerlink" title="CSS opacity animation 生成了多余的 stacking context"></a>CSS opacity animation 生成了多余的 stacking context</h3><p>z-index-opacity-anim.htm<br>FF 35 已经修复。</p>
+<h3 id="HTML-select-元素在展开状态下如果被设置了-visibility-hidden，则会变成黑色"><a href="#HTML-select-元素在展开状态下如果被设置了-visibility-hidden，则会变成黑色" class="headerlink" title="HTML select 元素在展开状态下如果被设置了 visibility: hidden，则会变成黑色"></a>HTML select 元素在展开状态下如果被设置了 visibility: hidden，则会变成黑色</h3><p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=376607" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=376607</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=206000" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=206000</a><br>ff-select-black.htm</p>
+<p>Firefox 直到 35 都有这个问题。chrome 37则是让展开部分也立即消失。</p>
+<p>display:none; FF会让展开部分也立即消失；chrome也一样<br>opacity:0; FF只显示展开部分，其它部分消失，并且点击原来的位置仍可以展开；chrome也一样</p>
+<h3 id="剪贴板未实现最新的规范"><a href="#剪贴板未实现最新的规范" class="headerlink" title="剪贴板未实现最新的规范"></a>剪贴板未实现最新的规范</h3><p>dataTransfer.items undefined in Firefox<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=906420" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=906420</a></p>
+<h3 id="copy-paste-的局限性"><a href="#copy-paste-的局限性" class="headerlink" title="copy,paste 的局限性"></a>copy,paste 的局限性</h3><p>copy 要求有非空的选区存在；paste 要求有可编辑区域的存在，并有焦点。<br><a href="http://caniuse.com/#search=Clipboard" target="_blank" rel="noopener">http://caniuse.com/#search=Clipboard</a></p>
+<p>Empty clipboardData when pasting image content（意味着无法粘贴print screen的图像）<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=891247" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=891247</a></p>
+<h3 id="Selection-selectAllChildren-可以选中脱离主文档的节点"><a href="#Selection-selectAllChildren-可以选中脱离主文档的节点" class="headerlink" title="Selection.selectAllChildren() 可以选中脱离主文档的节点"></a>Selection.selectAllChildren() 可以选中脱离主文档的节点</h3><p>Selection.selectAllChildren() can select detached nodes<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1178681" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1178681</a></p>
+<h3 id="Selection-selectAllChildren-可能抛出异常"><a href="#Selection-selectAllChildren-可能抛出异常" class="headerlink" title="Selection.selectAllChildren() 可能抛出异常"></a>Selection.selectAllChildren() 可能抛出异常</h3><p>Selection.selectAllChildren() throws NS_ERROR_FAILURE exception if called in mousedown handler and current selection is in a contenteditable<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1178676" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1178676</a></p>
+<p>触发条件：在任意 mousedown 处理器中调用 selectAllChildren()；调用时选区和焦点都位于一个 contenteditable 中。</p>
+<h3 id="selectstart-selectionchange-事件"><a href="#selectstart-selectionchange-事件" class="headerlink" title="selectstart/selectionchange 事件"></a>selectstart/selectionchange 事件</h3><p>FF 43 开始实现，需要设置 dom.select_events.enabled = true<br><a href="https://developer.mozilla.org/en-US/docs/Web/Events/selectionchange" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/Events/selectionchange</a></p>
+<p>polyfill：<a href="https://github.com/2is10/selectionchange-polyfill/" target="_blank" rel="noopener">https://github.com/2is10/selectionchange-polyfill/</a></p>
+<h3 id="firefox-android-版没有视频全屏按钮"><a href="#firefox-android-版没有视频全屏按钮" class="headerlink" title="firefox android 版没有视频全屏按钮"></a>firefox android 版没有视频全屏按钮</h3><p>Provide fullscreen button for video<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1018468" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1018468</a><br>  已经修复，不过似乎没有随32发布，可能会随33发布。<br>在没有全屏按钮的情况下，长按视频可以弹出上下文菜单，其中有全屏选项。</p>
+<h3 id="mime-错误"><a href="#mime-错误" class="headerlink" title="mime 错误"></a>mime 错误</h3><p>windows 曾经遇到 <input type=file> 对 .swf 文件报告了错误的类型 application/ms-download，并发现 firefox 的文件关联中有多余的项。<br>恢复出厂状态可以解决，也有资料说删除 profile 中的 mimeTypes.rdf 可以解决。<br>可能相关的bug:<br>ajaxSketch breaks handling of local SVG files<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=332690" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=332690</a><br>Firefox mimeTypes.rdf corruption<br>  <a href="http://cephas.net/blog/2007/01/05/firefox-mimetypesrdf-corruption/" target="_blank" rel="noopener">http://cephas.net/blog/2007/01/05/firefox-mimetypesrdf-corruption/</a><br>Mimetype corruption in Firefox<br>  <a href="http://techblog.procurios.nl/k/n618/news/view/15872/14863/mimetype-corruption-in-firefox.html" target="_blank" rel="noopener">http://techblog.procurios.nl/k/n618/news/view/15872/14863/mimetype-corruption-in-firefox.html</a></p>
+<h3 id="flash-android-拖拽操作"><a href="#flash-android-拖拽操作" class="headerlink" title="flash android 拖拽操作"></a>flash android 拖拽操作</h3><p>Slider control of adobe flash doesn’t work with touch screen, seems mouse/touch_move events are not sent <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1065232" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1065232</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1052196" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1052196</a><br>结论是 firefox android 确实没有实现将click、mouseup/ mousedown以外的鼠标/触摸事件转发到 flash。但这个 bug “不会修改”，因为 flash mobile 已经停止支持。<br>但是欢迎外人提供补丁：<br>  If anyone comes along and feels like working on it, though, the place to add this would be in nsPluginInstanceOwner::ProcessEvent() here: <a href="http://dxr.mozilla.org/mozilla-central/source/dom/plugins/base/nsPluginInstanceOwner.cpp?from=nsPluginInstanceOwner.cpp&amp;case=true#1843" target="_blank" rel="noopener">http://dxr.mozilla.org/mozilla-central/source/dom/plugins/base/nsPluginInstanceOwner.cpp?from=nsPluginInstanceOwner.cpp&amp;case=true#1843</a></p>
+<p>触摸操作不起作用。<br>测试文件：zgdsy.swf （中图社提供）; D:\project\MyHTML\kcx.swf。<br>flash中应该只处理了鼠标拖拽事件。<br>在独立的flash播放器，如smart flash player，swf player, 以及 android 原生浏览器中，该flash是可以触摸操作的。</p>
+<p>另外一些例子，adobe提供的：<br><a href="http://www.adobe.com/devnet/actionscript/samples.html" target="_blank" rel="noopener">http://www.adobe.com/devnet/actionscript/samples.html</a><br>  <a href="http://www.adobe.com/devnet/actionscript/samples/interactivity_3.html" target="_blank" rel="noopener">http://www.adobe.com/devnet/actionscript/samples/interactivity_3.html</a><br>    <a href="http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/interactivity_3/_jcr_content/articlecontentAdobe/generic/file.res/3_joystick%5b1%5d.swf" target="_blank" rel="noopener">http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/interactivity_3/_jcr_content/articlecontentAdobe/generic/file.res/3_joystick%5b1%5d.swf</a><br>  <a href="http://www.adobe.com/devnet/actionscript/samples/interactivity_2.html" target="_blank" rel="noopener">http://www.adobe.com/devnet/actionscript/samples/interactivity_2.html</a><br>    <a href="http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/interactivity_2/_jcr_content/articlecontentAdobe/generic/file.res/2_sliders%5B1%5D.swf" target="_blank" rel="noopener">http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/interactivity_2/_jcr_content/articlecontentAdobe/generic/file.res/2_sliders%5B1%5D.swf</a></p>
+<h3 id="抛出的异常没有显示在控制台中"><a href="#抛出的异常没有显示在控制台中" class="headerlink" title="抛出的异常没有显示在控制台中"></a>抛出的异常没有显示在控制台中</h3><h3 id="3D-CSS-变换的-contenteditable-元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。"><a href="#3D-CSS-变换的-contenteditable-元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。" class="headerlink" title="3D CSS 变换的 contenteditable 元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。"></a>3D CSS 变换的 contenteditable 元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。</h3><p>翻卡片控件较严重。<br>29-33 有此问题，35无问题，37-41似乎又有问题。</p>
+<h3 id="OS-File-写入-0-长度数据抛出异常"><a href="#OS-File-写入-0-长度数据抛出异常" class="headerlink" title="OS.File 写入 0 长度数据抛出异常"></a>OS.File 写入 0 长度数据抛出异常</h3><p>OS.File.writeAtomic() 以及 file.write() 在数据长度为 0 时抛出异常。<br>29-33 有此问题，35无问题。</p>
+<h3 id="修改html文件中-iframe的src-srcdoc-属性后刷新，iframe-仍加载上次的-src-srcdoc。"><a href="#修改html文件中-iframe的src-srcdoc-属性后刷新，iframe-仍加载上次的-src-srcdoc。" class="headerlink" title="修改html文件中 iframe的src/srcdoc 属性后刷新，iframe 仍加载上次的 src/srcdoc。"></a>修改html文件中 iframe的src/srcdoc 属性后刷新，iframe 仍加载上次的 src/srcdoc。</h3><p>Change inlined content of iframes in a local html file and reload, the content of the iframes is not updated<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139737" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1139737</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=356558" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=356558</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=363840" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=363840</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=279048" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=279048</a></p>
+<p>39仍有此问题。</p>
+<p>测试 iframe-reload.html</p>
+<h3 id="Windows-桌面版-FF-上不支持触摸事件（metro模式支持）"><a href="#Windows-桌面版-FF-上不支持触摸事件（metro模式支持）" class="headerlink" title="Windows 桌面版 FF 上不支持触摸事件（metro模式支持）"></a>Windows 桌面版 FF 上不支持触摸事件（metro模式支持）</h3><p>这是因为 FF 的实现有bug，导致一些网页无法滚动，所以默认没有打开触摸事件。用 dom.w3c_touch_events.enabled = 1 or 2 可以强行打开。</p>
+<p>在 JS 代码中：<br>var prefs = Components.classes[“@mozilla.org/preferences-service;1”]<br>                    .getService(Components.interfaces.nsIPrefService).getBranch(“dom.w3c_touch_events.”);<br>prefs.setIntPref(“enabled”, 2);</p>
+<p>Some sites won’t touch-scroll using a touch-screen<br>  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=736048" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=736048</a></p>
+<h2 id="Chrome-的"><a href="#Chrome-的" class="headerlink" title="Chrome 的"></a>Chrome 的</h2><h3 id="word-spacing-不能作用于开头的空白"><a href="#word-spacing-不能作用于开头的空白" class="headerlink" title="word-spacing 不能作用于开头的空白"></a>word-spacing 不能作用于开头的空白</h3><p><a href="https://code.google.com/p/chromium/issues/detail?id=404444" target="_blank" rel="noopener">https://code.google.com/p/chromium/issues/detail?id=404444</a></p>
+<h3 id="负-word-spacing-导致意外换行"><a href="#负-word-spacing-导致意外换行" class="headerlink" title="负 word-spacing 导致意外换行"></a>负 word-spacing 导致意外换行</h3><h3 id="inline-block-导致意外换行"><a href="#inline-block-导致意外换行" class="headerlink" title="inline-block 导致意外换行"></a>inline-block 导致意外换行</h3><p><a href="https://bugs.webkit.org/show_bug.cgi?id=35443" target="_blank" rel="noopener">https://bugs.webkit.org/show_bug.cgi?id=35443</a><br><a href="https://code.google.com/p/chromium/issues/detail?id=428647" target="_blank" rel="noopener">https://code.google.com/p/chromium/issues/detail?id=428647</a></p>
+<h3 id="Blob-constructor-produces-corrupted-result-by-recursively-joining-a-blob-and-an-ArrayBuffer"><a href="#Blob-constructor-produces-corrupted-result-by-recursively-joining-a-blob-and-an-ArrayBuffer" class="headerlink" title="Blob constructor produces corrupted result by recursively joining a blob and an ArrayBuffer"></a>Blob constructor produces corrupted result by recursively joining a blob and an ArrayBuffer</h3><p><a href="https://code.google.com/p/chromium/issues/detail?id=429960" target="_blank" rel="noopener">https://code.google.com/p/chromium/issues/detail?id=429960</a></p>
+<h3 id="XHTML-中-script-defer-属性不起作用"><a href="#XHTML-中-script-defer-属性不起作用" class="headerlink" title="XHTML 中 script defer 属性不起作用"></a>XHTML 中 script defer 属性不起作用</h3><h3 id="当-textarea-外有选区，而-textarea-有焦点时，textarea-只能得到-KeyboardEvent，不能得到-InputEvent。"><a href="#当-textarea-外有选区，而-textarea-有焦点时，textarea-只能得到-KeyboardEvent，不能得到-InputEvent。" class="headerlink" title="当 textarea 外有选区，而 textarea 有焦点时，textarea 只能得到 KeyboardEvent，不能得到 InputEvent。"></a>当 textarea 外有选区，而 textarea 有焦点时，textarea 只能得到 KeyboardEvent，不能得到 InputEvent。</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2017/03/07/web-bugs/" data-id="ck9v2b7v6001t3gs6c5zsfdk1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/03/07/ramda%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ramda库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/03/03/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">函数式编程笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

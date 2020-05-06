@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HTML5 vs XHTML5 | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XHTML5 与 HTML5 的差异和兼容 这里考虑的是让文档同时符合 HTML 5 和 XHTML 5（以下简称h5和x5）。 *** 参考HTML vs. XHTML  http:&#x2F;&#x2F;wiki.whatwg.org&#x2F;wiki&#x2F;HTML_vs._XHTML HTML和XHTML的不同  http:&#x2F;&#x2F;dancewithnet.com&#x2F;2007&#x2F;10&#x2F;28&#x2F;differences-between-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 vs XHTML5">
+<meta property="og:url" content="https://huangxok.github.io/blog/2016/05/19/HTML5-vs-XHTML5/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="XHTML5 与 HTML5 的差异和兼容 这里考虑的是让文档同时符合 HTML 5 和 XHTML 5（以下简称h5和x5）。 *** 参考HTML vs. XHTML  http:&#x2F;&#x2F;wiki.whatwg.org&#x2F;wiki&#x2F;HTML_vs._XHTML HTML和XHTML的不同  http:&#x2F;&#x2F;dancewithnet.com&#x2F;2007&#x2F;10&#x2F;28&#x2F;differences-between-">
+<meta property="article:published_time" content="2016-05-19T15:28:17.000Z">
+<meta property="article:modified_time" content="2016-05-19T15:28:17.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="XHTML">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML5-vs-XHTML5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/19/HTML5-vs-XHTML5/" class="article-date">
+  <time datetime="2016-05-19T15:28:17.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5 vs XHTML5
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XHTML5 与 HTML5 的差异和兼容</p>
+<p>这里考虑的是让文档同时符合 HTML 5 和 XHTML 5（以下简称h5和x5）。</p>
+<p>*** 参考<br>HTML vs. XHTML<br>  <a href="http://wiki.whatwg.org/wiki/HTML_vs._XHTML" target="_blank" rel="noopener">http://wiki.whatwg.org/wiki/HTML_vs._XHTML</a></p>
+<p>HTML和XHTML的不同<br>  <a href="http://dancewithnet.com/2007/10/28/differences-between-html-and-xhtml/" target="_blank" rel="noopener">http://dancewithnet.com/2007/10/28/differences-between-html-and-xhtml/</a></p>
+<p>** mime<br>text/html 和 application/xml or application/xhtml+xml<br>根据HTML5，如果给定 mime是text/html，那么解析模式就不是 xhtml。</p>
+<p>对于本地x5文件，可以给予扩展名 xhtml，这样浏览器会以 xhtml 模式加载。</p>
+<p>** doctype<br> DOCTYPE 对x5是可选的，h5则用来触发正常解析模式。<br> 给出 <!DOCTYPE html> 可以兼容h5和x5。</p>
+<p>** 字符编码<br> h5 忽略（或者不允许使用） xml 声明（<?xml encoding="..."?>），而x5会忽略 <meta charset="..." />（而且只允许值为UTF-8），因此没有两者通用的字符编码指定方法。<br> 相对可行的方法是：文档采用UTF-8编码，给出 meta charset，但是不给出 xml 声明。这样，xml解析器仍可自动识别编码。</p>
+<p>** 命名空间<br> h5 可以被认为不支持命名空间。<br> h5 中的内置元素的命名空间是隐式的，即 html、svg、mathml元素及其子元素分别在 xhtml、svg、mathml 命名空间中，外部元素不能声明自己的命名空间。<br> h5 允许内置元素使用xmlns属性，但是不能使用前缀，xmlns属性也不起任何作用。<br> x5 中，html、svg、mathml元素都必须给予恰当的命名空间：<br>   <a href="http://www.w3.org/1999/xhtml" target="_blank" rel="noopener">http://www.w3.org/1999/xhtml</a><br>   <a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a><br>   <a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a></p>
+<p> 为了兼容 h5和x5，应对html、svg、mathml元素声明命名空间，但不要使用前缀。</p>
+<p>** XML attributes<br>  x5中，有xml:前缀的属性，如 xml:id, xml:base, xml:lang 和 xml:space<br>  不需要声明命名空间，强制的命名空间是 <a href="http://www.w3.org/XML/1998/namespace，前缀也只能是" target="_blank" rel="noopener">http://www.w3.org/XML/1998/namespace，前缀也只能是</a> xml。<br>  h5中，html元素也可以使用 xml:lang，不过没什么效果。其它元素则可以自由使用所有 xml 属性。</p>
+<p>  为了兼容，html元素上应同时使用lang和xml:lang属性，如果需要的话；但不要在html元素上使用其它xml 属性。</p>
+<p>** 属性<br>  x5中属性名都是小写的，h5则不区分大小写，为了兼容应全部小写。<br>  不属于html词汇表的属性仍会包含在DOM中，不过为了避免冲突，建议使用data-属性。<br>  x5属性值中的空白会被正规化，h5则不会，因此不要依赖这个特性。</p>
+<p>** 必空（Void）与非必空（Non-void）元素<br>  h5 中，必空元素是指不能有内容的元素，它们不能写成开始标记紧跟结束标记的形式，只能写成仅有开始标记或自封闭标记的形式。<br>  例如<br>或<br/>不能写成<br></br>，否则h5解析器认为</br>是另一个<br>。<br>  x5 没有这个概念，<br/> 等效于 <br></br>，但是，仅有开始标记是不允许的。<br>  必空元素包括：base, link, meta, area, br, col, embed, hr, img, input, param。</p>
+<p>  h5 中，非必空元素是指可能有内容的元素，它们不能写成自封闭的形式。例如 <script></script>不能写成<script/>，否则该元素整个被忽略。<br>  x5 同样没有这个概念，没有内容的元素总是可以写成自封闭形式。</p>
+<p>  为了兼容，必空元素应写成自封闭形式，非必空元素一定不要写成自封闭形式。</p>
+<p>** 可省略结束标记的元素和可省略的元素<br>  在h5中，某些元素允许省略结束标签或两个标签。</p>
+<pre><code>html (两个)
+head (两个)
+body (两个)
+li (结束标签)
+dt (结束标签)
+dd (结束标签)
+p (结束标签)
+colgroup (两个)
+thead (结束标签)
+tbody (两个)
+tfoot (结束标签)
+tr (结束标签)
+td (结束标签)
+th (结束标签)</code></pre><p>  在 x5中，以上都不可省略。</p>
+<p>** 处理指令 Processing Instructions<br>  h5 没有处理指令的概念，但早期 html 允许 “bogus comments”（伪造的注释），使用类似的语法 <?foo ...> 或者 <?foo ...?>，但已经被h5废弃。<br>  为了兼容，x5中的处理指令内部不要有’&gt;’，否则在h5解析器中会过早结束。最好完全不用处理指令。</p>
+<p>** CDATA sections<br>  h5 将 CDATA sections 视为“bogus comments”。h5的普通文本中允许出现CDATA结束标记 “]]&gt;” ，但 x5不允许。<br>  为了兼容，要避免普通文本中出现CDATA结束标记 “]]&gt;”。</p>
+<p>** 字符引用<br>  h5中 x 可以大写（如&#XA;），x5 中只能小写。为兼容要小写。</p>
+<p>** script 和 style<br>  h5中，这两个元素的内部总是被视为 CDATA（尽管与xml的CDATA不完全相同），因此可以直接出现’&lt;’、’&amp;’。<br>  x5中，这两个元素的内部只是普通内容，因此里面会按xml语法去解析，所以特殊字符如’&lt;’、’&amp;’必须转义。<br>  为了兼容，可以总是转义特殊字符，或者用CDATA sections。</p>
+<p>** DOM API</p>
+<ul>
+<li><p>类型<br>h5 文档对象类型是 HTMLDocument，x5则是 Document 或者 XMLDocument。<br>元素类型则没有区别，都是 HTMLElement。<br>x5模式下，元素和属性名区分大小写。<br>h5中，Element.tagName and Node.nodeName 对html节点返回大写名字，但x5中返回小写。</p>
+<p>详见 javascript_note_document_creation_parsing_serialization.txt。</p>
+</li>
+<li><p>Document的body、head、images等快捷属性<br>如果文档是主文档（即window.document），则这些属性对 x5 文档也是可用的，这保证了在xhtml中使用js的兼容性。<br>如果不是主文档，则不一定可用（chrome可，FF不可），所以不要依赖它。<br>HTMLDocument 中默认就有 head 和 body 元素，即使在源文件中省略或在创建时省略；而 xhtml Document 中，如果省略元素就真的没有了。</p>
+</li>
+<li><p>innerHTML/outerHTML<br>对于x5，读这个属性得到的字符串会带有xhtml的命名空间（如果含有元素子节点）；<br>写入这个元素不要求有命名空间，但至少要符合xhtml语法，否则抛出异常。<br>对于h5，则不会得到命名空间，也不一定符合xhtml语法。<br>因此在h5文档和x5文档之间交换数据的时候很容易出现问题，解决办法见“格式转换”。</p>
+</li>
+<li><p>Document.createElement(name) 和 createElementNS(ns, name)<br>如果实际类型是HTMLDocument，创建的元素的隐含命名空间是xhtml。<br>如果文档是主文档（即window.document），则 createElement 创建元素的命名空间与根节点相同，这保证了在xhtml中使用js的兼容性。<br>但如果不是主文档，而文档是有命名空间的 xml 文档（包括xhtml），则一定要用 Document.createElementNS(ns, name) 来创建子元素，并正确给出命名空间，否则子元素会变成默认命名空间的。<br>参见 javascript_note_document_creation_parsing_serialization.txt。</p>
+</li>
+<li><p>DOMImplementation、DOMParser 和 XMLSerializer<br>这些都可用于h5或x5，主要差别是设置合理的MIME和命名空间，详见：javascript_note_document_creation_parsing_serialization.txt</p>
+</li>
+<li><p>格式转换<br>在浏览器中将 h5 和 x5 文档或片段相互转换的方法是使用 Document.importNode/adoptNode 方法，详见：javascript_note_document_creation_parsing_serialization.txt</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/19/HTML5-vs-XHTML5/" data-id="ck9v2b7um000e3gs6cg0u00a4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/07/18/quickSort/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          quickSort
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/05/19/Epub-Reader-and-Tools/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Epub Reader and Tools</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

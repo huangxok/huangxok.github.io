@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="时光岁月如流水，流水奔流入海不复回">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HKBlog">
+<meta property="og:url" content="https://huangxok.github.io/blog/page/4/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="时光岁月如流水，流水奔流入海不复回">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="jsxgraph">
+<meta property="article:tag" content="xulrunner">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Epub-Content-Document" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/19/Epub-Content-Document/" class="article-date">
+  <time datetime="2016-05-19T15:15:42.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/19/Epub-Content-Document/">Epub Content Document</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>EPUB Content Document</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="http://www.idpf.org/epub3/latest/contentdocs" target="_blank" rel="noopener">http://www.idpf.org/epub3/latest/contentdocs</a></p>
+<p>*** 概述</p>
+<ul>
+<li><p>与h5（HTML 5）的关系<br>ecd 采用 XHTML 5语法，并有少量扩展。<br>XHTML5 与 HTML5 的差异和兼容请参考：HTML5 vs XHTML5.txt<br>h5中的部分特性是可选的，包括脚本、表单等。</p>
+</li>
+<li><p>SVG<br>SVG 1.1 也是ecd的一种，不过有一些限制。</p>
+</li>
+<li><p>CSS<br>ecd 采用CSS 2.1和部分 CSS 3特性，还定义了一些扩展。</p>
+</li>
+<li><p>命名空间<br>prefix     namespace URI<br>epub     <a href="http://www.idpf.org/2007/ops" target="_blank" rel="noopener">http://www.idpf.org/2007/ops</a><br>m     <a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a><br>pls     <a href="http://www.w3.org/2005/01/pronunciation-lexicon" target="_blank" rel="noopener">http://www.w3.org/2005/01/pronunciation-lexicon</a><br>ssml     <a href="http://www.w3.org/2001/10/synthesis" target="_blank" rel="noopener">http://www.w3.org/2001/10/synthesis</a><br>svg     <a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a></p>
+</li>
+</ul>
+<p>*** 各种 Content Document<br>** XHTML 文档<br>ecd中的 HTML 文档必须用 XHTML 5 语法，并且以 .xhtml 作为扩展名。</p>
+<ul>
+<li>扩展 </li>
+</ul>
+<ul>
+<li>epub:type 属性<br>语法是空格分割的值，可用于 h5 元素上扩展其语义。例如：<br><a epub:type="noteref" href="#n1">1</a><aside epub:type="footnote" id="n1">
+
+</li>
+</ul>
+<p>可用的值选自“EPUB 3 Structural Semantics Vocabulary”：<br> <a href="http://www.idpf.org/epub/vocab/structure/#" target="_blank" rel="noopener">http://www.idpf.org/epub/vocab/structure/#</a></p>
+<p>不过并不要求 reader 对这个属性作出反应。</p>
+<ul>
+<li><p>SSML Attributes<br>W3C Speech Synthesis Markup Language</p>
+</li>
+<li><p>Content Switching<br>reader 必须支持此特性。<br>epub:switch Element</p>
+</li>
+<li><p>epub:trigger Element<br>The trigger element enables the creation of markup-defined user interfaces for controlling multimedia objects, such as audio and video playback, in both scripted and non-scripted contexts.<br>也就是一种不用JS脚本的UI编程技术。<br>支持视频音频的 reader 必须支持 epub:trigger。</p>
+</li>
+</ul>
+<p>例子：</p>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:epub="http://www.idpf.org/2007/ops"
+  xmlns:ev="http://www.w3.org/2001/xml-events">
+  <head>
+    <epub:trigger ev:observer="pause" ev:event="click" action="pause" ref="test"/>
+    <epub:trigger ev:observer="resume" ev:event="click" action="resume" ref="test"/>
+    <epub:trigger ev:observer="mute" ev:event="click" action="mute" ref="test"/>
+    <epub:trigger ev:observer="mute" ev:event="click" action="show" ref="muted"/>
+    <epub:trigger ev:observer="unmute" ev:event="click" action="unmute" ref="test"/>
+    <epub:trigger ev:observer="unmute" ev:event="click" action="hide" ref="muted"/>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+  <body>
+    <video id="test" src="birds.mp4" width="320" height="240"/>
+    <p>
+      <span class="button" id="resume">Play/Resume</span>
+      <span class="button" id="pause">Pause</span>
+      <span class="button" id="mute">Mute</span>
+      <span class="button" id="unmute">Unmute</span>
+      <span id="muted">MUTED</span>
+    </p>
+  </body>
+</html>
+
+<ul>
+<li>Alternate Style Tags<br>根据环境选择不同样式表的机制。例如<link rel="stylesheet" href="horizontal.css" class="horizontal"/>
+规范：http://www.idpf.org/epub/altss-tags/
+
+</li>
+</ul>
+<p>reader应当支持此扩展。</p>
+<ul>
+<li>MathML<br>reader必须支持MathML，但主要限于 Presentation MathML，Content MathML 支持是可选的。</li>
+</ul>
+<p>** CSS</p>
+<ul>
+<li>规范<br>对CSS2.1的要求：<br>position 属性不能有fixed值；direction 和 unicode-bidi 属性不能用。</li>
+</ul>
+<p>对CSS3的要求：</p>
+<p>以下模块要采用 -epub-前缀：<br>CSS 3.0 Speech<br> -epub-cue<br> -epub-pause<br> -epub-rest<br> …<br>CSS Text Level 3<br> -epub-hyphens*<br> -epub-line-break<br> -epub-text-align-last<br> …<br>未来随着CSS3定稿，可以去掉前缀。</p>
+<p>webfont 必须支持 OpenType 和 WOFF 两种格式。</p>
+<p>支持 @media and @import</p>
+<p>支持 @namespace</p>
+<p>支持多列布局</p>
+<ul>
+<li>分页<br>epub 并不要求reader支持分页显示流式文档，但很多reader是实现了此功能的。<br>在这类reader上，CSS 属性 page-break-inside, page-break-before 和 page-break-after 等可以用于控制分页行为，就像在打印设备上一样。<br>参考：<br><a href="http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/" target="_blank" rel="noopener">http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/</a></li>
+</ul>
+<p>** EPUB Navigation Documents<br>是XHTML 文档的一种，详见 EPub Navigation Documents.txt</p>
+<p>** SVG Content Documents<br>应当符合 SVG 1.1 (Second Edition) specification。<br>其它要求：<br>不能有动画（ Animation Elements and Animation event attributes）。<br>svg:foreignObject 只能包含 xhtml 内容。</p>
+<p>SVG 可以独立作为文档，也可以被XHTML文档引用，也可以嵌入XHTML。</p>
+<p>** Scripted Content Documents</p>
+<p>脚本可以出现在顶层内容文档中，也可以出现在顶层内容文档的iframe中。<br>前者称为 spine-level scripting，后者称为 container-constrained scripting。<br>reader必须支持后者，前者则是可选的。<br>reader必须阻止后者的脚本访问父文档以及其它文档，类似h5 sandboxed iframe。</p>
+<p>reader必须提供 navigator.epubReadingSystem 对象，有以下属性和方法：</p>
+<p>name     Returns a String value representing the name of the Reading System (e.g., iBooks, Kindle).<br>version     Returns a String value representing the version of the Reading System (e.g., 1.0, 2.1.1).<br>layoutStyle typically return one of the values paginated or scrolling, but may define values for any additional layout formats it supports.</p>
+<p>hasFeature(feature[, version]) 特性查询。以下特性名字必须被识别：</p>
+<p>dom-manipulation     Scripts may make structural changes to the document’s DOM (applies to spine-level scripting only).<br>layout-changes     Scripts may modify attributes and CSS styles that affect content layout (applies to spine-level scripting only).<br>touch-events     The device supports touch events and the Reading System passes touch events to the content.<br>mouse-events     The device supports mouse events and the Reading System passes mouse events to the content.<br>keyboard-events     The device supports keyboard events and the Reading System passes keyboard events to the content.<br>spine-scripting     Spine-level scripting is supported.</p>
+<p>*** 安全问题<br>以下均为建议。<br>每本epub书应被视为来自一个独立的域。如果提供本地存储，不同的书之间应该是被隔离的。</p>
+<p>*** 事件模型<br>采用h5事件。</p>
+<p>*** PLS Documents<br>The W3C Pronunciation Lexicon Specification [PLS] defines syntax and semantics for XML-based pronunciation lexicons to be used by Automatic Speech Recognition and Text-to-Speech (TTS) engines.</p>
+<p>reader如果支持TTS则必须支持PLS。</p>
+<p>例子：</p>
+<html … >    
+    <head>
+        …
+        <link rel="pronunciation" type="application/pls+xml" hreflang="zh" href="../speech/zh.pls"/>
+        <link rel="pronunciation" type="application/pls+xml" hreflang="mn" href="../speech/mn.pls"/>
+    </head>        
+    …
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/19/Epub-Content-Document/" data-id="ck9v2b7ue00013gs6dwri30de" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-markdown-syntax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/19/markdown-syntax/" class="article-date">
+  <time datetime="2016-05-19T12:21:20.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/19/markdown-syntax/">markdown syntax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>标题</p>
+<h1 id="H1-一级标题"><a href="#H1-一级标题" class="headerlink" title="H1 一级标题"></a>H1 一级标题</h1><h2 id="H2-二级标题"><a href="#H2-二级标题" class="headerlink" title="H2 二级标题"></a>H2 二级标题</h2><h3 id="H3-三级标题"><a href="#H3-三级标题" class="headerlink" title="H3 三级标题"></a>H3 三级标题</h3><h4 id="H4-四级标题"><a href="#H4-四级标题" class="headerlink" title="H4 四级标题"></a>H4 四级标题</h4><h5 id="H5-五级标题"><a href="#H5-五级标题" class="headerlink" title="H5 五级标题"></a>H5 五级标题</h5><h6 id="H6-六级标题"><a href="#H6-六级标题" class="headerlink" title="H6 六级标题"></a>H6 六级标题</h6><p>[TOC]</p>
+<p>文本强调</p>
+<p><em>斜体</em><br><strong>加粗</strong><br><strong><em>粗斜体</em></strong></p>
+<p>列表</p>
+<ul>
+<li>无序列表</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+<ul>
+<li>无序列表</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+<ul>
+<li>无序列表</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+<p>有序列表</p>
+<ol>
+<li><p>第一行</p>
+</li>
+<li><p>第二行</p>
+</li>
+<li><p>第三行</p>
+</li>
+<li><p>第一行</p>
+</li>
+</ol>
+<ul>
+<li>第二行</li>
+<li>第三行</li>
+</ul>
+<p>组合：</p>
+<ul>
+<li><p>产品介绍（子项无项目符号）<br>  此时子项，要以一个制表符或者2个空格缩进</p>
+</li>
+<li><p>产品特点</p>
+<ol>
+<li>特点1</li>
+</ol>
+<ul>
+<li>特点2</li>
+<li>特点3</li>
+</ul>
+</li>
+<li><p>产品功能</p>
+<ol>
+<li>功能1</li>
+</ol>
+<ul>
+<li>功能2</li>
+<li>功能3</li>
+</ul>
+</li>
+</ul>
+<p>Links 连接（title为可选项）：</p>
+<p>Inline-style 内嵌方式：<br><a href="https://www.google.com" target="_blank" rel="noopener" title="title text">link text</a></p>
+<p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="noopener">https://www.mozilla.org</a> “title text”</p>
+<p>Relative reference to a repository file 引用存储文件：<br><a href="../path/file/readme.text" title="title text">link text</a></p>
+<p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="noopener">http://www.reddit.com</a></p>
+<p>Email 邮件：<br><a href="mailto:&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#109;">&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#109;</a><br>Images 图片：</p>
+<p>Inline-style 内嵌方式：</p>
+<figure class="image-box">
+                <img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="title" class="">
+                <p>title</p>
+            </figure>
+
+<p>Reference-style 引用方式：<br>![alt text][logo]<br>[logo]: <a href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" target="_blank" rel="noopener">https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png</a> “title text”</p>
+<p>如果高亮的内容包含<code>号，可以这样写：
+``</code>包裹起来` ``</p>
+<p>语法高亮：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Syntax Highlighting<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">font-size</span>:<span class="number">12px</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"JavaScript syntax highlighting"</span>;</span><br><span class="line">alert(s);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"hello, world!"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"Python syntax highlighting"</span></span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
+
+<p>Block Code 代码分组(代码区块)：</p>
+<p>在该行开头缩进4个空格或一个制表符(tab)</p>
+<p><strong>Blockquotes 引用：</strong></p>
+<blockquote>
+<p>Email-style angle brackets<br>are used for blockquotes.</p>
+<blockquote>
+<p>And, they can be nested.</p>
+</blockquote>
+<h4 id="Headers-in-blockquotes"><a href="#Headers-in-blockquotes" class="headerlink" title="Headers in blockquotes"></a>Headers in blockquotes</h4><ul>
+<li>You can quote a list.</li>
+<li>Etc.</li>
+</ul>
+</blockquote>
+<p>Hard Line Breaks 换行：</p>
+<p>在一行的结尾处加上2个或2个以上的空格，也可以使用</br>标签<br>第一行文字，<br>第二行文字</p>
+<p>Escape character 转义符(反斜杠)：</p>
+<p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：<br>*literal asterisks*<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：<br>\反斜杠  `反引号  *星号  _下划线  {}花括号  []方括号  ()括弧  #井字号  +加号  -减号  .英文句 !感叹号</p>
+<p>Additional 补充：</p>
+<p>Markdown也支持传统的HTML标签。<br>比如一个链接，你不太喜欢Markdown的写法，也可以直接写成<a href="http://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
+<thead>
+<tr>
+<th align="left">Item</th>
+<th align="right">Value</th>
+<th align="center">Qty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Computer</td>
+<td align="right">1600 USD</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="left">Phone</td>
+<td align="right">12 USD</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="left">Pipe</td>
+<td align="right">1 USD</td>
+<td align="center">234</td>
+</tr>
+</tbody></table>
+<p><strong>马克飞象</strong>是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：</p>
+<ul>
+<li><strong>功能丰富</strong> ：支持高亮代码块、<em>LaTeX</em> 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；</li>
+<li><strong>得心应手</strong> ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持移动端 Web；</li>
+<li><strong>深度整合</strong> ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。</li>
+</ul>
+<hr>
+<p>[TOC]</p>
+<h2 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h2><blockquote>
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">维基百科</a></p>
+</blockquote>
+<p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.example.com" target="_blank" rel="noopener">链接</a>或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按<code>Ctrl + /</code>查看帮助。 </p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
+<h3 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h3><p>可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：</p>
+<p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
+<h3 id="表格-1"><a href="#表格-1" class="headerlink" title="表格"></a>表格</h3><table>
+<thead>
+<tr>
+<th align="left">Item</th>
+<th align="right">Value</th>
+<th align="center">Qty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Computer</td>
+<td align="right">1600 USD</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="left">Phone</td>
+<td align="right">12 USD</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="left">Pipe</td>
+<td align="right">1 USD</td>
+<td align="center">234</td>
+</tr>
+</tbody></table>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: Start</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+
+<p>以及时序图:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><strong>提示：</strong>想了解更多，请查看<strong>流程图</strong>[语法][3]以及<strong>时序图</strong>[语法][4]。</p>
+</blockquote>
+<h3 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h3><p>使用 <code>- [ ]</code> 和 <code>- [x]</code> 语法可以创建复选框，实现 todo-list 等功能。例如：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 已完成事项</li>
+<li><input disabled="" type="checkbox"> 待办事项1</li>
+<li><input disabled="" type="checkbox"> 待办事项2</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>目前支持尚不完全，在印象笔记中勾选复选框是无效、不能同步的，所以必须在<strong>马克飞象</strong>中修改 Markdown 原文才可生效。下个版本将会全面支持。</p>
+</blockquote>
+<h2 id="印象笔记相关"><a href="#印象笔记相关" class="headerlink" title="印象笔记相关"></a>印象笔记相关</h2><h3 id="笔记本和标签"><a href="#笔记本和标签" class="headerlink" title="笔记本和标签"></a>笔记本和标签</h3><p><strong>马克飞象</strong>增加了<code>@(笔记本)[标签A|标签B]</code>语法, 以选择笔记本和添加标签。 <strong>绑定账号后</strong>， 输入<code>(</code>自动会出现笔记本列表，请从中选择。</p>
+<h3 id="笔记标题"><a href="#笔记标题" class="headerlink" title="笔记标题"></a>笔记标题</h3><p><strong>马克飞象</strong>会自动使用文档内出现的第一个标题作为笔记标题。例如本文，就是第一行的 <code>欢迎使用马克飞象</code>。</p>
+<h3 id="快捷编辑"><a href="#快捷编辑" class="headerlink" title="快捷编辑"></a>快捷编辑</h3><p>保存在印象笔记中的笔记，右上角会有一个红色的编辑按钮，点击后会回到<strong>马克飞象</strong>中打开并编辑该笔记。</p>
+<blockquote>
+<p><strong>注意：</strong>目前用户在印象笔记中单方面做的任何修改，马克飞象是无法自动感知和更新的。所以请务必回到马克飞象编辑。</p>
+</blockquote>
+<h3 id="数据同步"><a href="#数据同步" class="headerlink" title="数据同步"></a>数据同步</h3><p><strong>马克飞象</strong>通过<strong>将Markdown原文以隐藏内容保存在笔记中</strong>的精妙设计，实现了对Markdown的存储和再次编辑。既解决了其他产品只是单向导出HTML的单薄，又规避了服务端存储Markdown带来的隐私安全问题。这样，服务端仅作为对印象笔记 API调用和数据转换之用。</p>
+<blockquote>
+<p><strong>隐私声明：用户所有的笔记数据，均保存在印象笔记中。马克飞象不存储用户的任何笔记数据。</strong></p>
+</blockquote>
+<h3 id="离线存储"><a href="#离线存储" class="headerlink" title="离线存储"></a>离线存储</h3><p><strong>马克飞象</strong>使用浏览器离线存储将内容实时保存在本地，不必担心网络断掉或浏览器崩溃。为了节省空间和避免冲突，已同步至印象笔记并且不再修改的笔记将删除部分本地缓存，不过依然可以随时通过<code>文档管理</code>打开。</p>
+<blockquote>
+<p><strong>注意：</strong>虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，<strong>请务必经常及时同步到印象笔记</strong>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/19/markdown-syntax/" data-id="ck9v2b7v2001h3gs63x3sgj6z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-create-a-blog-by-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/18/create-a-blog-by-hexo/" class="article-date">
+  <time datetime="2016-05-18T13:40:12.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/18/create-a-blog-by-hexo/">create a blog by hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo-建立博客"><a href="#hexo-建立博客" class="headerlink" title="hexo 建立博客"></a>hexo 建立博客</h1><h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><p>第一步：准备好git nodejs<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[git下载地址](<span class="symbol">http:</span>/<span class="regexp">/git-scm.com/download</span><span class="regexp">/)</span></span><br><span class="line"><span class="regexp">[node.js下载地址](http:/</span><span class="regexp">/nodejs.cn/</span>)</span><br></pre></td></tr></table></figure><br>  说明下：如果没有git，在windows下可以用cmd命令行，nodejs是必须安装的，第二步会依赖第一步安装的nodejs<br>第二步：<br>  安装全局环境变量—-<br>      * 可以有以下两种<br>        第一种打开安装好的git命令行工具，然后切换目录<br>        代码如下<br>        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>        第二种就是直接在windows命令行<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>        PS: “$” 这个符号是git工具命令行自带的<br>第三步：初始化博客文件夹</p>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd d/</span><br><span class="line">$ mkdir hexoblog</span><br><span class="line">$ cd /hexoblog </span><br><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></code></pre><p>  这一步是下载hexo工具，下载完成后的目录结构<br>  |-_config.yml<br>  |-package.json<br>  |-scafolds<br>  |-source<br>  | |-_drafts<br>  | |-_posts<br>  |-themes</p>
+<p>第四步：配置_config.yml文件，这个文件是关于站点设置的一些信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;configuration.html</span><br><span class="line">## Source: https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo&#x2F;</span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line">title: Hexo ##站点标题 PS：这行的&quot;Hexo ##站点标题&quot;表示注释说明，以下基本都是这样</span><br><span class="line">subtitle: ##站点副标题</span><br><span class="line">description: ##站点描述</span><br><span class="line">author: John Doe ##作者</span><br><span class="line">language: ##语言包，需要主题自带才可设置。如Jcaman自带简繁英，设置简体中文填入 zh-CN</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as ‘http:&#x2F;&#x2F;yoursite.com&#x2F;child‘ and root as ‘&#x2F;child&#x2F;‘</span><br><span class="line">url: http:&#x2F;&#x2F;yoursite.com ##站点域名</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F; ##文章永久链接格式，可添加.html后缀，如 :title.html</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads&#x2F;code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">externallink: true # Open external links in new tab</span><br><span class="line">filenamecase: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">enable: true</span><br><span class="line">line_number: true</span><br><span class="line">tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date &#x2F; Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http:&#x2F;&#x2F;momentjs.com&#x2F;docs&#x2F;#&#x2F;displaying&#x2F;format&#x2F;</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: http:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: http:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: landscape ##当前主题名称</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:iSung&#x2F;iSung.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>  PS：deploy 这个为github的一些信息<br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/18/create-a-blog-by-hexo/" data-id="ck9v2b7uq000n3gs6dgfhac71" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mbe-ui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/11/mbe-ui/" class="article-date">
+  <time datetime="2016-05-11T09:17:17.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/11/mbe-ui/">mbe_ui</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mbe-ui-库简介"><a href="#mbe-ui-库简介" class="headerlink" title="mbe_ui 库简介"></a>mbe_ui 库简介</h1><h2 id="mbe-ui-的特点以及想要解决的问题"><a href="#mbe-ui-的特点以及想要解决的问题" class="headerlink" title="mbe_ui 的特点以及想要解决的问题"></a>mbe_ui 的特点以及想要解决的问题</h2><p>mbe_ui 是一个用于开发 HTML 用户界面（GUI）的库，诞生于 MBEditor 项目。它试图解决现有的 JS 模板库、DOM 操作库等存在的一些问题。其特点如下：</p>
+<ul>
+<li><p>采用声明式的 JS 语法描述 HTML DOM 树</p>
+<p>mbe_ui 允许用普通的 JS 对象字面量（称作”虚拟元素”）来描述 DOM 树的结构，因此既是声明式的，又可以利用已有的 JS 技能，无需另外学习模板语言；<br>而且，在 DOM 树的描述中可以直接绑定事件监听器。例如 HTML button 的虚拟元素可以是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Name: &#39;button&#39;,</span><br><span class="line">  Kids: [&#39;button1&#39;],</span><br><span class="line">  className: &#39;btn&#39;,</span><br><span class="line">  onclick: function() &#123; alert(&#96;clicked&#96;); &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>采用“单向数据流动”的界面更新模式</p>
+<p>这个模式的意思是大部分界面组件无状态，总是从上级发送“设置”数据到各级界面组件，决定其显示的样子（详见“mbe_ui 组件的设计思想”一节）。<br>采用这个模式可以简化界面更新的逻辑。</p>
+</li>
+<li><p>自动局部更新，并尽可能地减小重建 DOM 的范围</p>
+<p>当 HTML 界面在运行时需要更新时，一个比较棘手的问题是如何尽可能地局部更新，而不是大范围地重建 DOM 树。<br>大范围地重建 DOM 树有很多问题，如造成滚动条的位置被重置，选区、焦点被取消，界面卡顿等。然而，求出最小的需要更新的 DOM 的范围并不总是容易的，<br>特别是对复杂的界面来说。<br>mbe_ui 则自动保证尽可能少地重建 DOM。当虚拟元素对象改变时，mbe_ui 将它与上一个版本的虚拟元素对比，然后只把修改了的部分应用到真实的元素中。<br>只有当有效地减小了重建 DOM 的范围，“单向数据流动”的设计模式才具有实用价值。</p>
+</li>
+<li><p>提供简单的界面模块化机制</p>
+<p>mbe_ui 提供了一种简单的机制，允许将界面上的各个部分（如按钮、菜单、标签页）实现为“组件”，从而提高代码的模块化程度。<br>不过，mbe_ui 本身并不提供任何现成的组件。</p>
+</li>
+<li><p>库本身非常小巧，如果愿意，使用者可以将其视为白盒而不是黑盒。</p>
+<p>mbe_ui 的源码目前不到 400 行（含注释），使用者可以很快上手，而且遇到问题完全可以自行调试 mbe_ui 的源码，不必将其视为黑盒。</p>
+</li>
+</ul>
+<h2 id="与现有技术的对比"><a href="#与现有技术的对比" class="headerlink" title="与现有技术的对比"></a>与现有技术的对比</h2><h3 id="与传统方法的对比"><a href="#与传统方法的对比" class="headerlink" title="与传统方法的对比"></a>与传统方法的对比</h3><p>传统上，在 JS 中生成 GUI 的 DOM 树的方法有以下 4 种，但都有一些问题，具体分析如下。</p>
+<ul>
+<li><p>用基本的 DOM 操作方法生成 DOM 树。</p>
+<p>如 <code>Document.createElement()</code>, <code>Element.insertBefore()</code>, <code>Element.style</code>, <code>Element.textContent</code> 等。这是底层的、细粒度的方法，有很好的控制力，但缺点是：（1）书写相当繁琐，（2）代码可读性不佳，从代码中想想构建出来的 DOM 树的结构是比较费脑子的。<br>jQuery 库提供了一组包装方法，比这些原生的 DOM 创建方法的语法要简洁，但是可读性仍然不太好。最根本的问题在于：使用这些方法的代码是命令式的，而不是声明式的；<br>在创建较复杂的 DOM 结构时，我们希望能使用声明式的语法（HTML 就是一种声明式的语言）。</p>
+</li>
+<li><p>将 HTML 字符串，通过 <code>Element::innerHTML</code> 或者 <code>jQuery::html()</code> 等方法解析为 DOM 树。</p>
+<p>这种做法有着明显的缺点：如果 DOM 树比较复杂，在 JS 代码中书写/拼接长长的 HTML 字符串是很丑陋的；此外，绑定事件监听器需要额外的步骤。</p>
+</li>
+<li><p>基于字符串的模板引擎。</p>
+<p>利用诸如 <a href="http://handlebarsjs.com/" target="_blank" rel="noopener">Handlebars.js</a> 这样的模板库，开发者将 HTML 的”骨架“写到一个专门的模板文件中；在运行时，模板引擎解析模板，并其中的占位符替换为 JS 数据对象中的值，再将替换后的 HTML 字符串用 innerHTML 解析为 DOM 树。<br>这类模板库允许用声明式的语法（基本上就是 HTML 语法），但是缺点是：其中的分支、循环等语法多是模板引擎自定义的，不是 JS 语法，需要另外学习。</p>
+</li>
+<li><p>基于 cloneNode() 的模板。</p>
+<p>Element.cloneNode() 方法可以克隆从本元素开始的整个 DOM 树，因此可以将模板放在 HTML 页面中的隐藏元素中，在运行时在 JS 中这样使用： 用 cloneNode() 复制模板 -&gt; 填充数据 -&gt; 插入主 DOM 树显示。最新的 HTML5 标准已经将这个做法标准化，也就是 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank" rel="noopener">template 元素</a>。这个方法允许直接用 HTML 来写模板，但是，”填充数据“这个环节仍然没有很好的解决方案，通常仍然使用命令式的 DOM 方法来完成。</p>
+</li>
+</ul>
+<p>而且，以上 4 种方法都没有试图去减小了重建 DOM 的范围，而是把这个问题留给了使用者。<br>因此在传统的 GUI 程序中，根据数据层的更新来决定哪些视图要被更新是相当复杂的。很多时候为了省事和可靠，采用了整体重建；另一些时候则因为不可靠的局部刷新，<br>造成了界面状态的紊乱。</p>
+<h3 id="与-Facebook-React-的对比"><a href="#与-Facebook-React-的对比" class="headerlink" title="与 Facebook React 的对比"></a>与 Facebook React 的对比</h3><p><a href="http://facebook.github.io/react/" target="_blank" rel="noopener">Facebook React</a> 是最近（2014-）比较热门的 JS 界面框架，mbe_ui 与它想要解决的问题大致重合，采用的技术路线也类似（用虚拟 DOM 来减少重建 DOM 的范围）。事实上，mbe_ui 是借鉴 React 的思想而创建的。</p>
+<p>那么为什么不直接采用 React？</p>
+<ul>
+<li><p>React 比较复杂和庞大（react.js 有19000行，含注释）。除了虚拟 DOM，还提供了在 JS 中嵌入 HTML 的特定领域语言 —— JSX，以及事件封装。<br>我认为虚拟 DOM 和自动局部更新是其精华，但其他部分则不那么必要，至少应是可选的。</p>
+</li>
+<li><p>React 的设计不够清晰简洁。我曾试图去理解它的组件机制是如何工作的，但是发现实在是很绕，不容易弄明白。当然，对于一些用户来说，<br>知其然不知其所以然也没关系。但我认为，一个机制不容易理解的框架，使用起来是不能放心的。</p>
+</li>
+<li><p>React 封装和重新实现了浏览器的事件系统。<br>封装虽然改善了跨浏览器的兼容性，但也给调试带来的麻烦（浏览器的调试器只认得通过原生方法添加的事件监听器）。<br>此外，由于自定义事件不会得到封装，而我们又广泛依赖自定义事件（如 pointer 事件），所以使用 React 的事件系统会比较别扭。</p>
+</li>
+<li><p>React JSX 与 Typescript 语言的结合尚有困难。JSX 的语法与 TS 是有冲突的，因此无法在 TS 中直接使用。在 TS 中使用 JSX 还在<a href="https://github.com/Microsoft/TypeScript/pull/2673" target="_blank" rel="noopener">试验中</a>。</p>
+</li>
+</ul>
+<h2 id="mbe-ui-的应用"><a href="#mbe-ui-的应用" class="headerlink" title="mbe_ui 的应用"></a>mbe_ui 的应用</h2><p>mbe_ui 已经被用于开发“备课大师”的主用户界面，详见以下文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src&#x2F;master-editor.xhtml</span><br><span class="line">src&#x2F;mbe&#x2F;shell&#x2F;</span><br><span class="line">            MasterEditorApp.ts</span><br><span class="line">            MasterEditorShell.ts</span><br><span class="line">            MasterNav.ts</span><br><span class="line">            MasterTooBar.ts</span><br><span class="line">            MasterResourcePanel.ts</span><br><span class="line">            Buttons.ts</span><br><span class="line">            Tab.ts</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+<p>“备课大师”之前的主用户界面没有用 mbe_ui，是采用较为原始的方法开发的，详见：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src&#x2F;editor-shell.xhtml</span><br><span class="line">src&#x2F;mbe&#x2F;shell&#x2F;</span><br><span class="line">            EditorShell.ts</span><br><span class="line">            PageNavigator.ts</span><br><span class="line">            PropertyPanel.ts</span><br></pre></td></tr></table></figure>
+<p>可以对比一下。</p>
+<p>另外，mbe_ui 有单元测试，即 <code>test/domer.html</code> 文件，从这个文件里可以看到一些 mbe_ui.Domer 的用法。</p>
+<h2 id="使用-mbe-ui-的虚拟-DOM"><a href="#使用-mbe-ui-的虚拟-DOM" class="headerlink" title="使用 mbe_ui 的虚拟 DOM"></a>使用 mbe_ui 的虚拟 DOM</h2><h3 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h3><p>先举个虚拟元素的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例1</span><br><span class="line">&#123;</span><br><span class="line">  Name: &#39;section&#39;, &#x2F;&#x2F; HTML 元素名</span><br><span class="line">  Kids: &#x2F;&#x2F; 子节点</span><br><span class="line">  [</span><br><span class="line">    &#123; Name: &#39;h1&#39;, Kids: [&#39;大标题...&#39;] &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      Name: &#39;button&#39;,</span><br><span class="line">      &#39;.btn&#39;: true, &#x2F;&#x2F; HTML class 属性</span><br><span class="line">      Kids:</span><br><span class="line">      [</span><br><span class="line">        &#123; Name: &#39;img&#39;, src: &#39;image&#x2F;icon1.png&#39; &#125;,</span><br><span class="line">        &#39;按钮1&#39; &#x2F;&#x2F; 文本节点</span><br><span class="line">      ],</span><br><span class="line">      onclick: function(ev) &#123; alert(&#39;clicked&#39;); &#125;, &#x2F;&#x2F; 事件监听器</span><br><span class="line">      &#39;@data-action&#39;: &#39;insert&#39;, &#x2F;&#x2F; 普通属性 data-action</span><br><span class="line">      &#39;-font-family&#39;: &#39;heiti, sans-serif&#39; &#x2F;&#x2F; CSS 属性 font-family</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<p>等效于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">  &lt;h1&gt;大标题...&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;button class&#x3D;&quot;btn&quot; onclick&#x3D;&quot;alert(&#39;clicked&#39;)&quot; data-action&#x3D;&quot;insert&quot;</span><br><span class="line">    style&#x3D;&quot;font-family: heiti, sans-serif&quot;&gt;</span><br><span class="line">    &lt;img src&#x3D;&quot;image&#x2F;icon1.png&quot; &#x2F;&gt;&#39;按钮1&#39;</span><br><span class="line">  &lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br></pre></td></tr></table></figure>
+
+<p>mbe_ui 虚拟元素就是一个普通的 JS 对象，你可以用 JS 对象字面量的写法来创建。它的各种属性的意义如下：</p>
+<ul>
+<li><p><code>Name</code>：元素名。HTML 元素名应一律用小写。如果忽略，则被认为是 div 元素；如果是”?” 并且“与已有的实际元素相同”，则使用实际元素的名字（这个在后面介绍），否则也认为是 “div”。<br>由于在界面实现中 div 用得很多，所以这是比较方便的。</p>
+</li>
+<li><p><code>Kids</code>：子节点列表，是一个数组，其成员要么是其它虚拟元素，要么是字符串；字符串则对应实际 DOM 中的文本节点。</p>
+</li>
+<li><p>以 <code>@</code> 开头的属性映射到 html/xml 属性，相当于通过 <code>elem.setAttribute(name, value)</code> 的方式赋值（去掉去掉首字符）。</p>
+</li>
+<li><p>以 <code>-</code> 开头的属性开头的属性视为 inline css 属性，通过 <code>elem.style.setProperty(name, value)</code> 的方式赋值（去掉首字符）。</p>
+</li>
+<li><p>以 <code>.</code> 开头的属性视为 html class 属性的片段（去掉首字符），如果相当于 true 则添加到 <code>elem.classList</code> 中，否则删除。</p>
+</li>
+<li><p>其它的属性，如 <code>src</code>, <code>onclick</code>，一般直接映射到同名的 WebIDL 属性，或者作为普通的 JS 属性，相当于通过 <code>elem[name] = value</code> 的方式赋值。<br>而前述的 <code>Name</code>、<code>Kids</code> 属性首字母大写，因此不会与 WebIDL 属性（首字母小写）发生冲突。<br>虚拟元素的一个特色是可以在声明时直接添加函数作为 <code>onclick</code> 等事件的监听器，很方便。</p>
+</li>
+</ul>
+<p>从上面的例子可以看出，虚拟元素的写法很直观，不过代码比起对应的 HTML 的确不那么紧凑，这需要开发者适应一下。<br>不过比起手工拼接 HTML 字符串，或者使用模板引擎来说，还是方便了不少。</p>
+<h3 id="从虚拟元素生成实际元素"><a href="#从虚拟元素生成实际元素" class="headerlink" title="从虚拟元素生成实际元素"></a>从虚拟元素生成实际元素</h3><p>这需要用到 <code>mbe_ui.Domer</code> 类的 <code>render()</code> 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例2</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line">var a &#x3D; domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;]&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样就创建了一个相当于 <code>&lt;a href=&#39;http://www.w3.org&#39;&gt;W3C&lt;/a&gt;</code> 的元素对象（<code>HTMLAnchorElement</code> 的实例）。不过这个元素是独立的，并未添加到当前文档树中。</p>
+<p>如果要用虚拟元素更新已有的实际元素，就要用 2 参数版的<code>render()</code> 方法，第二个参数是实际元素。例如，我们要更新一个 <code>&lt;a&gt;</code> 元素，就可以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例3</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line">var a &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a&gt;&lt;&#x2F;a&gt;&#96;;</span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;]&#125;, a);</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a href&#x3D;&#39;http:&#x2F;&#x2F;www.w3.org&#39;&gt;W3C&lt;&#x2F;a&gt;&#96;</span><br></pre></td></tr></table></figure>
+<p>注意，尽管这个 <code>&lt;a&gt;</code> 元素是新建的，并没有位于文档树中，但 <code>domer.render()</code> 也是可以作用于文档树中已有的元素的。</p>
+<p>如果用 <code>render()</code> 多次作用于同一个实际元素，那么在虚拟元素中以前出现过、后来没有出现的属性、子节点会被删除，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例3</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line"></span><br><span class="line">var a &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">a.href &#x3D; &#39;about:blank&#39;;</span><br><span class="line">a.textContent &#x3D; &#39;blank&#39;</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a href&#x3D;&#39;about:blank&#39;&gt;blank&lt;&#x2F;a&gt;&#96;;</span><br><span class="line"></span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, &#39;@data-role&#39;: &#39;link&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;,</span><br><span class="line">  Kids: [&#39;W3C&#39;, &#123;Name: &#39;img&#39;, src: &#39;w3c.png&#39;&#125; ] &#125;,</span><br><span class="line">  a);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;现在 a 是 &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&quot; data-role&#x3D;&quot;link&quot;&gt;W3C&lt;img href&#x3D;&quot;w3c.png&quot; &#x2F;&gt;&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;] &#125;, a);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;现在 a 是 &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&quot;&gt;W3C&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，第二次调用 render() 时，没有再出现的 <code>data-role</code> 属性和 <code>&lt;img&gt;</code> 子元素都被删除了。<br>这是 mbe_ui.Domer 的一个重要特性，只有这样，才能保证虚拟元素和实际元素的一致性。</p>
+<p>mbe_ui.Domer 尽量保持局部更新。在这个例子中，<code>a</code> 元素本身没有被替换，文本节点 ‘W3C’ 和属性 <code>href</code> 也没有被修改。</p>
+<h3 id="重用子节点的规则"><a href="#重用子节点的规则" class="headerlink" title="重用子节点的规则"></a>重用子节点的规则</h3><p>在使用 <code>render(virtualElem: VElement, realElem?: Element): Element</code> 方法时，如果提供了真实元素（<code>realElem</code>），则渲染时会尽可能的重用它及其子节点。目前的重用/新建规则是：如果节点类型、名字和位置都相同，<br>则重用，否则就新建一个，并替换真实元素。如果虚拟元素的 Name 是 “?”，则认为总是与对应的真实元素的名字相同；如果没有对应的真实元素，则创建一个 div 元素。</p>
+<p>这个重用规则尽可能的减小了更新 DOM 的范围，提高了性能，并减小了失去滚动条位置、焦点、选区的可能性。</p>
+<p>当然，这并没有做到 React 的程度， React 在一定条件下还能够识别子节点的移动并加以重用。</p>
+<h2 id="使用-mbe-ui-的组件框架"><a href="#使用-mbe-ui-的组件框架" class="headerlink" title="使用 mbe_ui 的组件框架"></a>使用 mbe_ui 的组件框架</h2><h3 id="总体概念"><a href="#总体概念" class="headerlink" title="总体概念"></a>总体概念</h3><p>mbe_ui 的组件框架由两个类组成：</p>
+<ul>
+<li><code>mbe_ui.Component</code>：界面组件的基类。用户实现的界面组件要继承这个类。</li>
+<li><code>mbe_ui.UIDomer</code>：用于渲染界面组件的 Domer。它是 mbe_ui.Domer 的子类。</li>
+</ul>
+<p>先举一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 假定已经导入了 mbe_ui.Component 和 mbe_ui.UIDomer。</span><br><span class="line"></span><br><span class="line">class NumInput extends Component &#123; &#x2F;&#x2F; 组件都继承 Component 类</span><br><span class="line">  value &#x3D; 0; &#x2F;&#x2F; 组件实例的一个可变的状态</span><br><span class="line">  getView(): VElement &#123; &#x2F;&#x2F; getView() 应当返回表现当前状态的界面的“展开”后的虚拟元素。此方法由 UIDomer 适时调用。</span><br><span class="line">    var view &#x3D; &lt;VElement&gt;&#123;</span><br><span class="line">      &#x2F;&#x2F; 因为 NumInput 省略了 Name 属性，因此采用默认的元素名 div。</span><br><span class="line">      Kids: [</span><br><span class="line">        &#123;Name: &#39;span&#39;, Kids: [&#39;&#39; + this.value]&#125;, &#x2F;&#x2F; 让当前 value 值展现在 span 中</span><br><span class="line">        &#x2F;&#x2F; 绑定 click 事件到 NumInput::onclick() 方法</span><br><span class="line">        &#123;Name: &#39;button&#39;, onclick: this.onclick.bind(this), Kids: [&#39;increase&#39;]&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;;</span><br><span class="line">    return view;</span><br><span class="line">  &#125;</span><br><span class="line">  onclick(ev: MouseEvent) &#123;</span><br><span class="line">    this.value++; &#x2F;&#x2F; 更新本组件实例的状态</span><br><span class="line">    &#x2F;&#x2F; this.settings 属性是本组件实例的“展开”前的虚拟元素，即 &#123; Class: NumInput, onValueChange: function() &#123;...&#125;&#125; 那个对象。</span><br><span class="line">    if (this.settings[&#39;onValueChange&#39;])</span><br><span class="line">      this.settings[&#39;onValueChange&#39;].call(this); &#x2F;&#x2F; 调用 onValueChange 回调。</span><br><span class="line">    this.updateLater(); &#x2F;&#x2F; 请求 UIDomer 稍后更新界面（即将 geView() 得到的虚拟元素 render() 到对应的真实元素）。</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var uidomer &#x3D; new UIDomer();</span><br><span class="line">var vElement &#x3D; &#123;</span><br><span class="line">  Class: NumInput, &#x2F;&#x2F; Class 是 mbe_ui 组件框架定义的特殊属性，表示这个元素不是普通元素，而是对应一个 NumInput 组件。</span><br><span class="line">  onValueChange: function() &#123; alert(&#39;current value: &#39; + this.value)&#125; &#x2F;&#x2F; 从 NumInput 组件接收 onValueChange 的通知。</span><br><span class="line">&#125;;</span><br><span class="line">var rElement &#x3D; uidomer.render(vElement);</span><br><span class="line">document.body.appendChild(rElement);</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>NumInput</code> 实现了一个文本（<code>span</code>）和按钮（<code>button</code>）的组合组件，点击按钮时，文本上的数字会增加1，并通过 <code>onValueChange</code> 回调报告值的改变。</p>
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p>mbe_ui 组件框架的基本工作方式是“展开”。<code>uidomer.render(vElement)</code> 的流程大致如下：</p>
+<ol>
+<li><p>如果 <code>vElement.Class</code> 存在：</p>
+<p> 1.1. 创建组件实例 <code>component = new Class()</code></p>
+<p> 1.2. 设定 <code>settings</code>：<code>component.settings = vElement</code></p>
+<p> 1.3. 调用 <code>getView()</code> 获得展开后的虚拟元素，并替代 <code>vElement</code>：<code>vElement = component.getView()</code>。</p>
+</li>
+<li><p>根据 <code>vElement</code> 创建实际元素 <code>rElement</code>。<br>如果第上一步创建了组件实例，则与 rElement 建立互相连接：<code>rElement.Component = component; component.element = rElement</code>，</p>
+</li>
+<li><p>递归处理 <code>vElement</code> 的子节点，执行 1-4，并将子节点对应的实际元素作为子元素插入 rElement。</p>
+</li>
+<li><p>返回 <code>rElement</code>。</p>
+</li>
+</ol>
+<p>在前面的例子中，1.2 步的 <code>component.settings</code> 和 <code>vElement</code> 是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Class: NumInput,</span><br><span class="line">  onValueChange: function() &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.3 步的 <code>vElement</code> （展开后）则是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Kids: [</span><br><span class="line">    &#123;Name: &#39;span&#39;, Kids: [...]&#125;,</span><br><span class="line">    &#123;Name: &#39;button&#39;, Kids: [&#39;increase&#39;], onclick: NumInput::onclick &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其它一些要点：</p>
+<ul>
+<li><p>组件是可以嵌套的。在一个组件的 <code>getView()</code> 方法返回的虚拟元素中，可以在其子节点中使用其他的组件，<code>UIDomer</code> 会自动地层层展开，<br>从而得到最终的虚拟 DOM 树和真实 DOM 树。</p>
+</li>
+<li><p><code>getView()</code> 通常要利用 <code>settings</code> 属性中的值来确定展开后的形态。</p>
+</li>
+<li><p>如果重新渲染已有的元素，如 <code>uidomer.render(vElement, rElement)</code>，或者 <code>rElement.Component.update()/updateLater()</code> ，<br>则会尽可能重 <code>rElement</code> 和 <code>rElement.Component</code>（只要 <code>Name</code> 和 <code>Class</code> 属性没有变）。<code>rElement</code> 和 <code>rElement.Component</code> 的生存期一般是相同的。</p>
+</li>
+</ul>
+<h3 id="虚拟元素接口"><a href="#虚拟元素接口" class="headerlink" title="虚拟元素接口"></a>虚拟元素接口</h3><p>虚拟元素的正式定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">interface VElement &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 元素（本地）名，对 html 元素一定是小写，如&#39;div&#39;。省略时，采用相应实际元素的元素名；如果没有对应实际元素，</span><br><span class="line">   * 则认为是 &#39;div&#39;。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Name?: string;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 子节点。string 表示文本节点。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Kids?: Array&lt;VElement | string&gt;;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 本元素对应的组件的类。对自定义组件，用户应指定这个属性。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Class?: new() &#x3D;&gt; mbe_ui.Component;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 本元素对应的组件的实例。用户无需指定此属性，它由 UIDomer 生成。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Component?: mbe_ui.Component;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Component-类"><a href="#Component-类" class="headerlink" title="Component 类"></a>Component 类</h3><p>界面组件要继承 Component 类，并且至少要覆盖 getView() 方法来返回自己的界面表示。其他的一些重要的属性和方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Component &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 对应的 html 元素。Component 不应直接修改它，只有 UIDomer 可以修改它。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  element: Element;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 从上层传入的设定（展开前的虚拟元素）。Component 不应修改它，只有 UIDomer 可以修改它。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  settings: VElement;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 子类应当覆盖。返回表现当前组件的视图。在每次要将本组件渲染到真实 DOM 前调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getView(): VElement;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 重新渲染本 Component。通常在更新了本组件的状态后调用此方法重新渲染界面。</span><br><span class="line">   * 这个方法是同步的，会立即修改 DOM。为了减少开销，一般应尽可能用 updateLater() 代替此方法。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  update(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 请求稍后异步地（通过 requestAnimationFrame）重新渲染本 Component。</span><br><span class="line">   * 通常在更新了本组件的状态后调用此方法重新渲染界面。</span><br><span class="line">   * 如果在一组操作中可能重复调用 update()，则用这个方法代替可以减少不必要的重复渲染，提高性能。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  updateLater(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件创建并关联到 html 元素后调用，此时 element 属性可用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onAttached(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件渲染到 html 元素（不论是否新建）后调用。如果是新建的 html 元素，则在 onAttached() 之后调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onRendered(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件即将与关联的 html 元素分离，或本组件关联的 html 元素即将被删除时调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onBeforeRemove(): void;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一些要点：</p>
+<ul>
+<li><p><code>update()</code> 和 <code>updateLater()</code> 会调用 <code>uidomer.render(this.settings, this.element)</code> 来更新 <code>this.element</code>。<br><code>render()</code> 则会调用 <code>this.getView()</code> 获得当前的视图形态。这两个方法对于刷新个别组件的视图是很有用的。</p>
+</li>
+<li><p>mbe_ui 并没有类似 React 组件的 refs 属性的机制来访问子组件。我们建议的做法是：给需要从父组件访问的子组件的元素以特定的 <code>id</code> 或 <code>class</code>，<br>然后用<code>this.element.querySelector(...).Component</code> 来得到子组件。</p>
+</li>
+</ul>
+<h3 id="对真实元素-Element-接口的扩展"><a href="#对真实元素-Element-接口的扩展" class="headerlink" title="对真实元素 Element 接口的扩展"></a>对真实元素 Element 接口的扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface Element &#123;</span><br><span class="line">  Class?: new() &#x3D;&gt; mbe_ui.Component;</span><br><span class="line">  Component?: mbe_ui.Component;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UIDomer 在渲染出组件对应的真实元素后，会把相应的组件类和组件实例分别赋值给<code>Class</code>和<code>Component</code>属性。<br>后者尤其有用，因为可以通过真实元素访问到组件的实例，并调用其方法和属性（最常用的可能是<code>updateLater()</code>）。</p>
+<p>此处 <code>Class</code> 和 <code>Component</code> 首字母大写的原因与也是为了避免与 WebIDL 属性发生冲突。</p>
+<h3 id="mbe-ui-组件的设计思想"><a href="#mbe-ui-组件的设计思想" class="headerlink" title="mbe_ui 组件的设计思想"></a>mbe_ui 组件的设计思想</h3><p>mbe_ui 强烈鼓励组件采用“单向数据流动”的设计模式，这也是 React 采用的模式。其特点是：</p>
+<ul>
+<li><p>视图（View）层最好是无状态的（可以有非公开的状态，如菜单是否处于展开状态），<br>其当前显示的样子由从上级传递的参数（即 <code>Component::settings</code> 属性）完全决定。</p>
+</li>
+<li><p>总是描述界面 “现在的样子”，而不是 “怎样修改过去的样子从而得到现在的样子”。后者是传统的 GUI 程序惯用的更新界面的方法，<br>但也是导致程序过于复杂的一个重要原因。在<code>Component::getView()</code> 方法中，用户只需描述“现在的样子”，而怎样修改则交给 <code>UIDomer</code> 去做。</p>
+</li>
+</ul>
+<p>采用“单向数据流动”的设计模式，可以显著简化界面更新的逻辑。</p>
+<h2 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h2><h3 id="高级事件监听器"><a href="#高级事件监听器" class="headerlink" title="高级事件监听器"></a>高级事件监听器</h3><p>前面提到的 onclick 等事件监听器属性固然很方便，但是也有局限性：（1）只能添加一个监听器函数<br>（2）只能监听冒泡阶段（bubble phase）的事件，不能监听捕获阶段（catch phase）的事件<br>（3）不能监听自定义事件（因为自定义事件没有对应的 <code>Element::onxxx</code> 属性）。因此，mbe_ui 还提供了另2种高级的事件监听器属性的写法：</p>
+<ul>
+<li><code>*事件名</code>属性：冒泡阶段的事件监听器，可以是函数或者函数的数组，通过 <code>elem.addEventListender()</code> 添加。</li>
+<li><code>!事件名</code>属性：捕获阶段的事件监听器，可以是函数或者函数的数组，通过 <code>elem.addEventListender(..,true)</code> 添加。</li>
+</ul>
+<p>注意此处“事件名”没有 “on” 前缀，应为 “click” 而不是 “onclick”。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var view &#x3D; &#123;</span><br><span class="line">  Name: &#39;button&#39;,</span><br><span class="line">  &#39;!pointerdown&#39;: [</span><br><span class="line">    function(ev): &#123; console.log(&#39;pointerdown1&#39;);&#125;,</span><br><span class="line">    function(ev): &#123; console.log(&#39;pointerdown2&#39;);&#125;</span><br><span class="line">  ],</span><br><span class="line">  &#39;*pointerdown&#39;: function(ev): &#123; console.log(&#39;pointerdown3&#39;);&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个例子中，<code>pointerdown</code> 是个<a href="https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html" target="_blank" rel="noopener">指针事件</a>。因为尚未被浏览器广泛支持，所以我们只能用自定义事件来模拟它。在捕获阶段我们添加了两个监听函数，冒泡阶段添加了一个监听函数。</p>
+<p>比起直接使用 <code>Element::addEventListender()/removeEventListender()</code>，mbe_ui 的高级事件监听器有一个很好的特性：能确保监听器函数在不需要时总是能被删除——只要下一次渲染时提供的监听器函数与上一次的不是同一对象，<br>那么上一次提供的监听器函数函数就会被删除，因此可以“无忧使用”。相比之下，调用<code>removeEventListender()</code>时传入的函数与调用<br><code>addEventListender()</code> 时传入的函数必须是同一对象才行。</p>
+<h3 id="SVG-MathML-和命名空间"><a href="#SVG-MathML-和命名空间" class="headerlink" title="SVG, MathML 和命名空间"></a>SVG, MathML 和命名空间</h3><p>在 mbe_ui 的虚拟元素中也可以使用 SVG 和 MathML 元素名，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var ve &#x3D;</span><br><span class="line">  &#123;</span><br><span class="line">    Name: &#39;div&#39;, &#x2F;&#x2F; HTML 元素</span><br><span class="line">    Kids:</span><br><span class="line">    [</span><br><span class="line">      &#123;Name: &#39;span&#39;&#125;, &#x2F;&#x2F; HTML 元素</span><br><span class="line">      &#123;Name: &#39;svg&#39;, Kids: [&#123;Name: &#39;line&#39;&#125;]&#125;, &#x2F;&#x2F; SVG 元素</span><br><span class="line">      &#123;Name: &#39;math&#39;, Kids: [&#123;Name:&#39;mn&#39;, Kids: [&#39;2&#39;]&#125;]&#125; &#x2F;&#x2F; MathML 元素</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们知道，如果文档的类型是 XHTML 时，创建元素时要指定命名空间，尤其是不在 XHTML 命名空间中的 SVG 和 MathML 元素。<br>mbe_ui.Domer 在大多数情况下可以自动推断出合适的命名空间，让 svg 及其子元素采用 SVG 命名空间，让 math 及其子元素采用 MathML 命名空间。<br>不过，用户必须保证 SVG 元素都在 <code>&lt;svg&gt;</code> 之下， MathML 元素都在 <code>&lt;math&gt;</code> 之下，并且不带前缀，否则就无法自动推断了。</p>
+<p>当 mbe_ui.Domer 的自动命名空间推断无法满足要求时，用户可以提供自定义的命名空间推断方法给它，即替换或覆盖<br><code>Domer::inferNamespace(tagName: string): string</code> 方法。参数是虚拟元素的 Name，返回值是命名空间。</p>
+<h3 id="className，-class-和-someClass-属性，style，-style-和-some-style-属性"><a href="#className，-class-和-someClass-属性，style，-style-和-some-style-属性" class="headerlink" title="className，@class 和 .someClass 属性，style，@style 和 -some-style 属性"></a><code>className</code>，<code>@class</code> 和 <code>.someClass</code> 属性，<code>style</code>，<code>@style</code> 和 <code>-some-style</code> 属性</h3><p>在 mbe_ui 中，使用 <code>{ className: &#39;a b&#39;}</code>，<code>{ &#39;@class&#39;: &#39;a b&#39;}</code>与 <code>{ &#39;.a&#39;: true, &#39;.b&#39;: true }</code> 大体上是等效的。在底层，它们分别利用<br><code>Element::className</code>，<code>Element::setAttribute(&#39;class&#39;, ...)</code> 和 <code>Element::classList</code> 来实现。那么如何选择呢？</p>
+<ul>
+<li>在一个虚拟元素上绝对不要混合使用多种方式。如果这样做，多种方式中只有一种会生效，但不保证是哪一种。</li>
+<li><code>.someClass</code> 写法更灵活，尤其适合运行时会动态增减的 class，也适合通过多个步骤创建的虚拟元素，每个步骤都可能添加 class。</li>
+<li><code>className</code> 可以用于明确的、运行时不会改变的 class；<code>@class</code> 与之类似。</li>
+<li>如果不确定，用 <code>.someClass</code> 写法比较安全。</li>
+</ul>
+<p><code>@style</code> 和 <code>-some-style</code> 的关系也是类似的。但是，由于<code>Element::style</code> 不可以直接赋值，所以<strong>绝对不要</strong>在虚拟元素中指定 <code>style</code> 属性。</p>
+<h3 id="终点元素"><a href="#终点元素" class="headerlink" title="终点元素"></a>终点元素</h3><p>虚拟元素可以设定其 <code>Terminal</code> 属性为 true，表示这个元素是终点元素。对于终点元素，Domer 不再处理其子节点，客户代码可自行管理其子节点。<br>这个特性使得可以在 mbe_ui 的终点元素内部使用其他的界面技术。<br>当然，如果在虚拟元素中用了 innerHTML, textContent 等可以影响子节点的属性，则一定要设置 Terminal 为 true。</p>
+<h4 id="by-duanyao"><a href="#by-duanyao" class="headerlink" title="by duanyao"></a>by duanyao</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/11/mbe-ui/" data-id="ck9v2b7v3001l3gs61o7g5ybi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

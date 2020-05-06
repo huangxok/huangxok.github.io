@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>OKVoice_note_api | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="okvoiceAPIokvoice开发者中心 http:&#x2F;&#x2F;dev.okvoice.comokvoice在线api    http:&#x2F;&#x2F;dev.okvoice.com&#x2F;file.php  简介OKVoice TTS REST API为开发者提供一个通用的开发接口，基于该接口，开发者可以方便的为应用集成TTS功能，本文档描述了使用TTS REST API的方法。使用API需要以下条件：  需要申请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OKVoice_note_api">
+<meta property="og:url" content="https://huangxok.github.io/blog/2020/04/29/OKVoice_note_api/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="okvoiceAPIokvoice开发者中心 http:&#x2F;&#x2F;dev.okvoice.comokvoice在线api    http:&#x2F;&#x2F;dev.okvoice.com&#x2F;file.php  简介OKVoice TTS REST API为开发者提供一个通用的开发接口，基于该接口，开发者可以方便的为应用集成TTS功能，本文档描述了使用TTS REST API的方法。使用API需要以下条件：  需要申请">
+<meta property="article:published_time" content="2020-04-29T07:25:46.312Z">
+<meta property="article:modified_time" content="2020-04-29T07:25:46.312Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="jsxgraph">
+<meta property="article:tag" content="xulrunner">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OKVoice_note_api" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/29/OKVoice_note_api/" class="article-date">
+  <time datetime="2020-04-29T07:25:46.312Z" itemprop="datePublished">2020-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OKVoice_note_api
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="okvoiceAPI"><a href="#okvoiceAPI" class="headerlink" title="okvoiceAPI"></a>okvoiceAPI</h1><p>okvoice开发者中心 <a href="http://dev.okvoice.com" target="_blank" rel="noopener">http://dev.okvoice.com</a><br>okvoice在线api    <a href="http://dev.okvoice.com/file.php" target="_blank" rel="noopener">http://dev.okvoice.com/file.php</a></p>
+<ul>
+<li><p>简介<br>OKVoice TTS REST API为开发者提供一个通用的开发接口，基于该接口，<br>开发者可以方便的为应用集成TTS功能，本文档描述了使用TTS REST API的方法。<br>使用API需要以下条件：</p>
+<ol>
+<li>需要申请 API Key 用于验证开发者</li>
+<li>使用过程中应用需要通过互联网连接到OKVoice 云平台</li>
+</ol>
+</li>
+<li><p>访问控制<br>OKVoice 通过apiKey/apiSecretKey对称加密来验证某个请求的发送者身份，<br>apiKey用来标示app，apiSecretKey是用来签名加密的密钥，所以apiSecretKey必须保密。<br>当用户发送一个请求时，首先按照OKVoice指定的格式生成签名字符串，然后使用apiSecretKey对签名字符串进行加密产生验证码。<br>OKVoice收到请求后会根据apiKey找到对应的apiSecretKey，然后用同样的方式产生验证码，如果计算出来的验证码跟请求的一样则认为请求有效，<br>否则拒绝这次请求，并返回403错误。</p>
+</li>
+<li><p>申请apiKey/apiSecretKey<br>  apiKey/apiSecretKey 需要在okvoice开发者平台(<a href="http://dev.okvoice.com/)申请账号，然后点击用户名，进入我的账号。" target="_blank" rel="noopener">http://dev.okvoice.com/)申请账号，然后点击用户名，进入我的账号。</a><br>  在我的账号添加app应用，在应用管理中可以查看app应用一个列表。<br>  每个项都存在一个apiKey(KEY)与apiSecretKey(Secret)。</p>
+</li>
+<li><p>API验证机制</p>
+<ol>
+<li><p>signature=HMAC-SHA1(arg1=v1&amp;arg2=v2)<br>  生成签名字符串<br>  首先，对整个请求参数列表中的参数按照参数名字典序进行排序。(说明:按参数的字母排序)<br>  其次，把所有参数对以’&amp;’字符连接起来，最终形成待签名字符串。<br>关于参数的签名字符串组装问题:<br>如:apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018&amp;format=MP3<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊</py><br>&amp;voice=cnfemale<br>  上面的便是一个参数完整的待签名字符串。<br>参数说明如下</p>
+<ul>
+<li>apiKey : 为app的KEY，即apiKey                        </li>
+<li>expires: 为过期时间:可以这样处理 Date.now().slice(0,-3)取到当前时间的秒数 然后加上一定的时间 Date.now().slice(0,-3)+3600<br>这样设置过期时间为1小时。</li>
+<li>format : 语音的格式。WVA与MP3 默认为MP3</li>
+<li>speed  : 语速 取值0.2-5(官方文档为—- 负5到5 -&gt; -5到5 ) 小于1为慢速，大于1为快速，默认为1(正常情况)</li>
+<li>text   : 需要合成的文本，说明关于多音字的问题 如’啊’是一个多音字，那么需要将’啊’包裹在&lt;py=a1&gt;</py>中这里的啊为一声。</li>
+<li>voice  : 声音类型如下<ul>
+<li>cnmale         普通话男声</li>
+<li>cnfemale       普通话女声</li>
+<li>cnctmale       粤语男声</li>
+<li>cnctfemale     粤语女声</li>
+<li>enmale         英语男声</li>
+<li>enfemale       英语女声 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用hmac-sha1方法签名，其中Key为apiSecretKey<br>说明：hmac-sha1方法签名有很多库<br>目前MBEditor采用的是CryptoJS进行签名—-<a href="https://github.com/brix/crypto-js/" target="_blank" rel="noopener">https://github.com/brix/crypto-js/</a><br>CryptoJS.HmacSHA1(signature, okvoiceapisecretkey)<br>签名参数说明第一个为待签名的字符串，第二个为一个KEY。<br>这里对参数做下解释：signature为待签名的字符串，okvoiceapisecretkey为对应的apiKey/apiSecretKey中的apiSecretKey的值，即Secret</p>
+</li>
+<li><p>把”signature=签名结果字符串”加入请求参数列表<br>    apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊</py><br>&amp;voice=cnfemale<br>&amp;signature=CryptoJS.HmacSHA1(signture, okvoiceapisecretkey)<br>下面是一个完整okvoice的请求地址<br>ttp://api.okvoice.com/tts?apiKey=920c657431d374436117b00f9b18be78&amp;expires=1446445018&amp;speed=0.3&amp;text=&lt;py=a1&gt;啊</py>&amp;voice=cnfemale&amp;signature=d610bae4113e17de24475ab0c06396ab7dae7a74<br>说明signature参数后面的字符串是CryptoJS.HmacSHA1(signature, okvoiceapisecretkey)的返回值<br>    注意：待签名字符串必须是UTF-8编码</p>
+</li>
+</ol>
+</li>
+<li><p>API 接口说明</p>
+<ol>
+<li><p>请求类型及URL<br>接口类型          输入数据格式     URL<br>HTTP GET/POST     URL Encoded     <a href="http://api.okvoice.com/tts" target="_blank" rel="noopener">http://api.okvoice.com/tts</a></p>
+</li>
+<li><p>请求参数<br>参数                数据类型          是否必选        说明<br>apiKey              String              是          Api key<br>signature              String              是          签名字符串<br>expires                Int                  是          请求超时时间，自UTC1970-01-01开始的秒数<br>text                String              是          需要合成的文本<br>voice                String              否          声音类型，语言+性别，默认cnmale<br>format              String              否          音频格式（WAV，MP3），默认MP3<br>speed                Int                  否          语音速度，-5–5默认1 //实际值为0.2-5 大于1语速加快，小于1语速变慢<br> <br>Voice参数<br>取值                说明<br>cnmale              普通话男声<br>cnfemale              普通话女声<br>cnctmale              粤语男声<br>cnctfemale            粤语女声<br>enmale              英语男声<br>enfemale              英语女声</p>
+</li>
+<li><p>响应结果<br>HTTP response     说明<br>200             成功，返回音频数据<br>202             失败，返回json数据，包含错误码及错误信息<br>403             签名验证失败，禁止访问</p>
+</li>
+<li><p>错误码<br>错误码            描述<br>1001            非法请求<br>1002            API key 非法<br>1003            鉴权验证失败<br>1004            转换文本失败<br>1005            非法文本<br>1006            文本超长<br>1007            非法参数<br>1008            不支持的voice类型</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>目前采用账号为个人账号<br>apiKey             920c657431d374436117b00f9b18be78<br>apiSecretKey       fd1993ac9dd85cdb6b8f08a16c30ce8c</p>
+<p>应用控件：生字教学 mainbo_wordteaching，<br>         词语教学 mainbo_vocateaching</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2020/04/29/OKVoice_note_api/" data-id="ck9v2b7up000l3gs6fffj52gd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/04/29/about/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          about
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/06/16/Epub-analysis-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Epub_analysis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

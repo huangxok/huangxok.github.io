@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Epub Content Document | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EPUB Content Document 规范http:&#x2F;&#x2F;www.idpf.org&#x2F;epub3&#x2F;latest&#x2F;contentdocs *** 概述  与h5（HTML 5）的关系ecd 采用 XHTML 5语法，并有少量扩展。XHTML5 与 HTML5 的差异和兼容请参考：HTML5 vs XHTML5.txth5中的部分特性是可选的，包括脚本、表单等。  SVGSVG 1.1 也是ecd的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Epub Content Document">
+<meta property="og:url" content="https://huangxok.github.io/blog/2016/05/19/Epub-Content-Document/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="EPUB Content Document 规范http:&#x2F;&#x2F;www.idpf.org&#x2F;epub3&#x2F;latest&#x2F;contentdocs *** 概述  与h5（HTML 5）的关系ecd 采用 XHTML 5语法，并有少量扩展。XHTML5 与 HTML5 的差异和兼容请参考：HTML5 vs XHTML5.txth5中的部分特性是可选的，包括脚本、表单等。  SVGSVG 1.1 也是ecd的">
+<meta property="article:published_time" content="2016-05-19T15:15:42.000Z">
+<meta property="article:modified_time" content="2016-05-19T15:15:42.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="Epub">
+<meta property="article:tag" content="OPF">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Epub-Content-Document" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/19/Epub-Content-Document/" class="article-date">
+  <time datetime="2016-05-19T15:15:42.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Epub Content Document
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>EPUB Content Document</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="http://www.idpf.org/epub3/latest/contentdocs" target="_blank" rel="noopener">http://www.idpf.org/epub3/latest/contentdocs</a></p>
+<p>*** 概述</p>
+<ul>
+<li><p>与h5（HTML 5）的关系<br>ecd 采用 XHTML 5语法，并有少量扩展。<br>XHTML5 与 HTML5 的差异和兼容请参考：HTML5 vs XHTML5.txt<br>h5中的部分特性是可选的，包括脚本、表单等。</p>
+</li>
+<li><p>SVG<br>SVG 1.1 也是ecd的一种，不过有一些限制。</p>
+</li>
+<li><p>CSS<br>ecd 采用CSS 2.1和部分 CSS 3特性，还定义了一些扩展。</p>
+</li>
+<li><p>命名空间<br>prefix     namespace URI<br>epub     <a href="http://www.idpf.org/2007/ops" target="_blank" rel="noopener">http://www.idpf.org/2007/ops</a><br>m     <a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a><br>pls     <a href="http://www.w3.org/2005/01/pronunciation-lexicon" target="_blank" rel="noopener">http://www.w3.org/2005/01/pronunciation-lexicon</a><br>ssml     <a href="http://www.w3.org/2001/10/synthesis" target="_blank" rel="noopener">http://www.w3.org/2001/10/synthesis</a><br>svg     <a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a></p>
+</li>
+</ul>
+<p>*** 各种 Content Document<br>** XHTML 文档<br>ecd中的 HTML 文档必须用 XHTML 5 语法，并且以 .xhtml 作为扩展名。</p>
+<ul>
+<li>扩展 </li>
+</ul>
+<ul>
+<li>epub:type 属性<br>语法是空格分割的值，可用于 h5 元素上扩展其语义。例如：<br><a epub:type="noteref" href="#n1">1</a><aside epub:type="footnote" id="n1">
+
+</li>
+</ul>
+<p>可用的值选自“EPUB 3 Structural Semantics Vocabulary”：<br> <a href="http://www.idpf.org/epub/vocab/structure/#" target="_blank" rel="noopener">http://www.idpf.org/epub/vocab/structure/#</a></p>
+<p>不过并不要求 reader 对这个属性作出反应。</p>
+<ul>
+<li><p>SSML Attributes<br>W3C Speech Synthesis Markup Language</p>
+</li>
+<li><p>Content Switching<br>reader 必须支持此特性。<br>epub:switch Element</p>
+</li>
+<li><p>epub:trigger Element<br>The trigger element enables the creation of markup-defined user interfaces for controlling multimedia objects, such as audio and video playback, in both scripted and non-scripted contexts.<br>也就是一种不用JS脚本的UI编程技术。<br>支持视频音频的 reader 必须支持 epub:trigger。</p>
+</li>
+</ul>
+<p>例子：</p>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:epub="http://www.idpf.org/2007/ops"
+  xmlns:ev="http://www.w3.org/2001/xml-events">
+  <head>
+    <epub:trigger ev:observer="pause" ev:event="click" action="pause" ref="test"/>
+    <epub:trigger ev:observer="resume" ev:event="click" action="resume" ref="test"/>
+    <epub:trigger ev:observer="mute" ev:event="click" action="mute" ref="test"/>
+    <epub:trigger ev:observer="mute" ev:event="click" action="show" ref="muted"/>
+    <epub:trigger ev:observer="unmute" ev:event="click" action="unmute" ref="test"/>
+    <epub:trigger ev:observer="unmute" ev:event="click" action="hide" ref="muted"/>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+  <body>
+    <video id="test" src="birds.mp4" width="320" height="240"/>
+    <p>
+      <span class="button" id="resume">Play/Resume</span>
+      <span class="button" id="pause">Pause</span>
+      <span class="button" id="mute">Mute</span>
+      <span class="button" id="unmute">Unmute</span>
+      <span id="muted">MUTED</span>
+    </p>
+  </body>
+</html>
+
+<ul>
+<li>Alternate Style Tags<br>根据环境选择不同样式表的机制。例如<link rel="stylesheet" href="horizontal.css" class="horizontal"/>
+规范：http://www.idpf.org/epub/altss-tags/
+
+</li>
+</ul>
+<p>reader应当支持此扩展。</p>
+<ul>
+<li>MathML<br>reader必须支持MathML，但主要限于 Presentation MathML，Content MathML 支持是可选的。</li>
+</ul>
+<p>** CSS</p>
+<ul>
+<li>规范<br>对CSS2.1的要求：<br>position 属性不能有fixed值；direction 和 unicode-bidi 属性不能用。</li>
+</ul>
+<p>对CSS3的要求：</p>
+<p>以下模块要采用 -epub-前缀：<br>CSS 3.0 Speech<br> -epub-cue<br> -epub-pause<br> -epub-rest<br> …<br>CSS Text Level 3<br> -epub-hyphens*<br> -epub-line-break<br> -epub-text-align-last<br> …<br>未来随着CSS3定稿，可以去掉前缀。</p>
+<p>webfont 必须支持 OpenType 和 WOFF 两种格式。</p>
+<p>支持 @media and @import</p>
+<p>支持 @namespace</p>
+<p>支持多列布局</p>
+<ul>
+<li>分页<br>epub 并不要求reader支持分页显示流式文档，但很多reader是实现了此功能的。<br>在这类reader上，CSS 属性 page-break-inside, page-break-before 和 page-break-after 等可以用于控制分页行为，就像在打印设备上一样。<br>参考：<br><a href="http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/" target="_blank" rel="noopener">http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/</a></li>
+</ul>
+<p>** EPUB Navigation Documents<br>是XHTML 文档的一种，详见 EPub Navigation Documents.txt</p>
+<p>** SVG Content Documents<br>应当符合 SVG 1.1 (Second Edition) specification。<br>其它要求：<br>不能有动画（ Animation Elements and Animation event attributes）。<br>svg:foreignObject 只能包含 xhtml 内容。</p>
+<p>SVG 可以独立作为文档，也可以被XHTML文档引用，也可以嵌入XHTML。</p>
+<p>** Scripted Content Documents</p>
+<p>脚本可以出现在顶层内容文档中，也可以出现在顶层内容文档的iframe中。<br>前者称为 spine-level scripting，后者称为 container-constrained scripting。<br>reader必须支持后者，前者则是可选的。<br>reader必须阻止后者的脚本访问父文档以及其它文档，类似h5 sandboxed iframe。</p>
+<p>reader必须提供 navigator.epubReadingSystem 对象，有以下属性和方法：</p>
+<p>name     Returns a String value representing the name of the Reading System (e.g., iBooks, Kindle).<br>version     Returns a String value representing the version of the Reading System (e.g., 1.0, 2.1.1).<br>layoutStyle typically return one of the values paginated or scrolling, but may define values for any additional layout formats it supports.</p>
+<p>hasFeature(feature[, version]) 特性查询。以下特性名字必须被识别：</p>
+<p>dom-manipulation     Scripts may make structural changes to the document’s DOM (applies to spine-level scripting only).<br>layout-changes     Scripts may modify attributes and CSS styles that affect content layout (applies to spine-level scripting only).<br>touch-events     The device supports touch events and the Reading System passes touch events to the content.<br>mouse-events     The device supports mouse events and the Reading System passes mouse events to the content.<br>keyboard-events     The device supports keyboard events and the Reading System passes keyboard events to the content.<br>spine-scripting     Spine-level scripting is supported.</p>
+<p>*** 安全问题<br>以下均为建议。<br>每本epub书应被视为来自一个独立的域。如果提供本地存储，不同的书之间应该是被隔离的。</p>
+<p>*** 事件模型<br>采用h5事件。</p>
+<p>*** PLS Documents<br>The W3C Pronunciation Lexicon Specification [PLS] defines syntax and semantics for XML-based pronunciation lexicons to be used by Automatic Speech Recognition and Text-to-Speech (TTS) engines.</p>
+<p>reader如果支持TTS则必须支持PLS。</p>
+<p>例子：</p>
+<html … >    
+    <head>
+        …
+        <link rel="pronunciation" type="application/pls+xml" hreflang="zh" href="../speech/zh.pls"/>
+        <link rel="pronunciation" type="application/pls+xml" hreflang="mn" href="../speech/mn.pls"/>
+    </head>        
+    …
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/05/19/Epub-Content-Document/" data-id="ck9v2b7ue00013gs6dwri30de" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/05/19/Epub-Fixed-Layout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Epub Fixed Layout
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/05/19/markdown-syntax/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">markdown syntax</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

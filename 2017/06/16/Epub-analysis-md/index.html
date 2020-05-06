@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Epub_analysis | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用Epub 制作数字图书 基于XML的开放式eBook格式简介是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Epub_analysis">
+<meta property="og:url" content="https://huangxok.github.io/blog/2017/06/16/Epub-analysis-md/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="使用Epub 制作数字图书 基于XML的开放式eBook格式简介是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocB">
+<meta property="article:published_time" content="2017-06-16T03:13:27.000Z">
+<meta property="article:modified_time" content="2017-06-16T03:13:27.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="jsxgraph">
+<meta property="article:tag" content="xulrunner">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Epub-analysis-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/06/16/Epub-analysis-md/" class="article-date">
+  <time datetime="2017-06-16T03:13:27.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Epub_analysis
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Epub-制作数字图书-基于XML的开放式eBook格式"><a href="#使用Epub-制作数字图书-基于XML的开放式eBook格式" class="headerlink" title="使用Epub 制作数字图书 基于XML的开放式eBook格式"></a>使用Epub 制作数字图书 基于XML的开放式eBook格式</h1><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocBook 和 Python 自动创建 EPUB。</p>
+<h2 id="常用的缩写词"><a href="#常用的缩写词" class="headerlink" title="常用的缩写词"></a>常用的缩写词</h2><ul>
+<li>API：应用程序编程接口（application programming interface）</li>
+<li>CSS：级联样式表（Cascading stylesheet)</li>
+<li>DOM: 文档对象模型（Document Object Model)</li>
+<li>DTD: 文档类型定义（Document type definition）</li>
+<li>GUI: 图形用户界面（Graphical user interface）</li>
+<li>HTML： 超文本标记语言（Hypertext Markup Language）</li>
+<li>SAX: XML简易API(simple API For XML)</li>
+<li>W3C: 万维网联盟（World Wide Web Consortium）</li>
+<li>XHTML: 可拓展的HTML（Extendsible HTML）</li>
+<li>XMl: 可拓展标记语言</li>
+</ul>
+<p>关于 EPUB 格式</p>
+<p>了解 EPUB 的背景，EPUB 最适合做什么，以及 EPUB 和便携式文档格式（PDF）的区别。</p>
+<p>什么是 EPUB？</p>
+<p>EPUB 是可逆的数字图书和出版物 XML 格式，数字出版业商业和标准协会 International Digital Publishing Forum (IDPF) 制定的标准。IDPF 于 2007 年 10 月正式采用 EPUB，随后被主流出版商迅速采用。可以使用各种开放源代码或者商业软件在所有主流操作系统、Sony PRS 之类的 e-ink 设备或者 Apple iPhone 之类的小型设备上阅读 EPUB 格式。</p>
+<p>谁在使用 EPUB？只能用于图书吗？</p>
+<p>虽然最早采用 EPUB 的是传统的印刷品出版商，但是这并不妨碍它在电子图书中的应用。利用免费的软件工具，可以将网页捆绑成 EPUB，转化成文本文件或者将原有的 DocBook XML 文档转化成结构良好的、有效的 EPUB</p>
+<p>EPUB 与 PDF 有什么不同？</p>
+<p>PDF 仍然是世界上应用最广泛的电子文档格式。从图书出版商的角度来看，PDF 的优点包括：</p>
+<p>PDF 文件允许对页面布局进行像素级的控制，包括复杂的打印格式，如多栏格式和奇偶页相间的格式。<br>有多种不同的 GUI 文档工具可生成 PDF，如 Microsoft® Office Word 和 Adobe® InDesign®。<br>PDF 阅读器非常普及，现在大多数计算机上都有安装。<br>PDF 可以嵌入特殊的字体，精确控制最终的输出结果</p>
+<h2 id="三合一标准"><a href="#三合一标准" class="headerlink" title="三合一标准"></a>三合一标准</h2><p>EPUB 包括三个单独的 IDPF 规范，虽然实际上将其统称为 EPUB 更保险：</p>
+<ul>
+<li>Open eBook Publication Structure Container Format (OCF)：定义了 EPUB 档案的目录树结构和文件结构（ZIP）。</li>
+<li>Open Publication Structure (OPS)：定义了电子图书的公共词汇表，特别是可作为图书内容的格式（比如 XHTML 和 CSS）。</li>
+<li>Open Packaging Format (OPF)：描述了 EPUB 必须的和可选的元数据、阅读顺序和目录。</li>
+</ul>
+<p>此外，对于档案中的特定类型的内容，EPUB 还重用了其他一些标准，如 XHTML 1.0 和 Digital Accessible Information SYstem (DAISY)。</p>
+<p>从软件开发人员的角度来看，PDF 还远远不够理想：</p>
+<p>这不是一种简单易学的标准，因此编写自己的 PDF 生成代码非常困难。<br>虽然 PDF 现在是一种 International Organization for Standardization（ISO）标准（ISO 32000-1:2008），但过去一直受一家公司的控制：Adobe Systems。<br>尽管多数编程语言都提供了 PDF 库，但很多是商业产品或者嵌入到 GUI 应用程序中，外部进程不容易控制。并非所有的免费库都得到积极的维护。<br>PDF 原生文本可以通过程序提取出来并进行搜索，但很少可以对 PDF 进行标记以便简单可靠地转化成 Web 友好的格式。<br>PDF 文档不容易流动，就是说很难适应小屏幕或者对布局进行明显的改变。<br>为何说 EPUB 对开发人员是友好的</p>
+<p>EPUB 解决了 PDF 和开发人员友好性有关的所有瑕疵。一个 EPUB 就是一个简单 ZIP 格式文件（使用 .epub 扩展名），其中包括按照预先定义的方式排列的文件。如何制作 ZIP 文档有一些技巧，稍后将在 将 EPUB 文件捆绑为 ZIP 文档 一节介绍。除此以外，EPUB 非常简单：</p>
+<p>EPUB 中的所有内容基本上都是 XML。EPUB 文件可使用标准 XML 工具创建，不需要任何专门或者私有的软件。<br>EPUB 内容（eBook 的具体内容）基本上都是 XHTML 1.1（另一种格式是 DTBook，为视力受限者编码书籍的一种标准。关于 DTBook 的更多信息请参阅 参考资料，本教程中不涉及这部分）。<br>大多数 EPUB XML 模式都来自现成的、可免费获得的、已发布的规范。<br>最关键的在于 EPUB 元数据是 XML，EPUB 内容是 XHTML。如果您的文档构建系统产生的结果用于 Web 和/或基于 XML，那么也可用于生成 EPUB。</p>
+<h2 id="开始创建"><a href="#开始创建" class="headerlink" title="开始创建"></a>开始创建</h2><p>分析EPUB包<br>小型 EPUB 文件的基本结构遵循 清单 1 所示的样式。准备好分发之前，整个目录结构被压缩到一个 ZIP 格式文件中，几点特殊要求将在 用 ZIP 打包 EPUB 文件 一节讨论</p>
+<h4 id="清单1-EPUB的目录和文件结构"><a href="#清单1-EPUB的目录和文件结构" class="headerlink" title="清单1. EPUB的目录和文件结构"></a>清单1. EPUB的目录和文件结构</h4><p>如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mimetype</span><br><span class="line">  META-INf&#x2F;</span><br><span class="line">    container.xml</span><br><span class="line">  OEBPS&#x2F;</span><br><span class="line">    content.opf</span><br><span class="line">    title.html</span><br><span class="line">    content.html</span><br><span class="line">    stylesheet.css</span><br><span class="line">    toc.ncx</span><br><span class="line">    image&#x2F;</span><br><span class="line">      cover.png</span><br></pre></td></tr></table></figure>
+
+<p>提示：可下载符合该结构的一个电子图书，但建议还是按照以上所述自己创建一个。</p>
+<p>mimetype 文件<br>这个文件必须命名为 mimetype ，文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application&#x2F;epub+zip</span><br></pre></td></tr></table></figure>
+<p>要注意，mimetype 文件不能包含新行或者回车。<br>此外，mimetype 文件必须作为 ZIP 档案中的第一个文件，而且自身不能压缩。用 ZIP 打包 EPUB 文件 一节将介绍如何使用一般的 ZIP 参数将其包含进来。现在创建该文件并保存，并确保它在 EPUB 项目的根目录中。</p>
+<p>META-INF/container.xml</p>
+<p>EPUB 根目录下必须包含 META-INF 目录，而且其中要有一个文件 container.xml。EPUB 阅读系统首先查看该文件，它指向数字图书元数据的位置。</p>
+<p>创建目录 META-INF。在其中创建一个新文件 container.xml。container 文件非常小，但是对结构要求很严格。将 清单 2 中的代码粘贴到 META-INF/container.xml 中。</p>
+<h4 id="清单2-container-xml文件"><a href="#清单2-container-xml文件" class="headerlink" title="清单2. container.xml文件"></a>清单2. container.xml文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;container version&#x3D;&quot;1.0&quot; xmlns&#x3D;&quot;urn:oasis:names:tc:opendocument:xmlns:container&quot;&gt;</span><br><span class="line">&lt;rootfiles&gt;</span><br><span class="line">  &lt;rootfile full-path&#x3D;&quot;OEBPS&#x2F;content.opf&quot;</span><br><span class="line">   media-type&#x3D;&quot;application&#x2F;oebps-package+xml&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;rootfiles&gt;</span><br><span class="line">&lt;&#x2F;container&gt;</span><br></pre></td></tr></table></figure>
+<p>full-path的值(OEBPS/content.opf)仅仅是该文件的一部分，不同的文件可能相差甚大。目录路径必须相对于 EPUB 文件根目录本身，而不是 META-INF 目录</p>
+<h3 id="关于-META-INF"><a href="#关于-META-INF" class="headerlink" title="关于 META-INF"></a>关于 META-INF</h3><p>META-INF 目录还可以包含其他几个文件。这些文件使 EPUB 支持数字签名、加密和数字版权管理（DRM）。本教程不讨论这些主题。更多信息请参阅 OCF 规范</p>
+<p>mimetype 和 container 是 EPUB 档案中仅有的两个需要严格限制位置的文件。建议（尽管不是必须的）将其他文件保存到 EPUB 的子目录下（按照惯例，通常被称为 OEBPS，即 Open eBook Publication Structure，但不是必须的）。</p>
+<p>接下来在 EPUB 项目中创建目录 OEBPS。本教程下一节将介绍 OEBPS 中的文件 — 数字图书的核心：元数据和页面。<br>创建 OEBPS/content.opf 并粘贴 清单 3 所示的内容。</p>
+<h4 id="清单-3-包含示例元数据的-OPF-content-文件"><a href="#清单-3-包含示例元数据的-OPF-content-文件" class="headerlink" title="清单 3. 包含示例元数据的 OPF content 文件"></a>清单 3. 包含示例元数据的 OPF content 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&#39;1.0&#39; encoding&#x3D;&#39;utf-8&#39;?&gt;</span><br><span class="line">&lt;package xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.idpf.org&#x2F;2007&#x2F;opf&quot; </span><br><span class="line">            xmlns:dc&#x3D;&quot;http:&#x2F;&#x2F;purl.org&#x2F;dc&#x2F;elements&#x2F;1.1&#x2F;&quot; </span><br><span class="line">            unique-identifier&#x3D;&quot;bookid&quot; version&#x3D;&quot;2.0&quot;&gt;</span><br><span class="line">  &lt;metadata&gt;</span><br><span class="line">    &lt;dc:title&gt;Hello World: My First EPUB&lt;&#x2F;dc:title&gt;</span><br><span class="line">    &lt;dc:creator&gt;My Name&lt;&#x2F;dc:creator&gt;</span><br><span class="line">    &lt;dc:identifier id&#x3D;&quot;bookid&quot;&gt;urn:uuid:12345&lt;&#x2F;dc:identifier&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;cover&quot; content&#x3D;&quot;cover-image&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;metadata&gt;</span><br><span class="line">  &lt;manifest&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;ncx&quot; href&#x3D;&quot;toc.ncx&quot; media-type&#x3D;&quot;text&#x2F;xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;cover&quot; href&#x3D;&quot;title.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;content&quot; href&#x3D;&quot;content.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;cover-image&quot; href&#x3D;&quot;images&#x2F;cover.png&quot; media-type&#x3D;&quot;image&#x2F;png&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;css&quot; href&#x3D;&quot;stylesheet.css&quot; media-type&#x3D;&quot;text&#x2F;css&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;manifest&gt;</span><br><span class="line">  &lt;spine toc&#x3D;&quot;ncx&quot;&gt;</span><br><span class="line">    &lt;itemref idref&#x3D;&quot;cover&quot; linear&#x3D;&quot;no&quot;&#x2F;&gt;</span><br><span class="line">    &lt;itemref idref&#x3D;&quot;content&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;spine&gt;</span><br><span class="line">  &lt;guide&gt;</span><br><span class="line">    &lt;reference href&#x3D;&quot;cover.html&quot; type&#x3D;&quot;cover&quot; title&#x3D;&quot;Cover&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;guide&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>OPF 模式与名称空间</strong></p>
+<p>OPF 文档本身必须使用名称空间 <a href="http://www.idpf.org/2007/opf，元数据则使用" target="_blank" rel="noopener">http://www.idpf.org/2007/opf，元数据则使用</a> Dublin Core Metadata Initiative (DCMI) 名称空间 <a href="http://purl.org/dc/elements/1.1/。" target="_blank" rel="noopener">http://purl.org/dc/elements/1.1/。</a></p>
+<p>最好现在将 OPF 和 DCMI 模式添加到 XML 编辑器中。EPUB 用到的所有模式都可以 下载。</p>
+<p><strong>元数据</strong></p>
+<p>Dublin Core 定义了一组常用的元数据，可用于描述各种不同的数字资料，它不是 EPUB 规范的一部分。所有这些术语都可以出现在 OPF 元数据部分。编写要分发的 EPUB 时，这里可以放很多内容，目前来说 清单 4 的内容就足够了。</p>
+<h4 id="清单-4-OPF-元数据摘要"><a href="#清单-4-OPF-元数据摘要" class="headerlink" title="清单 4. OPF 元数据摘要"></a>清单 4. OPF 元数据摘要</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  ...</span><br><span class="line">  &lt;metadata&gt;</span><br><span class="line">    &lt;dc:title&gt;Hello World: My First EPUB&lt;&#x2F;dc:title&gt;</span><br><span class="line">    &lt;dc:creator&gt;My Name&lt;&#x2F;dc:creator&gt;</span><br><span class="line">    &lt;dc:identifier id&#x3D;&quot;bookid&quot;&gt;urn:uuid:12345&lt;&#x2F;dc:identifier&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;cover&quot; content&#x3D;&quot;cover-image&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;metadata&gt;</span><br><span class="line">..</span><br></pre></td></tr></table></figure>
+
+<p>有两个术语是必须的，即 title 和 identifier。按照 EPUB 规范，标识符必须 是惟一的，但是这个惟一的值要靠数字图书的创建者来定义。对于图书出版商来说，这个字段一般包含 ISBN 或者 Library of Congress 编号。对于其他 EPUB 创建者，可以考虑使用 URL 或者很大的随机生成的惟一用户 ID（UUID）。要注意，属性 unique-identifier 的值必须和 dc:identifier 元素的 ID 属性匹配。</p>
+<p>其他和内容相关的可以考虑添加的元数据包括：</p>
+<ul>
+<li>语言（如 dc:language）。</li>
+<li>出版日期（如 dc:date）。</li>
+<li>出版商（如 dc:publisher）。（可以是公司或个人的名称）。</li>
+<li>版权信息（如 dc:rights）。（如果采用 Creative Commons 许可证，可以将许可证的 URL 放在这里）。</li>
+<li>关于 DCMI 的更多信息请参阅 参考资料。</li>
+</ul>
+<p>EPUB 规范没有要求包含 name 属性值为 cover 的 meta 元素，但为了增加封面和图像的可移植性，建议这样做。一些 EPUB 呈现程序喜欢使用图像文件作为封面，另一些则愿意使用包含内联封面图像的 XHTML 文件。该例子显示了这两种情况。meta 元素的 content 属性的值应该是图书封面图像在 manifest 中的 ID 号，manifest 是 OPF 文件的一部分。</p>
+<p><strong>Manifest</strong></p>
+<p>OPF manifest 列出了 EPUB 内容（不包括元数据）中的所有资源。就是说，通常是组成电子图书文本的一组 XHTML 文件再加上一些相关的媒体如图像。EPUB 鼓励使用 CSS 设定图书内容的样式，因此 manifest 中也包含 CSS。进入数字图书的所有文件都必须在 manifest 中列出。</p>
+<p>清单 5 显示了 manifest 的一部分。</p>
+<h4 id="清单-5-OPF-manifest-的一部分"><a href="#清单-5-OPF-manifest-的一部分" class="headerlink" title="清单 5. OPF manifest 的一部分"></a>清单 5. OPF manifest 的一部分</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;manifest&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;ncx&quot; href&#x3D;&quot;toc.ncx&quot; media-type&#x3D;&quot;text&#x2F;xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;cover&quot; href&#x3D;&quot;title.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;content&quot; href&#x3D;&quot;content.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;cover-image&quot; href&#x3D;&quot;images&#x2F;cover.png&quot; media-type&#x3D;&quot;image&#x2F;png&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;css&quot; href&#x3D;&quot;stylesheet.css&quot; media-type&#x3D;&quot;text&#x2F;css&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="高级-OPF-manifest"><a href="#高级-OPF-manifest" class="headerlink" title="高级 OPF manifest"></a>高级 OPF manifest</h3><p>更高级的 manifest 文件可能包含多个 XHTML 文件以及图像和 CSS。可 下载 一个完整的包含各种常见类型的 EPUB 例子。</p>
+<p>第一项 toc.ncx（参见 下一节）是必须的。所有的项都有相应的 media-type 值，XHTML 内容的媒体类型为 application/xhtml+xml。媒体类型必须正确，不能 是 text/html 或者其他类型。</p>
+<p>EPUB 支持四种核心 图像文件类型：Joint Photographic Experts Group (JPEG)、Portable Network Graphics (PNG)、Graphics Interchange Format (GIF) 和 Scalable Vector Graphics (SVG)。如果能够提供对核心类型的后退转换（fall-back），也可包含不支持的文件类型。关于后退转换内容的更多信息请参阅 OPF 规范。</p>
+<p>href 属性的值应该是一个相对于该 OPF 文件 的统一资源标识符（URI）。（很容易和 container.xml 中对 OPF 文件的引用混淆，其中的引用是相对于 EPUB 的整体引用）。这里的 OPF 文件位于和内容相同的 OEBPS 目录中，因此不需要路径信息。</p>
+<p><strong>Spine</strong></p>
+<p>manifest 告诉 EPUB 阅读器哪些文件属于档案，spine 则指定这些文件出现的顺序或 — 按照 EPUB 的说法 — 数字图书的线性阅读顺序。可以将 OPF spine 看作是书中 “页面” 的顺序。按照文档顺序从上到下依次读取 spine。清单 6 显示了 OPF 文件的一个片段。</p>
+<h4 id="清单-6-OPF-spine-的一部分"><a href="#清单-6-OPF-spine-的一部分" class="headerlink" title="清单 6. OPF spine 的一部分"></a>清单 6. OPF spine 的一部分</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;spine toc&#x3D;&quot;ncx&quot;&gt;</span><br><span class="line">  &lt;itemref idref&#x3D;&quot;cover&quot; linear&#x3D;&quot;no&quot;&#x2F;&gt;</span><br><span class="line">  &lt;itemref idref&#x3D;&quot;content&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;spine&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>每个 itemref 元素都需要有一个 idref 属性，并且和 manifest 中的某个 ID 匹配。toc 属性也是必需的。它引用 manifest 中表示内容 NCX 表文件名的 ID。</p>
+<p>spine 中的 linear 属性表明该项是作为线性阅读顺序中的一项，还是和先后次序无关。建议将封面定义为 linear=no。符合 EPUB 规范的阅读系统将首先打开 spine 中没有 设置为 linear=no 中的第一项。</p>
+<p><strong>Guide</strong></p>
+<p>OPF 内容文件的最后一部分是 guide。这一节是可选的，但最好保留。清单 7 显示了 guide 文件的部分内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;guide&gt;</span><br><span class="line">  &lt;reference href&#x3D;&quot;cover.html&quot; type&#x3D;&quot;cover&quot; title&#x3D;&quot;Cover&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;guide&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>guide 可以为 EPUB 阅读系统提供语义信息。manifest 定义了 EPUB 中的物理资源，spine 提供了这些资源的顺序信息，guide 负责解释这些部分的含义。下面是可以出现在 OPF guide 中的部分值：</p>
+<ul>
+<li>cover：图书封面</li>
+<li>title-page：包含作者和出版商信息的页面</li>
+<li>toc：目录<br>完整的列表请参阅 OPF 2.0 规范（参见 参考资料）。</li>
+</ul>
+<h3 id="NCX-和-OPF元数据的交叉"><a href="#NCX-和-OPF元数据的交叉" class="headerlink" title="NCX 和 OPF元数据的交叉"></a>NCX 和 OPF元数据的交叉</h3><p>由于 NCX 源自其他标准，使用 NCX 编码的信息和 OPF 内容之间存在重复。如果通过程序生成 EPUB，这算不上什么问题，因为同样的代码可输出到两个文件中。两个位置的信息要一致，不同的 EPUB 读者可能使用不同位置的值。</p>
+<p>尽管 OCF 文件是作为 EPUB 本身的一部分定义的，但最后一个主要的元数据文件参照了不同的数字图书标准。DAISY 是一个专门为不能使用传统书籍的读者设计数据格式的组织，通常是因为视力受损或者不便于使用印刷的书籍。EPUB 借用了 DAISY 的 NCX DTD。NCX 定义了数字图书的目录表。复杂的图书中，目录表通常采用层次结构，包括嵌套的内容、章和节。</p>
+<p>使用 XML 编辑器创建 OEBPS/toc.ncx 并粘贴 清单 8 所示的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&#39;1.0&#39; encoding&#x3D;&#39;utf-8&#39;?&gt;</span><br><span class="line">&lt;!DOCTYPE ncx PUBLIC &quot;-&#x2F;&#x2F;NISO&#x2F;&#x2F;DTD ncx 2005-1&#x2F;&#x2F;EN&quot; </span><br><span class="line">                &quot;http:&#x2F;&#x2F;www.daisy.org&#x2F;z3986&#x2F;2005&#x2F;ncx-2005-1.dtd&quot;&gt;</span><br><span class="line">&lt;ncx xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.daisy.org&#x2F;z3986&#x2F;2005&#x2F;ncx&#x2F;&quot; version&#x3D;&quot;2005-1&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:uid&quot; content&#x3D;&quot;urn:uuid:12345&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:depth&quot; content&#x3D;&quot;1&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:totalPageCount&quot; content&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:maxPageNumber&quot; content&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;docTitle&gt;</span><br><span class="line">    &lt;text&gt;Hello World: My First EPUB&lt;&#x2F;text&gt;</span><br><span class="line">  &lt;&#x2F;docTitle&gt;</span><br><span class="line">  &lt;navMap&gt;</span><br><span class="line">    &lt;navPoint id&#x3D;&quot;navpoint-1&quot; playOrder&#x3D;&quot;1&quot;&gt;</span><br><span class="line">      &lt;navLabel&gt;</span><br><span class="line">        &lt;text&gt;Book cover&lt;&#x2F;text&gt;</span><br><span class="line">      &lt;&#x2F;navLabel&gt;</span><br><span class="line">      &lt;content src&#x3D;&quot;title.html&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;navPoint&gt;</span><br><span class="line">    &lt;navPoint id&#x3D;&quot;navpoint-2&quot; playOrder&#x3D;&quot;2&quot;&gt;</span><br><span class="line">      &lt;navLabel&gt;</span><br><span class="line">        &lt;text&gt;Contents&lt;&#x2F;text&gt;</span><br><span class="line">      &lt;&#x2F;navLabel&gt;</span><br><span class="line">      &lt;content src&#x3D;&quot;content.html&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;navPoint&gt;</span><br><span class="line">  &lt;&#x2F;navMap&gt;</span><br><span class="line">&lt;&#x2F;ncx&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>NCX 元数据</strong></p>
+<p>DTD 要求 NCX <head> 标记中包含四个 meta 元素：</p>
+<p>uid： 数字图书的惟一 ID。该元素应该和 OPF 文件中的 dc:identifier对应。<br>depth：反映目录表中层次的深度。该例只有一层，因此是 1。<br>totalPageCount 和 maxPageNumber：仅用于纸质图书，保留 0 即可。<br>docTitle/text 的内容是图书的标题，和 OPF 中的 dc:title 匹配。</p>
+<p><strong>NCX navMap</strong></p>
+<h3 id="NCX-和-OPF-spine-有什么不同？"><a href="#NCX-和-OPF-spine-有什么不同？" class="headerlink" title="NCX 和 OPF spine 有什么不同？"></a>NCX 和 OPF spine 有什么不同？</h3><p>两者很容易混淆，因为两个文件都描述了文档的顺序和内容。要说明两者的区别，最简单的办法就是拿印刷书来打比方：OPF spine 描述了书中的各个章节是如何实际连接起来的，比方说翻过第一章的最后一页就看到第二章的第一页。NCX 在图书的一开始描述了目录。目录肯定会包含书中主要的章节，但是还可能包含没有单独分页的小节。</p>
+<p>一条法则是 NCX 包含的 navPoint 元素通常比 OPF spine 中的 itemref 元素多。实际上，spine 中的所有项都会出现在 NCX 中，但 NCX 可能更详细。</p>
+<p>navMap 是 NCX 文件中最重要的部分，定义了图书的目录。navMap 包含一个或多个 navPoint 元素。每个 navPoint 都要包含下列元素：</p>
+<ul>
+<li>playOrder 属性，说明文档的阅读顺序。和 OPF spine 中 itemref元素的顺序相同。</li>
+<li>navLabel/text元素，给出该章节的标题。通常是章的标题或者数字，如 “第一章”，或者 — 像这个例子一样 — “封面”。</li>
+<li>content 元素，它的 src 属性指向包含这些内容的物理资源。就是 OPF manifest 中声明的文件（也可使用片段标识符引用 XHTML 内容中的锚元素 — 比如 content.html#footnote1）。</li>
+<li>还可以有一个或多个 navPoint 元素。NCX 使用嵌套的导航点表示层次结构的文档。<br>该文档的结构非常简单：只有两页，不存在嵌套关系。就是说有两个 navPoint 元素，它们的 playOrder 值按升序排列，从 1 开始。在 NCX 中可以命名这些章节，以便读者跳到电子图书不同的部分。</li>
+</ul>
+<p>添加最后的内容</p>
+<p>现在知道了 EPUB 需要的所有元数据，可以加入真正的图书内容了。可以使用 下载 的内容，也可以自己写，只要文件名和元数据匹配即可。</p>
+<p>然后创建下列文件和文件夹：</p>
+<ul>
+<li>title.html：图书的标题页。创建该文件并在其中包含引用封面图片的 img 元素，src 的属性值为images/cover.png。</li>
+<li>images：在 OEBPS 下创建该文件夹，然后复制给定的示例图片（或者创建自己的图片）并命名为 cover.png。</li>
+<li>content.html：图书的实际文字内容。</li>
+<li>stylesheet.css：将该文件放在和 XHTML 文件相同的 OEBPS 目录中。该文件可以包含任意 CSS 声明，比如设置字体或者文字颜色。清单 10 给出了一个 CSS 文件的例子。<br>EPUB 图书中的 XHTML 和 CSS</li>
+</ul>
+<p>清单 9 包含了一个有效的 EPUB 内容页。将其作为标题页（title.html），用一个类似的页面作为主要内容页（content.html）。</p>
+<h4 id="清单-9-示例-title-页面（title-html）"><a href="#清单-9-示例-title-页面（title-html）" class="headerlink" title="清单 9. 示例 title 页面（title.html）"></a>清单 9. 示例 title 页面（title.html）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello World: My First EPUB&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link type&#x3D;&quot;text&#x2F;css&quot; rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;stylesheet.css&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Hello World: My First EPUB&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;div&gt;&lt;img src&#x3D;&quot;images&#x2F;cover.png&quot; alt&#x3D;&quot;Title page&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>EPUB 的 XHTML 需要符合几条要求，和一般的 Web 开发不同：</p>
+<ul>
+<li>内容必须是有效的 XHTML 1.1：XHTML 1.0 Strict 和 XHTML 1.1 的主要区别是去掉了 name属性（使用 ID 引用锚元素）。</li>
+<li>img 元素只能引用电子图书的本地图片：该元素不能引用 Web 上的图片。</li>
+<li>避免使用 script：EPUB 阅读器不一定支持 JavaScript 代码。<br>EPUB 支持 CSS 的方式有一些细微的差别，但是不会影响样式表的一般用法（详情参阅 OPS 规范）。清单 10 中的简单 CSS 文件可以设置基本的字体，并把标题设为红色。</li>
+</ul>
+<p>清单 10. 电子图书的示例样式表（stylesheet.css）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  font-family: sans-serif;     </span><br><span class="line">&#125;</span><br><span class="line">h1,h2,h3,h4 &#123;</span><br><span class="line">  font-family: serif;     </span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有趣的是，EPUB 非常支持 CSS 2 @font-face 规则，允许内嵌字体。如果创建技术文档，这点可能无关紧要，但是如果用多种语言或针对特定领域编写 EPUB，能够指定具体的字体数据就很有必要了。</p>
+<p>现在已经准备好了创建 EPUB 图书所需的所有内容。下一节将按照 OCF 规范将图书装订起来，并看看如何进行验证。</p>
+<h3 id="打包和检查-EPUB"><a href="#打包和检查-EPUB" class="headerlink" title="打包和检查 EPUB"></a>打包和检查 EPUB</h3><p>现在，应当可以对 EPUB 包进行打包。这个包可以是您自己创建的一本新书，也可使用从本文 下载 部分获得的原始文件。</p>
+<p>用 ZIP 打包 EPUB 文件</p>
+<p>EPUB 规范的 OEBPS Container Format 讨论了 EPUB 和 ZIP，最重要的几点是：</p>
+<ul>
+<li>档案中的第一个文件必须是 mimetype 文件（参见本教程 Mimetype一节）。mimetype 文件不能被压缩。这样非 ZIP 工具就能从 EPUB 包的第 30 个字节开始读取原始字节，从而发现 mimetype。</li>
+<li>ZIP 档案不能加密。EPUB 支持加密，但不是在 ZIP 文件这一层上。<br>在类 UNIX® 操作系统上，使用 ZIP 2.3 可通过两个命令来创建 EPUB ZIP 文件，如 清单 11 所示（这些命令假设当前工作目录为 EPUB 项目。）</li>
+</ul>
+<h4 id="清单-11-将-EPUB-打包成有效的-epub-zip-文件"><a href="#清单-11-将-EPUB-打包成有效的-epub-zip-文件" class="headerlink" title="清单 11. 将 EPUB 打包成有效的 epub+zip 文件"></a>清单 11. 将 EPUB 打包成有效的 epub+zip 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ zip -0Xq  my-book.epub mimetype</span><br><span class="line">$ zip -Xr9Dq my-book.epub *</span><br></pre></td></tr></table></figure>
+<p>第一个命令创建了一个新的 ZIP 档案，并添加了没有进行压缩的 mimetype 文件。第二个命令添加其他内容。选项 -X 和 -D 最大限度地减少 .zip 文件中无关紧要的信息；-r 递归地包含 META-INF 和 OEBPS 目录的内容。</p>
+<p>EPUB 验证</p>
+<p>虽然 EPUB 标准并不很难，但其 XML 文件必须符合特定的模式。如果使用模式感知的 XML 编辑器生成元数据和 XHTML，就能事半功倍。对 EpubCheck 包进行最后检查（参见 参考资料）。</p>
+<p>Adobe 负责维护 EpubCheck 包，它是采用 Berkeley Software Distribution (BSD) 许可证的开源项目。它是一个可以作为独立工具、Web 应用程序运行的 Java 程序，或者可以将它集成到在 Java Runtime Environment (JRE) 1.5 或更高版本下运行的应用程序中。</p>
+<p>在命令行中运行非常简单。清单 12 给出了一个例子。</p>
+<h4 id="清单-12-运行-EpubCheck-工具程序"><a href="#清单-12-运行-EpubCheck-工具程序" class="headerlink" title="清单 12. 运行 EpubCheck 工具程序"></a>清单 12. 运行 EpubCheck 工具程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar &#x2F;path&#x2F;to&#x2F;epubcheck.jar my-book.epub</span><br></pre></td></tr></table></figure>
+<p>如果没有创建辅助文件或者元数据文件出错，可能会看到 清单 13 所示的错误消息。</p>
+<p>清单 13. EpubCheck 错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">my-book.epub: image file OEBPS&#x2F;images&#x2F;cover.png is missing</span><br><span class="line">my-book.epub: resource OEBPS&#x2F;stylesheet.css is missing</span><br><span class="line">my-book.epub&#x2F;OEBPS&#x2F;title.html(7): &#39;OEBPS&#x2F;images&#x2F;cover.png&#39;: </span><br><span class="line">     referenced resource missing in the package</span><br><span class="line"></span><br><span class="line">Check finished with warnings or errors!</span><br></pre></td></tr></table></figure>
+<p>这时候可能需要设置 CLASSPATH 使它指向 EpubCheck 的安装位置，因为确实需要导入几个外部库。如果得到这样的消息则需要设置 CLASSPATH：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.xml.sax.SAXParseException: no implementation available for schema language </span><br><span class="line">   with namespace URI &quot;http:&#x2F;&#x2F;www.ascc.net&#x2F;xml&#x2F;schematron&quot;</span><br></pre></td></tr></table></figure>
+<p>如果验证成功，就会看到 “No errors or warnings detected（没有检测到错误或警告）”。祝贺您完成了第一个 EPUB！</p>
+<p>查看 EPUB</p>
+<p>测试不仅仅是验证，还要保证书的外观看起来不错。样式表能正确工作吗？章节的逻辑顺序是否正确？书中是否包含了所有需要的内容？</p>
+<p>有多重 EPUB 阅读器可供选择。图 1 显示了 Adobe Digital Editions (ADE) 的屏幕截图，这是最常用的 EPUB 阅读器。</p>
+<p>参考<br><a href="http://www.cnblogs.com/linlf03/archive/2011/12/15/2285953.html" target="_blank" rel="noopener">http://www.cnblogs.com/linlf03/archive/2011/12/15/2285953.html</a><br><a href="https://www.ibm.com/developerworks/cn/xml/tutorials/x-epubtut/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/xml/tutorials/x-epubtut/index.html</a><br><a href="https://www.ibm.com/developerworks/xml/tutorials/x-epubtut/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/xml/tutorials/x-epubtut/index.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2017/06/16/Epub-analysis-md/" data-id="ck9v2b7ul000c3gs658i87wvv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/04/29/OKVoice_note_api/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OKVoice_note_api
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/04/01/javascript-object/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript_object</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>typescript_note | HKBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="typescript 入门 工具tsc 命令行编译器 windows上的两个版本 一个是官方网站上下载的.msi安装包，一个是通过npm install -g typescript安装的版本。  多文件编译及合并 ts文件之间可以声明静态依赖关系，只要在文件头部给出引用的文件：&#x2F;&#x2F;&#x2F;tsc可以自动寻找和编译依赖的文件，所以编译时可以只传入一个“根”ts文件，只要从这个文件出发能找到所有需要的文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typescript_note">
+<meta property="og:url" content="https://huangxok.github.io/blog/2016/10/14/typescript-note/index.html">
+<meta property="og:site_name" content="HKBlog">
+<meta property="og:description" content="typescript 入门 工具tsc 命令行编译器 windows上的两个版本 一个是官方网站上下载的.msi安装包，一个是通过npm install -g typescript安装的版本。  多文件编译及合并 ts文件之间可以声明静态依赖关系，只要在文件头部给出引用的文件：&#x2F;&#x2F;&#x2F;tsc可以自动寻找和编译依赖的文件，所以编译时可以只传入一个“根”ts文件，只要从这个文件出发能找到所有需要的文件。">
+<meta property="article:published_time" content="2016-10-14T06:45:21.000Z">
+<meta property="article:modified_time" content="2016-10-14T06:45:21.000Z">
+<meta property="article:author" content="HKmaster">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="jsxgraph">
+<meta property="article:tag" content="xulrunner">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="HKBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">HKBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">努力不一定成功，放弃一定会很轻松</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://huangxok.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-typescript-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/10/14/typescript-note/" class="article-date">
+  <time datetime="2016-10-14T06:45:21.000Z" itemprop="datePublished">2016-10-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      typescript_note
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>typescript 入门</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="tsc-命令行编译器"><a href="#tsc-命令行编译器" class="headerlink" title="tsc 命令行编译器"></a>tsc 命令行编译器</h3><ul>
+<li><p>windows上的两个版本</p>
+<p>一个是官方网站上下载的.msi安装包，一个是通过npm install -g typescript安装的版本。</p>
+</li>
+<li><p>多文件编译及合并</p>
+<p>ts文件之间可以声明静态依赖关系，只要在文件头部给出引用的文件：<br>///<reference path='../core/UndoManager.ts'/><br>tsc可以自动寻找和编译依赖的文件，所以编译时可以只传入一个“根”ts文件，只要从这个文件出发能找到所有需要的文件。<br>要小心的是，如果这个引用声明中有任何语法错误，例如引号未闭合、少了结尾的’/‘等，编译器会悄悄的忽略这一行，从而产生难以理解的编译错误（也许是个bug）。<br>如果文件找不到，则编译器能给出正确的提示。<br>虽然一些js文件可以不加修改地作为ts文件编译，但是如果扩展名不改为.ts，则编译器会报错（也许是个bug）。</p>
+</li>
+<li><p>监视文件修改（参考[21]）</p>
+<p>-watch 或 -w <file></p>
+<p>注意只有npm版本支持此选项。如果windows安装了两个版本，则要从path环境变量中把msi版本的tsc排除掉。</p>
+<p>当使用此选项时，tsc将不会退出。所以它只应该在调试的时候使用。</p>
+<p>另一个办法是利用grunt的监视功能。参考”用grunt编译“。</p>
+</li>
+<li><p>sourcemap</p>
+<p>–sourcemap选项<br>生成ts和js代码之间的映射关系，这样调试器、console.*、异常就能够定位到ts文件了。<br>参考：<a href="http://net.tutsplus.com/tutorials/tools-and-tips/source-maps-101/" target="_blank" rel="noopener">http://net.tutsplus.com/tutorials/tools-and-tips/source-maps-101/</a></p>
+<p>chrome 的 dev tool 要打开 “enable source map” 选项。 Firefox 的 dev tool 要打开 “show original source” 选项。</p>
+</li>
+<li><p>declaration</p>
+<p>–declaration 用于生成相应的环境声明文件。</p>
+</li>
+</ul>
+<h3 id="tsc-工程文件-tsconfig-json-22"><a href="#tsc-工程文件-tsconfig-json-22" class="headerlink" title="tsc 工程文件 - tsconfig.json [22]"></a>tsc 工程文件 - tsconfig.json [22]</h3><p>例子[22]：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;compilerOptions&quot;: &#123;</span><br><span class="line">        &quot;module&quot;: &quot;commonjs&quot;,</span><br><span class="line">        &quot;noImplicitAny&quot;: true,</span><br><span class="line">        &quot;removeComments&quot;: true,</span><br><span class="line">        &quot;preserveConstEnums&quot;: true,</span><br><span class="line">        &quot;out&quot;: &quot;..&#x2F;..&#x2F;built&#x2F;local&#x2F;tsc.js&quot;,</span><br><span class="line">        &quot;sourceMap&quot;: true,</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files&quot;: [</span><br><span class="line">        &quot;core.ts&quot;,</span><br><span class="line">        &quot;sys.ts&quot;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用grunt编译"><a href="#用grunt编译" class="headerlink" title="用grunt编译"></a>用grunt编译</h3><ul>
+<li><p>grunt</p>
+<p>npm install -g grunt-cli</p>
+</li>
+<li><p>package</p>
+<p>在工程根目录下创建 package.json：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;projectName&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;grunt&quot;: &quot;~0.4.1&quot;,</span><br><span class="line">    &quot;grunt-exec&quot;: &quot;~0.4.0&quot;,</span><br><span class="line">    &quot;grunt-contrib-watch&quot;: &quot;~0.3.1&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>grunt-exec 用于执行系统命令，我们用它来执行tsc。<br>尽管有一些grunt插件专门用于编译ts（grunt-typescript和grunt-type），但似乎并没有特别的优势，你也可以尝试。</p>
+</li>
+<li><p>Gruntfile.js<br>module.exports = function(grunt) {<br>grunt.loadNpmTasks(‘grunt-exec’);<br>grunt.loadNpmTasks(‘grunt-contrib-watch’);<br>grunt.initConfig({<br>exec: {<br>  ts: {</p>
+<pre><code>command: &apos;tsc --sourcemap --target ES5 --out src/jsgen/main.ts.js src/main/main.ts&apos;,
+stdout: true,
+stderr: true</code></pre><p>  }<br>},<br>watch: {<br>  files: ‘src/<em>*/</em>.ts’,<br>  tasks: [‘exec:ts’]<br>},<br>});<br>}</p>
+</li>
+</ul>
+<p>只编译的话，执行<br>grunt exec<br>要监视文件修改，自动编译的话，执行<br>grunt watch</p>
+<p>参考：<br>  <a href="http://stackoverflow.com/questions/12725544/how-to-use-the-typescript-compiler-in-the-watch-output-files-mode-tsc-w-on" target="_blank" rel="noopener">http://stackoverflow.com/questions/12725544/how-to-use-the-typescript-compiler-in-the-watch-output-files-mode-tsc-w-on</a></p>
+<h3 id="atom-typescript-23"><a href="#atom-typescript-23" class="headerlink" title="atom typescript [23]"></a>atom typescript [23]</h3><p>这是 atom 编辑器的一个扩展，可以支持 TS 的自动完成、跳转、重构等。以下简称ATS。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>apm install atom-typescript</p>
+<p>其它推荐的扩展（<a href="https://atom.io/packages/）：" target="_blank" rel="noopener">https://atom.io/packages/）：</a><br>line-ending-converter<br>linter-htmlhint<br>atom-beautify<br>jsdoc: Control-Shift-d to add comment templates<br>save-session</p>
+<h4 id="命令-快捷键"><a href="#命令-快捷键" class="headerlink" title="命令/快捷键"></a>命令/快捷键</h4><p>跳转到声明：f12<br>查找引用：shift+f12<br>重命名符号：f2<br>格式化代码：ctrl+alt+l。如果有选中，则只格式化选中部分。<br>Symbols View: ctrl+r<br>引用文件：输入 “ref” + tab</p>
+<h4 id="工程配置"><a href="#工程配置" class="headerlink" title="工程配置"></a>工程配置</h4><p>使用 tsconfig.json，ats 相关的选项有（部分）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;compileOnSave&quot;: false,</span><br><span class="line">    &quot;formatCodeOptions&quot;: &#123;</span><br><span class="line">        &quot;indentSize&quot;: 2,</span><br><span class="line">        &quot;tabSize&quot;: 3,</span><br><span class="line">        &quot;newLineCharacter&quot;: &quot;\r\n&quot;,</span><br><span class="line">        &quot;convertTabsToSpaces&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="VS-2012"><a href="#VS-2012" class="headerlink" title="VS 2012"></a>VS 2012</h3><p>目前（0.8.3）仅当作代码编辑器就好，编译和调试还不好用。<br>使用命令行编译，用浏览器调试。</p>
+<ul>
+<li>设置编译目标为ES5<br>如果代码里使用了ES5特性，则应该这样做，否则编辑器会提示语法错误。<br>现在(0.8.3)不能在GUI中设置，要修改vs工程文件，将<br><TypeScriptTarget>ES3</TypeScriptTarget><br>都改为<br><TypeScriptTarget>ES5</TypeScriptTarget></li>
+</ul>
+<h3 id="sublime-text2-sublime-typescript-插件"><a href="#sublime-text2-sublime-typescript-插件" class="headerlink" title="sublime text2 + sublime-typescript 插件"></a>sublime text2 + sublime-typescript 插件</h3><p>插件主页：<br>  <a href="https://github.com/raph-amiard/sublime-typescript" target="_blank" rel="noopener">https://github.com/raph-amiard/sublime-typescript</a><br>在sublime的插件目录（linux下是 ~/.config/sublime-text-2/Packages）中运行<br>  git clone <a href="https://github.com/raph-amiard/sublime-typescript" target="_blank" rel="noopener">https://github.com/raph-amiard/sublime-typescript</a><br>然后重启sublime。<br>如果状态栏上一直显示“Loading typescript plugin”，而 ~/.config/sublime-text-2/Packages/sublime-typescript/lib/typescript/ts.zip<br>的大小一直很小（下载完后应是4MB左右），这说明下载ts源码出问题了。打开<br>~/.config/sublime-text-2/Packages/sublime-typescript/core/install.py<br>找到形如 TYPESCRIPT_SOURCE_LINK = …<br>的行，将后面的url下载下来，应该是个zip，解压到<br>~/.config/sublime-text-2/Packages/sublime-typescript/lib/typescript/<br>下面，应该有<br>~/.config/sublime-text-2/Packages/sublime-typescript/lib/typescript/bin<br>等目录。<br>然后重启sublime。打开控制台（view菜单），这时应该没有错误了。</p>
+<h3 id="浏览器中调试"><a href="#浏览器中调试" class="headerlink" title="浏览器中调试"></a>浏览器中调试</h3><p>编译时tsc需要使用–sourcemap选项，这样会生成.map文件。<br>用chrome调试ts代码需要保证开发工具设置中“enable source map”选项选中了（默认未选中）。<br>参考：<a href="http://stackoverflow.com/questions/13569192/typescript-source-map-files-dont-work-with-chrome" target="_blank" rel="noopener">http://stackoverflow.com/questions/13569192/typescript-source-map-files-dont-work-with-chrome</a><br>  <a href="http://www.aaron-powell.com/web/typescript-source-maps" target="_blank" rel="noopener">http://www.aaron-powell.com/web/typescript-source-maps</a></p>
+<p>firefox(22)和IE(10)目前尚未支持 sourcemap，所以只能调试生成的js文件。<br>  firefox的进度：<a href="https://wiki.mozilla.org/DevTools/Features/SourceMap" target="_blank" rel="noopener">https://wiki.mozilla.org/DevTools/Features/SourceMap</a></p>
+<h3 id="浏览器中即时编译"><a href="#浏览器中即时编译" class="headerlink" title="浏览器中即时编译"></a>浏览器中即时编译</h3><p>  TypeScript Compile automatically transforms your TypeScript code into JavaScript on the fly<br>  <a href="https://github.com/niutech/typescript-compile" target="_blank" rel="noopener">https://github.com/niutech/typescript-compile</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>  TypeScript Language Specification.pdf<br>  Known breaking changes between 0.8 and 0.9 | <a href="https://typescript.codeplex.com/wikipage?title=Known%20breaking%20changes%20between%200.8%20and%200.9" target="_blank" rel="noopener">https://typescript.codeplex.com/wikipage?title=Known%20breaking%20changes%20between%200.8%20and%200.9</a></p>
+<h3 id="类型指定和简单类型"><a href="#类型指定和简单类型" class="headerlink" title="类型指定和简单类型"></a>类型指定和简单类型</h3><p>对于一般变量、函数参数、对象属性，可在变量名后面加冒号（:）并跟上类型表达式；<br>对于一般函数、类和接口的方法的返回值，则是在参数表之后加上 ‘：’ 并跟上类型表达式。</p>
+<p>例如：<br>  var a:number = 2;<br>  function vote(candidate: string)：string { … }<br>  var reports: string[] = [];</p>
+<p>类型表达式有内置的、自定义的、推导的。内置类型包括 any, number, string，bool（这是0.8的，0.9改为boolean）, void这几个也是保留字。<br>其中any的含义是“任何类型”，void仅用于函数返回类型。<br>自定义类型包括：函数类型、对象类型（也就是接口类型）等，后面逐一描述。<br>一般对象的类型是Object，一般函数的类型是Function，这两个都是接口。<br>推导类型主要是数组类型，语法是 typename[]，与java类似。</p>
+<p>另一种指定类型的方式是让编译器通过初始化表达式进行类型推断，例如<br>  var i=0; //i具有类型number<br>  var a=null; //var a:any<br>  var b=undefined; //var a:any<br>  var c={x:0, y:null}; //var c:{x:number; y:any;}<br>  function squr(i:number) { return i*i; } // 返回类型可省略，因为从return语句的类型可以推断出来</p>
+<p>如果变量没有被指定类型，则其类型视为any。除了any类型，对其它类型的使用在编译时都要受到类型检查，这与强类型语言类似。</p>
+<p>null和undefined虽然也是类型，但不能用于类型指定，只能作为字面量使用。<br>值null兼容于任何类型，除了void和undefined类型，也就是说这是合法的：<br>  var b:bool = null;<br>值undefined兼容于任何类型，包括void。</p>
+<h3 id="环境声明-（Ambient-declare）"><a href="#环境声明-（Ambient-declare）" class="headerlink" title="环境声明 （Ambient declare）"></a>环境声明 （Ambient declare）</h3><p>使用 declare 关键字：<br>  declare var document; //浏览器document对象<br>  declare var $; //jqurey对象<br>环境声明可用于声明不是由ts实现的结构，例如js类库、浏览器内置对象等。<br>由于使用未声明变量在ts中是编译错误，所以这是必要的。</p>
+<ul>
+<li><p>接口的环境声明<br>与一般的接口声明没有区别。declare修饰符是可选的。<br>但是只声明接口，客户代码无法使用new操作符。</p>
+</li>
+<li><p>类的环境声明<br>如果希望使用 new SomeClass(…)，而SomeClass是js实现的，那么需要用类的环境声明，接口是不够的，例如：</p>
+</li>
+</ul>
+<p>module m{<br>declare export class {<br>  field1:type1;<br>  constructor(…);<br>  func();<br>}<br>}</p>
+<p>也就是说，方法体用”;”代替，属性不要初始化。declare是可选的。如果类不在模块中，模块声明和export是不需要的（如果有，则是语法错误）。</p>
+<ul>
+<li><p>常用js库的环境声明文件<br><a href="https://github.com/borisyankov/DefinitelyTyped" target="_blank" rel="noopener">https://github.com/borisyankov/DefinitelyTyped</a><br><a href="https://github.com/Diullei/tsd" target="_blank" rel="noopener">https://github.com/Diullei/tsd</a></p>
+<p>安装tsd：<br>npm install -g tsd<br>进入希望放置d.ts文件的目录，安装想要的库：<br>tsd install qunit</p>
+</li>
+</ul>
+<h3 id="函数类型表达式"><a href="#函数类型表达式" class="headerlink" title="函数类型表达式"></a>函数类型表达式</h3><ul>
+<li><p>一般语法<br>函数类型表达式的一般形式是：<br>(param:paremType,param2:paremType2…) =&gt; returnType<br>TODO：返回类型可以省略吗？<br>例如：</p>
+<p>function vote(candidate: string, callback: (result: string) =&gt; any) {<br>// …<br>}</p>
+</li>
+</ul>
+<p>参数callback的类型就是一个函数类型 (result: string) =&gt; any</p>
+<ul>
+<li>注意<br>与函数相关的语法结构有3种：<br>（1）函数类型表达式。就是上面讲的。<br>（2）函数声明。给出函数签名，但没有函数体。<br>（3）函数定义。给出函数签名和函数体。<br>函数类型和函数声明、函数实现的语法上的区别，主要在于返回类型的声明上，前者用箭头，后者用冒号。<br>为什么有这样的区别？因为类型指定表达式中已经有了冒号，所以函数类型表达式要避免在同一层次上使用冒号。<br>在对象类型/接口（详见对象类型/接口）中，可以看到这样的函数声明：<br>funcName(param:paremType,param2:paremType2…):returnType</li>
+</ul>
+<h3 id="对象类型表达式（匿名接口）"><a href="#对象类型表达式（匿名接口）" class="headerlink" title="对象类型表达式（匿名接口）"></a>对象类型表达式（匿名接口）</h3><p>一般形式是：<br>  {<br>    fieldName:fieldType;<br>    fieldName2:fieldType2;<br>    method1(paramName:paramType…):returnType;<br>    method2：(paramName:paramType…)=&gt;returnType;<br>    …<br>  }</p>
+<p>注意字段之间是分号分割的，而不是像对象字面量的属性那样用逗号分隔，这是两者的关键区别。<br>对象类型中的字段可以被声明为可选的，只需在fieldName后加上问号。<br>如果字段的类型是函数（称为方法），则采用“字段名、参数表、冒号、返回类型”的形式，如同method1那样;<br>或者采用“字段名、冒号、函数类型表达式”的形式，如method2；这两种形式是等效的。<br>注意，方法前不要加function关键字。<br>对象类型中的字段可以被声明为可选的，只需在fieldName后加上问号。</p>
+<p>例子：<br>  var MakePoint: () =&gt; {<br>    x: number; y: number;<br>  };<br>意思是，变量MakePoint的类型是个函数，该返回值的类型是个对象，该对象有x、y两个number类型的字段。</p>
+<p>如果对象本身还是个函数，则可以声明一个匿名函数字段，也就是<br>{<br>  (param:paremType,…):returnType;<br>  …<br>}<br>如果对象类型只有匿名函数字段，则等效于一个函数类型声明。</p>
+<p>ts允许对象类型加入多个同名函数字段，只要它们有不同的参数表，也就是说支持函数重载。</p>
+<p>如果一个对象提供了比一个对象类型更多的字段，并不会被认为类型不符合。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>如果给对象类型命名以便复用，就是接口，语法如下：<br>  interface IterfaceName {fieldName:fieldType; fieldName2:fieldType2;… }<br>interface也是关键字。<br>然后可以将IterfaceName用作类型表达式。</p>
+<ul>
+<li>例子<br>例1：<br>interface Friend {<br>  name: string;<br>  favoriteColor?: string;<br>}<br>function add(friend: Friend) {<br>  var name = friend.name;<br>}<br>add({ name: “Fred” }); // Ok<br>add({ favoriteColor: “blue” }); // Error, name required<br>add({ name: “Jill”, favoriteColor: “green” }); // Ok</li>
+</ul>
+<p>例2：<br>  interface JQuery {<br>    text(content: string);<br>  }<br>  interface JQueryStatic {<br>    get(url: string, callback: (data: string) =&gt; any);<br>    (query: string): JQuery;<br>    (ready: () =&gt; any): any;<br>  }<br>  declare var $: JQueryStatic;<br>  $.get(“<a href="http://mysite.org/divContent&quot;" target="_blank" rel="noopener">http://mysite.org/divContent&quot;</a>,<br>    function (data: string) {<br>      $(“div”).text(data);<br>    }<br>  );</p>
+<h3 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h3><ul>
+<li><p>返回类型推断<br>function mul(a: number, b: number) {<br>  return a * b;<br>}<br>ts推断mul的返回类型是number。</p>
+</li>
+<li><p>实参的形参类型推断<br>如果$.get被声明为类型：<br>(url:string, (data:string)=&gt;any)=&gt;any<br>则<br>$.get(“<a href="http://mysite.org/divContent&quot;" target="_blank" rel="noopener">http://mysite.org/divContent&quot;</a>,<br>function (data) {<br>  $(“div”).text(data); // TypeScript infers data is a string<br>}<br>);</p>
+</li>
+<li><p>Contextually Typed Expressions<br>根据被赋值的变量的类型推断赋值表达式中的类型。<br>var f: (s: string) =&gt; string;<br>f = function(s) { return s.toLowerCase(); } //s inferred as string</p>
+</li>
+</ul>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ul>
+<li>语法<br>class ClassName {<br>modifer filed1 = value1;<br>constructor(param:type) {…}<br>modifer method1(param:type):returnType { … }<br>}<br>其中 class 是关键字。</li>
+</ul>
+<p>字段可以给出初始值，类型可以从初始值推断。与接口一样，字段定义以分号结尾。</p>
+<p>修饰符modifer是public或private，省略时默认为public。但这只在编译时检查。</p>
+<p>constructor 也是关键字，表示构造器。如果没有声明构造器，则会有一个无参数构造器。</p>
+<p>方法定义与接口类似，但因为有了函数体，不再需要分号结尾。</p>
+<p>注意，方法和构造器前不要加function关键字。</p>
+<p>在方法内部，访问字段或其它方法仍然需要用this关键字，这与js相同。</p>
+<p>上述代码翻译为js时，会创建一个名为ClassName的伪类，方法都会定义于ClassName.prototype上。</p>
+<p>修饰符modifer还可以是static，这时字段成为（伪）类本身的属性，要通过ClassName.filed访问。</p>
+<p>类中的方法也支持重载，但是各个重载版本必须共用一个函数体，详见“重载”。</p>
+<ul>
+<li><p>在构造器中定义字段<br>这是一种方便语法。在构造器形式参数前加上访问修饰符，则会在类中定义同名字段，<br>并自动将该参数赋值给该字段，例如：<br>constructor(public param:type) {…}</p>
+</li>
+<li><p>类类型<br>如果变量的类型是一个（伪）类或者是构造函数，则可用如下类型表达式：<br>new(param:type…) =&gt; ClassOrInterfaceName<br>new关键字表明，这是个需要通过new语法调用的函数，并返回某个类或接口的对象。</p>
+</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>语法与java类似，采用extends关键字：</p>
+<p>  class CheckingAccount extends BankAccount {<br>    constructor(balance: number) {<br>      super(balance);<br>    }<br>    writeCheck(debit: number) {<br>      this.balance -= debit;<br>    }<br>  }</p>
+<p>调用父类构造器的方法是super(…)。TODO:如果没有显式调用，编译器是否会自动调用super()？<br>调用父类属性的方法是super.identifier。<br>在编译器生成的js代码中，子（伪）类的prototype会链接（chain）到父（伪）类的prototype上。</p>
+<ul>
+<li><p>实现接口<br>类也可以用implements关键字指明它实现了哪些接口，与Java的语法相同。<br>不过，类不必显式的声明它实现了什么接口，在需要该接口的场合，直接使用该类的实例也是正确的。</p>
+</li>
+<li><p>接口之间的继承<br>接口可以继承接口，用extends关键字，与Java相同。</p>
+</li>
+</ul>
+<h3 id="强制类型转换（type-assertion）"><a href="#强制类型转换（type-assertion）" class="headerlink" title="强制类型转换（type assertion）"></a>强制类型转换（type assertion）</h3><p>语法：<br><type> expression<br>也就是将Java/C#中的圆括号改为尖括号。</p>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>对应js的模块模式。</p>
+<ul>
+<li>内部模块</li>
+</ul>
+<p>语法：<br>module M { //模块名M<br>  var var1 = value1; //模块私有变量<br>  function func1(…) {…}; //模块私有函数<br>  class C1 {…} //模块私有类<br>  export var var2 = value2; //导出变量<br>  export function func2(…) {…}; //导出函数<br>  export class C1 {…} //导出类<br>}</p>
+<p>这样创建了一个名为M的模块对象（如果是在全局作用域，则M是个全局对象）<br>导出的结构都可以用M.name访问。</p>
+<p>导出类型可以访问非导出类型，但是不能出现在导出的API中，例如public成员不能是非导出类型。<br>不过当前的tsc（0.8.3）似乎也不接受类的private成员有非导出类型，尽管局部变量使用非导出类型是没问题的。</p>
+<p>module 和 export 都是关键字。</p>
+<p>如果不在模块内部而使用了export关键字，编译器会报错“Cannot compile dynamic modules when emitting into single file”，这可能是个bug。</p>
+<p>例子：<br>module M {<br>var s = “hello”;<br>export function f() {<br>return s;<br>}<br>}<br>M.f();<br>M.s; // Error, s is not exported</p>
+<p>生成的js代码是：</p>
+<p>var M;<br>(function(M) {<br>var s = “hello”;<br>function f() {<br>return s;<br>}<br>M.f = f;<br>})(M||(M={}));</p>
+<ul>
+<li>外部模块<br>这是为了产生用于CMD、AMD等系统的模块。<br>语法上，没有module M {} 构造，但是有顶层的 export 和 import 指令。</li>
+</ul>
+<h3 id="箭头函数表达式（arrow-function-expressions）"><a href="#箭头函数表达式（arrow-function-expressions）" class="headerlink" title="箭头函数表达式（arrow function expressions）"></a>箭头函数表达式（arrow function expressions）</h3><p>这也是计划中的ES6特性。<br>(param,…) =&gt; {…}<br>或者<br>param =&gt; {…}</p>
+<p>括号和函数体中的return关键字有时是可选的。</p>
+<p>例子：<br>(x) =&gt; { return Math.sin(x); }<br>(x) =&gt; Math.sin(x)<br>x =&gt; { return Math.sin(x); }<br>x =&gt; Math.sin(x)</p>
+<p>以上都是等效的。</p>
+<p>箭头函数表达式并不仅仅是传统函数表达式的简化写法。语义上的区别是，前者重用了上下文的this值，而后者的this值可以是其它值。</p>
+<h2 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h2><h3 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h3><p>  TypeScript Language Specification.pdf</p>
+<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><ul>
+<li><p>全局模块<br>ts总是有一个全局模块，对应于js的全局作用域。</p>
+</li>
+<li><p>成员和类型<br>ts把语法构造分为两类：成员（members）和类型（types）。<br>成员包括：变量、函数、模块、构造器（即伪类）；<br>类型包括：模块、类、接口。</p>
+</li>
+</ul>
+<p>可见，成员都是js原有的东西，类型则是ts新增的概念。<br>其中模块、类同时对成员和类型有贡献。</p>
+<ul>
+<li>声明空间<br>声明空间分为成员声明空间和类型声明空间两种，互相不会冲突。也就是说，可以同时声明同名的成员和类型。例如这是合法的：<br>module M<br>{<br>interface X { }<br>var X;<br>}<br>但如果X是个类，则出现语法错误，因为class同时对成员和类型有贡献。</li>
+</ul>
+<p>模块同时有成员声明空间和类型声明空间；其它大多数构造只有成员声明空间。</p>
+<ul>
+<li><p>模块和接口的合并<br>对于内部模块，同一模块可以被定义多次，可以分散到多个文件中，只要全名相同，则这些模块定义被合并。<br>接口也是这样。<br>多个同名内部模块内的局部成员的名字是不会冲突的，但导出的名字可能会冲突。</p>
+</li>
+<li><p>静态成员和非静态成员在不同的声明空间中<br>这是合法的：<br>class C<br>{<br>x: number;<br>static x: string;<br>}</p>
+</li>
+<li><p>嵌套的模块<br>模块可以嵌套。<br>内层模块中的名字会隐藏外部模块中相同的名字。</p>
+</li>
+</ul>
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>类、接口、模块、匿名对象类型都产生了对象类型。</p>
+<p>仅有类的成员可以声明为私有的，其它都是公有的。</p>
+<p>内部成员完全相同的两个类也是不兼容的。不过这只在编译时检查。</p>
+<p>模块不能被声明为实现了某个接口。不过仍有可能对模块进行编译时类型检查，参考：<br>  <a href="http://stackoverflow.com/questions/16072471/why-cant-typescript-modules-implement-or-adhere-to-an-interface-can-i-get-arou" target="_blank" rel="noopener">http://stackoverflow.com/questions/16072471/why-cant-typescript-modules-implement-or-adhere-to-an-interface-can-i-get-arou</a></p>
+<ul>
+<li>ts的内置接口<br>ts的内置接口包括 Object、Function、Number、String、Bool 接口 – 不要和同名的js伪类混淆。<br>所有的对象都被认为实现了 Object 接口；函数和构造器被认为实现了 Function 接口；<br>基本类型number、string、bool被认为实现了Number、String、Bool 接口。</li>
+</ul>
+<h3 id="函数的进一步讨论"><a href="#函数的进一步讨论" class="headerlink" title="函数的进一步讨论"></a>函数的进一步讨论</h3><ul>
+<li>重载<br>实现重载函数的例子是：</li>
+</ul>
+<p>function attr(name: string): string;<br>function attr(name: string, value: string): Accessor;<br>function attr(map: any): Accessor;<br>function attr(nameOrMap: any, value: string): any {<br>  if (nameOrMap &amp;&amp; typeof nameOrMap === “object”) {<br>  // handle map case<br>  }<br>  else {<br>  // handle string case<br>  }<br>}</p>
+<p>也就是在函数体前声明多个函数签名，用分号隔开，最后跟上实际的函数实现。<br>不过，因为只能共用一个函数体，所以必须检查参数的实际类型。</p>
+<p>以上实现的attr函数具有以下类型：<br>{<br>  (name: string): string;<br>  (name: string, value: string): Accessor;<br>  (map: any): Accessor;<br>}</p>
+<ul>
+<li><p>可选参数和默认值<br>ES5函数支持可选参数和默认值，ts中一样可以用；还可以在参数后加上问号表示可选参数。<br>例如：<br>redo(step?=1) { }<br>或者<br>redo(step=1) { }<br>以上是等效的。也可以只给出可选参数但不给出默认值：<br>redo(step?) { }</p>
+</li>
+<li><p>变长参数表（Rest Parameters）<br>参考：<br><a href="http://stackoverflow.com/questions/12739149/typescript-type-signatures-for-functions-with-variable-argument-counts" target="_blank" rel="noopener">http://stackoverflow.com/questions/12739149/typescript-type-signatures-for-functions-with-variable-argument-counts</a></p>
+</li>
+</ul>
+<p>语法：<br>function func(…args: type[]) {<br>  …<br>}</p>
+<p>例如 （<a href="http://stackoverflow.com/questions/12697275/open-ended-function-arguments-with-typescript）：" target="_blank" rel="noopener">http://stackoverflow.com/questions/12697275/open-ended-function-arguments-with-typescript）：</a><br>function sum(…numbers: number[]) {<br>    var aggregateNumber = 0;<br>    for (var i = 0; i &lt; numbers.length; i++)<br>        aggregateNumber += numbers[i];<br>    return aggregateNumber;<br>}</p>
+<p>This will then type check correctly with</p>
+<p>console.log(sum(1, 5, 10, 15, 20));</p>
+<ul>
+<li>变长参数表函数的重载<br>通常希望变长参数表也能接受数组作为参数，这就需要一个重载的版本。但是以下做法是语法错误：<br>  addProperties(…propNames: string[]);<br>  addProperties(propNames: string[]) {<br>  //…<br>  ｝<br>两个参数表交换位置、propNames: string[] 改为 propNames: any[]也都是语法错误。<br>只有这样是允许的：<br>  addProperties(…propNames: string[]);<br>  addProperties(propNames) {<br>  //…<br>  ｝<br>但是能否正常工作则不清楚。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="http://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript 官方网站</a></p>
+<p>[2] <a href="http://www.typescriptlang.org/Content/TypeScript%20Language%20Specification.pdf" target="_blank" rel="noopener">TypeScript 语言规范（英）</a></p>
+<p>[3] <a href="http://www.typescriptlang.org/Handbook" target="_blank" rel="noopener">TypeScript 手册（英）</a></p>
+<p>[4] <a href="https://github.com/Microsoft/TypeScript" target="_blank" rel="noopener">TypeScript 源码库（github）</a></p>
+<p>[5] <a href="http://www.codebelt.com/category/typescript/" target="_blank" rel="noopener">TypeScript - codeBelt（一些 typescript 教程（英））</a></p>
+<p>[6] <a href="http://blog.csdn.net/he_8134/article/details/10954049" target="_blank" rel="noopener">TypeScript —— Web前端开发的救赎</a></p>
+<p>[7] <a href="http://www.csdn.net/article/2012-10-11/2810645-Thoughts-on-TypeScript" target="_blank" rel="noopener">JavaScript 大师 Nicholas C. Zakas 谈 TypeScript</a></p>
+<p>[21] <a href="http://stackoverflow.com/questions/12725544/how-to-use-the-typescript-compiler-in-the-watch-output-files-mode-tsc-w-on" target="_blank" rel="noopener">how to use the typescript compiler in the watch output files</a></p>
+<p>[22] <a href="https://github.com/Microsoft/TypeScript/wiki/tsconfig.json" target="_blank" rel="noopener">tsconfig.json</a></p>
+<p>[23] <a href="https://github.com/TypeStrong/atom-typescript" target="_blank" rel="noopener">atom-typescript</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangxok.github.io/blog/2016/10/14/typescript-note/" data-id="ck9v2b7v5001q3gs602frfknl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/11/09/jsonp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jsonp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/09/28/jsxShapesCreate/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jsxShapeCreate</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/">Epub</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Epub/Kindle/">Kindle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/">排序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Board/" rel="tag">Board</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Epub/" rel="tag">Epub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Firefox/" rel="tag">Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JXGGraph/" rel="tag">JXGGraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NextT/" rel="tag">NextT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OPF/" rel="tag">OPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Theme/" rel="tag">Theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XHTML/" rel="tag">XHTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XUL/" rel="tag">XUL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/XULRunner/" rel="tag">XULRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proto/" rel="tag">__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compose/" rel="tag">compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/counter/" rel="tag">counter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/curry/" rel="tag">curry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/grunt/" rel="tag">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gruntfile/" rel="tag">gruntfile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/h5API/" rel="tag">h5API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hammerJS/" rel="tag">hammerJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jxggraph/" rel="tag">jxggraph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/link/" rel="tag">link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/message/" rel="tag">message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/object/" rel="tag">object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pen/" rel="tag">pen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/postmessage/" rel="tag">postmessage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prototype/" rel="tag">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shape/" rel="tag">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/touch/" rel="tag">touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web%E9%80%9A%E4%BF%A1/" rel="tag">web通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" rel="tag">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" rel="tag">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="tag">计数器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%93%BE%E6%8E%A5/" rel="tag">链接</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Board/" style="font-size: 10px;">Board</a> <a href="/blog/tags/Epub/" style="font-size: 20px;">Epub</a> <a href="/blog/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/JS/" style="font-size: 10px;">JS</a> <a href="/blog/tags/JXGGraph/" style="font-size: 10px;">JXGGraph</a> <a href="/blog/tags/NextT/" style="font-size: 10px;">NextT</a> <a href="/blog/tags/OPF/" style="font-size: 20px;">OPF</a> <a href="/blog/tags/Theme/" style="font-size: 10px;">Theme</a> <a href="/blog/tags/XHTML/" style="font-size: 10px;">XHTML</a> <a href="/blog/tags/XUL/" style="font-size: 10px;">XUL</a> <a href="/blog/tags/XULRunner/" style="font-size: 10px;">XULRunner</a> <a href="/blog/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/blog/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/blog/tags/compose/" style="font-size: 10px;">compose</a> <a href="/blog/tags/counter/" style="font-size: 10px;">counter</a> <a href="/blog/tags/cros/" style="font-size: 10px;">cros</a> <a href="/blog/tags/css/" style="font-size: 10px;">css</a> <a href="/blog/tags/curry/" style="font-size: 15px;">curry</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/blog/tags/gruntfile/" style="font-size: 10px;">gruntfile</a> <a href="/blog/tags/h5API/" style="font-size: 10px;">h5API</a> <a href="/blog/tags/hammerJS/" style="font-size: 10px;">hammerJS</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/js/" style="font-size: 10px;">js</a> <a href="/blog/tags/jxggraph/" style="font-size: 10px;">jxggraph</a> <a href="/blog/tags/link/" style="font-size: 10px;">link</a> <a href="/blog/tags/message/" style="font-size: 10px;">message</a> <a href="/blog/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/object/" style="font-size: 10px;">object</a> <a href="/blog/tags/pen/" style="font-size: 10px;">pen</a> <a href="/blog/tags/postmessage/" style="font-size: 10px;">postmessage</a> <a href="/blog/tags/prototype/" style="font-size: 15px;">prototype</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/shape/" style="font-size: 10px;">shape</a> <a href="/blog/tags/touch/" style="font-size: 10px;">touch</a> <a href="/blog/tags/web%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">web通信</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/" style="font-size: 10px;">函数式</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">函数式编程</a> <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/blog/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">排序</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a> <a href="/blog/tags/%E8%99%9A%E6%8B%9Fdom/" style="font-size: 10px;">虚拟dom</a> <a href="/blog/tags/%E8%AE%A1%E6%95%B0%E5%99%A8/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">链接</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/29/about-title-with-whitespac/">about title with whitespac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/about/">about</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/29/OKVoice_note_api/">OKVoice_note_api</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/06/16/Epub-analysis-md/">Epub_analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/04/01/javascript-object/">javascript_object</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HKmaster<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
