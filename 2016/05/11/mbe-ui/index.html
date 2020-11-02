@@ -480,12 +480,15 @@
 <ul>
 <li><p>采用声明式的 JS 语法描述 HTML DOM 树</p>
 <p>mbe_ui 允许用普通的 JS 对象字面量（称作”虚拟元素”）来描述 DOM 树的结构，因此既是声明式的，又可以利用已有的 JS 技能，无需另外学习模板语言；<br>而且，在 DOM 树的描述中可以直接绑定事件监听器。例如 HTML button 的虚拟元素可以是：</p>
-<pre><code>{
-  Name: &#39;button&#39;,
-  Kids: [&#39;button1&#39;],
-  className: &#39;btn&#39;,
-  onclick: function() { alert(`clicked`); } 
-}</code></pre></li>
+</li>
+</ul>
+<pre><code class="javascript">  {
+    Name: &#39;button&#39;,
+    Kids: [&#39;button1&#39;],
+    className: &#39;btn&#39;,
+    onclick: function() { alert(`clicked`); } 
+  }</code></pre>
+<ul>
 <li><p>采用“单向数据流动”的界面更新模式</p>
 <p>这个模式的意思是大部分界面组件无状态，总是从上级发送“设置”数据到各级界面组件，决定其显示的样子（详见“mbe_ui 组件的设计思想”一节）。<br>采用这个模式可以简化界面更新的逻辑。</p>
 </li>
