@@ -340,7 +340,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + Math.floor(Math.random()*24) + '.jpg';
+    var bannerUrl = "/medias/banner/" + Math.floor(Math.random()* 6) + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
@@ -580,7 +580,7 @@
                    type="playlist"
                    id="18726943"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
