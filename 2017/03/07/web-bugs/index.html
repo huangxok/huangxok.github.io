@@ -1,317 +1,466 @@
-<!doctype html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
 
-
-  
-
-
-<html class="theme-next pisces use-motion">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="utf-8">
+    <meta name="keywords" content="web-bugs, hexo,jsxgraph,xulrunner">
+    <meta name="description" content="时光岁月如流水，流水奔流入海不复回">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
+    <title>web-bugs | HKBlog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
-
-
-
-<meta name="description" content="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效-webkit-clip-path 是有效的 Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits &#x3D; “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，正确">
-<meta property="og:type" content="article">
-<meta property="og:title" content="web-bugs">
-<meta property="og:url" content="https://huangxok.github.io/2017/03/07/web-bugs/index.html">
-<meta property="og:site_name" content="HKBlog">
-<meta property="og:description" content="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效-webkit-clip-path 是有效的 Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits &#x3D; “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，正确">
-<meta property="article:published_time" content="2017-03-07T06:39:31.000Z">
-<meta property="article:modified_time" content="2017-03-07T06:39:31.000Z">
-<meta property="article:author" content="HKmaster">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="jsxgraph">
-<meta property="article:tag" content="xulrunner">
-<meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-  <title> web-bugs | HKBlog </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?4da7cfa2ee90a8b50242eb2e6b813c3";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">HKBlog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">努力不一定成功，放弃一定会很轻松</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                web-bugs
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-07T14:39:31+08:00" content="2017-03-07">
-              2017-03-07
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/07/web-bugs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/07/web-bugs/" itemprop="commentsCount"></span>
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HKBlog</span>
                 </a>
-              </span>
+            </div>
             
-          
 
-          
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-          
-          
 
-          
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HKBlog</div>
+        <div class="logo-desc">
+            
+            时光岁月如流水，流水奔流入海不复回
+            
         </div>
-      </header>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
     
 
 
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">web-bugs</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-      
-        <h3 id="Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效"><a href="#Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效" class="headerlink" title="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效"></a>Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效</h3><p>-webkit-clip-path 是有效的</p>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-03-07
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效"><a href="#Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效" class="headerlink" title="Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效"></a>Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效</h3><p>-webkit-clip-path 是有效的</p>
 <h3 id="Chrome52：CSS-clip-path-url-作用于-html-元素时，如果引用的-SVG-clipPath-元素的-clipPathUnits-“userSpaceOnUse”-（这是默认值），裁剪区的坐标原点是页面原点，"><a href="#Chrome52：CSS-clip-path-url-作用于-html-元素时，如果引用的-SVG-clipPath-元素的-clipPathUnits-“userSpaceOnUse”-（这是默认值），裁剪区的坐标原点是页面原点，" class="headerlink" title="Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits = “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，"></a>Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits = “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，</h3><p>正确的应该是被裁剪的元素的原点。</p>
 <p>53修复这个问题。注意 clipPathUnits = “objectBoundingBox” 时并没有问题。</p>
 <h3 id="Chrome52-53-CSS-clip-path-url-作用于-svg-元素时，不支持到外部文件的-url，裁剪完全被忽略"><a href="#Chrome52-53-CSS-clip-path-url-作用于-svg-元素时，不支持到外部文件的-url，裁剪完全被忽略" class="headerlink" title="Chrome52-53: CSS clip-path: url() 作用于 svg 元素时，不支持到外部文件的 url，裁剪完全被忽略"></a>Chrome52-53: CSS clip-path: url() 作用于 svg 元素时，不支持到外部文件的 url，裁剪完全被忽略</h3><h3 id="Chrome52-53-CSS-clip-path-url-作用于-html-元素时，不支持到外部文件的-url，而且如果使用外部文件的-url，片段部分（-xxx）被解释为本文件内的-id"><a href="#Chrome52-53-CSS-clip-path-url-作用于-html-元素时，不支持到外部文件的-url，而且如果使用外部文件的-url，片段部分（-xxx）被解释为本文件内的-id" class="headerlink" title="Chrome52-53: CSS clip-path: url() 作用于 html 元素时，不支持到外部文件的 url，而且如果使用外部文件的 url，片段部分（#xxx）被解释为本文件内的 id"></a>Chrome52-53: CSS clip-path: url() 作用于 html 元素时，不支持到外部文件的 url，而且如果使用外部文件的 url，片段部分（#xxx）被解释为本文件内的 id</h3><h3 id="Windows-长路径"><a href="#Windows-长路径" class="headerlink" title="Windows 长路径"></a>Windows 长路径</h3><p>经过测试，moz 平台对长路径（&gt;260）的支持是不完全的：</p>
@@ -420,340 +569,663 @@
 <h3 id="负-word-spacing-导致意外换行"><a href="#负-word-spacing-导致意外换行" class="headerlink" title="负 word-spacing 导致意外换行"></a>负 word-spacing 导致意外换行</h3><h3 id="inline-block-导致意外换行"><a href="#inline-block-导致意外换行" class="headerlink" title="inline-block 导致意外换行"></a>inline-block 导致意外换行</h3><p><a href="https://bugs.webkit.org/show_bug.cgi?id=35443" target="_blank" rel="noopener">https://bugs.webkit.org/show_bug.cgi?id=35443</a><br><a href="https://code.google.com/p/chromium/issues/detail?id=428647" target="_blank" rel="noopener">https://code.google.com/p/chromium/issues/detail?id=428647</a></p>
 <h3 id="Blob-constructor-produces-corrupted-result-by-recursively-joining-a-blob-and-an-ArrayBuffer"><a href="#Blob-constructor-produces-corrupted-result-by-recursively-joining-a-blob-and-an-ArrayBuffer" class="headerlink" title="Blob constructor produces corrupted result by recursively joining a blob and an ArrayBuffer"></a>Blob constructor produces corrupted result by recursively joining a blob and an ArrayBuffer</h3><p><a href="https://code.google.com/p/chromium/issues/detail?id=429960" target="_blank" rel="noopener">https://code.google.com/p/chromium/issues/detail?id=429960</a></p>
 <h3 id="XHTML-中-script-defer-属性不起作用"><a href="#XHTML-中-script-defer-属性不起作用" class="headerlink" title="XHTML 中 script defer 属性不起作用"></a>XHTML 中 script defer 属性不起作用</h3><h3 id="当-textarea-外有选区，而-textarea-有焦点时，textarea-只能得到-KeyboardEvent，不能得到-InputEvent。"><a href="#当-textarea-外有选区，而-textarea-有焦点时，textarea-只能得到-KeyboardEvent，不能得到-InputEvent。" class="headerlink" title="当 textarea 外有选区，而 textarea 有焦点时，textarea 只能得到 KeyboardEvent，不能得到 InputEvent。"></a>当 textarea 外有选区，而 textarea 有焦点时，textarea 只能得到 KeyboardEvent，不能得到 InputEvent。</h3>
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/03/03/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="next" title="函数式编程笔记">
-                <i class="fa fa-chevron-left"></i> 函数式编程笔记
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/07/ramda%E5%BA%93/" rel="prev" title="ramda库">
-                ramda库 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/03/07/web-bugs/"
-     data-title="web-bugs"
-     data-content=""
-     data-url="https://huangxok.github.io/2017/03/07/web-bugs/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/03/07/web-bugs/"
-           data-title="web-bugs" data-url="https://huangxok.github.io/2017/03/07/web-bugs/">
-      </div>
-    
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/photo.jpg"
-               alt="HKmaster" />
-          <p class="site-author-name" itemprop="name">HKmaster</p>
-          <p class="site-description motion-element" itemprop="description">时光岁月如流水，流水奔流入海不复回</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
             </div>
-          
+            <hr/>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">47</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">HKmaster</a>
+                </span>
             </div>
-          
-
-        </nav>
-
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://huangxok.github.io/2017/03/07/web-bugs/">https://huangxok.github.io/2017/03/07/web-bugs/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">HKmaster</a>
+                    !
+                </span>
+            </div>
         
+    </div>
 
-        <div class="links-of-author motion-element">
-          
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/huangxok" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-          
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome52-53-无前缀的-CSS-clip-path-url-无效，但开发工具中显示已经生效"><span class="nav-number">1.</span> <span class="nav-text">Chrome52-53: 无前缀的 CSS clip-path: url() 无效，但开发工具中显示已经生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome52：CSS-clip-path-url-作用于-html-元素时，如果引用的-SVG-clipPath-元素的-clipPathUnits-“userSpaceOnUse”-（这是默认值），裁剪区的坐标原点是页面原点，"><span class="nav-number">2.</span> <span class="nav-text">Chrome52：CSS clip-path: url() 作用于 html 元素时，如果引用的 SVG clipPath 元素的 clipPathUnits &#x3D; “userSpaceOnUse” （这是默认值），裁剪区的坐标原点是页面原点，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome52-53-CSS-clip-path-url-作用于-svg-元素时，不支持到外部文件的-url，裁剪完全被忽略"><span class="nav-number">3.</span> <span class="nav-text">Chrome52-53: CSS clip-path: url() 作用于 svg 元素时，不支持到外部文件的 url，裁剪完全被忽略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome52-53-CSS-clip-path-url-作用于-html-元素时，不支持到外部文件的-url，而且如果使用外部文件的-url，片段部分（-xxx）被解释为本文件内的-id"><span class="nav-number">4.</span> <span class="nav-text">Chrome52-53: CSS clip-path: url() 作用于 html 元素时，不支持到外部文件的 url，而且如果使用外部文件的 url，片段部分（#xxx）被解释为本文件内的 id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-长路径"><span class="nav-number">5.</span> <span class="nav-text">Windows 长路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firefox-Changing-width-height-of-images-continuously-causes-very-high-memory-and-CPU-usage"><span class="nav-number">6.</span> <span class="nav-text">Firefox: Changing width&#x2F;height of images continuously causes very high memory and CPU usage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firefox-在页面刷新时自动恢复表单字段的状态，包括-disabled-状态"><span class="nav-number">7.</span> <span class="nav-text">Firefox 在页面刷新时自动恢复表单字段的状态，包括 disabled 状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firefox-黑屏"><span class="nav-number">8.</span> <span class="nav-text">firefox 黑屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xulrunner-45-远程调试崩溃"><span class="nav-number">9.</span> <span class="nav-text">xulrunner 45 远程调试崩溃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-url-中不能有连续的-‘-’"><span class="nav-number">10.</span> <span class="nav-text">chrome-url 中不能有连续的 ‘..’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-url-中的-2540-解释不正确"><span class="nav-number">11.</span> <span class="nav-text">chrome-url 中的 %2540 解释不正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示"><span class="nav-number">12.</span> <span class="nav-text">反复缩放较大的图片，会造成内存占用急剧升高，然后图片不显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventSource-Server-Sent-Event-doesn’t-retry-after-OS-suspend-resume"><span class="nav-number">13.</span> <span class="nav-text">EventSource (Server Sent Event) doesn’t retry after OS suspend&#x2F;resume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventSource-Server-Sent-Event-doesn’t-retry-if-the-server-is-down-during-the-first-attempt-to-connect"><span class="nav-number">14.</span> <span class="nav-text">EventSource (Server Sent Event) doesn’t retry if the server is down during the first attempt to connect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window-open-doesn’t-resolve-relative-url-correctly-when-iframe-involved"><span class="nav-number">15.</span> <span class="nav-text">Window.open() doesn’t resolve relative url correctly when iframe involved</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object-type-text-html-对错误的url仍然显示空白文档，而不是后备内容"><span class="nav-number">16.</span> <span class="nav-text">object type&#x3D;text&#x2F;html 对错误的url仍然显示空白文档，而不是后备内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#file-协议的-content-type"><span class="nav-number">17.</span> <span class="nav-text">file: 协议的 content-type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分离的-video-元素仍会导致视频加载和解码（除非设置preload-none），造成很大的内存占用"><span class="nav-number">18.</span> <span class="nav-text">分离的 video 元素仍会导致视频加载和解码（除非设置preload&#x3D;none），造成很大的内存占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MutationObserver-在初始解析阶段不能及时发送事件"><span class="nav-number">19.</span> <span class="nav-text">MutationObserver 在初始解析阶段不能及时发送事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getComputedStyle-用于外部文档中的节点以及分离的节点"><span class="nav-number">20.</span> <span class="nav-text">getComputedStyle 用于外部文档中的节点以及分离的节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重组合键"><span class="nav-number">21.</span> <span class="nav-text">多重组合键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object-中的浏览器原生支持的内容"><span class="nav-number"></span> <span class="nav-text">object 中的浏览器原生支持的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mozilla-Firefox-的"><span class="nav-number"></span> <span class="nav-text">Mozilla&#x2F;Firefox 的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe-的父元素上有滚动条，则用空格-page-up-down-时导致滚动位置与滚动条位置不同步。"><span class="nav-number">1.</span> <span class="nav-text">iframe 的父元素上有滚动条，则用空格&#x2F;page up&#x2F;down 时导致滚动位置与滚动条位置不同步。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-url-的-iframe-中的-html-xhtml-的事件监听器的-this-不正确"><span class="nav-number">2.</span> <span class="nav-text">chrome-url 的 iframe 中的 html&#x2F;xhtml 的事件监听器的 this 不正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FF-上-outline-会包围溢出的子元素。"><span class="nav-number">3.</span> <span class="nav-text">FF 上 outline 会包围溢出的子元素。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频元素导致大量的内存占用"><span class="nav-number">4.</span> <span class="nav-text">视频元素导致大量的内存占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-上视频文件没有及时关闭"><span class="nav-number">5.</span> <span class="nav-text">windows 上视频文件没有及时关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#svg-元素的-ClientBox-与-transform"><span class="nav-number">6.</span> <span class="nav-text">svg 元素的 ClientBox 与 transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从XHR读取的xhtml-document，无法设置-object-embed-元素的-data-src-属性"><span class="nav-number">7.</span> <span class="nav-text">从XHR读取的xhtml document，无法设置 object&#x2F;embed 元素的 data&#x2F;src 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-变换的-iframe-中的元素无法正确全屏"><span class="nav-number">8.</span> <span class="nav-text">CSS 变换的 iframe 中的元素无法正确全屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Letter-spacing-is-applied-to-zero-width-characters-zwsp-zwj-zwnj"><span class="nav-number">9.</span> <span class="nav-text">Letter spacing is applied to zero width characters (zwsp, zwj, zwnj)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-letter-spacing-style-extends-after-last-letter-of-element-with-letter-spacing"><span class="nav-number">10.</span> <span class="nav-text">CSS letter-spacing style extends after last letter of element with letter-spacing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果video的src属性是url-encoded-中文，则无法播放？"><span class="nav-number">11.</span> <span class="nav-text">如果video的src属性是url-encoded 中文，则无法播放？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MutationObserver-在初始解析阶段漏掉一些节点"><span class="nav-number">12.</span> <span class="nav-text">MutationObserver 在初始解析阶段漏掉一些节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-opacity-animation-生成了多余的-stacking-context"><span class="nav-number">13.</span> <span class="nav-text">CSS opacity animation 生成了多余的 stacking context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-select-元素在展开状态下如果被设置了-visibility-hidden，则会变成黑色"><span class="nav-number">14.</span> <span class="nav-text">HTML select 元素在展开状态下如果被设置了 visibility: hidden，则会变成黑色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪贴板未实现最新的规范"><span class="nav-number">15.</span> <span class="nav-text">剪贴板未实现最新的规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-paste-的局限性"><span class="nav-number">16.</span> <span class="nav-text">copy,paste 的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-selectAllChildren-可以选中脱离主文档的节点"><span class="nav-number">17.</span> <span class="nav-text">Selection.selectAllChildren() 可以选中脱离主文档的节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-selectAllChildren-可能抛出异常"><span class="nav-number">18.</span> <span class="nav-text">Selection.selectAllChildren() 可能抛出异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selectstart-selectionchange-事件"><span class="nav-number">19.</span> <span class="nav-text">selectstart&#x2F;selectionchange 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firefox-android-版没有视频全屏按钮"><span class="nav-number">20.</span> <span class="nav-text">firefox android 版没有视频全屏按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mime-错误"><span class="nav-number">21.</span> <span class="nav-text">mime 错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flash-android-拖拽操作"><span class="nav-number">22.</span> <span class="nav-text">flash android 拖拽操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抛出的异常没有显示在控制台中"><span class="nav-number">23.</span> <span class="nav-text">抛出的异常没有显示在控制台中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-CSS-变换的-contenteditable-元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。"><span class="nav-number">24.</span> <span class="nav-text">3D CSS 变换的 contenteditable 元素获得焦点时，插入光标有时会出现在编辑区之外，有时会不可输入。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OS-File-写入-0-长度数据抛出异常"><span class="nav-number">25.</span> <span class="nav-text">OS.File 写入 0 长度数据抛出异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改html文件中-iframe的src-srcdoc-属性后刷新，iframe-仍加载上次的-src-srcdoc。"><span class="nav-number">26.</span> <span class="nav-text">修改html文件中 iframe的src&#x2F;srcdoc 属性后刷新，iframe 仍加载上次的 src&#x2F;srcdoc。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-桌面版-FF-上不支持触摸事件（metro模式支持）"><span class="nav-number">27.</span> <span class="nav-text">Windows 桌面版 FF 上不支持触摸事件（metro模式支持）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome-的"><span class="nav-number"></span> <span class="nav-text">Chrome 的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#word-spacing-不能作用于开头的空白"><span class="nav-number">1.</span> <span class="nav-text">word-spacing 不能作用于开头的空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负-word-spacing-导致意外换行"><span class="nav-number">2.</span> <span class="nav-text">负 word-spacing 导致意外换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-block-导致意外换行"><span class="nav-number">3.</span> <span class="nav-text">inline-block 导致意外换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blob-constructor-produces-corrupted-result-by-recursively-joining-a-blob-and-an-ArrayBuffer"><span class="nav-number">4.</span> <span class="nav-text">Blob constructor produces corrupted result by recursively joining a blob and an ArrayBuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-中-script-defer-属性不起作用"><span class="nav-number">5.</span> <span class="nav-text">XHTML 中 script defer 属性不起作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当-textarea-外有选区，而-textarea-有焦点时，textarea-只能得到-KeyboardEvent，不能得到-InputEvent。"><span class="nav-number">6.</span> <span class="nav-text">当 textarea 外有选区，而 textarea 有焦点时，textarea 只能得到 KeyboardEvent，不能得到 InputEvent。</span></a></li></ol></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">HKmaster</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
-    NexT.Pisces
-  </a>
-</div>
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
+            
+        </div>
+    </div>
 
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
     
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"huangxok"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/03/07/ramda%E5%BA%93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ramda库">
+                        
+                        <span class="card-title">ramda库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-03-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            HKmaster
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/curry/">
+                        <span class="chip bg-color">curry</span>
+                    </a>
+                    
+                    <a href="/tags/compose/">
+                        <span class="chip bg-color">compose</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/">
+                        <span class="chip bg-color">函数式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/03/03/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="函数式编程笔记">
+                        
+                        <span class="card-title">函数式编程笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            HKmaster
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/curry/">
+                        <span class="chip bg-color">curry</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">函数式编程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="18726943"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">HKmaster</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/huangxok" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangx.ok@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/HuangxOk" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://twitter.com/HuangxOk" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569299387" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 569299387" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+</script>
 
-  
     
-  
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
+    
 
+    
 
+    
 
+    
 
-  
-  
-  
+    
 
-  
-
-  
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>

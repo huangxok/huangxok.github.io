@@ -1,317 +1,474 @@
-<!doctype html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
 
-
-  
-
-
-<html class="theme-next pisces use-motion">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Epub_analysis, hexo,jsxgraph,xulrunner">
+    <meta name="description" content="时光岁月如流水，流水奔流入海不复回">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
+    <title>Epub_analysis | HKBlog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
-
-
-
-<meta name="description" content="使用Epub 制作数字图书 基于XML的开放式eBook格式简介是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocB">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Epub_analysis">
-<meta property="og:url" content="https://huangxok.github.io/2017/06/16/Epub-analysis-md/index.html">
-<meta property="og:site_name" content="HKBlog">
-<meta property="og:description" content="使用Epub 制作数字图书 基于XML的开放式eBook格式简介是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocB">
-<meta property="article:published_time" content="2017-06-16T03:13:27.000Z">
-<meta property="article:modified_time" content="2017-06-16T03:13:27.000Z">
-<meta property="article:author" content="HKmaster">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="jsxgraph">
-<meta property="article:tag" content="xulrunner">
-<meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-  <title> Epub_analysis | HKBlog </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?4da7cfa2ee90a8b50242eb2e6b813c3";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">HKBlog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">努力不一定成功，放弃一定会很轻松</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Epub_analysis
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-16T11:13:27+08:00" content="2017-06-16">
-              2017-06-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/06/16/Epub-analysis-md/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/16/Epub-analysis-md/" itemprop="commentsCount"></span>
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HKBlog</span>
                 </a>
-              </span>
+            </div>
             
-          
 
-          
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-          
-          
 
-          
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HKBlog</div>
+        <div class="logo-desc">
+            
+            时光岁月如流水，流水奔流入海不复回
+            
         </div>
-      </header>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
     
 
 
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Epub_analysis</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-      
-        <h1 id="使用Epub-制作数字图书-基于XML的开放式eBook格式"><a href="#使用Epub-制作数字图书-基于XML的开放式eBook格式" class="headerlink" title="使用Epub 制作数字图书 基于XML的开放式eBook格式"></a>使用Epub 制作数字图书 基于XML的开放式eBook格式</h1><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocBook 和 Python 自动创建 EPUB。</p>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/epub/">
+                                <span class="chip bg-color">epub</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/">
+                                <span class="chip bg-color">电子书</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-06-16
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="使用Epub-制作数字图书-基于XML的开放式eBook格式"><a href="#使用Epub-制作数字图书-基于XML的开放式eBook格式" class="headerlink" title="使用Epub 制作数字图书 基于XML的开放式eBook格式"></a>使用Epub 制作数字图书 基于XML的开放式eBook格式</h1><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>是否需要分发文档、创建电子图书或者把喜欢的博客文章存档？EPUB 是一种开放式的数字图书规范，以常用的技术如 XML、CSS 和 XHTML 为基础，EPUB 文件可在便携式的 e-ink 设备、移动电话和桌面计算机上阅读。本教程详细阐述了 EPUB 格式，首先用 Java™ 技术示范了 EPUB 验证，然后详细说明如何使用 DocBook 和 Python 自动创建 EPUB。</p>
 <h2 id="常用的缩写词"><a href="#常用的缩写词" class="headerlink" title="常用的缩写词"></a>常用的缩写词</h2><ul>
 <li>API：应用程序编程接口（application programming interface）</li>
 <li>CSS：级联样式表（Cascading stylesheet)</li>
@@ -346,30 +503,70 @@
 <p>EPUB 中的所有内容基本上都是 XML。EPUB 文件可使用标准 XML 工具创建，不需要任何专门或者私有的软件。<br>EPUB 内容（eBook 的具体内容）基本上都是 XHTML 1.1（另一种格式是 DTBook，为视力受限者编码书籍的一种标准。关于 DTBook 的更多信息请参阅 参考资料，本教程中不涉及这部分）。<br>大多数 EPUB XML 模式都来自现成的、可免费获得的、已发布的规范。<br>最关键的在于 EPUB 元数据是 XML，EPUB 内容是 XHTML。如果您的文档构建系统产生的结果用于 Web 和/或基于 XML，那么也可用于生成 EPUB。</p>
 <h2 id="开始创建"><a href="#开始创建" class="headerlink" title="开始创建"></a>开始创建</h2><p>分析EPUB包<br>小型 EPUB 文件的基本结构遵循 清单 1 所示的样式。准备好分发之前，整个目录结构被压缩到一个 ZIP 格式文件中，几点特殊要求将在 用 ZIP 打包 EPUB 文件 一节讨论</p>
 <h4 id="清单1-EPUB的目录和文件结构"><a href="#清单1-EPUB的目录和文件结构" class="headerlink" title="清单1. EPUB的目录和文件结构"></a>清单1. EPUB的目录和文件结构</h4><p>如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mimetype</span><br><span class="line">  META-INf&#x2F;</span><br><span class="line">    container.xml</span><br><span class="line">  OEBPS&#x2F;</span><br><span class="line">    content.opf</span><br><span class="line">    title.html</span><br><span class="line">    content.html</span><br><span class="line">    stylesheet.css</span><br><span class="line">    toc.ncx</span><br><span class="line">    image&#x2F;</span><br><span class="line">      cover.png</span><br></pre></td></tr></table></figure>
-
-<p>提示：可下载符合该结构的一个电子图书，但建议还是按照以上所述自己创建一个。</p>
+<pre><code>  mimetype
+    META-INf/
+      container.xml
+    OEBPS/
+      content.opf
+      title.html
+      content.html
+      stylesheet.css
+      toc.ncx
+      image/
+        cover.png  
+</code></pre><p>提示：可下载符合该结构的一个电子图书，但建议还是按照以上所述自己创建一个。</p>
 <p>mimetype 文件<br>这个文件必须命名为 mimetype ，文件内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application&#x2F;epub+zip</span><br></pre></td></tr></table></figure>
-<p>要注意，mimetype 文件不能包含新行或者回车。<br>此外，mimetype 文件必须作为 ZIP 档案中的第一个文件，而且自身不能压缩。用 ZIP 打包 EPUB 文件 一节将介绍如何使用一般的 ZIP 参数将其包含进来。现在创建该文件并保存，并确保它在 EPUB 项目的根目录中。</p>
+<pre><code>  application/epub+zip</code></pre><p>要注意，mimetype 文件不能包含新行或者回车。<br>此外，mimetype 文件必须作为 ZIP 档案中的第一个文件，而且自身不能压缩。用 ZIP 打包 EPUB 文件 一节将介绍如何使用一般的 ZIP 参数将其包含进来。现在创建该文件并保存，并确保它在 EPUB 项目的根目录中。</p>
 <p>META-INF/container.xml</p>
 <p>EPUB 根目录下必须包含 META-INF 目录，而且其中要有一个文件 container.xml。EPUB 阅读系统首先查看该文件，它指向数字图书元数据的位置。</p>
 <p>创建目录 META-INF。在其中创建一个新文件 container.xml。container 文件非常小，但是对结构要求很严格。将 清单 2 中的代码粘贴到 META-INF/container.xml 中。</p>
-<h4 id="清单2-container-xml文件"><a href="#清单2-container-xml文件" class="headerlink" title="清单2. container.xml文件"></a>清单2. container.xml文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;container version&#x3D;&quot;1.0&quot; xmlns&#x3D;&quot;urn:oasis:names:tc:opendocument:xmlns:container&quot;&gt;</span><br><span class="line">&lt;rootfiles&gt;</span><br><span class="line">  &lt;rootfile full-path&#x3D;&quot;OEBPS&#x2F;content.opf&quot;</span><br><span class="line">   media-type&#x3D;&quot;application&#x2F;oebps-package+xml&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;rootfiles&gt;</span><br><span class="line">&lt;&#x2F;container&gt;</span><br></pre></td></tr></table></figure>
-<p>full-path的值(OEBPS/content.opf)仅仅是该文件的一部分，不同的文件可能相差甚大。目录路径必须相对于 EPUB 文件根目录本身，而不是 META-INF 目录</p>
+<h4 id="清单2-container-xml文件"><a href="#清单2-container-xml文件" class="headerlink" title="清单2. container.xml文件"></a>清单2. container.xml文件</h4><pre><code>  &lt;?xml version=&quot;1.0&quot;?&gt;
+  &lt;container version=&quot;1.0&quot; xmlns=&quot;urn:oasis:names:tc:opendocument:xmlns:container&quot;&gt;
+  &lt;rootfiles&gt;
+    &lt;rootfile full-path=&quot;OEBPS/content.opf&quot;
+     media-type=&quot;application/oebps-package+xml&quot; /&gt;
+  &lt;/rootfiles&gt;
+  &lt;/container&gt;</code></pre><p>full-path的值(OEBPS/content.opf)仅仅是该文件的一部分，不同的文件可能相差甚大。目录路径必须相对于 EPUB 文件根目录本身，而不是 META-INF 目录</p>
 <h3 id="关于-META-INF"><a href="#关于-META-INF" class="headerlink" title="关于 META-INF"></a>关于 META-INF</h3><p>META-INF 目录还可以包含其他几个文件。这些文件使 EPUB 支持数字签名、加密和数字版权管理（DRM）。本教程不讨论这些主题。更多信息请参阅 OCF 规范</p>
 <p>mimetype 和 container 是 EPUB 档案中仅有的两个需要严格限制位置的文件。建议（尽管不是必须的）将其他文件保存到 EPUB 的子目录下（按照惯例，通常被称为 OEBPS，即 Open eBook Publication Structure，但不是必须的）。</p>
 <p>接下来在 EPUB 项目中创建目录 OEBPS。本教程下一节将介绍 OEBPS 中的文件 — 数字图书的核心：元数据和页面。<br>创建 OEBPS/content.opf 并粘贴 清单 3 所示的内容。</p>
-<h4 id="清单-3-包含示例元数据的-OPF-content-文件"><a href="#清单-3-包含示例元数据的-OPF-content-文件" class="headerlink" title="清单 3. 包含示例元数据的 OPF content 文件"></a>清单 3. 包含示例元数据的 OPF content 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&#39;1.0&#39; encoding&#x3D;&#39;utf-8&#39;?&gt;</span><br><span class="line">&lt;package xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.idpf.org&#x2F;2007&#x2F;opf&quot; </span><br><span class="line">            xmlns:dc&#x3D;&quot;http:&#x2F;&#x2F;purl.org&#x2F;dc&#x2F;elements&#x2F;1.1&#x2F;&quot; </span><br><span class="line">            unique-identifier&#x3D;&quot;bookid&quot; version&#x3D;&quot;2.0&quot;&gt;</span><br><span class="line">  &lt;metadata&gt;</span><br><span class="line">    &lt;dc:title&gt;Hello World: My First EPUB&lt;&#x2F;dc:title&gt;</span><br><span class="line">    &lt;dc:creator&gt;My Name&lt;&#x2F;dc:creator&gt;</span><br><span class="line">    &lt;dc:identifier id&#x3D;&quot;bookid&quot;&gt;urn:uuid:12345&lt;&#x2F;dc:identifier&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;cover&quot; content&#x3D;&quot;cover-image&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;metadata&gt;</span><br><span class="line">  &lt;manifest&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;ncx&quot; href&#x3D;&quot;toc.ncx&quot; media-type&#x3D;&quot;text&#x2F;xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;cover&quot; href&#x3D;&quot;title.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;content&quot; href&#x3D;&quot;content.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;cover-image&quot; href&#x3D;&quot;images&#x2F;cover.png&quot; media-type&#x3D;&quot;image&#x2F;png&quot;&#x2F;&gt;</span><br><span class="line">    &lt;item id&#x3D;&quot;css&quot; href&#x3D;&quot;stylesheet.css&quot; media-type&#x3D;&quot;text&#x2F;css&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;manifest&gt;</span><br><span class="line">  &lt;spine toc&#x3D;&quot;ncx&quot;&gt;</span><br><span class="line">    &lt;itemref idref&#x3D;&quot;cover&quot; linear&#x3D;&quot;no&quot;&#x2F;&gt;</span><br><span class="line">    &lt;itemref idref&#x3D;&quot;content&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;spine&gt;</span><br><span class="line">  &lt;guide&gt;</span><br><span class="line">    &lt;reference href&#x3D;&quot;cover.html&quot; type&#x3D;&quot;cover&quot; title&#x3D;&quot;Cover&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;guide&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>OPF 模式与名称空间</strong></p>
+<h4 id="清单-3-包含示例元数据的-OPF-content-文件"><a href="#清单-3-包含示例元数据的-OPF-content-文件" class="headerlink" title="清单 3. 包含示例元数据的 OPF content 文件"></a>清单 3. 包含示例元数据的 OPF content 文件</h4><pre><code>&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;
+&lt;package xmlns=&quot;http://www.idpf.org/2007/opf&quot; 
+            xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; 
+            unique-identifier=&quot;bookid&quot; version=&quot;2.0&quot;&gt;
+  &lt;metadata&gt;
+    &lt;dc:title&gt;Hello World: My First EPUB&lt;/dc:title&gt;
+    &lt;dc:creator&gt;My Name&lt;/dc:creator&gt;
+    &lt;dc:identifier id=&quot;bookid&quot;&gt;urn:uuid:12345&lt;/dc:identifier&gt;
+    &lt;meta name=&quot;cover&quot; content=&quot;cover-image&quot; /&gt;
+  &lt;/metadata&gt;
+  &lt;manifest&gt;
+    &lt;item id=&quot;ncx&quot; href=&quot;toc.ncx&quot; media-type=&quot;text/xml&quot;/&gt;
+    &lt;item id=&quot;cover&quot; href=&quot;title.html&quot; media-type=&quot;application/xhtml+xml&quot;/&gt;
+    &lt;item id=&quot;content&quot; href=&quot;content.html&quot; media-type=&quot;application/xhtml+xml&quot;/&gt;
+    &lt;item id=&quot;cover-image&quot; href=&quot;images/cover.png&quot; media-type=&quot;image/png&quot;/&gt;
+    &lt;item id=&quot;css&quot; href=&quot;stylesheet.css&quot; media-type=&quot;text/css&quot;/&gt;
+  &lt;/manifest&gt;
+  &lt;spine toc=&quot;ncx&quot;&gt;
+    &lt;itemref idref=&quot;cover&quot; linear=&quot;no&quot;/&gt;
+    &lt;itemref idref=&quot;content&quot;/&gt;
+  &lt;/spine&gt;
+  &lt;guide&gt;
+    &lt;reference href=&quot;cover.html&quot; type=&quot;cover&quot; title=&quot;Cover&quot;/&gt;
+  &lt;/guide&gt;
+&lt;/package&gt;</code></pre><p><strong>OPF 模式与名称空间</strong></p>
 <p>OPF 文档本身必须使用名称空间 <a href="http://www.idpf.org/2007/opf，元数据则使用" target="_blank" rel="noopener">http://www.idpf.org/2007/opf，元数据则使用</a> Dublin Core Metadata Initiative (DCMI) 名称空间 <a href="http://purl.org/dc/elements/1.1/。" target="_blank" rel="noopener">http://purl.org/dc/elements/1.1/。</a></p>
 <p>最好现在将 OPF 和 DCMI 模式添加到 XML 编辑器中。EPUB 用到的所有模式都可以 下载。</p>
 <p><strong>元数据</strong></p>
 <p>Dublin Core 定义了一组常用的元数据，可用于描述各种不同的数字资料，它不是 EPUB 规范的一部分。所有这些术语都可以出现在 OPF 元数据部分。编写要分发的 EPUB 时，这里可以放很多内容，目前来说 清单 4 的内容就足够了。</p>
-<h4 id="清单-4-OPF-元数据摘要"><a href="#清单-4-OPF-元数据摘要" class="headerlink" title="清单 4. OPF 元数据摘要"></a>清单 4. OPF 元数据摘要</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  ...</span><br><span class="line">  &lt;metadata&gt;</span><br><span class="line">    &lt;dc:title&gt;Hello World: My First EPUB&lt;&#x2F;dc:title&gt;</span><br><span class="line">    &lt;dc:creator&gt;My Name&lt;&#x2F;dc:creator&gt;</span><br><span class="line">    &lt;dc:identifier id&#x3D;&quot;bookid&quot;&gt;urn:uuid:12345&lt;&#x2F;dc:identifier&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;cover&quot; content&#x3D;&quot;cover-image&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;metadata&gt;</span><br><span class="line">..</span><br></pre></td></tr></table></figure>
-
-<p>有两个术语是必须的，即 title 和 identifier。按照 EPUB 规范，标识符必须 是惟一的，但是这个惟一的值要靠数字图书的创建者来定义。对于图书出版商来说，这个字段一般包含 ISBN 或者 Library of Congress 编号。对于其他 EPUB 创建者，可以考虑使用 URL 或者很大的随机生成的惟一用户 ID（UUID）。要注意，属性 unique-identifier 的值必须和 dc:identifier 元素的 ID 属性匹配。</p>
+<h4 id="清单-4-OPF-元数据摘要"><a href="#清单-4-OPF-元数据摘要" class="headerlink" title="清单 4. OPF 元数据摘要"></a>清单 4. OPF 元数据摘要</h4><pre><code>  ...
+  &lt;metadata&gt;
+    &lt;dc:title&gt;Hello World: My First EPUB&lt;/dc:title&gt;
+    &lt;dc:creator&gt;My Name&lt;/dc:creator&gt;
+    &lt;dc:identifier id=&quot;bookid&quot;&gt;urn:uuid:12345&lt;/dc:identifier&gt;
+    &lt;meta name=&quot;cover&quot; content=&quot;cover-image&quot; /&gt;
+  &lt;/metadata&gt;
+..</code></pre><p>有两个术语是必须的，即 title 和 identifier。按照 EPUB 规范，标识符必须 是惟一的，但是这个惟一的值要靠数字图书的创建者来定义。对于图书出版商来说，这个字段一般包含 ISBN 或者 Library of Congress 编号。对于其他 EPUB 创建者，可以考虑使用 URL 或者很大的随机生成的惟一用户 ID（UUID）。要注意，属性 unique-identifier 的值必须和 dc:identifier 元素的 ID 属性匹配。</p>
 <p>其他和内容相关的可以考虑添加的元数据包括：</p>
 <ul>
 <li>语言（如 dc:language）。</li>
@@ -382,23 +579,36 @@
 <p><strong>Manifest</strong></p>
 <p>OPF manifest 列出了 EPUB 内容（不包括元数据）中的所有资源。就是说，通常是组成电子图书文本的一组 XHTML 文件再加上一些相关的媒体如图像。EPUB 鼓励使用 CSS 设定图书内容的样式，因此 manifest 中也包含 CSS。进入数字图书的所有文件都必须在 manifest 中列出。</p>
 <p>清单 5 显示了 manifest 的一部分。</p>
-<h4 id="清单-5-OPF-manifest-的一部分"><a href="#清单-5-OPF-manifest-的一部分" class="headerlink" title="清单 5. OPF manifest 的一部分"></a>清单 5. OPF manifest 的一部分</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;manifest&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;ncx&quot; href&#x3D;&quot;toc.ncx&quot; media-type&#x3D;&quot;text&#x2F;xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;cover&quot; href&#x3D;&quot;title.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;content&quot; href&#x3D;&quot;content.html&quot; media-type&#x3D;&quot;application&#x2F;xhtml+xml&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;cover-image&quot; href&#x3D;&quot;images&#x2F;cover.png&quot; media-type&#x3D;&quot;image&#x2F;png&quot;&#x2F;&gt;</span><br><span class="line">  &lt;item id&#x3D;&quot;css&quot; href&#x3D;&quot;stylesheet.css&quot; media-type&#x3D;&quot;text&#x2F;css&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h3 id="高级-OPF-manifest"><a href="#高级-OPF-manifest" class="headerlink" title="高级 OPF manifest"></a>高级 OPF manifest</h3><p>更高级的 manifest 文件可能包含多个 XHTML 文件以及图像和 CSS。可 下载 一个完整的包含各种常见类型的 EPUB 例子。</p>
+<h4 id="清单-5-OPF-manifest-的一部分"><a href="#清单-5-OPF-manifest-的一部分" class="headerlink" title="清单 5. OPF manifest 的一部分"></a>清单 5. OPF manifest 的一部分</h4><pre><code>  ...
+  &lt;manifest&gt;
+    &lt;item id=&quot;ncx&quot; href=&quot;toc.ncx&quot; media-type=&quot;text/xml&quot;/&gt;
+    &lt;item id=&quot;cover&quot; href=&quot;title.html&quot; media-type=&quot;application/xhtml+xml&quot;/&gt;
+    &lt;item id=&quot;content&quot; href=&quot;content.html&quot; media-type=&quot;application/xhtml+xml&quot;/&gt;
+    &lt;item id=&quot;cover-image&quot; href=&quot;images/cover.png&quot; media-type=&quot;image/png&quot;/&gt;
+    &lt;item id=&quot;css&quot; href=&quot;stylesheet.css&quot; media-type=&quot;text/css&quot;/&gt;
+  &lt;/manifest&gt;
+  ...</code></pre><h3 id="高级-OPF-manifest"><a href="#高级-OPF-manifest" class="headerlink" title="高级 OPF manifest"></a>高级 OPF manifest</h3><p>更高级的 manifest 文件可能包含多个 XHTML 文件以及图像和 CSS。可 下载 一个完整的包含各种常见类型的 EPUB 例子。</p>
 <p>第一项 toc.ncx（参见 下一节）是必须的。所有的项都有相应的 media-type 值，XHTML 内容的媒体类型为 application/xhtml+xml。媒体类型必须正确，不能 是 text/html 或者其他类型。</p>
 <p>EPUB 支持四种核心 图像文件类型：Joint Photographic Experts Group (JPEG)、Portable Network Graphics (PNG)、Graphics Interchange Format (GIF) 和 Scalable Vector Graphics (SVG)。如果能够提供对核心类型的后退转换（fall-back），也可包含不支持的文件类型。关于后退转换内容的更多信息请参阅 OPF 规范。</p>
 <p>href 属性的值应该是一个相对于该 OPF 文件 的统一资源标识符（URI）。（很容易和 container.xml 中对 OPF 文件的引用混淆，其中的引用是相对于 EPUB 的整体引用）。这里的 OPF 文件位于和内容相同的 OEBPS 目录中，因此不需要路径信息。</p>
 <p><strong>Spine</strong></p>
 <p>manifest 告诉 EPUB 阅读器哪些文件属于档案，spine 则指定这些文件出现的顺序或 — 按照 EPUB 的说法 — 数字图书的线性阅读顺序。可以将 OPF spine 看作是书中 “页面” 的顺序。按照文档顺序从上到下依次读取 spine。清单 6 显示了 OPF 文件的一个片段。</p>
-<h4 id="清单-6-OPF-spine-的一部分"><a href="#清单-6-OPF-spine-的一部分" class="headerlink" title="清单 6. OPF spine 的一部分"></a>清单 6. OPF spine 的一部分</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;spine toc&#x3D;&quot;ncx&quot;&gt;</span><br><span class="line">  &lt;itemref idref&#x3D;&quot;cover&quot; linear&#x3D;&quot;no&quot;&#x2F;&gt;</span><br><span class="line">  &lt;itemref idref&#x3D;&quot;content&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;spine&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>每个 itemref 元素都需要有一个 idref 属性，并且和 manifest 中的某个 ID 匹配。toc 属性也是必需的。它引用 manifest 中表示内容 NCX 表文件名的 ID。</p>
+<h4 id="清单-6-OPF-spine-的一部分"><a href="#清单-6-OPF-spine-的一部分" class="headerlink" title="清单 6. OPF spine 的一部分"></a>清单 6. OPF spine 的一部分</h4><pre><code>  ...
+  &lt;spine toc=&quot;ncx&quot;&gt;
+    &lt;itemref idref=&quot;cover&quot; linear=&quot;no&quot;/&gt;
+    &lt;itemref idref=&quot;content&quot;/&gt;
+  &lt;/spine&gt;
+  ...
+</code></pre><p>每个 itemref 元素都需要有一个 idref 属性，并且和 manifest 中的某个 ID 匹配。toc 属性也是必需的。它引用 manifest 中表示内容 NCX 表文件名的 ID。</p>
 <p>spine 中的 linear 属性表明该项是作为线性阅读顺序中的一项，还是和先后次序无关。建议将封面定义为 linear=no。符合 EPUB 规范的阅读系统将首先打开 spine 中没有 设置为 linear=no 中的第一项。</p>
 <p><strong>Guide</strong></p>
 <p>OPF 内容文件的最后一部分是 guide。这一节是可选的，但最好保留。清单 7 显示了 guide 文件的部分内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;guide&gt;</span><br><span class="line">  &lt;reference href&#x3D;&quot;cover.html&quot; type&#x3D;&quot;cover&quot; title&#x3D;&quot;Cover&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;guide&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>guide 可以为 EPUB 阅读系统提供语义信息。manifest 定义了 EPUB 中的物理资源，spine 提供了这些资源的顺序信息，guide 负责解释这些部分的含义。下面是可以出现在 OPF guide 中的部分值：</p>
+<pre><code>  ...
+  &lt;guide&gt;
+    &lt;reference href=&quot;cover.html&quot; type=&quot;cover&quot; title=&quot;Cover&quot;/&gt;
+  &lt;/guide&gt;
+  ...
+</code></pre><p>guide 可以为 EPUB 阅读系统提供语义信息。manifest 定义了 EPUB 中的物理资源，spine 提供了这些资源的顺序信息，guide 负责解释这些部分的含义。下面是可以出现在 OPF guide 中的部分值：</p>
 <ul>
 <li>cover：图书封面</li>
 <li>title-page：包含作者和出版商信息的页面</li>
@@ -407,9 +617,34 @@
 <h3 id="NCX-和-OPF元数据的交叉"><a href="#NCX-和-OPF元数据的交叉" class="headerlink" title="NCX 和 OPF元数据的交叉"></a>NCX 和 OPF元数据的交叉</h3><p>由于 NCX 源自其他标准，使用 NCX 编码的信息和 OPF 内容之间存在重复。如果通过程序生成 EPUB，这算不上什么问题，因为同样的代码可输出到两个文件中。两个位置的信息要一致，不同的 EPUB 读者可能使用不同位置的值。</p>
 <p>尽管 OCF 文件是作为 EPUB 本身的一部分定义的，但最后一个主要的元数据文件参照了不同的数字图书标准。DAISY 是一个专门为不能使用传统书籍的读者设计数据格式的组织，通常是因为视力受损或者不便于使用印刷的书籍。EPUB 借用了 DAISY 的 NCX DTD。NCX 定义了数字图书的目录表。复杂的图书中，目录表通常采用层次结构，包括嵌套的内容、章和节。</p>
 <p>使用 XML 编辑器创建 OEBPS/toc.ncx 并粘贴 清单 8 所示的代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&#39;1.0&#39; encoding&#x3D;&#39;utf-8&#39;?&gt;</span><br><span class="line">&lt;!DOCTYPE ncx PUBLIC &quot;-&#x2F;&#x2F;NISO&#x2F;&#x2F;DTD ncx 2005-1&#x2F;&#x2F;EN&quot; </span><br><span class="line">                &quot;http:&#x2F;&#x2F;www.daisy.org&#x2F;z3986&#x2F;2005&#x2F;ncx-2005-1.dtd&quot;&gt;</span><br><span class="line">&lt;ncx xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.daisy.org&#x2F;z3986&#x2F;2005&#x2F;ncx&#x2F;&quot; version&#x3D;&quot;2005-1&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:uid&quot; content&#x3D;&quot;urn:uuid:12345&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:depth&quot; content&#x3D;&quot;1&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:totalPageCount&quot; content&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;dtb:maxPageNumber&quot; content&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;docTitle&gt;</span><br><span class="line">    &lt;text&gt;Hello World: My First EPUB&lt;&#x2F;text&gt;</span><br><span class="line">  &lt;&#x2F;docTitle&gt;</span><br><span class="line">  &lt;navMap&gt;</span><br><span class="line">    &lt;navPoint id&#x3D;&quot;navpoint-1&quot; playOrder&#x3D;&quot;1&quot;&gt;</span><br><span class="line">      &lt;navLabel&gt;</span><br><span class="line">        &lt;text&gt;Book cover&lt;&#x2F;text&gt;</span><br><span class="line">      &lt;&#x2F;navLabel&gt;</span><br><span class="line">      &lt;content src&#x3D;&quot;title.html&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;navPoint&gt;</span><br><span class="line">    &lt;navPoint id&#x3D;&quot;navpoint-2&quot; playOrder&#x3D;&quot;2&quot;&gt;</span><br><span class="line">      &lt;navLabel&gt;</span><br><span class="line">        &lt;text&gt;Contents&lt;&#x2F;text&gt;</span><br><span class="line">      &lt;&#x2F;navLabel&gt;</span><br><span class="line">      &lt;content src&#x3D;&quot;content.html&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;navPoint&gt;</span><br><span class="line">  &lt;&#x2F;navMap&gt;</span><br><span class="line">&lt;&#x2F;ncx&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NCX 元数据</strong></p>
+<pre><code>  &lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&gt;
+  &lt;!DOCTYPE ncx PUBLIC &quot;-//NISO//DTD ncx 2005-1//EN&quot; 
+                  &quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&quot;&gt;
+  &lt;ncx xmlns=&quot;http://www.daisy.org/z3986/2005/ncx/&quot; version=&quot;2005-1&quot;&gt;
+    &lt;head&gt;
+      &lt;meta name=&quot;dtb:uid&quot; content=&quot;urn:uuid:12345&quot;/&gt;
+      &lt;meta name=&quot;dtb:depth&quot; content=&quot;1&quot;/&gt;
+      &lt;meta name=&quot;dtb:totalPageCount&quot; content=&quot;0&quot;/&gt;
+      &lt;meta name=&quot;dtb:maxPageNumber&quot; content=&quot;0&quot;/&gt;
+    &lt;/head&gt;
+    &lt;docTitle&gt;
+      &lt;text&gt;Hello World: My First EPUB&lt;/text&gt;
+    &lt;/docTitle&gt;
+    &lt;navMap&gt;
+      &lt;navPoint id=&quot;navpoint-1&quot; playOrder=&quot;1&quot;&gt;
+        &lt;navLabel&gt;
+          &lt;text&gt;Book cover&lt;/text&gt;
+        &lt;/navLabel&gt;
+        &lt;content src=&quot;title.html&quot;/&gt;
+      &lt;/navPoint&gt;
+      &lt;navPoint id=&quot;navpoint-2&quot; playOrder=&quot;2&quot;&gt;
+        &lt;navLabel&gt;
+          &lt;text&gt;Contents&lt;/text&gt;
+        &lt;/navLabel&gt;
+        &lt;content src=&quot;content.html&quot;/&gt;
+      &lt;/navPoint&gt;
+    &lt;/navMap&gt;
+  &lt;/ncx&gt;</code></pre><p><strong>NCX 元数据</strong></p>
 <p>DTD 要求 NCX <head> 标记中包含四个 meta 元素：</p>
 <p>uid： 数字图书的惟一 ID。该元素应该和 OPF 文件中的 dc:identifier对应。<br>depth：反映目录表中层次的深度。该例只有一层，因此是 1。<br>totalPageCount 和 maxPageNumber：仅用于纸质图书，保留 0 即可。<br>docTitle/text 的内容是图书的标题，和 OPF 中的 dc:title 匹配。</p>
 <p><strong>NCX navMap</strong></p>
@@ -432,16 +667,29 @@
 <li>stylesheet.css：将该文件放在和 XHTML 文件相同的 OEBPS 目录中。该文件可以包含任意 CSS 声明，比如设置字体或者文字颜色。清单 10 给出了一个 CSS 文件的例子。<br>EPUB 图书中的 XHTML 和 CSS</li>
 </ul>
 <p>清单 9 包含了一个有效的 EPUB 内容页。将其作为标题页（title.html），用一个类似的页面作为主要内容页（content.html）。</p>
-<h4 id="清单-9-示例-title-页面（title-html）"><a href="#清单-9-示例-title-页面（title-html）" class="headerlink" title="清单 9. 示例 title 页面（title.html）"></a>清单 9. 示例 title 页面（title.html）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello World: My First EPUB&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link type&#x3D;&quot;text&#x2F;css&quot; rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;stylesheet.css&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Hello World: My First EPUB&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;div&gt;&lt;img src&#x3D;&quot;images&#x2F;cover.png&quot; alt&#x3D;&quot;Title page&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>EPUB 的 XHTML 需要符合几条要求，和一般的 Web 开发不同：</p>
+<h4 id="清单-9-示例-title-页面（title-html）"><a href="#清单-9-示例-title-页面（title-html）" class="headerlink" title="清单 9. 示例 title 页面（title.html）"></a>清单 9. 示例 title 页面（title.html）</h4><pre><code>  &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+    &lt;head&gt;
+      &lt;title&gt;Hello World: My First EPUB&lt;/title&gt;
+      &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;stylesheet.css&quot; /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;h1&gt;Hello World: My First EPUB&lt;/h1&gt;
+      &lt;div&gt;&lt;img src=&quot;images/cover.png&quot; alt=&quot;Title page&quot;/&gt;&lt;/div&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</code></pre><p>EPUB 的 XHTML 需要符合几条要求，和一般的 Web 开发不同：</p>
 <ul>
 <li>内容必须是有效的 XHTML 1.1：XHTML 1.0 Strict 和 XHTML 1.1 的主要区别是去掉了 name属性（使用 ID 引用锚元素）。</li>
 <li>img 元素只能引用电子图书的本地图片：该元素不能引用 Web 上的图片。</li>
 <li>避免使用 script：EPUB 阅读器不一定支持 JavaScript 代码。<br>EPUB 支持 CSS 的方式有一些细微的差别，但是不会影响样式表的一般用法（详情参阅 OPS 规范）。清单 10 中的简单 CSS 文件可以设置基本的字体，并把标题设为红色。</li>
 </ul>
 <p>清单 10. 电子图书的示例样式表（stylesheet.css）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  font-family: sans-serif;     </span><br><span class="line">&#125;</span><br><span class="line">h1,h2,h3,h4 &#123;</span><br><span class="line">  font-family: serif;     </span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有趣的是，EPUB 非常支持 CSS 2 @font-face 规则，允许内嵌字体。如果创建技术文档，这点可能无关紧要，但是如果用多种语言或针对特定领域编写 EPUB，能够指定具体的字体数据就很有必要了。</p>
+<pre><code>  body {
+    font-family: sans-serif;     
+  }
+  h1,h2,h3,h4 {
+    font-family: serif;     
+    color: red;
+  }</code></pre><p>有趣的是，EPUB 非常支持 CSS 2 @font-face 规则，允许内嵌字体。如果创建技术文档，这点可能无关紧要，但是如果用多种语言或针对特定领域编写 EPUB，能够指定具体的字体数据就很有必要了。</p>
 <p>现在已经准备好了创建 EPUB 图书所需的所有内容。下一节将按照 OCF 规范将图书装订起来，并看看如何进行验证。</p>
 <h3 id="打包和检查-EPUB"><a href="#打包和检查-EPUB" class="headerlink" title="打包和检查 EPUB"></a>打包和检查 EPUB</h3><p>现在，应当可以对 EPUB 包进行打包。这个包可以是您自己创建的一本新书，也可使用从本文 下载 部分获得的原始文件。</p>
 <p>用 ZIP 打包 EPUB 文件</p>
@@ -450,358 +698,680 @@
 <li>档案中的第一个文件必须是 mimetype 文件（参见本教程 Mimetype一节）。mimetype 文件不能被压缩。这样非 ZIP 工具就能从 EPUB 包的第 30 个字节开始读取原始字节，从而发现 mimetype。</li>
 <li>ZIP 档案不能加密。EPUB 支持加密，但不是在 ZIP 文件这一层上。<br>在类 UNIX® 操作系统上，使用 ZIP 2.3 可通过两个命令来创建 EPUB ZIP 文件，如 清单 11 所示（这些命令假设当前工作目录为 EPUB 项目。）</li>
 </ul>
-<h4 id="清单-11-将-EPUB-打包成有效的-epub-zip-文件"><a href="#清单-11-将-EPUB-打包成有效的-epub-zip-文件" class="headerlink" title="清单 11. 将 EPUB 打包成有效的 epub+zip 文件"></a>清单 11. 将 EPUB 打包成有效的 epub+zip 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ zip -0Xq  my-book.epub mimetype</span><br><span class="line">$ zip -Xr9Dq my-book.epub *</span><br></pre></td></tr></table></figure>
-<p>第一个命令创建了一个新的 ZIP 档案，并添加了没有进行压缩的 mimetype 文件。第二个命令添加其他内容。选项 -X 和 -D 最大限度地减少 .zip 文件中无关紧要的信息；-r 递归地包含 META-INF 和 OEBPS 目录的内容。</p>
+<h4 id="清单-11-将-EPUB-打包成有效的-epub-zip-文件"><a href="#清单-11-将-EPUB-打包成有效的-epub-zip-文件" class="headerlink" title="清单 11. 将 EPUB 打包成有效的 epub+zip 文件"></a>清单 11. 将 EPUB 打包成有效的 epub+zip 文件</h4><pre><code>$ zip -0Xq  my-book.epub mimetype
+$ zip -Xr9Dq my-book.epub *</code></pre><p>第一个命令创建了一个新的 ZIP 档案，并添加了没有进行压缩的 mimetype 文件。第二个命令添加其他内容。选项 -X 和 -D 最大限度地减少 .zip 文件中无关紧要的信息；-r 递归地包含 META-INF 和 OEBPS 目录的内容。</p>
 <p>EPUB 验证</p>
 <p>虽然 EPUB 标准并不很难，但其 XML 文件必须符合特定的模式。如果使用模式感知的 XML 编辑器生成元数据和 XHTML，就能事半功倍。对 EpubCheck 包进行最后检查（参见 参考资料）。</p>
 <p>Adobe 负责维护 EpubCheck 包，它是采用 Berkeley Software Distribution (BSD) 许可证的开源项目。它是一个可以作为独立工具、Web 应用程序运行的 Java 程序，或者可以将它集成到在 Java Runtime Environment (JRE) 1.5 或更高版本下运行的应用程序中。</p>
 <p>在命令行中运行非常简单。清单 12 给出了一个例子。</p>
-<h4 id="清单-12-运行-EpubCheck-工具程序"><a href="#清单-12-运行-EpubCheck-工具程序" class="headerlink" title="清单 12. 运行 EpubCheck 工具程序"></a>清单 12. 运行 EpubCheck 工具程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar &#x2F;path&#x2F;to&#x2F;epubcheck.jar my-book.epub</span><br></pre></td></tr></table></figure>
-<p>如果没有创建辅助文件或者元数据文件出错，可能会看到 清单 13 所示的错误消息。</p>
+<h4 id="清单-12-运行-EpubCheck-工具程序"><a href="#清单-12-运行-EpubCheck-工具程序" class="headerlink" title="清单 12. 运行 EpubCheck 工具程序"></a>清单 12. 运行 EpubCheck 工具程序</h4><pre><code>$ java -jar /path/to/epubcheck.jar my-book.epub</code></pre><p>如果没有创建辅助文件或者元数据文件出错，可能会看到 清单 13 所示的错误消息。</p>
 <p>清单 13. EpubCheck 错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">my-book.epub: image file OEBPS&#x2F;images&#x2F;cover.png is missing</span><br><span class="line">my-book.epub: resource OEBPS&#x2F;stylesheet.css is missing</span><br><span class="line">my-book.epub&#x2F;OEBPS&#x2F;title.html(7): &#39;OEBPS&#x2F;images&#x2F;cover.png&#39;: </span><br><span class="line">     referenced resource missing in the package</span><br><span class="line"></span><br><span class="line">Check finished with warnings or errors!</span><br></pre></td></tr></table></figure>
-<p>这时候可能需要设置 CLASSPATH 使它指向 EpubCheck 的安装位置，因为确实需要导入几个外部库。如果得到这样的消息则需要设置 CLASSPATH：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.xml.sax.SAXParseException: no implementation available for schema language </span><br><span class="line">   with namespace URI &quot;http:&#x2F;&#x2F;www.ascc.net&#x2F;xml&#x2F;schematron&quot;</span><br></pre></td></tr></table></figure>
-<p>如果验证成功，就会看到 “No errors or warnings detected（没有检测到错误或警告）”。祝贺您完成了第一个 EPUB！</p>
+<pre><code>my-book.epub: image file OEBPS/images/cover.png is missing
+my-book.epub: resource OEBPS/stylesheet.css is missing
+my-book.epub/OEBPS/title.html(7): &#39;OEBPS/images/cover.png&#39;: 
+     referenced resource missing in the package
+
+Check finished with warnings or errors!</code></pre><p>这时候可能需要设置 CLASSPATH 使它指向 EpubCheck 的安装位置，因为确实需要导入几个外部库。如果得到这样的消息则需要设置 CLASSPATH：</p>
+<pre><code>org.xml.sax.SAXParseException: no implementation available for schema language 
+   with namespace URI &quot;http://www.ascc.net/xml/schematron&quot;</code></pre><p>如果验证成功，就会看到 “No errors or warnings detected（没有检测到错误或警告）”。祝贺您完成了第一个 EPUB！</p>
 <p>查看 EPUB</p>
 <p>测试不仅仅是验证，还要保证书的外观看起来不错。样式表能正确工作吗？章节的逻辑顺序是否正确？书中是否包含了所有需要的内容？</p>
 <p>有多重 EPUB 阅读器可供选择。图 1 显示了 Adobe Digital Editions (ADE) 的屏幕截图，这是最常用的 EPUB 阅读器。</p>
 <p>参考<br><a href="http://www.cnblogs.com/linlf03/archive/2011/12/15/2285953.html" target="_blank" rel="noopener">http://www.cnblogs.com/linlf03/archive/2011/12/15/2285953.html</a><br><a href="https://www.ibm.com/developerworks/cn/xml/tutorials/x-epubtut/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/xml/tutorials/x-epubtut/index.html</a><br><a href="https://www.ibm.com/developerworks/xml/tutorials/x-epubtut/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/xml/tutorials/x-epubtut/index.html</a></p>
 
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/01/javascript-object/" rel="next" title="javascript_object">
-                <i class="fa fa-chevron-left"></i> javascript_object
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/29/OKVoice_note_api/" rel="prev" title="OKVoice_note_api">
-                OKVoice_note_api <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/06/16/Epub-analysis-md/"
-     data-title="Epub_analysis"
-     data-content=""
-     data-url="https://huangxok.github.io/2017/06/16/Epub-analysis-md/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/06/16/Epub-analysis-md/"
-           data-title="Epub_analysis" data-url="https://huangxok.github.io/2017/06/16/Epub-analysis-md/">
-      </div>
-    
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/photo.jpg"
-               alt="HKmaster" />
-          <p class="site-author-name" itemprop="name">HKmaster</p>
-          <p class="site-description motion-element" itemprop="description">时光岁月如流水，流水奔流入海不复回</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
             </div>
-          
+            <hr/>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">47</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">HKmaster</a>
+                </span>
             </div>
-          
-
-        </nav>
-
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://huangxok.github.io/2017/06/16/Epub-analysis-md/">https://huangxok.github.io/2017/06/16/Epub-analysis-md/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">HKmaster</a>
+                    !
+                </span>
+            </div>
         
+    </div>
 
-        <div class="links-of-author motion-element">
-          
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/epub/">
+                                    <span class="chip bg-color">epub</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/">
+                                    <span class="chip bg-color">电子书</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/huangxok" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-          
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Epub-制作数字图书-基于XML的开放式eBook格式"><span class="nav-number">1.</span> <span class="nav-text">使用Epub 制作数字图书 基于XML的开放式eBook格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的缩写词"><span class="nav-number">1.1.</span> <span class="nav-text">常用的缩写词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三合一标准"><span class="nav-number">1.2.</span> <span class="nav-text">三合一标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始创建"><span class="nav-number">1.3.</span> <span class="nav-text">开始创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清单1-EPUB的目录和文件结构"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">清单1. EPUB的目录和文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清单2-container-xml文件"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">清单2. container.xml文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-META-INF"><span class="nav-number">1.3.1.</span> <span class="nav-text">关于 META-INF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-3-包含示例元数据的-OPF-content-文件"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">清单 3. 包含示例元数据的 OPF content 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-4-OPF-元数据摘要"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">清单 4. OPF 元数据摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-5-OPF-manifest-的一部分"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">清单 5. OPF manifest 的一部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级-OPF-manifest"><span class="nav-number">1.3.2.</span> <span class="nav-text">高级 OPF manifest</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-6-OPF-spine-的一部分"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">清单 6. OPF spine 的一部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NCX-和-OPF元数据的交叉"><span class="nav-number">1.3.3.</span> <span class="nav-text">NCX 和 OPF元数据的交叉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NCX-和-OPF-spine-有什么不同？"><span class="nav-number">1.3.4.</span> <span class="nav-text">NCX 和 OPF spine 有什么不同？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-9-示例-title-页面（title-html）"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">清单 9. 示例 title 页面（title.html）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包和检查-EPUB"><span class="nav-number">1.3.5.</span> <span class="nav-text">打包和检查 EPUB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-11-将-EPUB-打包成有效的-epub-zip-文件"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">清单 11. 将 EPUB 打包成有效的 epub+zip 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清单-12-运行-EpubCheck-工具程序"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">清单 12. 运行 EpubCheck 工具程序</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">HKmaster</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
-    NexT.Pisces
-  </a>
-</div>
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
+            
+        </div>
+    </div>
 
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
     
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"huangxok"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/29/OKVoice_note_api/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="OKVoice_note_api">
+                        
+                        <span class="card-title">OKVoice_note_api</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            HKmaster
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/04/01/javascript-object/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="javascript_object">
+                        
+                        <span class="card-title">javascript_object</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            HKmaster
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/prototype/">
+                        <span class="chip bg-color">prototype</span>
+                    </a>
+                    
+                    <a href="/tags/object/">
+                        <span class="chip bg-color">object</span>
+                    </a>
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="18726943"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">HKmaster</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/huangxok" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangx.ok@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/HuangxOk" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://twitter.com/HuangxOk" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=569299387" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 569299387" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+</script>
 
-  
     
-  
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
+    
 
+    
 
+    
 
+    
 
-  
-  
-  
+    
 
-  
-
-  
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>
