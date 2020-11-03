@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -468,222 +468,45 @@
 <li>开发便捷，能替代部分 grunt/gulp 的工作，比如打包、压缩混淆、图片转base64等。</li>
 <li>扩展性强，插件机制完善，特别是支持 React 热插拔（见 react-hot-loader ）的功能让人眼前一亮。<br>我们谈谈第一点。以 AMD/CMD 模式来说，鉴于模块是异步加载的，所以我们常规需要使用 define 函数来帮我们搞回调：</li>
 </ol>
-<pre><code class="javascript">define([&#39;package/lib&#39;], function(lib){
-    function foo(){
-        lib.log(&#39;hello world!&#39;);
-    } 
-    return {
-        foo: foo
-    };
-});</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'package/lib'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">lib</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        lib.log(<span class="string">'hello world!'</span>);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        foo: foo</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p>另外为了可以兼容 commonJS 的写法，我们也可以将 define 这么写：</p>
-<pre><code class="javascript">define(function (require, exports, module){
-    var someModule = require(&quot;someModule&quot;);
-    var anotherModule = require(&quot;anotherModule&quot;);    
-
-    someModule.doTehAwesome();
-    anotherModule.doMoarAwesome();
-
-    exports.asplode = function (){
-        someModule.doTehAwesome();
-        anotherModule.doMoarAwesome();
-    };
-});</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> someModule = <span class="built_in">require</span>(<span class="string">"someModule"</span>);</span><br><span class="line">    <span class="keyword">var</span> anotherModule = <span class="built_in">require</span>(<span class="string">"anotherModule"</span>);    </span><br><span class="line"> </span><br><span class="line">    someModule.doTehAwesome();</span><br><span class="line">    anotherModule.doMoarAwesome();</span><br><span class="line"> </span><br><span class="line">    exports.asplode = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        someModule.doTehAwesome();</span><br><span class="line">        anotherModule.doMoarAwesome();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>然而对 webpack 来说，我们可以直接在上面书写 commonJS 形式的语法，无须任何 define （毕竟最终模块都打包在一起，webpack 也会最终自动加上自己的加载器）：</p>
-<pre><code>var someModule = require(&quot;someModule&quot;);
-    var anotherModule = require(&quot;anotherModule&quot;);    
-
-    someModule.doTehAwesome();
-    anotherModule.doMoarAwesome();
-
-    exports.asplode = function (){
-        someModule.doTehAwesome();
-        anotherModule.doMoarAwesome();
- };</code></pre><p>这样撸码自然更简单，跟回调神马的说 byebye~<br>不过即使你保留了之前 define 的写法也是可以滴，毕竟 webpack 的兼容性相当出色，方便你旧项目的模块直接迁移过来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var someModule &#x3D; require(&quot;someModule&quot;);</span><br><span class="line">    var anotherModule &#x3D; require(&quot;anotherModule&quot;);    </span><br><span class="line"> </span><br><span class="line">    someModule.doTehAwesome();</span><br><span class="line">    anotherModule.doMoarAwesome();</span><br><span class="line"> </span><br><span class="line">    exports.asplode &#x3D; function ()&#123;</span><br><span class="line">        someModule.doTehAwesome();</span><br><span class="line">        anotherModule.doMoarAwesome();</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+<p>这样撸码自然更简单，跟回调神马的说 byebye~<br>不过即使你保留了之前 define 的写法也是可以滴，毕竟 webpack 的兼容性相当出色，方便你旧项目的模块直接迁移过来。</p>
 <h1 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h1><p>一. 安装<br>我们常规直接使用 npm 的形式来安装：</p>
-<pre><code class="ruby">$ npm install webpack -g</code></pre>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack -g</span><br></pre></td></tr></table></figure>
 <p>当然如果常规项目还是把依赖写入 package.json 包去更人性化：</p>
-<pre><code class="ruby">$ npm init
-$ npm install webpack --save-dev</code></pre>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line">$ npm install webpack --save-dev</span><br></pre></td></tr></table></figure>
 <p>二. 配置<br>每个项目下都必须配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项，告诉 webpack 它需要做什么。<br>我们看看下方的示例：</p>
-<pre><code class="javascript">var webpack = require(&#39;webpack&#39;);
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&#39;common.js&#39;);
-
-module.exports = {
-    //插件项
-    plugins: [commonsPlugin],
-    //页面入口文件配置
-    entry: {
-        index : &#39;./src/js/page/index.js&#39;
-    },
-    //入口文件输出配置
-    output: {
-        path: &#39;dist/js/page&#39;,
-        filename: &#39;[name].js&#39;
-    },
-    module: {
-        //加载器配置
-        loaders: [
-            { test: /\.css$/, loader: &#39;style-loader!css-loader&#39; },
-            { test: /\.js$/, loader: &#39;jsx-loader?harmony&#39; },
-            { test: /\.scss$/, loader: &#39;style!css!sass?sourceMap&#39;},
-            { test: /\.(png|jpg)$/, loader: &#39;url-loader?limit=8192&#39;}
-        ]
-    },
-    //其它解决方案配置
-    resolve: {
-        root: &#39;E:/github/flux-example/src&#39;, //绝对路径
-        extensions: [&#39;&#39;, &#39;.js&#39;, &#39;.json&#39;, &#39;.scss&#39;],
-        alias: {
-            AppStore : &#39;js/stores/AppStores.js&#39;,
-            ActionType : &#39;js/actions/ActionType.js&#39;,
-            AppAction : &#39;js/actions/AppAction.js&#39;
-        }
-    }
-};</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> commonsPlugin = <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">//插件项</span></span><br><span class="line">    plugins: [commonsPlugin],</span><br><span class="line">    <span class="comment">//页面入口文件配置</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        index : <span class="string">'./src/js/page/index.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//入口文件输出配置</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: <span class="string">'dist/js/page'</span>,</span><br><span class="line">        filename: <span class="string">'[name].js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">//加载器配置</span></span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.(png|jpg)$/</span>, <span class="attr">loader</span>: <span class="string">'url-loader?limit=8192'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//其它解决方案配置</span></span><br><span class="line">    resolve: &#123;</span><br><span class="line">        root: <span class="string">'E:/github/flux-example/src'</span>, <span class="comment">//绝对路径</span></span><br><span class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>],</span><br><span class="line">        alias: &#123;</span><br><span class="line">            AppStore : <span class="string">'js/stores/AppStores.js'</span>,</span><br><span class="line">            ActionType : <span class="string">'js/actions/ActionType.js'</span>,</span><br><span class="line">            AppAction : <span class="string">'js/actions/AppAction.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>⑴ plugins 是插件项，这里我们使用了一个 CommonsChunkPlugin 的插件，它用于提取多个入口文件的公共脚本部分，然后生成一个 common.js 来方便多页面之间进行复用。<br>⑵ entry 是页面入口文件配置，output 是对应输出项配置（即入口文件最终要生成什么名字的文件、存放到哪里），其语法大致为：</p>
-<pre><code class="javascript">{
-    entry: {
-        page1: &quot;./page1&quot;,
-        //支持数组形式，将加载数组中的所有模块，但以最后一个模块作为输出
-        page2: [&quot;./entry1&quot;, &quot;./entry2&quot;]
-    },
-    output: {
-        path: &quot;dist/js/page&quot;,
-        filename: &quot;[name].bundle.js&quot;
-    }
-}</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        page1: <span class="string">"./page1"</span>,</span><br><span class="line">        <span class="comment">//支持数组形式，将加载数组中的所有模块，但以最后一个模块作为输出</span></span><br><span class="line">        page2: [<span class="string">"./entry1"</span>, <span class="string">"./entry2"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: <span class="string">"dist/js/page"</span>,</span><br><span class="line">        filename: <span class="string">"[name].bundle.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>该段代码最终会生成一个 page1.bundle.js 和 page2.bundle.js，并存放到 ./dist/js/page 文件夹下。<br>⑶ module.loaders 是最关键的一块配置。它告知 webpack 每一种文件都需要使用什么加载器来处理：</p>
-<pre><code class="javascript">module: {
-        //加载器配置
-        loaders: [
-            //.css 文件使用 style-loader 和 css-loader 来处理
-            { test: /\.css$/, loader: &#39;style-loader!css-loader&#39; },
-            //.js 文件使用 jsx-loader 来编译处理
-            { test: /\.js$/, loader: &#39;jsx-loader?harmony&#39; },
-            //.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理
-            { test: /\.scss$/, loader: &#39;style!css!sass?sourceMap&#39;},
-            //图片文件使用 url-loader 来处理，小于8kb的直接转为base64
-            { test: /\.(png|jpg)$/, loader: &#39;url-loader?limit=8192&#39;}
-        ]
-    }</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">//加载器配置</span></span><br><span class="line">        loaders: [</span><br><span class="line">            <span class="comment">//.css 文件使用 style-loader 和 css-loader 来处理</span></span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">            <span class="comment">//.js 文件使用 jsx-loader 来编译处理</span></span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">            <span class="comment">//.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理</span></span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</span><br><span class="line">            <span class="comment">//图片文件使用 url-loader 来处理，小于8kb的直接转为base64</span></span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.(png|jpg)$/</span>, <span class="attr">loader</span>: <span class="string">'url-loader?limit=8192'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>如上，”-loader”其实是可以省略不写的，多个loader之间用“!”连接起来。<br>注意所有的加载器都需要通过 npm 来加载，并建议查阅它们对应的 readme 来看看如何使用。<br>拿最后一个 url-loader 来说，它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：<br>npm install url-loader -save-dev<br>配置信息的参数“?limit=8192”表示将所有小于8kb的图片都转为base64形式（其实应该说超过8kb的才使用 url-loader 来映射到文件，否则转为data url形式）。<br>⑷ 最后是 resolve 配置，这块很好理解，直接写注释了：</p>
-<pre><code class="javascript">resolve: {
-        //查找module的话从这里开始查找
-        root: &#39;E:/github/flux-example/src&#39;, //绝对路径
-        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
-        extensions: [&#39;&#39;, &#39;.js&#39;, &#39;.json&#39;, &#39;.scss&#39;],
-        //模块别名定义，方便后续直接引用别名，无须多写长长的地址
-        alias: {
-            AppStore : &#39;js/stores/AppStores.js&#39;,//后续直接 require(&#39;AppStore&#39;) 即可
-            ActionType : &#39;js/actions/ActionType.js&#39;,
-            AppAction : &#39;js/actions/AppAction.js&#39;
-        }
-    }</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">        <span class="comment">//查找module的话从这里开始查找</span></span><br><span class="line">        root: <span class="string">'E:/github/flux-example/src'</span>, <span class="comment">//绝对路径</span></span><br><span class="line">        <span class="comment">//自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名</span></span><br><span class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>],</span><br><span class="line">        <span class="comment">//模块别名定义，方便后续直接引用别名，无须多写长长的地址</span></span><br><span class="line">        alias: &#123;</span><br><span class="line">            AppStore : <span class="string">'js/stores/AppStores.js'</span>,<span class="comment">//后续直接 require('AppStore') 即可</span></span><br><span class="line">            ActionType : <span class="string">'js/actions/ActionType.js'</span>,</span><br><span class="line">            AppAction : <span class="string">'js/actions/AppAction.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>关于 webpack.config.js 更详尽的配置可以参考这里。<br>运行 webpack<br>webpack 的执行也很简单，直接执行<br>$ webpack –display-error-details<br>即可，后面的参数“–display-error-details”是推荐加上的，方便出错时能查阅更详尽的信息（比如 webpack 寻找模块的过程），从而更好定位到问题。<br>其他主要的参数有：</p>
-<pre><code class="ruby">$ webpack --config XXX.js   //使用另一份配置文件（比如webpack.config2.js）来打包
-
-$ webpack --watch   //监听变动并自动打包
-
-$ webpack -p    //压缩混淆脚本，这个非常非常重要！
-
-$ webpack -d    //生成map映射文件，告知哪些模块被最终打包到哪里了</code></pre>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --config XXX.js   /<span class="regexp">/使用另一份配置文件（比如webpack.config2.js）来打包</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">$ webpack --watch   /</span><span class="regexp">/监听变动并自动打包</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">$ webpack -p    /</span><span class="regexp">/压缩混淆脚本，这个非常非常重要！</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">$ webpack -d    /</span><span class="regexp">/生成map映射文件，告知哪些模块被最终打包到哪里了</span></span><br></pre></td></tr></table></figure>
 <p>其中的 -p 是很重要的参数，曾经一个未压缩的 700kb 的文件，压缩后直接降到 180kb（主要是样式这块一句就独占一行脚本，导致未压缩脚本变得很大）。<br>模块引入<br>上面唠嗑了那么多配置和执行方法，下面开始说说寻常页面和脚本怎么使用呗。<br>一. HTML<br>直接在页面引入 webpack 最终生成的页面脚本即可，不用再写什么 data-main 或 seajs.use 了：</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;title&gt;demo&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;script src=&quot;dist/js/page/common.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;dist/js/page/index.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"dist/js/page/common.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"dist/js/page/index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以看到我们连样式都不用引入，毕竟脚本执行时会动态生成<strong>&lt;style&gt;</strong>并标签打到head里。</p>
 <p>二. JS<br>各脚本模块可以直接使用 commonJS 来书写，并可以直接引入未经编译的模块，比如 JSX、sass、coffee等（只要你在 webpack.config.js 里配置好了对应的加载器）。<br>我们再看看编译前的页面入口文件（index.js）：</p>
-<pre><code class="javascript">require(&#39;../../css/reset.scss&#39;); //加载初始化样式
-require(&#39;../../css/allComponent.scss&#39;); //加载组件样式
-var React = require(&#39;react&#39;);
-var AppWrap = require(&#39;../component/AppWrap&#39;); //加载组件
-var createRedux = require(&#39;redux&#39;).createRedux;
-var Provider = require(&#39;redux/react&#39;).Provider;
-var stores = require(&#39;AppStore&#39;);
-
-var redux = createRedux(stores);
-
-var App = React.createClass({
-    render: function() {
-        return (
-            &lt;Provider redux={redux}&gt;
-                {function() { return &lt;AppWrap /&gt;; }}
-            &lt;/Provider&gt;
-        );
-    }
-});
-
-React.render(
-    &lt;App /&gt;, document.body
-);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'../../css/reset.scss'</span>); <span class="comment">//加载初始化样式</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'../../css/allComponent.scss'</span>); <span class="comment">//加载组件样式</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> AppWrap = <span class="built_in">require</span>(<span class="string">'../component/AppWrap'</span>); <span class="comment">//加载组件</span></span><br><span class="line"><span class="keyword">var</span> createRedux = <span class="built_in">require</span>(<span class="string">'redux'</span>).createRedux;</span><br><span class="line"><span class="keyword">var</span> Provider = <span class="built_in">require</span>(<span class="string">'redux/react'</span>).Provider;</span><br><span class="line"><span class="keyword">var</span> stores = <span class="built_in">require</span>(<span class="string">'AppStore'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> redux = createRedux(stores);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> App = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Provider redux=&#123;redux&#125;&gt;</span><br><span class="line">                &#123;<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">AppWrap</span> /&gt;</span></span>; &#125;&#125;</span><br><span class="line">            &lt;<span class="regexp">/Provider&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">React.render(</span></span><br><span class="line"><span class="regexp">    &lt;App /</span>&gt;, <span class="built_in">document</span>.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>一切就是这么简单么么哒~ 后续各种有的没的，webpack 都会帮你进行处理。<br>其他<br>至此我们已经基本上手了 webpack 的使用，下面是补充一些有用的技巧。<br>一. shimming<br>在 AMD/CMD 中，我们需要对不符合规范的模块（比如一些直接返回全局变量的插件）进行 shim 处理，这时候我们需要使用 exports-loader 来帮忙：<br>{ test: require.resolve(“./src/js/tool/swipe.js”),  loader: “exports?swipe”}<br>之后在脚本中需要引用该模块的时候，这么简单地来使用就可以了：<br>require(‘./tool/swipe.js’);<br>swipe();<br>二. 自定义公共模块提取<br>在文章开始我们使用了 CommonsChunkPlugin 插件来提取多个页面之间的公共模块，并将该模块打包为 common.js 。<br>但有时候我们希望能更加个性化一些，我们可以这样配置：</p>
-<pre><code class="javascript">var CommonsChunkPlugin = require(&quot;webpack/lib/optimize/CommonsChunkPlugin&quot;);
-module.exports = {
-    entry: {
-        p1: &quot;./page1&quot;,
-        p2: &quot;./page2&quot;,
-        p3: &quot;./page3&quot;,
-        ap1: &quot;./admin/page1&quot;,
-        ap2: &quot;./admin/page2&quot;
-    },
-    output: {
-        filename: &quot;[name].js&quot;
-    },
-    plugins: [
-        new CommonsChunkPlugin(&quot;admin-commons.js&quot;, [&quot;ap1&quot;, &quot;ap2&quot;]),
-        new CommonsChunkPlugin(&quot;commons.js&quot;, [&quot;p1&quot;, &quot;p2&quot;, &quot;admin-commons.js&quot;])
-    ]
-};
-// &lt;script&gt;s required:
-// page1.html: commons.js, p1.js
-// page2.html: commons.js, p2.js
-// page3.html: p3.js
-// admin-page1.html: commons.js, admin-commons.js, ap1.js
-// admin-page2.html: commons.js, admin-commons.js, ap2.js</code></pre>
-<p>三. 独立打包样式文件<br>有时候可能希望项目的样式能不要被打包到脚本中，而是独立出来作为.css，然后在页面中以<strong>&lt;link&gt;</strong>标签引入。这时候我们需要 extract-text-webpack-plugin 来帮忙：</p>
-<pre><code class="javascript">var webpack = require(&#39;webpack&#39;);
-    var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&#39;common.js&#39;);
-    var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        p3: <span class="string">"./page3"</span>,</span><br><span class="line">        ap1: <span class="string">"./admin/page1"</span>,</span><br><span class="line">        ap2: <span class="string">"./admin/page2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// &lt;script&gt;s required:</span></span><br><span class="line"><span class="comment">// page1.html: commons.js, p1.js</span></span><br><span class="line"><span class="comment">// page2.html: commons.js, p2.js</span></span><br><span class="line"><span class="comment">// page3.html: p3.js</span></span><br><span class="line"><span class="comment">// admin-page1.html: commons.js, admin-commons.js, ap1.js</span></span><br><span class="line"><span class="comment">// admin-page2.html: commons.js, admin-commons.js, ap2.js</span></span><br></pre></td></tr></table></figure>
 
-    module.exports = {
-        plugins: [commonsPlugin, new ExtractTextPlugin(&quot;[name].css&quot;)],
-        entry: {
-        //...省略其它配置</code></pre>
+<p>三. 独立打包样式文件<br>有时候可能希望项目的样式能不要被打包到脚本中，而是独立出来作为.css，然后在页面中以<strong>&lt;link&gt;</strong>标签引入。这时候我们需要 extract-text-webpack-plugin 来帮忙：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line">    <span class="keyword">var</span> commonsPlugin = <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>);</span><br><span class="line">    <span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">        plugins: [commonsPlugin, <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)],</span><br><span class="line">        entry: &#123;</span><br><span class="line">        <span class="comment">//...省略其它配置</span></span><br></pre></td></tr></table></figure>
 <p>最终 webpack 执行后会乖乖地把样式文件提取出来：</p>
 <p>四. 使用CDN/远程文件<br>有时候我们希望某些模块走CDN并以&lt;script&gt;的形式挂载到页面上来加载，但又希望能在 webpack 的模块中使用上。<br>这时候我们可以在配置文件里使用 externals 属性来帮忙：</p>
-<pre><code class="javascript">{
-    externals: {
-        // require(&quot;jquery&quot;) 是引用自外部模块的
-        // 对应全局变量 jQuery
-        &quot;jquery&quot;: &quot;jQuery&quot;
-    }
-}</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    externals: &#123;</span><br><span class="line">        <span class="comment">// require("jquery") 是引用自外部模块的</span></span><br><span class="line">        <span class="comment">// 对应全局变量 jQuery</span></span><br><span class="line">        <span class="string">"jquery"</span>: <span class="string">"jQuery"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>需要留意的是，得确保 CDN 文件必须在 webpack 打包文件引入之前先引入。<br>我们倒也可以使用 script.js 在脚本中来加载我们的模块：</p>
-<pre><code>var $script = require(&quot;scriptjs&quot;);
-$script(&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js&quot;, function() {
-  $(&#39;body&#39;).html(&#39;It works!&#39;)
-});</code></pre><p>五. 与 grunt/gulp 配合<br>以 gulp 为示例，我们可以这样混搭：</p>
-<pre><code class="javascript">gulp.task(&quot;webpack&quot;, function(callback) {
-    // run webpack
-    webpack({
-        // configuration
-    }, function(err, stats) {
-        if(err) throw new gutil.PluginError(&quot;webpack&quot;, err);
-        gutil.log(&quot;[webpack]&quot;, stats.toString({
-            // output options
-        }));
-        callback();
-    });
-});</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var $script &#x3D; require(&quot;scriptjs&quot;);</span><br><span class="line">$script(&quot;&#x2F;&#x2F;ajax.googleapis.com&#x2F;ajax&#x2F;libs&#x2F;jquery&#x2F;2.0.0&#x2F;jquery.min.js&quot;, function() &#123;</span><br><span class="line">  $(&#39;body&#39;).html(&#39;It works!&#39;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>五. 与 grunt/gulp 配合<br>以 gulp 为示例，我们可以这样混搭：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"webpack"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// run webpack</span></span><br><span class="line">    webpack(&#123;</span><br><span class="line">        <span class="comment">// configuration</span></span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, stats</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> <span class="keyword">new</span> gutil.PluginError(<span class="string">"webpack"</span>, err);</span><br><span class="line">        gutil.log(<span class="string">"[webpack]"</span>, stats.toString(&#123;</span><br><span class="line">            <span class="comment">// output options</span></span><br><span class="line">        &#125;));</span><br><span class="line">        callback();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>当然我们只需要把配置写到 webpack({ … }) 中去即可，无须再写 webpack.config.js 了。<br>更多参照信息请参阅：<a href="http://webpack.github.io/docs/usage-with-grunt.html" target="_blank" rel="noopener">grunt配置</a> / <a href="http://webpack.github.io/docs/usage-with-gulp.html" target="_blank" rel="noopener">gulp配置</a> 。<br>六. React 相关<br>⑴ 推荐使用 npm install react 的形式来安装并引用 React 模块，而不是直接使用编译后的 react.js，这样最终编译出来的 React 部分的脚本会减少 10-20 kb左右的大小。<br>⑵ <a href="https://github.com/gaearon/react-hot-loader" target="_blank" rel="noopener">react-hot-loader</a> 是一款非常好用的 React 热插拔的加载插件，通过它可以实现修改-运行同步的效果，配合 <a href="http://webpack.github.io/docs/webpack-dev-server.html" target="_blank" rel="noopener">webpack-dev-server</a> 使用更佳！<br>基于 webpack 的入门指引就到这里，希望本文能对你有所帮助，你也可以参考下述的文章来入门：<br><a href="http://www.w2bc.com/article/101955" target="_blank" rel="noopener">webpack入门指谜</a><br><a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="noopener">webpack-howto</a><br>共勉~<br>原文：<br><a href="http://www.w2bc.com/Article/50764" target="_blank" rel="noopener">http://www.w2bc.com/Article/50764</a></p>
 
             </div>

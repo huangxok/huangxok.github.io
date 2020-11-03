@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -557,18 +557,18 @@ in basicapp/skin/main.css:<br>@import url(chrome://global/skin/);</li>
 <li><p>namespace<br>xmlns:xul =”<a href="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;" target="_blank" rel="noopener">http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;</a><br>xmlns:html=”<a href="http://www.w3.org/1999/xhtml&quot;" target="_blank" rel="noopener">http://www.w3.org/1999/xhtml&quot;</a><br>注意 xul 中允许混合 html标签。</p>
 </li>
 <li><p>window<br>这是顶层元素<br>&lt;xul:window title     =”&amp;mybrowser.title;”</p>
-<pre><code>      xmlns:xul =&quot;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;
-      xmlns:html=&quot;http://www.w3.org/1999/xhtml&quot;
-      id        =&quot;mybrowser&quot;
-      width     =&quot;800&quot;
-      height    =&quot;600&quot;&gt;</code></pre></li>
+<pre><code>xmlns:xul =&quot;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;
+xmlns:html=&quot;http://www.w3.org/1999/xhtml&quot;
+id        =&quot;mybrowser&quot;
+width     =&quot;800&quot;
+height    =&quot;600&quot;&gt;</code></pre></li>
 <li><p>script<br>&lt;xul:script type=”application/javascript”</p>
-<pre><code>          src=&quot;chrome://myapp/content/mybrowser.js&quot; /&gt;</code></pre><p>html script 可以吗？</p>
+<pre><code>src=&quot;chrome://myapp/content/mybrowser.js&quot; /&gt;</code></pre><p>html script 可以吗？</p>
 </li>
 <li><p>browser 组件<br>&lt;xul:browser flex=”1”</p>
-<pre><code>           id  =&quot;browser&quot;
-           src =&quot;&quot;
-           type=&quot;content-primary&quot; /&gt;</code></pre></li>
+<pre><code>id  =&quot;browser&quot;
+src =&quot;&quot;
+type=&quot;content-primary&quot; /&gt;</code></pre></li>
 </ul>
 <h2 id="profile"><a href="#profile" class="headerlink" title="profile"></a>profile</h2><p><a href="http://kb.mozillazine.org/Starting_your_Mozilla_application_with_a_specified_profile#Bypassing_the_Profile_Manager" target="_blank" rel="noopener">http://kb.mozillazine.org/Starting_your_Mozilla_application_with_a_specified_profile#Bypassing_the_Profile_Manager</a></p>
 <p>启动profile管理器来选择一个profile：<br>  <xul_app> -P<br>直接选择指定的 profile 名字：<br>  <xul_app> -P profileName<br>直接选择指定的 profile 路径。如果是个空目录，则会在该目录中创建新 profile。<br>  <xul_app> -profile path_to_profile</p>
@@ -727,7 +727,7 @@ a set of JavaScript APIs, built into Firefox, to create extensions, including AP
 <p>OS.File.copy(sourcePath, destPath) 函数可以用于复制文件，不过似乎存在bug，在复制完成前promise就会完成：<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166027" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=1166027</a></p>
 <p>一些有用的路径：<br>  OS.Constants.Path.profileDir profile 的路径。如果在 application.ini 中设置了 Profile=MyAppData，则 OS.Constants.Path.profileDir 为 $HOME/.MyAppData/xxx.default。<br>  tmpDir 临时目录<br>  homeDir 用户主目录</p>
 <ul>
-<li>特殊路径<br>var iop = Components.classes[“@mozilla.org/file/directory_service;1”]<pre><code>    .getService(Components.interfaces.nsIProperties);</code></pre>var dir = iop.get(“ProfD”, Components.interfaces.nsIFile);</li>
+<li>特殊路径<br>var iop = Components.classes[“@mozilla.org/file/directory_service;1”]<pre><code>.getService(Components.interfaces.nsIProperties);</code></pre>var dir = iop.get(“ProfD”, Components.interfaces.nsIFile);</li>
 </ul>
 <p>其中 ProfD 可以替换为：<br>CurProcD     Current working directory (usually the application’s installation directory).<br>ProfD     The profile directory.<br>Home     The user’s home directory (for example, /home/username).<br>更多的值可以参考：<br><a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/File_I_O" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/Add-ons/Code_snippets/File_I_O</a></p>
 <ul>
@@ -769,20 +769,20 @@ a set of JavaScript APIs, built into Firefox, to create extensions, including AP
 <p>mozIJSSubScriptLoader<br><a href="https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/mozIJSSubScriptLoader" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/mozIJSSubScriptLoader</a><br>This interface can be used from privileged JavaScript to load and run JavaScript code from the given URL at runtime.<br>var mozIJSSubScriptLoader = Components.classes[“@mozilla.org/moz/jssubscript-loader;1”]<br>                            .getService(Components.interfaces.mozIJSSubScriptLoader);</p>
 <h3 id="geckofx-js-and-native-interop"><a href="#geckofx-js-and-native-interop" class="headerlink" title="geckofx js and native interop"></a>geckofx js and native interop</h3><p>D:\project\geckofx-29.0.hg\Geckofx-Core\AutoJSContext.cs<br>D:\project\geckofx-29.0.hg\Geckofx-Core\JQuery\JQueryExecutor.cs<br>D:\project\geckofx-29.0.hg\Geckofx-Core\Interop\SpiderMonkey\SpiderMonkey.cs</p>
 <p>D:\project\geckofx-29.0.hg\GeckofxUnitTests\GeckoWebBrowserTests.cs<br>D:\project\geckofx-29.0.hg\GeckofxUnitTests\XPConnectTests.cs<br>D:\project\geckofx-29.0.hg\GeckofxUnitTests\XpComTests.cs</p>
-<pre><code>    public void EvaluateScript_SimpleJavascript_ScriptExecutesAndReturnsExpectedResult()
-    {
-        browser.TestLoadHtml(&quot;&quot;);
+<pre><code>public void EvaluateScript_SimpleJavascript_ScriptExecutesAndReturnsExpectedResult()
+{
+    browser.TestLoadHtml(&quot;&quot;);
 
-        using (AutoJSContext context = new AutoJSContext(browser.Window.JSContext))
-        {                
-            string result;
-            Assert.IsTrue(context.EvaluateScript(&quot;3 + 2;&quot;, out result));
-            Assert.AreEqual(5, Int32.Parse(result));
+    using (AutoJSContext context = new AutoJSContext(browser.Window.JSContext))
+    {                
+        string result;
+        Assert.IsTrue(context.EvaluateScript(&quot;3 + 2;&quot;, out result));
+        Assert.AreEqual(5, Int32.Parse(result));
 
-            Assert.IsTrue(context.EvaluateScript(&quot;&#39;hello&#39; + &#39; &#39; + &#39;world&#39;;&quot;, out result));
-            Assert.AreEqual(&quot;hello world&quot;, result);
-        }                
-    }</code></pre><p>var instance = Xpcom.CreateInstance<nsISupports>(“@mozilla.org/byte-buffer;1”);</p>
+        Assert.IsTrue(context.EvaluateScript(&quot;&apos;hello&apos; + &apos; &apos; + &apos;world&apos;;&quot;, out result));
+        Assert.AreEqual(&quot;hello world&quot;, result);
+    }                
+}</code></pre><p>var instance = Xpcom.CreateInstance<nsISupports>(“@mozilla.org/byte-buffer;1”);</p>
 <h2 id="页面加载状态监视和错误处理"><a href="#页面加载状态监视和错误处理" class="headerlink" title="页面加载状态监视和错误处理"></a>页面加载状态监视和错误处理</h2><p><a href="https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsIWebProgressListener" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsIWebProgressListener</a></p>
 <p>LOCATION_CHANGE_ERROR_PAGE This flag indicates that aWebProgress redirected from the requested document to an internal page to show error status, such as about:neterror, about:certerror and so on. </p>
 <h3 id="geckofx-1"><a href="#geckofx-1" class="headerlink" title="geckofx"></a>geckofx</h3><p>GeckoWebBrowser 有以下.net事件：<br>browser.Navigating<br>  开始导航到某个页面。注意这个事件也会在页面内导航、子框架（frame）导航时产生。<br>  GeckoNavigatingEventArgs.DomWindowTopLevel表示是否是顶层窗口的导航事件, GeckoNavigatingEventArgs.DomWindow 为事件相关的窗口。<br>  这时可以取消导航，GeckoNavigatingEventArgs 是 CancelEventArgs 的子类。<br>browser.Navigated<br>  导航结束，页面将开始解析（如果是新页面）。注意这个事件也会在错误页面、页面内导航、子框架（frame）导航时产生。<br>  （1）如果是新页面，这时JS上下文已经创建，可以注入和执行JS（AutoJSContext.EvaluateScript）；但页面本身尚未解析，html中的JS都还没有开始执行，<br>  因此这是注入跨语言交互代码的理想时机。<br>  （2）如果加载页面时发生网络错误，并且启用了内置错误页面（设置偏好 browser.xul.error_pages.enabled = true），则 GeckoNavigatedEventArgs.IsErrorPage == true；但HTTP错误（4xx, 5xx）不会反映在这里（TODO 如何检测）。顺提，如果没有启用了内置错误页面，则网络错误会通过对话框报告，详见PromptService。<br>  （3）GeckoNavigatedEventArgs.IsSameDocument 表示结局是否仍为原来的文档（即页面内跳转）；GeckoNavigatedEventArgs.DomWindowTopLevel 表示是否是顶层窗口的导航事件，<br>    GeckoNavigatedEventArgs.DomWindow 为事件相关的窗口。<br>browser.Load<br>  类似于 js window.onload 事件，不过会在 js window.onload 事件之前执行。所以如果有要在网页加载完后做处理，更好的时机是 DocumentCompleted 事件。<br>browser.ReadyStateChange<br>  等效于 JS 中的 document 的 readystatechange 事件，可以通过 browser.Window.Document.ReadyState:string 查询状态，有interactive, complete等。<br>browser.DocumentCompleted<br>  新页面、无网络错误时，在 Load 和 JS load 事件之后触发。<br>  如果要对加载完的页面做修改，这是个合适的地方。<br>  GeckoDocumentCompletedEventArgs 与 GeckoNavigatedEventArgs 类似，注意区分错误页面（无此参数）、页面内导航、子框架导航，HTTP错误。<br>  注意，如果有网络错误，并加载了错误页面，这个事件会在 Navigated 事件之前发生。</p>
@@ -925,7 +925,7 @@ a set of JavaScript APIs, built into Firefox, to create extensions, including AP
 <li><p>nsIAppShellService<br>Provides the AppShellService. </p>
 </li>
 <li><p>nsIFile/nsILocalFile<br>创建<br>var localFile = Components.classes[“@mozilla.org/file/local;1”]</p>
-<pre><code>          .createInstance(Components.interfaces.nsILocalFile);</code></pre><p>或者<br>Components.utils.import(“resource://gre/modules/FileUtils.jsm”);</p>
+<pre><code>.createInstance(Components.interfaces.nsILocalFile);</code></pre><p>或者<br>Components.utils.import(“resource://gre/modules/FileUtils.jsm”);</p>
 </li>
 </ul>
 <p>var file = new FileUtils.File(“/home”);</p>
@@ -998,8 +998,8 @@ a set of JavaScript APIs, built into Firefox, to create extensions, including AP
 <h2 id="直接执行特权js代码"><a href="#直接执行特权js代码" class="headerlink" title="直接执行特权js代码"></a>直接执行特权js代码</h2><p>TODO<br>geckofx 中，不创建 browser 对象，直接创建 AutoJSContext:<br> new AutoJSContext()<br> new AutoJSContext(GlobalJSContextHolder.BackstageJSContext)<br>但这样的代码都没有特权，找不到 Components 对象。</p>
 <h2 id="综合代码片段"><a href="#综合代码片段" class="headerlink" title="综合代码片段"></a>综合代码片段</h2><p>Code_snippets/Miscellaneous<br>  <a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Miscellaneous" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Miscellaneous</a><br>包括：<br>  Saving an arbitrary URL to a local file<br>  Operating system detection</p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="UcWORK统一桌面系统"><a href="#UcWORK统一桌面系统" class="headerlink" title="UcWORK统一桌面系统"></a>UcWORK统一桌面系统</h3><p><a href="http://www.qqtech.com/ucwork.htm" target="_blank" rel="noopener">http://www.qqtech.com/ucwork.htm</a></p>
-<pre><code>    UcWORK基于桌面应用的设计思想，采用mozilla技术框架，并进行多方面的扩展实现，UcWork是主平台/框架，其它应用可嵌入到UcWork中，这是我们的主推目标。此种情况是“我为主，人为辅”。
-    客户或代理商(第三方)可以在界面和服务器层扩展应用。界面和服务层通过UcBUS(即DBUS)交互。在服务层，UcWork除提供DBus接口外，还可提供面向服务层的API接口，供第三方服务层开发调用。</code></pre><h3 id="XULApp-StarterKit"><a href="#XULApp-StarterKit" class="headerlink" title="XULApp StarterKit"></a>XULApp StarterKit</h3><p><a href="https://github.com/racklin/xulapp-starterkit" target="_blank" rel="noopener">https://github.com/racklin/xulapp-starterkit</a></p>
+<pre><code>UcWORK基于桌面应用的设计思想，采用mozilla技术框架，并进行多方面的扩展实现，UcWork是主平台/框架，其它应用可嵌入到UcWork中，这是我们的主推目标。此种情况是“我为主，人为辅”。
+客户或代理商(第三方)可以在界面和服务器层扩展应用。界面和服务层通过UcBUS(即DBUS)交互。在服务层，UcWork除提供DBus接口外，还可提供面向服务层的API接口，供第三方服务层开发调用。</code></pre><h3 id="XULApp-StarterKit"><a href="#XULApp-StarterKit" class="headerlink" title="XULApp StarterKit"></a>XULApp StarterKit</h3><p><a href="https://github.com/racklin/xulapp-starterkit" target="_blank" rel="noopener">https://github.com/racklin/xulapp-starterkit</a></p>
 <p>XULApp StarterKit is a generic framework for XULRunner applications, like Rich Client Platform .</p>
 <p>It provides the “plumbing” that, before, every developer had to write themselves—saving state, connecting actions to menu items, toolbar items and keyboard shortcuts; window management, add-ons mechanism, update mechanism and so on.</p>
 <h2 id="链接-内容处理方式"><a href="#链接-内容处理方式" class="headerlink" title="链接/内容处理方式"></a>链接/内容处理方式</h2><p>Document Loading - From Load Start to Finding a Handler<br>  <a href="http://www-archive.mozilla.org/docs/docshell/uri-load-start.html" target="_blank" rel="noopener">http://www-archive.mozilla.org/docs/docshell/uri-load-start.html</a><br>  <a href="https://developer.mozilla.org/en-US/docs/Document_Loading_-_From_Load_Start_to_Finding_a_Handler" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Document_Loading_-_From_Load_Start_to_Finding_a_Handler</a></p>
@@ -1057,14 +1057,14 @@ Four primary tasks:
 <h3 id="interface-GeckoView-ChromeDelegate"><a href="#interface-GeckoView-ChromeDelegate" class="headerlink" title="interface GeckoView.ChromeDelegate"></a>interface GeckoView.ChromeDelegate</h3><p>默认实现 GeckoViewChrome<br>onReady<br>onAlert<br>onPrompt<br>onConfirm<br>onDebugRequest</p>
 <h3 id="GeckoAppShell"><a href="#GeckoAppShell" class="headerlink" title="GeckoAppShell"></a>GeckoAppShell</h3><p>mobile/android/base/GeckoAppShell.java</p>
 <p>//Adds a listener for a gecko event. This method is thread-safe and may be called at any time.<br>public static void registerEventListener(String event, GeckoEventListener listener)<br>public static void unregisterEventListener(String event, GeckoEventListener listener)</p>
-<pre><code>    GeckoAppShell.registerEventListener(&quot;Gecko:Ready&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Content:StateChange&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Content:LoadError&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Content:PageShow&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;DOMTitleChanged&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Link:Favicon&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Prompt:Show&quot;, this);
-    GeckoAppShell.registerEventListener(&quot;Prompt:ShowTop&quot;, this);</code></pre><p>base/Tabs.java:87:        registerEventListener(“Session:RestoreEnd”);<br>base/Tabs.java:88:        registerEventListener(“SessionHistory:New”);<br>base/Tabs.java:89:        registerEventListener(“SessionHistory:Back”);<br>base/Tabs.java:90:        registerEventListener(“SessionHistory:Forward”);<br>base/Tabs.java:91:        registerEventListener(“SessionHistory:Goto”);<br>base/Tabs.java:92:        registerEventListener(“SessionHistory:Purge”);<br>base/Tabs.java:93:        registerEventListener(“Tab:Added”);<br>base/Tabs.java:94:        registerEventListener(“Tab:Close”);<br>base/Tabs.java:95:        registerEventListener(“Tab:Select”);<br>base/Tabs.java:96:        registerEventListener(“Content:LocationChange”);<br>base/Tabs.java:97:        registerEventListener(“Content:SecurityChange”);<br>base/Tabs.java:98:        registerEventListener(“Content:ReaderEnabled”);<br>base/Tabs.java:99:        registerEventListener(“Content:StateChange”);<br>base/Tabs.java:100:        registerEventListener(“Content:LoadError”);<br>base/Tabs.java:101:        registerEventListener(“Content:PageShow”);<br>base/Tabs.java:102:        registerEventListener(“DOMContentLoaded”);<br>base/Tabs.java:103:        registerEventListener(“DOMTitleChanged”);<br>base/Tabs.java:104:        registerEventListener(“Link:Favicon”);<br>base/Tabs.java:105:        registerEventListener(“Link:Feed”);<br>base/Tabs.java:106:        registerEventListener(“Link:OpenSearch”);<br>base/Tabs.java:107:        registerEventListener(“DesktopMode:Changed”);<br>base/Tabs.java:108:        registerEventListener(“Tab:ViewportMetadata”);</p>
+<pre><code>GeckoAppShell.registerEventListener(&quot;Gecko:Ready&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Content:StateChange&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Content:LoadError&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Content:PageShow&quot;, this);
+GeckoAppShell.registerEventListener(&quot;DOMTitleChanged&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Link:Favicon&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Prompt:Show&quot;, this);
+GeckoAppShell.registerEventListener(&quot;Prompt:ShowTop&quot;, this);</code></pre><p>base/Tabs.java:87:        registerEventListener(“Session:RestoreEnd”);<br>base/Tabs.java:88:        registerEventListener(“SessionHistory:New”);<br>base/Tabs.java:89:        registerEventListener(“SessionHistory:Back”);<br>base/Tabs.java:90:        registerEventListener(“SessionHistory:Forward”);<br>base/Tabs.java:91:        registerEventListener(“SessionHistory:Goto”);<br>base/Tabs.java:92:        registerEventListener(“SessionHistory:Purge”);<br>base/Tabs.java:93:        registerEventListener(“Tab:Added”);<br>base/Tabs.java:94:        registerEventListener(“Tab:Close”);<br>base/Tabs.java:95:        registerEventListener(“Tab:Select”);<br>base/Tabs.java:96:        registerEventListener(“Content:LocationChange”);<br>base/Tabs.java:97:        registerEventListener(“Content:SecurityChange”);<br>base/Tabs.java:98:        registerEventListener(“Content:ReaderEnabled”);<br>base/Tabs.java:99:        registerEventListener(“Content:StateChange”);<br>base/Tabs.java:100:        registerEventListener(“Content:LoadError”);<br>base/Tabs.java:101:        registerEventListener(“Content:PageShow”);<br>base/Tabs.java:102:        registerEventListener(“DOMContentLoaded”);<br>base/Tabs.java:103:        registerEventListener(“DOMTitleChanged”);<br>base/Tabs.java:104:        registerEventListener(“Link:Favicon”);<br>base/Tabs.java:105:        registerEventListener(“Link:Feed”);<br>base/Tabs.java:106:        registerEventListener(“Link:OpenSearch”);<br>base/Tabs.java:107:        registerEventListener(“DesktopMode:Changed”);<br>base/Tabs.java:108:        registerEventListener(“Tab:ViewportMetadata”);</p>
 <p>base/GeckoApp.java:1517:        registerEventListener(“log”);<br>base/GeckoApp.java:1518:        registerEventListener(“Reader:ListCountRequest”);<br>base/GeckoApp.java:1519:        registerEventListener(“Reader:ListStatusRequest”);<br>base/GeckoApp.java:1520:        registerEventListener(“Reader:Added”);<br>base/GeckoApp.java:1521:        registerEventListener(“Reader:Removed”);<br>base/GeckoApp.java:1522:        registerEventListener(“Reader:Share”);<br>base/GeckoApp.java:1523:        registerEventListener(“Reader:FaviconRequest”);<br>base/GeckoApp.java:1524:        registerEventListener(“onCameraCapture”);<br>base/GeckoApp.java:1525:        registerEventListener(“Menu:Add”);<br>base/GeckoApp.java:1526:        registerEventListener(“Menu:Remove”);<br>base/GeckoApp.java:1527:        registerEventListener(“Menu:Update”);<br>base/GeckoApp.java:1528:        registerEventListener(“Gecko:Ready”);<br>base/GeckoApp.java:1529:        registerEventListener(“Gecko:DelayedStartup”);<br>base/GeckoApp.java:1530:        registerEventListener(“Toast:Show”);<br>base/GeckoApp.java:1531:        registerEventListener(“DOMFullScreen:Start”);<br>base/GeckoApp.java:1532:        registerEventListener(“DOMFullScreen:Stop”);<br>base/GeckoApp.java:1533:        registerEventListener(“ToggleChrome:Hide”);<br>base/GeckoApp.java:1534:        registerEventListener(“ToggleChrome:Show”);<br>base/GeckoApp.java:1535:        registerEventListener(“ToggleChrome:Focus”);<br>base/GeckoApp.java:1536:        registerEventListener(“Permissions:Data”);<br>base/GeckoApp.java:1537:        registerEventListener(“Session:StatePurged”);<br>base/GeckoApp.java:1538:        registerEventListener(“Bookmark:Insert”);<br>base/GeckoApp.java:1539:        registerEventListener(“Accessibility:Event”);<br>base/GeckoApp.java:1540:        registerEventListener(“Accessibility:Ready”);<br>base/GeckoApp.java:1541:        registerEventListener(“Shortcut:Remove”);<br>base/GeckoApp.java:1542:        registerEventListener(“Share:Text”);<br>base/GeckoApp.java:1543:        registerEventListener(“Share:Image”);<br>base/GeckoApp.java:1544:        registerEventListener(“Image:SetAs”);<br>base/GeckoApp.java:1545:        registerEventListener(“Sanitize:ClearHistory”);<br>base/GeckoApp.java:1546:        registerEventListener(“Update:Check”);<br>base/GeckoApp.java:1547:        registerEventListener(“Update:Download”);<br>base/GeckoApp.java:1548:        registerEventListener(“Update:Install”);<br>base/GeckoApp.java:1549:        registerEventListener(“PrivateBrowsing:Data”);<br>base/GeckoApp.java:1550:        registerEventListener(“Contact:Add”);<br>base/GeckoApp.java:1551:        registerEventListener(“Intent:Open”);<br>base/GeckoApp.java:1552:        registerEventListener(“Intent:GetHandlers”);<br>base/GeckoApp.java:1553:        registerEventListener(“Locale:Set”);<br>base/GeckoApp.java:1554:        registerEventListener(“NativeApp:IsDebuggable”);<br>base/GeckoApp.java:1555:        registerEventListener(“SystemUI:Visibility”);</p>
 <h3 id="click"><a href="#click" class="headerlink" title="click"></a>click</h3><p>chrome/content/browser.js:1709:    Services.obs.addObserver(this, “PageActions:C<br>licked”, false);<br>chrome/content/browser.js:1710:    Services.obs.addObserver(this, “PageActions:L<br>ongClicked”, false);</p>
 <h3 id="components-HelperAppDialog-js"><a href="#components-HelperAppDialog-js" class="headerlink" title="components/HelperAppDialog.js"></a>components/HelperAppDialog.js</h3><h3 id="HelperApps"><a href="#HelperApps" class="headerlink" title="HelperApps"></a>HelperApps</h3><p>mobile/android/chrome/content/HelperApps.js<br><a href="https://hg.mozilla.org/integration/fx-team/rev/dd3dd64aa432" target="_blank" rel="noopener">https://hg.mozilla.org/integration/fx-team/rev/dd3dd64aa432</a><br>  getAppsForUri</p>

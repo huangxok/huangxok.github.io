@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -471,62 +471,17 @@
                 <h1 id="jsonp介绍"><a href="#jsonp介绍" class="headerlink" title="jsonp介绍"></a>jsonp介绍</h1><p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。<br>它的基本思想是，网页通过添加一个&lt;script&gt;元素，向服务器请求JSON数据，这种做法不受同源政策限制。<br>服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。</p>
 <p>首先，网页动态插入&lt;script&gt;元素，由它向跨源网址发出请求。</p>
 <p>客户端代码（浏览器发送的请求）</p>
-<pre><code class="javascript">  function createScriptTag(src) {
-    var script = document.createElement(&#39;script&#39;);
-    script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
-    script.src = src;
-    document.body.appendChild(script);
-  }
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createScriptTag</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">  script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">  script.src = src;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  createScriptTag(<span class="string">'http://example.com?callback=foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'return server data: '</span> + data);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-  window.onload = function () {
-    createScriptTag(&#39;http://example.com?callback=foo&#39;);
-  }
-
-  function foo(data) {
-    console.log(&#39;return server data: &#39; + data);
-  };</code></pre>
 <p>上面代码通过动态添加&lt;script&gt;元素，向服务器example.com发出请求。<br>注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的</p>
 <p>服务器返回的代码如下<br>java：</p>
-<pre><code class="javascript">  boolean jsonP = false;
-  String cb = request.getParameter(&quot;callback&quot;);
-  if (cb != null) {
-      jsonP = true;
-      response.setContentType(&quot;text/javascript&quot;);
-  } else {
-      response.setContentType(&quot;application/x-json&quot;);
-  }
-  Writer out = response.getWriter();
-  if (jsonP) {
-      out.write(cb + &quot;(&quot;);
-  }
-  out.print(dataBlock.toJsonString());
-  if (jsonP) {
-      out.write(&quot;);&quot;);
-  } </code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">boolean jsonP = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">String</span> cb = request.getParameter(<span class="string">"callback"</span>);</span><br><span class="line"><span class="keyword">if</span> (cb != <span class="literal">null</span>) &#123;</span><br><span class="line">    jsonP = <span class="literal">true</span>;</span><br><span class="line">    response.setContentType(<span class="string">"text/javascript"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    response.setContentType(<span class="string">"application/x-json"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Writer out = response.getWriter();</span><br><span class="line"><span class="keyword">if</span> (jsonP) &#123;</span><br><span class="line">    out.write(cb + <span class="string">"("</span>);</span><br><span class="line">&#125;</span><br><span class="line">out.print(dataBlock.toJsonString());</span><br><span class="line"><span class="keyword">if</span> (jsonP) &#123;</span><br><span class="line">    out.write(<span class="string">");"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>php:</p>
-<pre><code class="javascript">  $callback = $_REQUEST[&#39;callback&#39;];
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$callback = $_REQUEST[<span class="string">'callback'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the output object.</span></span><br><span class="line">$output = array(<span class="string">'a'</span> =&gt; <span class="string">'Apple'</span>, <span class="string">'b'</span> =&gt; <span class="string">'Banana'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//start output</span></span><br><span class="line"><span class="keyword">if</span> ($callback) &#123;</span><br><span class="line">    header(<span class="string">'Content-Type: text/javascript'</span>);</span><br><span class="line">    echo $callback . <span class="string">'('</span> . json_encode($output) . <span class="string">');'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">'Content-Type: application/x-json'</span>);</span><br><span class="line">    echo json_encode($output);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  // Create the output object.
-  $output = array(&#39;a&#39; =&gt; &#39;Apple&#39;, &#39;b&#39; =&gt; &#39;Banana&#39;);
-
-  //start output
-  if ($callback) {
-      header(&#39;Content-Type: text/javascript&#39;);
-      echo $callback . &#39;(&#39; . json_encode($output) . &#39;);&#39;;
-  } else {
-      header(&#39;Content-Type: application/x-json&#39;);
-      echo json_encode($output);
-  }</code></pre>
 <p>asp.net:</p>
-<pre><code class="javascript">String jsonString = &quot;{success: true}&quot;;
-String cb = Request.Params.Get(&quot;callback&quot;);
-String responseString = &quot;&quot;;
-if (!String.IsNullOrEmpty(cb)) {
-    responseString = cb + &quot;(&quot; + jsonString + &quot;)&quot;;
-} else {
-    responseString = jsonString;
-}
-Response.Write(responseString);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> jsonString = <span class="string">"&#123;success: true&#125;"</span>;</span><br><span class="line"><span class="built_in">String</span> cb = Request.Params.Get(<span class="string">"callback"</span>);</span><br><span class="line"><span class="built_in">String</span> responseString = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.IsNullOrEmpty(cb)) &#123;</span><br><span class="line">    responseString = cb + <span class="string">"("</span> + jsonString + <span class="string">")"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    responseString = jsonString;</span><br><span class="line">&#125;</span><br><span class="line">Response.Write(responseString);</span><br></pre></td></tr></table></figure>
 
             </div>
             <hr/>

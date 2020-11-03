@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -491,19 +491,19 @@
 <ul>
 <li><p>item<br>Attributes</p>
 <p>  id [required]</p>
-<pre><code>  The ID [XML] of this element, which must be unique within the document scope.
-  必须是 XML Name，也就是说必须以字母或下划线开头，只能包含字母、下划线、数字和&#39;-&#39;。这与(x)html的id不同，后者可以是包含除空白外的任意字符。</code></pre><p>  href [required]</p>
-<pre><code>  An IRI [RFC3987] specifying the location of the Publication Resource described by this item. </code></pre><p>  media-type [required]</p>
-<pre><code>  A media type [RFC2046] that specifies the type and format of the Publication Resource described by this item. </code></pre><p>  fallback [conditionally required]</p>
-<pre><code>  An IDREF [XML] that identifies the fallback for a non-Core Media Type.
+<pre><code>The ID [XML] of this element, which must be unique within the document scope.
+必须是 XML Name，也就是说必须以字母或下划线开头，只能包含字母、下划线、数字和&apos;-&apos;。这与(x)html的id不同，后者可以是包含除空白外的任意字符。</code></pre><p>  href [required]</p>
+<pre><code>An IRI [RFC3987] specifying the location of the Publication Resource described by this item. </code></pre><p>  media-type [required]</p>
+<pre><code>A media type [RFC2046] that specifies the type and format of the Publication Resource described by this item. </code></pre><p>  fallback [conditionally required]</p>
+<pre><code>An IDREF [XML] that identifies the fallback for a non-Core Media Type.
 
-  Refer to Manifest Fallbacks for more information.</code></pre><p>  properties [optional]</p>
-<pre><code>  A space-separated list of property values.
+Refer to Manifest Fallbacks for more information.</code></pre><p>  properties [optional]</p>
+<pre><code>A space-separated list of property values.
 
-  Refer to Manifest item Properties for a set of properties defined by this specification.</code></pre><p>  media-overlay [optional]</p>
-<pre><code>  An IDREF [XML] that identifies the Media Overlay Document for the resource described by this item.
+Refer to Manifest item Properties for a set of properties defined by this specification.</code></pre><p>  media-overlay [optional]</p>
+<pre><code>An IDREF [XML] that identifies the Media Overlay Document for the resource described by this item.
 
-  Refer to Packaging [MediaOverlays30] for more information.</code></pre><p>href 可以是相对或绝对的，如果是相对的，则是相对于本OPF的。href也可以引用远程资源。item引用的资源不能重复，也就是说，任意两个href解析为绝对IRI后不能相同。<br>epub 2(<a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm" target="_blank" rel="noopener">http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm</a>) 规定此IRI不能含有片段（fragment identifiers），但是epub 3 没有明确要求。</p>
+Refer to Packaging [MediaOverlays30] for more information.</code></pre><p>href 可以是相对或绝对的，如果是相对的，则是相对于本OPF的。href也可以引用远程资源。item引用的资源不能重复，也就是说，任意两个href解析为绝对IRI后不能相同。<br>epub 2(<a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm" target="_blank" rel="noopener">http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm</a>) 规定此IRI不能含有片段（fragment identifiers），但是epub 3 没有明确要求。</p>
 <p>media-type 属性的可选值在：<a href="http://tools.ietf.org/html/rfc2046" target="_blank" rel="noopener">http://tools.ietf.org/html/rfc2046</a><br>主要有：application/xhtml+xml，image/svg+xml，text/css，text/html，image/jpeg，application/mathml+xml，application/xml等</p>
 <p>properties 可用于指定该资源的性质、用途。这是个空白分割的列表。可选值在：<a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-property-values" target="_blank" rel="noopener">http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-property-values</a><br>主要包括：<br>  cover-image：该文件是封面图，0-1个。可以是向量图或点阵图。<br>  mathml：该文件包含一些mathml标签。<br>  nav：该文件是导航文档，有且只有1个。<br>  remote-resources: 该文件引用了远程资源。远程的意思是“在本epub之外”。<br>  scripted：该文件使用了脚本或者HTML表单。<br>  svg：该文件包含一些svg标签。<br>  switch：该文件包含一些epub:switch标签。</p>
 <p>  注意：当上述条件满足时，则必须设置相应的属性；如果不满足，则不得设置相应属性。不过，这个规则并不递归到该文件引用的文件，例如通过iframe引用的文件。</p>

@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -483,37 +483,19 @@
 </li>
 </ul>
 <h3 id="tsc-工程文件-tsconfig-json-22"><a href="#tsc-工程文件-tsconfig-json-22" class="headerlink" title="tsc 工程文件 - tsconfig.json [22]"></a>tsc 工程文件 - tsconfig.json [22]</h3><p>例子[22]：</p>
-<pre><code>{
-    &quot;compilerOptions&quot;: {
-        &quot;module&quot;: &quot;commonjs&quot;,
-        &quot;noImplicitAny&quot;: true,
-        &quot;removeComments&quot;: true,
-        &quot;preserveConstEnums&quot;: true,
-        &quot;out&quot;: &quot;../../built/local/tsc.js&quot;,
-        &quot;sourceMap&quot;: true,
-    },
-    &quot;files&quot;: [
-        &quot;core.ts&quot;,
-        &quot;sys.ts&quot;,
-    ]
-}</code></pre><h3 id="用grunt编译"><a href="#用grunt编译" class="headerlink" title="用grunt编译"></a>用grunt编译</h3><ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;compilerOptions&quot;: &#123;</span><br><span class="line">        &quot;module&quot;: &quot;commonjs&quot;,</span><br><span class="line">        &quot;noImplicitAny&quot;: true,</span><br><span class="line">        &quot;removeComments&quot;: true,</span><br><span class="line">        &quot;preserveConstEnums&quot;: true,</span><br><span class="line">        &quot;out&quot;: &quot;..&#x2F;..&#x2F;built&#x2F;local&#x2F;tsc.js&quot;,</span><br><span class="line">        &quot;sourceMap&quot;: true,</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files&quot;: [</span><br><span class="line">        &quot;core.ts&quot;,</span><br><span class="line">        &quot;sys.ts&quot;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用grunt编译"><a href="#用grunt编译" class="headerlink" title="用grunt编译"></a>用grunt编译</h3><ul>
 <li><p>grunt</p>
 <p>npm install -g grunt-cli</p>
 </li>
 <li><p>package</p>
 <p>在工程根目录下创建 package.json：</p>
-<pre><code>{
-  &quot;name&quot;: &quot;projectName&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;devDependencies&quot;: {
-    &quot;grunt&quot;: &quot;~0.4.1&quot;,
-    &quot;grunt-exec&quot;: &quot;~0.4.0&quot;,
-    &quot;grunt-contrib-watch&quot;: &quot;~0.3.1&quot;
-  }
-}</code></pre><p>grunt-exec 用于执行系统命令，我们用它来执行tsc。<br>尽管有一些grunt插件专门用于编译ts（grunt-typescript和grunt-type），但似乎并没有特别的优势，你也可以尝试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;projectName&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;grunt&quot;: &quot;~0.4.1&quot;,</span><br><span class="line">    &quot;grunt-exec&quot;: &quot;~0.4.0&quot;,</span><br><span class="line">    &quot;grunt-contrib-watch&quot;: &quot;~0.3.1&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>grunt-exec 用于执行系统命令，我们用它来执行tsc。<br>尽管有一些grunt插件专门用于编译ts（grunt-typescript和grunt-type），但似乎并没有特别的优势，你也可以尝试。</p>
 </li>
 <li><p>Gruntfile.js<br>module.exports = function(grunt) {<br>grunt.loadNpmTasks(‘grunt-exec’);<br>grunt.loadNpmTasks(‘grunt-contrib-watch’);<br>grunt.initConfig({<br>exec: {<br>  ts: {</p>
-<pre><code>command: &#39;tsc --sourcemap --target ES5 --out src/jsgen/main.ts.js src/main/main.ts&#39;,
+<pre><code>command: &apos;tsc --sourcemap --target ES5 --out src/jsgen/main.ts.js src/main/main.ts&apos;,
 stdout: true,
 stderr: true</code></pre><p>  }<br>},<br>watch: {<br>  files: ‘src/<em>*/</em>.ts’,<br>  tasks: [‘exec:ts’]<br>},<br>});<br>}</p>
 </li>
@@ -525,15 +507,9 @@ stderr: true</code></pre><p>  }<br>},<br>watch: {<br>  files: ‘src/<em>*/</em>
 <p>其它推荐的扩展（<a href="https://atom.io/packages/）：" target="_blank" rel="noopener">https://atom.io/packages/）：</a><br>line-ending-converter<br>linter-htmlhint<br>atom-beautify<br>jsdoc: Control-Shift-d to add comment templates<br>save-session</p>
 <h4 id="命令-快捷键"><a href="#命令-快捷键" class="headerlink" title="命令/快捷键"></a>命令/快捷键</h4><p>跳转到声明：f12<br>查找引用：shift+f12<br>重命名符号：f2<br>格式化代码：ctrl+alt+l。如果有选中，则只格式化选中部分。<br>Symbols View: ctrl+r<br>引用文件：输入 “ref” + tab</p>
 <h4 id="工程配置"><a href="#工程配置" class="headerlink" title="工程配置"></a>工程配置</h4><p>使用 tsconfig.json，ats 相关的选项有（部分）：</p>
-<pre><code>{
-    &quot;compileOnSave&quot;: false,
-    &quot;formatCodeOptions&quot;: {
-        &quot;indentSize&quot;: 2,
-        &quot;tabSize&quot;: 3,
-        &quot;newLineCharacter&quot;: &quot;\r\n&quot;,
-        &quot;convertTabsToSpaces&quot;: true
-    }
-}</code></pre><h3 id="VS-2012"><a href="#VS-2012" class="headerlink" title="VS 2012"></a>VS 2012</h3><p>目前（0.8.3）仅当作代码编辑器就好，编译和调试还不好用。<br>使用命令行编译，用浏览器调试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;compileOnSave&quot;: false,</span><br><span class="line">    &quot;formatCodeOptions&quot;: &#123;</span><br><span class="line">        &quot;indentSize&quot;: 2,</span><br><span class="line">        &quot;tabSize&quot;: 3,</span><br><span class="line">        &quot;newLineCharacter&quot;: &quot;\r\n&quot;,</span><br><span class="line">        &quot;convertTabsToSpaces&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="VS-2012"><a href="#VS-2012" class="headerlink" title="VS 2012"></a>VS 2012</h3><p>目前（0.8.3）仅当作代码编辑器就好，编译和调试还不好用。<br>使用命令行编译，用浏览器调试。</p>
 <ul>
 <li>设置编译目标为ES5<br>如果代码里使用了ES5特性，则应该这样做，否则编辑器会提示语法错误。<br>现在(0.8.3)不能在GUI中设置，要修改vs工程文件，将<br><TypeScriptTarget>ES3</TypeScriptTarget><br>都改为<br><TypeScriptTarget>ES5</TypeScriptTarget></li>
 </ul>

@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -477,94 +477,36 @@
    /     \
  (2)     (1)
 左孩子    右孩子</code></pre><p>堆排序两种情况<br>大根堆：父节点要比左右孩子都大<br>小根堆：父节点要比左右孩子都小<br>堆排序需要做两件事：<br>第一：构建大根堆</p>
-<pre><code>              (3)
-             /   \
-            /     \
-          (2)    (1)
-         /   \
-        /     \
-      (4)     (5)</code></pre><p>上面的树是一个无序堆，构建大根堆步骤如下：<br>第一步：首先找到堆中的2个父节点（2,3）;<br>第二步：比较2这个父节点的两个孩子(4,5)，发现5大<br>第三步：将较大的右孩子(5)跟父节点(2)进行交换，至此3的左孩子对构建完成，<br>如下所示</p>
-<pre><code>              (3)
-             /   \
-            /     \
-          (5)     (1)
-         /   \
-        /     \
-       (4)    (2)</code></pre><p>第四步：比较第二个父节点(3)下面的左右孩子(5,1),发现左孩子5大<br>第五步：然后父节点（3）与左孩子（5）进行交换，注意，交换后，堆可能会遭到破坏，<br>按照以上步骤一，步骤二，步骤三进行重新构造堆。</p>
+<pre><code>        (3)
+       /   \
+      /     \
+    (2)    (1)
+   /   \
+  /     \
+(4)     (5)</code></pre><p>上面的树是一个无序堆，构建大根堆步骤如下：<br>第一步：首先找到堆中的2个父节点（2,3）;<br>第二步：比较2这个父节点的两个孩子(4,5)，发现5大<br>第三步：将较大的右孩子(5)跟父节点(2)进行交换，至此3的左孩子对构建完成，<br>如下所示</p>
+<pre><code>       (3)
+      /   \
+     /     \
+   (5)     (1)
+  /   \
+ /     \
+(4)    (2)</code></pre><p>第四步：比较第二个父节点(3)下面的左右孩子(5,1),发现左孩子5大<br>第五步：然后父节点（3）与左孩子（5）进行交换，注意，交换后，堆可能会遭到破坏，<br>按照以上步骤一，步骤二，步骤三进行重新构造堆。</p>
 <p>最后构造的堆如下</p>
-<pre><code>               (5)
-              /   \
-             /     \
-           (4)     (1)
-          /   \
-         /     \
-       (3)     (2)</code></pre><p>第二：输出大根堆<br>至此，我们把大根堆构造出来了，那怎么输出呢？我们做大根堆的目的就是要找出最大值，<br>那么我们将堆顶（5）与堆尾（2）进行交换，然后将（5）剔除根堆，由于堆顶现在是（2），<br>所以破坏了根堆，必须重新构造，构造完之后又会出现最大值，再次交换和剔除，最后也就<br>是要的效果</p>
+<pre><code>        (5)
+       /   \
+      /     \
+    (4)     (1)
+   /   \
+  /     \
+(3)     (2)</code></pre><p>第二：输出大根堆<br>至此，我们把大根堆构造出来了，那怎么输出呢？我们做大根堆的目的就是要找出最大值，<br>那么我们将堆顶（5）与堆尾（2）进行交换，然后将（5）剔除根堆，由于堆顶现在是（2），<br>所以破坏了根堆，必须重新构造，构造完之后又会出现最大值，再次交换和剔除，最后也就<br>是要的效果</p>
 </li>
 <li><p>构建堆heapAdjust<br>@param list     数组(待排序集合)<br>@param parent   父节点<br>@param lenght   输出根堆时剔除最大值使用 </p>
 </li>
 </ul>
-<pre><code class="javascript">function heapAdjust(list, parent, length) {
-    //temp 保存当前父节点
-    var temp = list[parent];
-    //得到左孩子（二叉树定义）
-    var child = 2 * parent + 1;
-    while (child &lt; length) {
-        //如果parent有右孩子，则判断左孩子是否小于右孩子
-        if (child + 1 &lt; length &amp;&amp; list[child] &lt; list[child + 1]) {
-            child++;
-        }
-        //如果父节点大于子节点，就不用交换
-        if (temp &gt;= list[child]) {
-            break;
-        }
-        //将较大子节点的值赋给父节点
-        list[parent] = list[child];
-        //然后将子节点作为父节点，防止是否破坏根堆时重新构造
-        parent = child;
-        //找到该父节点较小的左孩子节点
-        child = 2 * parent + 1;
-    }
-    //最后将temp值赋给较大的子节点，以形成两值交换
-    list[parent] = temp;
-}</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapAdjust</span>(<span class="params">list, parent, length</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//temp 保存当前父节点</span></span><br><span class="line">    <span class="keyword">var</span> temp = list[parent];</span><br><span class="line">    <span class="comment">//得到左孩子（二叉树定义）</span></span><br><span class="line">    <span class="keyword">var</span> child = <span class="number">2</span> * parent + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (child &lt; length) &#123;</span><br><span class="line">        <span class="comment">//如果parent有右孩子，则判断左孩子是否小于右孩子</span></span><br><span class="line">        <span class="keyword">if</span> (child + <span class="number">1</span> &lt; length &amp;&amp; list[child] &lt; list[child + <span class="number">1</span>]) &#123;</span><br><span class="line">            child++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果父节点大于子节点，就不用交换</span></span><br><span class="line">        <span class="keyword">if</span> (temp &gt;= list[child]) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将较大子节点的值赋给父节点</span></span><br><span class="line">        list[parent] = list[child];</span><br><span class="line">        <span class="comment">//然后将子节点作为父节点，防止是否破坏根堆时重新构造</span></span><br><span class="line">        parent = child;</span><br><span class="line">        <span class="comment">//找到该父节点较小的左孩子节点</span></span><br><span class="line">        child = <span class="number">2</span> * parent + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最后将temp值赋给较大的子节点，以形成两值交换</span></span><br><span class="line">    list[parent] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>堆排序heapSort<br>@param list 待排序数组<br>@param top  前K大</p>
-<pre><code class="javascript">function heapSort(list, top) {
-  //需要输出的集合
-  var topNode = [];
-  //list.length/2-1 为堆中父节点个数
-  for (var i = list.length / 2 - 1; i &gt;= 0; i--) {
-      heapAdjust(list, i, list.length);
-  }
-  //最后输出堆元素
-  for (var i = list.length - 1; i &gt;= list.length - top ; i--) {
-      //堆顶与当前堆得第一个元素进行值对调
-      var temp = list[0];
-      list[0] = list[i];
-      list[i] = temp;
-
-      //最大值添加到输出集合
-      topNode.push(temp);
-      //因为顺序被打乱，重新构造堆
-      heapAdjust(list, 0, i);
-  }
-  return topNode;
-}</code></pre>
-</li>
-<li><p>调用</p>
-<pre><code class="javascript">//获取一个随机数组
-function getDatalist() {
-  var listarr = [];
-  for (var j = 0; j &lt; 20000; j++) {
-      listarr[j] = Math.ceil(Math.random() * 20000);
-  }
-  return listarr;
-}
-// 调用
-//var list = getDatalist();
-//var toplist = heapSort(list, 10);
-var list1 = [50, 20, 80, 60, 75, 33, 25, 85, 66, 55];
-var toplist1 = heapSort(list1, 3);</code></pre>
+<li>堆排序heapSort<br>@param list 待排序数组<br>@param top  前K大<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapSort</span>(<span class="params">list, top</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//需要输出的集合</span></span><br><span class="line">    <span class="keyword">var</span> topNode = [];</span><br><span class="line">    <span class="comment">//list.length/2-1 为堆中父节点个数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = list.length / <span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapAdjust(list, i, list.length);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最后输出堆元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = list.length - <span class="number">1</span>; i &gt;= list.length - top ; i--) &#123;</span><br><span class="line">        <span class="comment">//堆顶与当前堆得第一个元素进行值对调</span></span><br><span class="line">        <span class="keyword">var</span> temp = list[<span class="number">0</span>];</span><br><span class="line">        list[<span class="number">0</span>] = list[i];</span><br><span class="line">        list[i] = temp;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//最大值添加到输出集合</span></span><br><span class="line">        topNode.push(temp);</span><br><span class="line">        <span class="comment">//因为顺序被打乱，重新构造堆</span></span><br><span class="line">        heapAdjust(list, <span class="number">0</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> topNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>调用<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取一个随机数组</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDatalist</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> listarr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">20000</span>; j++) &#123;</span><br><span class="line">        listarr[j] = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random() * <span class="number">20000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> listarr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="comment">//var list = getDatalist();</span></span><br><span class="line"><span class="comment">//var toplist = heapSort(list, 10);</span></span><br><span class="line"><span class="keyword">var</span> list1 = [<span class="number">50</span>, <span class="number">20</span>, <span class="number">80</span>, <span class="number">60</span>, <span class="number">75</span>, <span class="number">33</span>, <span class="number">25</span>, <span class="number">85</span>, <span class="number">66</span>, <span class="number">55</span>];</span><br><span class="line"><span class="keyword">var</span> toplist1 = heapSort(list1, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 

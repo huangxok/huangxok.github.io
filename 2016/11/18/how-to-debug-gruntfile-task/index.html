@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -477,17 +477,24 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Node-Debug"><a href="#Node-Debug" class="headerlink" title="Node Debug"></a>Node Debug</h1><p>关于node的调试有多种方式<br>第一种：node 内建调试<br>如执行命令</p>
-<pre><code>node debug *.js</code></pre><p>*(星号)表示文件路径/文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node debug *.js</span><br></pre></td></tr></table></figure>
+<p>*(星号)表示文件路径/文件名</p>
 <p>help commands：<br>Commands:<br>    run (r),<br>    cont (c),    继续执行<br>    next (n),    n - step next<br>    step (s),    s - step in<br>    out (o),     o - step out<br>    backtrace (bt) ,  显示当前执行框架的回溯<br>    setBreakpoint (sb),<br>      setBreakpoint() or sb() 在当前行设置断点<br>      setBreakpoint(1) or sb(1) 在指定行设置断点<br>      setBreakpoint(‘fn()’) or sb(…) 在函数第一句设置断点<br>      setBreakpoint (‘script.js’,1) or sb(..)  在 script.js 的第一行设置断点<br>    clearBreakpoint (cb),   清除断点<br>    watch,              watch(“my_expressin”) 开始监视一个表达式<br>    unwatch,            watch(“my_expressin”) 移除一个监视器<br>    watchers,           显示活动监视器<br>    repl,               在所调试的脚本的上下文中打开调试器的 repl 执行代码<br>    restart,            重新运行脚本<br>    kill,               终止脚本<br>    list,               list(5) 显示脚本源代码的5行上下文 前五后五<br>    scripts,            列出所有已加载的脚本<br>    breakOnException,<br>    breakpoints,<br>    version，           显示v8版本<br>    pause,              暂停执行代码（类似开发者工具中的暂停按钮）<br>    高级使用<br>    V8 调试器可以从两种方式启用和访问：以 –debug 命令行标志启动 Node；或者向已存在的 Node 进程发送 SIGUSR1 信号<br>    一旦一个进程进入了调试模式，它便可被 Node 调试器连接。调试器可以通过 pid 或 URI 来连接，语法是<br>    node debug -p <pid> - 通过 pid 连接进程<br>    node debug <URI> - 通过类似 localhost:5858 的 URI 连接进程</p>
 <p>第二种：各大工具类<br>如eclipse，visualstudio都有辅助工具插件类。相关的资料请自行网上查找</p>
 <p>第三种：基于chrome的调试器<br>强烈推荐<br>需要安装 <strong>node-inspector</strong></p>
-<pre><code>npm install -g node-inspector</code></pre><p>node-inspector是通过websocket方式来转向debug输入输出的。<br>因此，我们在调试前要先启动node-inspector来监听Nodejs的debug调试端口<br>默认情况下node-inspector的端口是8080，可以通过参数<strong>–web-port=[port]</strong>来设置端口。<br>在启动<strong>node-inpspector</strong>之后，我们可以通过<strong>–debug</strong>或<strong>–debug-brk</strong>来启动nodejs程序。<br>通过在浏览器输入http://[ip address]:8080/debug?port=5858<br>步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g node-inspector</span><br></pre></td></tr></table></figure>
+<p>node-inspector是通过websocket方式来转向debug输入输出的。<br>因此，我们在调试前要先启动node-inspector来监听Nodejs的debug调试端口<br>默认情况下node-inspector的端口是8080，可以通过参数<strong>–web-port=[port]</strong>来设置端口。<br>在启动<strong>node-inpspector</strong>之后，我们可以通过<strong>–debug</strong>或<strong>–debug-brk</strong>来启动nodejs程序。<br>通过在浏览器输入http://[ip address]:8080/debug?port=5858<br>步骤：</p>
 <ol>
-<li>-&gt; 打开目录 输入cmd 进入控制台dos<br> 输入<pre><code> node --debug-brk=56666 example.js</code></pre> 表示监听 通过56666端口监听 example.js<br>2 -&gt; 同1操作一样<br> 命令换成<pre><code> node-inspector //默认情况为5858端口</code></pre> 采用新的端口监听 对应56666端口<br> 用这个命令<pre><code> node-inspector -web-port 56666</code></pre><h1 id="Gruntfile-Debug"><a href="#Gruntfile-Debug" class="headerlink" title="Gruntfile Debug"></a>Gruntfile Debug</h1></li>
+<li>-&gt; 打开目录 输入cmd 进入控制台dos<br> 输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --debug-brk&#x3D;56666 example.js</span><br></pre></td></tr></table></figure>
+ 表示监听 通过56666端口监听 example.js<br>2 -&gt; 同1操作一样<br> 命令换成 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-inspector &#x2F;&#x2F;默认情况为5858端口</span><br></pre></td></tr></table></figure>
+ 采用新的端口监听 对应56666端口<br> 用这个命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-inspector -web-port 56666</span><br></pre></td></tr></table></figure>
+<h1 id="Gruntfile-Debug"><a href="#Gruntfile-Debug" class="headerlink" title="Gruntfile Debug"></a>Gruntfile Debug</h1></li>
 </ol>
 <p>在gruntfile.js所在目录打开一个控制台窗口</p>
-<pre><code>node-inspector</code></pre><p>再打开一个控制台窗口</p>
-<pre><code>node-debug grunt ftp:JHZT</code></pre><p>ftp:JHZT是grunt 的一个<strong>task</strong>任务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-inspector</span><br></pre></td></tr></table></figure>
+<p>再打开一个控制台窗口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-debug grunt ftp:JHZT</span><br></pre></td></tr></table></figure>
+<p>ftp:JHZT是grunt 的一个<strong>task</strong>任务</p>
 <p>在chrome输入<br><a href="http://127.0.0.1:8080/?port=5858" target="_blank" rel="noopener">http://127.0.0.1:8080/?port=5858</a> 会进入调试模式<br>需要注意的：为了便于调试，最好在Gruntfile.js文件中需要调试地方加入 <strong>debugger;</strong> 关键字</p>
 
             </div>

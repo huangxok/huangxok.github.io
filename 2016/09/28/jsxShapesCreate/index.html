@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -474,51 +474,13 @@
 <li><p>param array<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point<br>以p2为角点 p1到p3的角度 逆时针</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an angle out of three free points 创建一个三个自由点的角度
-var p1 = board.create(&#39;point&#39;, [5.0, 3.0]),
-p2 = board.create(&#39;point&#39;, [1.0, 0.5]),
-p3 = board.create(&#39;point&#39;, [1.5, 5.0]),
-a = board.create(&#39;angle&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an angle out of three free points 创建一个三个自由点的角度</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">5.0</span>, <span class="number">3.0</span>]),</span><br><span class="line">p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]),</span><br><span class="line">p3 = board.create(<span class="string">'point'</span>, [<span class="number">1.5</span>, <span class="number">5.0</span>]),</span><br><span class="line">a = board.create(<span class="string">'angle'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 <p>这是创建一个角度的代码<br>A/B/C三点 A/C为控制角大小的点 B为实际的角度点</p>
-<pre><code class="javascript">// Create an angle out of three free points 从两条线和两个方向创建一个角度
-var p1 = board.create(&#39;point&#39;, [-1, 4]),
-p2 = board.create(&#39;point&#39;, [4, 1]),
-q1 = board.create(&#39;point&#39;, [-2, -3]),
-q2 = board.create(&#39;point&#39;, [4,3]),
-li1 = board.create(&#39;line&#39;, [p1,p2], {strokeColor:&#39;black&#39;, lastArrow:true}),
-li2 = board.create(&#39;line&#39;, [q1,q2], {lastArrow:true}),
-a1 = board.create(&#39;angle&#39;, [li1, li2, [5.5, 0], [4, 3]], { radius:1 }),
-a2 = board.create(&#39;angle&#39;, [li1, li2, 1, -1], { radius:2 });</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an angle out of three free points 从两条线和两个方向创建一个角度</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>, <span class="number">4</span>]),</span><br><span class="line">p2 = board.create(<span class="string">'point'</span>, [<span class="number">4</span>, <span class="number">1</span>]),</span><br><span class="line">q1 = board.create(<span class="string">'point'</span>, [<span class="number">-2</span>, <span class="number">-3</span>]),</span><br><span class="line">q2 = board.create(<span class="string">'point'</span>, [<span class="number">4</span>,<span class="number">3</span>]),</span><br><span class="line">li1 = board.create(<span class="string">'line'</span>, [p1,p2], &#123;<span class="attr">strokeColor</span>:<span class="string">'black'</span>, <span class="attr">lastArrow</span>:<span class="literal">true</span>&#125;),</span><br><span class="line">li2 = board.create(<span class="string">'line'</span>, [q1,q2], &#123;<span class="attr">lastArrow</span>:<span class="literal">true</span>&#125;),</span><br><span class="line">a1 = board.create(<span class="string">'angle'</span>, [li1, li2, [<span class="number">5.5</span>, <span class="number">0</span>], [<span class="number">4</span>, <span class="number">3</span>]], &#123; <span class="attr">radius</span>:<span class="number">1</span> &#125;),</span><br><span class="line">a2 = board.create(<span class="string">'angle'</span>, [li1, li2, <span class="number">1</span>, <span class="number">-1</span>], &#123; <span class="attr">radius</span>:<span class="number">2</span> &#125;);</span><br></pre></td></tr></table></figure>
 <p>这是两条直线与点的夹角</p>
-<pre><code class="javascript">var p1, p2, p3, c, a, s;
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1, p2, p3, c, a, s;</span><br><span class="line"></span><br><span class="line">p1 = board.create(<span class="string">'point'</span>,[<span class="number">0</span>,<span class="number">0</span>]);</span><br><span class="line">p2 = board.create(<span class="string">'point'</span>,[<span class="number">5</span>,<span class="number">0</span>]);</span><br><span class="line">p3 = board.create(<span class="string">'point'</span>,[<span class="number">0</span>,<span class="number">5</span>]);</span><br><span class="line"></span><br><span class="line">c1 = board.create(<span class="string">'circle'</span>,[p1, p2]);</span><br><span class="line"></span><br><span class="line">a = board.create(<span class="string">'angle'</span>,[p2, p1, p3], &#123;<span class="attr">radius</span>:<span class="number">3</span>&#125;);</span><br><span class="line"></span><br><span class="line">a.setAngle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI / <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line">board.update();</span><br></pre></td></tr></table></figure>
 
-p1 = board.create(&#39;point&#39;,[0,0]);
-p2 = board.create(&#39;point&#39;,[5,0]);
-p3 = board.create(&#39;point&#39;,[0,5]);
-
-c1 = board.create(&#39;circle&#39;,[p1, p2]);
-
-a = board.create(&#39;angle&#39;,[p2, p1, p3], {radius:3});
-
-a.setAngle(function() {
-    return Math.PI / 3;
-});
-board.update();</code></pre>
-<pre><code class="javascript">var p1, p2, p3, c, a, s;
-
-p1 = board.create(&#39;point&#39;,[0,0]);
-p2 = board.create(&#39;point&#39;,[5,0]);
-p3 = board.create(&#39;point&#39;,[0,5]);
-
-c1 = board.create(&#39;circle&#39;,[p1, p2]);
-
-a = board.create(&#39;angle&#39;,[p2, p1, p3], {radius:3});
-s = board.create(&#39;slider&#39;,[[-2,1], [2,1], [0, Math.PI*0.5, 2*Math.PI]]);
-
-a.setAngle(function() {
-    return s.Value();
-});
-board.update();</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1, p2, p3, c, a, s;</span><br><span class="line"></span><br><span class="line">p1 = board.create(<span class="string">'point'</span>,[<span class="number">0</span>,<span class="number">0</span>]);</span><br><span class="line">p2 = board.create(<span class="string">'point'</span>,[<span class="number">5</span>,<span class="number">0</span>]);</span><br><span class="line">p3 = board.create(<span class="string">'point'</span>,[<span class="number">0</span>,<span class="number">5</span>]);</span><br><span class="line"></span><br><span class="line">c1 = board.create(<span class="string">'circle'</span>,[p1, p2]);</span><br><span class="line"></span><br><span class="line">a = board.create(<span class="string">'angle'</span>,[p2, p1, p3], &#123;<span class="attr">radius</span>:<span class="number">3</span>&#125;);</span><br><span class="line">s = board.create(<span class="string">'slider'</span>,[[<span class="number">-2</span>,<span class="number">1</span>], [<span class="number">2</span>,<span class="number">1</span>], [<span class="number">0</span>, <span class="built_in">Math</span>.PI*<span class="number">0.5</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI]]);</span><br><span class="line"></span><br><span class="line">a.setAngle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s.Value();</span><br><span class="line">&#125;);</span><br><span class="line">board.update();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes：</p>
 <ul>
@@ -550,12 +512,7 @@ board.update();</code></pre>
 <li><p>param array<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point<br>以p1位弧心 从p2到p3的弧度 逆时针</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an arc out of three free points
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 0.5]);
-var p3 = board.create(&#39;point&#39;, [3.5, 1.0]);
-
-var a = board.create(&#39;arc&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an arc out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.5</span>, <span class="number">1.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = board.create(<span class="string">'arc'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 <p>p1为弧度的中心点 p2到p3逆时针旋转  </p>
 </li>
 <li><p>Attributes<br>借用其他元素的属性：Curve</p>
@@ -585,10 +542,7 @@ var a = board.create(&#39;arc&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param array<br>point1—JXG.Point|array<br>point2—JXG.Point|array<br>或者<br>a——–number<br>b——–number<br>c——–number<br>a<em>x + b</em>y + c*z = 0 </p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an arrow providing two points.
-var p1 = board.create(&#39;point&#39;, [4.5, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 1.0]);
-var l1 = board.create(&#39;arrow&#39;, [p1, p2]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an arrow providing two points.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">4.5</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'arrow'</span>, [p1, p2]);</span><br></pre></td></tr></table></figure>
 <p>两点确定一条有方向的线  JXG.GeometryElement -&gt; JXG.line -&gt; Line -&gt; parallel -&gt; Arrowparallel</p>
 </li>
 <li><p>Attributes：<br>借用其他元素的属性：JXG.GeometryElement</p>
@@ -606,14 +560,7 @@ var l1 = board.create(&#39;arrow&#39;, [p1, p2]);</code></pre>
 <p>所构建的箭包含P和具有相同的斜率为l</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a parallel
-var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-var pl1 = board.create(&#39;arrowparallel&#39;, [l1, p3]);</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a parallel</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> pl1 = board.create(<span class="string">'arrowparallel'</span>, [l1, p3]);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes：<br>借用其他元素的属性：Parallel、Line、JXG.GeometryElement</p>
 </li>
 <li><p>Fields<br>借用其他元素的字段：JXG.Line、JXG.GeometryElement</p>
@@ -628,8 +575,7 @@ var pl1 = board.create(&#39;arrowparallel&#39;, [l1, p3]);</code></pre>
 <li><p>param array<br>point1—-JXG.Line|array<br>point2—-JXG.Line|array<br>或者<br>a—-number<br>b—-number<br>c—-number<br>a<em>x+b</em>y+c*c=0</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an axis providing two coord pairs.
-var l1 = board.create(&#39;axis&#39;, [[0.0, 1.0], [1.0, 1.3]]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an axis providing two coord pairs.</span></span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'axis'</span>, [[<span class="number">0.0</span>, <span class="number">1.0</span>], [<span class="number">1.0</span>, <span class="number">1.3</span>]]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -654,11 +600,7 @@ var l1 = board.create(&#39;axis&#39;, [[0.0, 1.0], [1.0, 1.3]]);</code></pre>
 <h2 id="Bisector-二等分物（数-二等分线）-JXG-GeometryElement-gt-JXG-Line-gt-Bisector"><a href="#Bisector-二等分物（数-二等分线）-JXG-GeometryElement-gt-JXG-Line-gt-Bisector" class="headerlink" title="Bisector 二等分物（数 二等分线） JXG.GeometryElement -&gt; JXG.Line -&gt; Bisector"></a>Bisector 二等分物（数 二等分线） JXG.GeometryElement -&gt; JXG.Line -&gt; Bisector</h2><p>  Defined in composition.js<br>  Extends JXG.Line<br>  这个元素没有构造函数 通过JXG.Board#create type：’bisector’创建</p>
 <ul>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [6.0, 4.0]);
-var p2 = board.create(&#39;point&#39;, [3.0, 2.0]);
-var p3 = board.create(&#39;point&#39;, [1.0, 7.0]);
-
-var bi1 = board.create(&#39;bisector&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">6.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">7.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bi1 = board.create(<span class="string">'bisector'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -678,14 +620,7 @@ var bi1 = board.create(&#39;bisector&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param array<br>l1—-JXG.line<br>l2—-JXG.line<br>throws: 如果不能由踢狗对象（两条线）构造会抛出一个异常</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [6.0, 4.0]);
-var p2 = board.create(&#39;point&#39;, [3.0, 2.0]);
-var p3 = board.create(&#39;point&#39;, [1.0, 7.0]);
-var p4 = board.create(&#39;point&#39;, [3.0, 0.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-var l2 = board.create(&#39;line&#39;, [p3, p4]);
-
-var bi1 = board.create(&#39;bisectorlines&#39;, [l1, l2]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">6.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">7.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p4 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">0.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> l2 = board.create(<span class="string">'line'</span>, [p3, p4]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bi1 = board.create(<span class="string">'bisectorlines'</span>, [l1, l2]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -706,18 +641,7 @@ var bi1 = board.create(&#39;bisectorlines&#39;, [l1, l2]);</code></pre>
 <li><p>param array<br> x——–number | function<br> y——–number | function<br> label—-label<br> handle—function<br> ps:<br> X和Y是文本框的左下角的坐标。文本的位置是固定的，<br> X和Y是数字。如果X或Y是函数，则该位置是可变的。<br> label 按钮里的内容 string<br> handler optional 按钮按下的时候回调</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p = board.create(&#39;point&#39;, [0.5, 0.5], {id: &#39;p1&#39;});
-
-// Create a button element at position [1,2].
-var button1 = board.create(&#39;button&#39;, [1, 2, &#39;Change Y with JavaScript&#39;, function() {
-    p.moveTo([p.X(), p.Y() + 0.5], 100);
-}], {});
-
-// Create a button element at position [1,4].
-var button2 = board.create(&#39;button&#39;, [1, 4, &#39;Change Y with JessieCode&#39;,
-    &quot;$(&#39;p1&#39;).Y = $(&#39;p1&#39;).Y() - 0.5;&quot;
-], {});</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = board.create(<span class="string">'point'</span>, [<span class="number">0.5</span>, <span class="number">0.5</span>], &#123;<span class="attr">id</span>: <span class="string">'p1'</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a button element at position [1,2].</span></span><br><span class="line"><span class="keyword">var</span> button1 = board.create(<span class="string">'button'</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'Change Y with JavaScript'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    p.moveTo([p.X(), p.Y() + <span class="number">0.5</span>], <span class="number">100</span>);</span><br><span class="line">&#125;], &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a button element at position [1,4].</span></span><br><span class="line"><span class="keyword">var</span> button2 = board.create(<span class="string">'button'</span>, [<span class="number">1</span>, <span class="number">4</span>, <span class="string">'Change Y with JessieCode'</span>,</span><br><span class="line">    <span class="string">"$('p1').Y = $('p1').Y() - 0.5;"</span></span><br><span class="line">], &#123;&#125;);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes</p>
 <ul>
 <li>disabled<br>HTML Button ‘disabled’  default:false</li>
@@ -736,27 +660,9 @@ var button2 = board.create(&#39;button&#39;, [1, 4, &#39;Change Y with JessieCod
 <li><p>param<br>x———文本的左下角 x y 若为函数则位置可变<br>y———文本的左下角<br>label—–文本显示</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a checkbox element at position [0,3].
-var checkbox = board.create(&#39;checkbox&#39;, [0, 3, &#39;Change Y&#39;], {});
-var p = board.create(&#39;point&#39;, [
-  function(){ return 0.5;}, // X-coordinate
-  function() {
-      y = 0.5;
-      if (checkbox.Value()) {
-          y += 0.5;
-      }
-      return y;
-  }]);</code></pre>
-<pre><code class="javascript">var checkbox = board.create(&#39;checkbox&#39;, [0, 4, &#39;Click me&#39;]),
-         p = board.create(&#39;point&#39;, [1, 1]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a checkbox element at position [0,3].</span></span><br><span class="line"><span class="keyword">var</span> checkbox = board.create(<span class="string">'checkbox'</span>, [<span class="number">0</span>, <span class="number">3</span>, <span class="string">'Change Y'</span>], &#123;&#125;);</span><br><span class="line"><span class="keyword">var</span> p = board.create(<span class="string">'point'</span>, [</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="number">0.5</span>;&#125;, <span class="comment">// X-coordinate</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        y = <span class="number">0.5</span>;</span><br><span class="line">        <span class="keyword">if</span> (checkbox.Value()) &#123;</span><br><span class="line">            y += <span class="number">0.5</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;]);</span><br></pre></td></tr></table></figure>
 
-JXG.addEvent(checkbox.rendNodeCheckbox, &#39;change&#39;, function() {
-  if (this.Value()) {
-      p.moveTo([4, 1]);
-  } else {
-      p.moveTo([1, 1]);
-  }
-}, checkbox);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> checkbox = board.create(<span class="string">'checkbox'</span>, [<span class="number">0</span>, <span class="number">4</span>, <span class="string">'Click me'</span>]),</span><br><span class="line">           p = board.create(<span class="string">'point'</span>, [<span class="number">1</span>, <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">JXG.addEvent(checkbox.rendNodeCheckbox, <span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.Value()) &#123;</span><br><span class="line">        p.moveTo([<span class="number">4</span>, <span class="number">1</span>]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        p.moveTo([<span class="number">1</span>, <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, checkbox);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -773,32 +679,16 @@ JXG.addEvent(checkbox.rendNodeCheckbox, &#39;change&#39;, function() {
 </ul>
 <h2 id="Circle-圆-JXG-GeometryElement-gt-JXG-circle-gt-Circle"><a href="#Circle-圆-JXG-GeometryElement-gt-JXG-circle-gt-Circle" class="headerlink" title="Circle 圆   JXG.GeometryElement -&gt; JXG.circle -&gt; Circle"></a>Circle 圆   JXG.GeometryElement -&gt; JXG.circle -&gt; Circle</h2><pre><code>Defined in circle.js
 Extends JXG.circle
-JXG.Board#create type:&#39;circle&#39;
+JXG.Board#create type:&apos;circle&apos;
 
 * param
 center----JXG.Point 圆心
 radius----number|JXG.Point|JXG.Line|JXG.Circle 半径：可为点或线或圆
 
 * example
-```javascript
-// Create a circle providing two points
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]),
-    p2 = board.create(&#39;point&#39;, [2.0, 0.0]),
-    c1 = board.create(&#39;circle&#39;, [p1, p2]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a circle providing two points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]),</span><br><span class="line">    p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">0.0</span>]),</span><br><span class="line">    c1 = board.create(<span class="string">'circle'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create another circle using the above circle</span></span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">2.0</span>]),</span><br><span class="line">    c2 = board.create(<span class="string">'circle'</span>, [p3, c1]);</span><br></pre></td></tr></table></figure>
 
-// Create another circle using the above circle
-var p3 = board.create(&#39;point&#39;, [3.0, 2.0]),
-    c2 = board.create(&#39;circle&#39;, [p3, c1]);
-```
-
-```javascript
-// Create a circle providing two points
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]),
-    c1 = board.create(&#39;circle&#39;, [p1, 3]);
-
-// Create another circle using the above circle
-var c2 = board.create(&#39;circle&#39;, [function() { return [p1.X(), p1.Y() + 1];}, function() { return c1.Radius(); }]);
-```
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a circle providing two points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]),</span><br><span class="line">    c1 = board.create(<span class="string">'circle'</span>, [p1, <span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create another circle using the above circle</span></span><br><span class="line"><span class="keyword">var</span> c2 = board.create(<span class="string">'circle'</span>, [<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [p1.X(), p1.Y() + <span class="number">1</span>];&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> c1.Radius(); &#125;]);</span><br></pre></td></tr></table></figure>
 
 * Attributes
   - center
@@ -821,11 +711,7 @@ var c2 = board.create(&#39;circle&#39;, [function() { return [p1.X(), p1.Y() + 1
 <li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-
-var cc1 = board.create(&#39;circumcenter&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cc1 = board.create(<span class="string">'circumcenter'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes<br>借用其他元素的属性：JXG.GeometryElement</p>
 </li>
@@ -841,11 +727,7 @@ var cc1 = board.create(&#39;circumcenter&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param<br>p1—-JXG.Point  圆上的三点<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-
-var cc1 = board.create(&#39;circumcircle&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cc1 = board.create(<span class="string">'circumcircle'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -865,11 +747,7 @@ var cc1 = board.create(&#39;circumcircle&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param<br>p1—-JXG.Point  圆上的三点<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-
-var cc1 = board.create(&#39;circumcircle&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cc1 = board.create(<span class="string">'circumcircle'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 <p>弧从p1-&gt;p2-&gt;p3</p>
 </li>
 <li><p>Attributes</p>
@@ -890,14 +768,7 @@ var cc1 = board.create(&#39;circumcircle&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param<br>a—-JXG.Point|array<br>b—-JXG.Point|array<br>c—-JXG.Point|array<br>d—-JXG.Point|array<br>e—-JXG.Point|array<br>或者<br>a00—-number<br>a11—-number<br>a22—-number<br>a01—-number<br>a12—-number<br>a22—-number</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a conic section through the points A, B, C, D, and E.
-var A = board.create(&#39;point&#39;, [1,5]);
-var B = board.create(&#39;point&#39;, [1,2]);
-var C = board.create(&#39;point&#39;, [2,0]);
-var D = board.create(&#39;point&#39;, [0,0]);
-var E = board.create(&#39;point&#39;, [-1,5]);
-var conic = board.create(&#39;conic&#39;,[A,B,C,D,E]);</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a conic section through the points A, B, C, D, and E.</span></span><br><span class="line"><span class="keyword">var</span> A = board.create(<span class="string">'point'</span>, [<span class="number">1</span>,<span class="number">5</span>]);</span><br><span class="line"><span class="keyword">var</span> B = board.create(<span class="string">'point'</span>, [<span class="number">1</span>,<span class="number">2</span>]);</span><br><span class="line"><span class="keyword">var</span> C = board.create(<span class="string">'point'</span>, [<span class="number">2</span>,<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">var</span> D = board.create(<span class="string">'point'</span>, [<span class="number">0</span>,<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">var</span> E = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">5</span>]);</span><br><span class="line"><span class="keyword">var</span> conic = board.create(<span class="string">'conic'</span>,[A,B,C,D,E]);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes</p>
 <ul>
 <li>foci<br>??? 焦点</li>
@@ -917,43 +788,13 @@ var conic = board.create(&#39;conic&#39;,[A,B,C,D,E]);</code></pre>
 </ul>
 <ul>
 <li><p>example</p>
-<pre><code class="javascript">// Parametric curve
-// Create a curve of the form (t-sin(t), 1-cos(t), i.e.
-// the cycloid curve.
-var graph = board.create(&#39;curve&#39;,
-                   [function(t){ return t-Math.sin(t);},
-                    function(t){ return 1-Math.cos(t);},
-                    0, 2*Math.PI]
-                );</code></pre>
-<pre><code class="javascript">// Data plots
-// Connect a set of points given by coordinates with dashed line segments.
-// The x- and y-coordinates of the points are given in two separate
-// arrays.
-var x = [0,1,2,3,4,5,6,7,8,9];
-var y = [9.2,1.3,7.2,-1.2,4.0,5.3,0.2,6.5,1.1,0.0];
-var graph = board.create(&#39;curve&#39;, [x,y], {dash:2});</code></pre>
-<pre><code class="javascript">// Polar plot
-// Create a curve with the equation r(phi)= a*(1+phi), i.e.
-// a cardioid.
-var a = board.create(&#39;slider&#39;,[[0,2],[2,2],[0,1,2]]);
-var graph = board.create(&#39;curve&#39;,
-                   [function(phi){ return a.Value()*(1-Math.cos(phi));},
-                    [1,0],
-                    0, 2*Math.PI]
-                );</code></pre>
-<pre><code class="javascript">// Draggable Bezier curve
-var col, p, c;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[1, 2.5 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[-1, -2.5 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -2], {size: 5, strokeColor:col, fillColor:col}));
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Parametric curve</span></span><br><span class="line"><span class="comment">// Create a curve of the form (t-sin(t), 1-cos(t), i.e.</span></span><br><span class="line"><span class="comment">// the cycloid curve.</span></span><br><span class="line"><span class="keyword">var</span> graph = board.create(<span class="string">'curve'</span>,</span><br><span class="line">                     [<span class="function"><span class="keyword">function</span>(<span class="params">t</span>)</span>&#123; <span class="keyword">return</span> t-<span class="built_in">Math</span>.sin(t);&#125;,</span><br><span class="line">                      <span class="function"><span class="keyword">function</span>(<span class="params">t</span>)</span>&#123; <span class="keyword">return</span> <span class="number">1</span>-<span class="built_in">Math</span>.cos(t);&#125;,</span><br><span class="line">                      <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI]</span><br><span class="line">                  );</span><br></pre></td></tr></table></figure>
 
-c = board.create(&#39;curve&#39;, JXG.Math.Numerics.bezier(p),
-          {strokeColor:&#39;red&#39;, name:&quot;curve&quot;, strokeWidth:5, fixed: false}); // Draggable curve
-c.addParents(p);</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Data plots</span></span><br><span class="line"><span class="comment">// Connect a set of points given by coordinates with dashed line segments.</span></span><br><span class="line"><span class="comment">// The x- and y-coordinates of the points are given in two separate</span></span><br><span class="line"><span class="comment">// arrays.</span></span><br><span class="line"><span class="keyword">var</span> x = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="keyword">var</span> y = [<span class="number">9.2</span>,<span class="number">1.3</span>,<span class="number">7.2</span>,<span class="number">-1.2</span>,<span class="number">4.0</span>,<span class="number">5.3</span>,<span class="number">0.2</span>,<span class="number">6.5</span>,<span class="number">1.1</span>,<span class="number">0.0</span>];</span><br><span class="line"><span class="keyword">var</span> graph = board.create(<span class="string">'curve'</span>, [x,y], &#123;<span class="attr">dash</span>:<span class="number">2</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Polar plot</span></span><br><span class="line"><span class="comment">// Create a curve with the equation r(phi)= a*(1+phi), i.e.</span></span><br><span class="line"><span class="comment">// a cardioid.</span></span><br><span class="line"><span class="keyword">var</span> a = board.create(<span class="string">'slider'</span>,[[<span class="number">0</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>]]);</span><br><span class="line"><span class="keyword">var</span> graph = board.create(<span class="string">'curve'</span>,</span><br><span class="line">                     [<span class="function"><span class="keyword">function</span>(<span class="params">phi</span>)</span>&#123; <span class="keyword">return</span> a.Value()*(<span class="number">1</span>-<span class="built_in">Math</span>.cos(phi));&#125;,</span><br><span class="line">                      [<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                      <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI]</span><br><span class="line">                  );</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Draggable Bezier curve</span></span><br><span class="line"><span class="keyword">var</span> col, p, c;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">1</span>, <span class="number">2.5</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-1</span>, <span class="number">-2.5</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-2</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line"></span><br><span class="line">c = board.create(<span class="string">'curve'</span>, JXG.Math.Numerics.bezier(p),</span><br><span class="line">            &#123;<span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">name</span>:<span class="string">"curve"</span>, <span class="attr">strokeWidth</span>:<span class="number">5</span>, <span class="attr">fixed</span>: <span class="literal">false</span>&#125;); <span class="comment">// Draggable curve</span></span><br><span class="line">c.addParents(p);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes</p>
 <ul>
 <li>curveType<br>在JXG.Curve#generateTerm中设置，在JXG.Curve#updateCurve中使用值：string<ul>
@@ -986,11 +827,7 @@ c.addParents(p);</code></pre>
 <li><p>param<br>point1—-JXG.Point|array<br>point2—-JXG.Point|array<br>point3—-JXG.Point|array<br>或者<br>point1—-JXG.Point|array<br>point2—-JXG.Point|array<br>number—-function |number 主轴的长度  可以参数第四和第五定义曲线长度默认值是-PI到PI</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an Ellipse by three points
-var A = board.create(&#39;point&#39;, [-1,4]);
-var B = board.create(&#39;point&#39;, [-1,-4]);
-var C = board.create(&#39;point&#39;, [1,1]);
-var el = board.create(&#39;ellipse&#39;,[A,B,C]);  </code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an Ellipse by three points</span></span><br><span class="line"><span class="keyword">var</span> A = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">4</span>]);</span><br><span class="line"><span class="keyword">var</span> B = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">-4</span>]);</span><br><span class="line"><span class="keyword">var</span> C = board.create(<span class="string">'point'</span>, [<span class="number">1</span>,<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">var</span> el = board.create(<span class="string">'ellipse'</span>,[A,B,C]);</span><br></pre></td></tr></table></figure>
 <p>A B为椭圆焦点 C为椭圆上一点</p>
 </li>
 <li><p>Attributes<br>借用其他元素的属性：JXG.GeometryElement</p>
@@ -1007,15 +844,9 @@ var el = board.create(&#39;ellipse&#39;,[A,B,C]);  </code></pre>
 <li><p>param<br>z————–number optional<br>x————–number optional<br>y————–number optional<br>GliderObject—JXG.GeometryElement</p>
 </li>
 <li><p>example</p>
-<pre><code class="JavaScript">// Create a glider with user defined coordinates. If the coordinates are not on
-// the circle (like in this case) the point will be projected onto the circle.
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var c1 = board.create(&#39;circle&#39;, [p1, 2.0]);
-var p2 = board.create(&#39;glider&#39;, [2.0, 1.5, c1]);</code></pre>
-<pre><code class="JavaScript">// Create a glider with default coordinates (1,0,0). Same premises as above.
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var c1 = board.create(&#39;circle&#39;, [p1, 2.0]);
-var p2 = board.create(&#39;glider&#39;, [c1]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a glider with user defined coordinates. If the coordinates are not on</span></span><br><span class="line"><span class="comment">// the circle (like in this case) the point will be projected onto the circle.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'glider'</span>, [<span class="number">2.0</span>, <span class="number">1.5</span>, c1]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a glider with default coordinates (1,0,0). Same premises as above.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'glider'</span>, [c1]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes<br>借用其他元素的属性：JXG.GeometryElement</p>
 </li>
@@ -1034,7 +865,8 @@ var p2 = board.create(&#39;glider&#39;, [c1]);</code></pre>
 </li>
 <li><p>Events<br>借用其他元素的方法：JXG.GeometryElement</p>
 <h2 id="Grid-网格-JXG-GeometryElement-gt-JXG-Curve-gt-Grid"><a href="#Grid-网格-JXG-GeometryElement-gt-JXG-Curve-gt-Grid" class="headerlink" title="Grid 网格 JXG.GeometryElement -&gt; JXG.Curve -&gt; Grid"></a>Grid 网格 JXG.GeometryElement -&gt; JXG.Curve -&gt; Grid</h2><p>Defined in composition.js<br>Extends JXG.Curve<br>JXG.Board#Create type:’grid’</p>
-<pre><code class="javascript">grid = board.create(&#39;gird&#39;,[])</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid = board.create(<span class="string">'gird'</span>,[])</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="Group-svg-g元素-JXG-Group-gt-Group"><a href="#Group-svg-g元素-JXG-Group-gt-Group" class="headerlink" title="Group svg g元素 JXG.Group -&gt; Group"></a>Group svg g元素 JXG.Group -&gt; Group</h2><p>  Defined in composition.js<br>  Extends JXG.Curve<br>  JXG.Board#create type:’group’</p>
@@ -1042,101 +874,13 @@ var p2 = board.create(&#39;glider&#39;, [c1]);</code></pre>
 <li><p>param<br>board——–JXG.Board 在board上的点<br>parents——array     点的组合<br>Attributes—object    视觉特性（未使用的）</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create some free points. e.g. A, B, C, D
-// Create a group
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create some free points. e.g. A, B, C, D</span></span><br><span class="line"><span class="comment">// Create a group</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p, col, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p);</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="comment">// Create some free points. e.g. A, B, C, D</span></span><br><span class="line"><span class="comment">// Create a group</span></span><br><span class="line"><span class="comment">// If the points define a polygon and the polygon has the attribute hasInnerPoints:true,</span></span><br><span class="line"><span class="comment">// the polygon can be dragged around.</span></span><br><span class="line"><span class="comment">// hasInnerPoints 鼠标移上去 haspoint==true 表示可以拖动这个元素</span></span><br><span class="line"><span class="keyword">var</span> p, col, pol, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line"></span><br><span class="line">pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p);</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="comment">// Allow rotations:</span></span><br><span class="line"><span class="comment">// Define a center of rotation and declare points of the group as "rotation points".</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p, col, pol, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line"></span><br><span class="line">pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p);</span><br><span class="line">g.setRotationCenter(p[<span class="number">0</span>]);</span><br><span class="line">g.setRotationPoints([p[<span class="number">1</span>], p[<span class="number">2</span>]]);</span><br></pre></td></tr></table></figure>
 
-var p, col, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
-g = board.create(&#39;group&#39;, p);</code></pre>
-<pre><code class="javascript">// Create some free points. e.g. A, B, C, D
-// Create a group
-// If the points define a polygon and the polygon has the attribute hasInnerPoints:true,
-// the polygon can be dragged around.
-// hasInnerPoints 鼠标移上去 haspoint==true 表示可以拖动这个元素
-var p, col, pol, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Allow rotations:</span></span><br><span class="line"><span class="comment">// As rotation center, arbitrary points, coordinate arrays,</span></span><br><span class="line"><span class="comment">// or functions returning coordinate arrays can be given.</span></span><br><span class="line"><span class="comment">// Another possibility is to use the predefined string 'centroid'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// The methods to define the rotation points can be chained.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p, col, pol, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line"></span><br><span class="line">pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p).setRotationCenter(<span class="string">'centroid'</span>).setRotationPoints([p[<span class="number">1</span>], p[<span class="number">2</span>]]);</span><br></pre></td></tr></table></figure>
 
-pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});
-g = board.create(&#39;group&#39;, p);</code></pre>
-<pre><code class="javascript">// Allow rotations:
-// Define a center of rotation and declare points of the group as &quot;rotation points&quot;.
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Allow scaling:</span></span><br><span class="line"><span class="comment">// As for rotation one can declare points of the group to trigger a scaling operation.</span></span><br><span class="line"><span class="comment">// For this, one has to define a scaleCenter, in analogy to rotations.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Here, the yellow  point enables scaling, the red point a rotation.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p, col, pol, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'yellow'</span>, <span class="attr">fillColor</span>:<span class="string">'yellow'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line"></span><br><span class="line">pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p).setRotationCenter(<span class="string">'centroid'</span>).setRotationPoints([p[<span class="number">2</span>]]);</span><br><span class="line">g.setScaleCenter(p[<span class="number">0</span>]).setScalePoints(p[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
 
-var p, col, pol, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
-
-pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});
-g = board.create(&#39;group&#39;, p);
-g.setRotationCenter(p[0]);
-g.setRotationPoints([p[1], p[2]]);</code></pre>
-<pre><code class="javascript">// Allow rotations:
-// As rotation center, arbitrary points, coordinate arrays,
-// or functions returning coordinate arrays can be given.
-// Another possibility is to use the predefined string &#39;centroid&#39;.
-
-// The methods to define the rotation points can be chained.
-
-var p, col, pol, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
-
-pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});
-g = board.create(&#39;group&#39;, p).setRotationCenter(&#39;centroid&#39;).setRotationPoints([p[1], p[2]]);</code></pre>
-<pre><code class="javascript">// Allow scaling:
-// As for rotation one can declare points of the group to trigger a scaling operation.
-// For this, one has to define a scaleCenter, in analogy to rotations.
-
-// Here, the yellow  point enables scaling, the red point a rotation.
-
-var p, col, pol, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:&#39;yellow&#39;, fillColor:&#39;yellow&#39;}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
-
-pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});
-g = board.create(&#39;group&#39;, p).setRotationCenter(&#39;centroid&#39;).setRotationPoints([p[2]]);
-g.setScaleCenter(p[0]).setScalePoints(p[1]);</code></pre>
-<pre><code class="javascript">// Allow Translations:
-// By default, every point of a group triggers a translation.
-// There may be situations, when this is not wanted.
-
-// In this example, E triggers nothing, but itself is rotation center
-// and is translated, if other points are moved around.
-
-var p, q, col, pol, g;
-col = &#39;blue&#39;;
-p = [];
-p.push(board.create(&#39;point&#39;,[-2, -1 ], {size: 5, strokeColor:col, fillColor:col}));
-p.push(board.create(&#39;point&#39;,[2, -1 ], {size: 5, strokeColor:&#39;yellow&#39;, fillColor:&#39;yellow&#39;}));
-p.push(board.create(&#39;point&#39;,[2, 1 ], {size: 5, strokeColor:&#39;red&#39;, fillColor:&#39;red&#39;}));
-p.push(board.create(&#39;point&#39;,[-2, 1], {size: 5, strokeColor:col, fillColor:col}));
-q = board.create(&#39;point&#39;,[0, 0], {size: 5, strokeColor:col, fillColor:col});
-
-pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});
-g = board.create(&#39;group&#39;, p.concat(q)).setRotationCenter(&#39;centroid&#39;).setRotationPoints([p[2]]);
-g.setScaleCenter(p[0]).setScalePoints(p[1]);
-g.removeTranslationPoint(q);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Allow Translations:</span></span><br><span class="line"><span class="comment">// By default, every point of a group triggers a translation.</span></span><br><span class="line"><span class="comment">// There may be situations, when this is not wanted.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// In this example, E triggers nothing, but itself is rotation center</span></span><br><span class="line"><span class="comment">// and is translated, if other points are moved around.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p, q, col, pol, g;</span><br><span class="line">col = <span class="string">'blue'</span>;</span><br><span class="line">p = [];</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">-1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'yellow'</span>, <span class="attr">fillColor</span>:<span class="string">'yellow'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">2</span>, <span class="number">1</span> ], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:<span class="string">'red'</span>, <span class="attr">fillColor</span>:<span class="string">'red'</span>&#125;));</span><br><span class="line">p.push(board.create(<span class="string">'point'</span>,[<span class="number">-2</span>, <span class="number">1</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;));</span><br><span class="line">q = board.create(<span class="string">'point'</span>,[<span class="number">0</span>, <span class="number">0</span>], &#123;<span class="attr">size</span>: <span class="number">5</span>, <span class="attr">strokeColor</span>:col, <span class="attr">fillColor</span>:col&#125;);</span><br><span class="line"></span><br><span class="line">pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">g = board.create(<span class="string">'group'</span>, p.concat(q)).setRotationCenter(<span class="string">'centroid'</span>).setRotationPoints([p[<span class="number">2</span>]]);</span><br><span class="line">g.setScaleCenter(p[<span class="number">0</span>]).setScalePoints(p[<span class="number">1</span>]);</span><br><span class="line">g.removeTranslationPoint(q);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 </li>
@@ -1150,18 +894,14 @@ g.removeTranslationPoint(q);</code></pre>
 <li><p>param<br>point1—-JXG.Point|array<br>point2—-JXG.Point|array<br>point3—-JXG.Point|array<br>或<br>point1—-JXG.Point|array<br>point1—-JXG.Point|array<br>number—-function |number</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an Hyperbola by three points
-var A = board.create(&#39;point&#39;, [-1,4]);
-var B = board.create(&#39;point&#39;, [-1,-4]);
-var C = board.create(&#39;point&#39;, [1,1]);
-var el = board.create(&#39;hyperbola&#39;,[A,B,C]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an Hyperbola by three points</span></span><br><span class="line"><span class="keyword">var</span> A = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">4</span>]);</span><br><span class="line"><span class="keyword">var</span> B = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">-4</span>]);</span><br><span class="line"><span class="keyword">var</span> C = board.create(<span class="string">'point'</span>, [<span class="number">1</span>,<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">var</span> el = board.create(<span class="string">'hyperbola'</span>,[A,B,C]);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="Image-图片-JXG-GeometryElement-gt-JXG-Image-gt-Image"><a href="#Image-图片-JXG-GeometryElement-gt-JXG-Image-gt-Image" class="headerlink" title="Image 图片 JXG.GeometryElement -&gt; JXG.Image -&gt; Image"></a>Image 图片 JXG.GeometryElement -&gt; JXG.Image -&gt; Image</h2><p>  Define in JXG.Image<br>  Extends JXG.Image<br>  JXG.Board#create type:’image’</p>
 <ul>
 <li>param<br>url—-string|function<br>coords-array<br>size—array</li>
-<li>example<pre><code class="javascript">var im = board.create(&#39;image&#39;, [&#39;http://jsxgraph.uni-bayreuth.de/jsxgraph/distrib/images/uccellino.jpg&#39;, [-3,-2], [3,3]]);</code></pre>
-</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> im = board.create(<span class="string">'image'</span>, [<span class="string">'http://jsxgraph.uni-bayreuth.de/jsxgraph/distrib/images/uccellino.jpg'</span>, [<span class="number">-3</span>,<span class="number">-2</span>], [<span class="number">3</span>,<span class="number">3</span>]]);</span><br></pre></td></tr></table></figure></li>
 <li>Attributes <ul>
 <li>attractor<br>List of attractor elements. If the distance of the image is less than attractorDistance the image is made to glider of this element.<br>default:empty</li>
 <li>rotate<br>旋转角度 default:0</li>
@@ -1179,12 +919,7 @@ var el = board.create(&#39;hyperbola&#39;,[A,B,C]);</code></pre>
 <li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-
-var ic1 = board.create(&#39;incenter&#39;, [p1, p2, p3]);</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ic1 = board.create(<span class="string">'incenter'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes<br>借用其他元素的属性：JXG.GeometryElement</p>
 </li>
 <li><p>Fields<br>JXG.GeometryElement、JXG.CoordsElement</p>
@@ -1198,41 +933,28 @@ var ic1 = board.create(&#39;incenter&#39;, [p1, p2, p3]);</code></pre>
 <ul>
 <li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 <ul>
-<li>example<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-</code></pre>
+<li><p>example</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ic1 = board.create(<span class="string">'incircle'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Attributes<br>借用其他元素的属性：JXG.GeometryElement</p>
+</li>
+<li><p>Fields<br>JXG.GeometryElement、JXG.Circle</p>
+</li>
+<li><p>Methods<br>JXG.Circle、JXG.GeometryElement</p>
+</li>
+<li><p>Events<br>JXG.GeometryElement</p>
 </li>
 </ul>
-<p>var ic1 = board.create(‘incircle’, [p1, p2, p3]);</p>
-<pre><code>
-* Attributes
-借用其他元素的属性：JXG.GeometryElement
-* Fields
-JXG.GeometryElement、JXG.Circle
-* Methods
-JXG.Circle、JXG.GeometryElement
-* Events
-JXG.GeometryElement
-</code></pre></li>
+</li>
 </ul>
 <h2 id="Inqueually-线性不等式表示区域-JXG-GeometryElement-gt-JXG-Curve-gt-Inequality"><a href="#Inqueually-线性不等式表示区域-JXG-GeometryElement-gt-JXG-Curve-gt-Inequality" class="headerlink" title="Inqueually 线性不等式表示区域 JXG.GeometryElement -&gt; JXG.Curve -&gt; Inequality"></a>Inqueually 线性不等式表示区域 JXG.GeometryElement -&gt; JXG.Curve -&gt; Inequality</h2><p>  Defined in composition.js<br>  Extends JXG.Curve<br>  JXG.Board#create type:’inequality’</p>
 <ul>
 <li><p>param<br>l—-JXG.Line</p>
 </li>
 <li><p>example </p>
-<pre><code class="javascript">var p = board.create(&#39;point&#39;, [1, 3]),
-  q = board.create(&#39;point&#39;, [-2, -4]),
-  l = board.create(&#39;line&#39;, [p, q]),
-  ineq = board.create(&#39;inequality&#39;, [l]);
-  ineq = board.create(&#39;inequality&#39;, [l]);</code></pre>
-<pre><code class="javascript">// Plot the inequality 
-//     y &gt;= 2/3 x + 1 
-// or 
-//     0 &gt;= -3y + 2x +1
-var l = board.create(&#39;line&#39;, [1, 2, -3]),
-ineq = board.create(&#39;inequality&#39;, [l], {inverse:true});</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = board.create(<span class="string">'point'</span>, [<span class="number">1</span>, <span class="number">3</span>]),</span><br><span class="line">    q = board.create(<span class="string">'point'</span>, [<span class="number">-2</span>, <span class="number">-4</span>]),</span><br><span class="line">    l = board.create(<span class="string">'line'</span>, [p, q]),</span><br><span class="line">    ineq = board.create(<span class="string">'inequality'</span>, [l]);</span><br><span class="line">    ineq = board.create(<span class="string">'inequality'</span>, [l]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Plot the inequality </span></span><br><span class="line"><span class="comment">//     y &gt;= 2/3 x + 1 </span></span><br><span class="line"><span class="comment">// or </span></span><br><span class="line"><span class="comment">//     0 &gt;= -3y + 2x +1</span></span><br><span class="line"><span class="keyword">var</span> l = board.create(<span class="string">'line'</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">-3</span>]),</span><br><span class="line">ineq = board.create(<span class="string">'inequality'</span>, [l], &#123;<span class="attr">inverse</span>:<span class="literal">true</span>&#125;);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes</p>
 <ul>
 <li>inverse<br>显示区域 默认为false 显示线的下方区</li>
@@ -1241,30 +963,9 @@ ineq = board.create(&#39;inequality&#39;, [l], {inverse:true});</code></pre>
 </ul>
 <h2 id="Input-input标签-提供输入-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Text-gt-Text-gt-Input"><a href="#Input-input标签-提供输入-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Text-gt-Text-gt-Input" class="headerlink" title="Input input标签(提供输入) JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Text -&gt;Text -&gt;Input"></a>Input input标签(提供输入) JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Text -&gt;Text -&gt;Input</h2><p>  Defined in input.js<br>  Extends Text<br>  JXG.Board#create type:’input’</p>
 <ul>
-<li><p>param<br>x—-number|function<br>y—-number|function<br>value—-string<br>label—-string</p>
-</li>
-<li><p>example</p>
-<pre><code class="javascript">// Create an input element at position [1,4].
-var input = board.create(&#39;input&#39;, [0, 1, &#39;sin(x)*x&#39;, &#39;f(x)=&#39;], {});
-var f = board.jc.snippet(input.Value(), true, &#39;x&#39;, false);
-var graph = board.create(&#39;functiongraph&#39;,[f,
-     function() {
-       var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[0,0],board);
-       return c.usrCoords[1];
-     },
-     function() {
-       var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[board.canvasWidth,0],board);
-       return c.usrCoords[1];
-     }
-   ]);
+<li>param<br>x—-number|function<br>y—-number|function<br>value—-string<br>label—-string</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an input element at position [1,4].</span></span><br><span class="line"><span class="keyword">var</span> input = board.create(<span class="string">'input'</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="string">'sin(x)*x'</span>, <span class="string">'f(x)='</span>], &#123;&#125;);</span><br><span class="line"><span class="keyword">var</span> f = board.jc.snippet(input.Value(), <span class="literal">true</span>, <span class="string">'x'</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> graph = board.create(<span class="string">'functiongraph'</span>,[f,</span><br><span class="line">     <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> c = <span class="keyword">new</span> JXG.Coords(JXG.COORDS_BY_SCREEN,[<span class="number">0</span>,<span class="number">0</span>],board);</span><br><span class="line">       <span class="keyword">return</span> c.usrCoords[<span class="number">1</span>];</span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> c = <span class="keyword">new</span> JXG.Coords(JXG.COORDS_BY_SCREEN,[board.canvasWidth,<span class="number">0</span>],board);</span><br><span class="line">       <span class="keyword">return</span> c.usrCoords[<span class="number">1</span>];</span><br><span class="line">     &#125;</span><br><span class="line">   ]);</span><br><span class="line"></span><br><span class="line">board.create(<span class="string">'text'</span>, [<span class="number">1</span>, <span class="number">3</span>, updateGraph()]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> updateGraph = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  graph.Y = board.jc.snippet(input.Value(), <span class="literal">true</span>, <span class="string">'x'</span>, <span class="literal">false</span>);</span><br><span class="line">  graph.updateCurve();</span><br><span class="line">  board.update();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-board.create(&#39;text&#39;, [1, 3, updateGraph()]);
-
-var updateGraph = function() {
-  graph.Y = board.jc.snippet(input.Value(), true, &#39;x&#39;, false);
-  graph.updateCurve();
-  board.update();
-}  </code></pre>
 </li>
 </ul>
 <h2 id="Integral-给定时间间隔的曲线积分-JXG-GeometryElement-gt-JXG-Curve-gt-Integral"><a href="#Integral-给定时间间隔的曲线积分-JXG-GeometryElement-gt-JXG-Curve-gt-Integral" class="headerlink" title="Integral 给定时间间隔的曲线积分 JXG.GeometryElement -&gt; JXG.Curve -&gt; Integral"></a>Integral 给定时间间隔的曲线积分 JXG.GeometryElement -&gt; JXG.Curve -&gt; Integral</h2><h2 id="Intersection-交叉-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Intersection"><a href="#Intersection-交叉-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Intersection" class="headerlink" title="Intersection 交叉 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Intersection"></a>Intersection 交叉 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Intersection</h2><p>  Defined in point.js<br>  Extends JXG.Point<br>  JXG.Board#create type:’Intersection’</p>
@@ -1272,15 +973,8 @@ var updateGraph = function() {
 <li><p>param<br>el1—-JXG.Line<br>el2—-JXG.Line<br>i——number  i==0 用正的平方根 i==1 用负的平方根</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an intersection point of circle and line
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var c1 = board.create(&#39;circle&#39;, [p1, 2.0]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an intersection point of circle and line</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, <span class="number">2.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p2, p3]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = board.create(<span class="string">'intersection'</span>, [c1, l1, <span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
 
-var p2 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 2.0]);
-var l1 = board.create(&#39;line&#39;, [p2, p3]);
-
-var i = board.create(&#39;intersection&#39;, [c1, l1, 0]);</code></pre>
 </li>
 </ul>
 <h2 id="Line-线-JXG-GeometryElement-gt-JXG-Line-gt-Line"><a href="#Line-线-JXG-GeometryElement-gt-JXG-Line-gt-Line" class="headerlink" title="Line 线 JXG.GeometryElement -&gt; JXG.Line -&gt; Line"></a>Line 线 JXG.GeometryElement -&gt; JXG.Line -&gt; Line</h2><p>  Defined in line.js<br>  Extends JXG.Line<br>  JXG.Borad#create type:’line’</p>
@@ -1288,12 +982,9 @@ var i = board.create(&#39;intersection&#39;, [c1, l1, 0]);</code></pre>
 <li><p>param<br>point1—–JXG.Point|array|function<br>point2—–JXG.Point|array|function<br>or<br>c—-number|function<br>a—-number|function<br>b—-number|function  ax+by+c=0<br>or<br>f—-function</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a line using point and coordinates/
-// The second point will be fixed and invisible.
-var p1 = board.create(&#39;point&#39;, [4.5, 2.0]);
-var l1 = board.create(&#39;line&#39;, [p1, [1.0, 1.0]]);</code></pre>
-<pre><code class="javascript">// Create a line using three coordinates
-var l1 = board.create(&#39;line&#39;, [1.0, -2.0, 3.0]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a line using point and coordinates/</span></span><br><span class="line"><span class="comment">// The second point will be fixed and invisible.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">4.5</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, [<span class="number">1.0</span>, <span class="number">1.0</span>]]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a line using three coordinates</span></span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [<span class="number">1.0</span>, <span class="number">-2.0</span>, <span class="number">3.0</span>]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -1322,15 +1013,9 @@ var l1 = board.create(&#39;line&#39;, [1.0, -2.0, 3.0]);</code></pre>
 </ul>
 <h2 id="Locus-轨迹-JXG-GeometryElement-gt-JXG-Curve-gt-Locus"><a href="#Locus-轨迹-JXG-GeometryElement-gt-JXG-Curve-gt-Locus" class="headerlink" title="Locus 轨迹 JXG.GeometryElement -&gt; JXG.Curve -&gt; Locus"></a>Locus 轨迹 JXG.GeometryElement -&gt; JXG.Curve -&gt; Locus</h2><h2 id="MajorArc-大弧-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MajorArc"><a href="#MajorArc-大弧-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MajorArc" class="headerlink" title="MajorArc 大弧 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve-&gt; MajorArc"></a>MajorArc 大弧 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve-&gt; MajorArc</h2><p>  Defined in arc.js<br>  Extends Curve<br>  JXG.Borad#create type:’majorarc’</p>
 <ul>
-<li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
-</li>
-<li><p>example</p>
-<pre><code class="javascript">// Create an arc out of three free points
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 0.5]);
-var p3 = board.create(&#39;point&#39;, [3.5, 1.0]);
+<li>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an arc out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.5</span>, <span class="number">1.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = board.create(<span class="string">'majorarc'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 
-var a = board.create(&#39;majorarc&#39;, [p1, p2, p3]);  </code></pre>
 </li>
 </ul>
 <h2 id="MajorSector-大扇区-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MajorSector"><a href="#MajorSector-大扇区-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MajorSector" class="headerlink" title="MajorSector 大扇区 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; MajorSector"></a>MajorSector 大扇区 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; MajorSector</h2><p>  Defined in sector.js<br>  Extends Curve<br>  JXG.Borad#create type:’majorsector’</p>
@@ -1338,100 +1023,53 @@ var a = board.create(&#39;majorarc&#39;, [p1, p2, p3]);  </code></pre>
 <li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>p3—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create an arc out of three free points
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 0.5]);
-var p3 = board.create(&#39;point&#39;, [3.5, 1.0]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an arc out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.5</span>, <span class="number">1.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = board.create(<span class="string">'majorsector'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 
-var a = board.create(&#39;majorsector&#39;, [p1, p2, p3]);</code></pre>
 </li>
 </ul>
 <h2 id="Midpoint-中点-JXG-GeometryElement-gt-JXG-Point-gt-Midpoint"><a href="#Midpoint-中点-JXG-GeometryElement-gt-JXG-Point-gt-Midpoint" class="headerlink" title="Midpoint 中点 JXG.GeometryElement -&gt; JXG.Point -&gt; Midpoint"></a>Midpoint 中点 JXG.GeometryElement -&gt; JXG.Point -&gt; Midpoint</h2><p>  Defined in composition.js<br>  Extends JXG.Point<br>  JXG.Board#create type:’midpoint’</p>
 <ul>
-<li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>or<br>l—–JXG.Line</p>
-</li>
-<li><p>example</p>
-<pre><code class="javascript">// Create base elements: 2 points and 1 line
-var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var l1 = board.create(&#39;segment&#39;, [[0.0, 3.0], [3.0, 3.0]]);
+<li>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>or<br>l—–JXG.Line</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create base elements: 2 points and 1 line</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'segment'</span>, [[<span class="number">0.0</span>, <span class="number">3.0</span>], [<span class="number">3.0</span>, <span class="number">3.0</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mp1 = board.create(<span class="string">'midpoint'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> mp2 = board.create(<span class="string">'midpoint'</span>, [l1]);</span><br></pre></td></tr></table></figure>
 
-var mp1 = board.create(&#39;midpoint&#39;, [p1, p2]);
-var mp2 = board.create(&#39;midpoint&#39;, [l1]);</code></pre>
 </li>
 </ul>
 <h2 id="MinorArc-小狐-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MinorArc"><a href="#MinorArc-小狐-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MinorArc" class="headerlink" title="MinorArc 小狐 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve-&gt; MinorArc"></a>MinorArc 小狐 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve-&gt; MinorArc</h2><h2 id="MinorSector-小扇区-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MinorSector"><a href="#MinorSector-小扇区-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-MinorSector" class="headerlink" title="MinorSector 小扇区 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; MinorSector"></a>MinorSector 小扇区 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; MinorSector</h2><h2 id="Mirrorpoint-镜像点-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Mirrorpoint"><a href="#Mirrorpoint-镜像点-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Mirrorpoint" class="headerlink" title="Mirrorpoint 镜像点 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Mirrorpoint"></a>Mirrorpoint 镜像点 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Mirrorpoint</h2><ul>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [3.0, 3.0]);
-var p2 = board.create(&#39;point&#39;, [6.0, 1.0]);
-var mp1 = board.create(&#39;mirrorpoint&#39;, [p1, p2]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">6.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> mp1 = board.create(<span class="string">'mirrorpoint'</span>, [p1, p2]);</span><br></pre></td></tr></table></figure>
 <h2 id="NonReflexAngle-无反射性角-JXG-GeometryElement-gt-JXG-Curve-gt-Sector-gt-Angle-gt-NonReflexAngle"><a href="#NonReflexAngle-无反射性角-JXG-GeometryElement-gt-JXG-Curve-gt-Sector-gt-Angle-gt-NonReflexAngle" class="headerlink" title="NonReflexAngle 无反射性角 JXG.GeometryElement -&gt; JXG.Curve -&gt; Sector -&gt; Angle -&gt; NonReflexAngle"></a>NonReflexAngle 无反射性角 JXG.GeometryElement -&gt; JXG.Curve -&gt; Sector -&gt; Angle -&gt; NonReflexAngle</h2></li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a non-reflex angle out of three free points
-var p1 = board.create(&#39;point&#39;, [5.0, 3.0]),
-  p2 = board.create(&#39;point&#39;, [1.0, 0.5]),
-  p3 = board.create(&#39;point&#39;, [1.5, 5.0]),
-
-  a = board.create(&#39;nonreflexangle&#39;, [p1, p2, p3], {radius: 2});</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a non-reflex angle out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">5.0</span>, <span class="number">3.0</span>]),</span><br><span class="line">    p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]),</span><br><span class="line">    p3 = board.create(<span class="string">'point'</span>, [<span class="number">1.5</span>, <span class="number">5.0</span>]),</span><br><span class="line"></span><br><span class="line">    a = board.create(<span class="string">'nonreflexangle'</span>, [p1, p2, p3], &#123;<span class="attr">radius</span>: <span class="number">2</span>&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="Normal-数-法线-JXG-GeometryElement-gt-JXG-Line-gt-Normal"><a href="#Normal-数-法线-JXG-GeometryElement-gt-JXG-Line-gt-Normal" class="headerlink" title="Normal (数)法线 JXG.GeometryElement -&gt; JXG.Line -&gt; Normal"></a>Normal (数)法线 JXG.GeometryElement -&gt; JXG.Line -&gt; Normal</h2></li>
 <li><p>param<br>o—-JXG.Line|JXG.Circle|JXG.Curve|JXG.Turtle<br>p—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a normal to a circle.
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [3.0, 2.0]);
-var c1 = board.create(&#39;circle&#39;, [p1, p2]);
-
-var norm1 = board.create(&#39;normal&#39;, [c1, p2]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a normal to a circle.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> norm1 = board.create(<span class="string">'normal'</span>, [c1, p2]);</span><br></pre></td></tr></table></figure>
 <h2 id="Orthogonalprojection-正交投影-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-Orthogonalprojection"><a href="#Orthogonalprojection-正交投影-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-Orthogonalprojection" class="headerlink" title="Orthogonalprojection 正交投影 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; Orthogonalprojection"></a>Orthogonalprojection 正交投影 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; Orthogonalprojection</h2><p>Defined in composition.js<br>Extends JXG.Point<br>JXG.Board#create type:’orthogonalprojection’<br>点到线的垂点</p>
 </li>
 <li><p>param<br>p—-JXG.Point<br>l—-JXG.line</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 4.0]);
-var p2 = board.create(&#39;point&#39;, [6.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">6.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pp1 = board.create(<span class="string">'orthogonalprojection'</span>, [p3, l1]);</span><br></pre></td></tr></table></figure>
 
-var pp1 = board.create(&#39;orthogonalprojection&#39;, [p3, l1]);</code></pre>
 </li>
 </ul>
 <h2 id="OtherIntersection-其他的交叉-JXG-CoordsElement-JXG-CoordsElement-gt-JXG-Point-gt-OtherIntersection"><a href="#OtherIntersection-其他的交叉-JXG-CoordsElement-JXG-CoordsElement-gt-JXG-Point-gt-OtherIntersection" class="headerlink" title="OtherIntersection 其他的交叉 JXG.CoordsElement,JXG.CoordsElement -&gt; JXG.Point -&gt; OtherIntersection"></a>OtherIntersection 其他的交叉 JXG.CoordsElement,JXG.CoordsElement -&gt; JXG.Point -&gt; OtherIntersection</h2><ul>
-<li><p>example</p>
-<pre><code class="javascript">// Create an intersection point of circle and line 
-// 和原图有区别？？？？
-var p1 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var c1 = board.create(&#39;circle&#39;, [p1, 2.0]);
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an intersection point of circle and line </span></span><br><span class="line"><span class="comment">// 和原图有区别？？？？</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, <span class="number">2.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p2, p3]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = board.create(<span class="string">'intersection'</span>, [c1, l1, <span class="number">0</span>]);</span><br><span class="line"><span class="keyword">var</span> j = board.create(<span class="string">'otherintersection'</span>, [c1, l1, i]);</span><br></pre></td></tr></table></figure>
 
-var p2 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var p3 = board.create(&#39;point&#39;, [2.0, 2.0]);
-var l1 = board.create(&#39;line&#39;, [p2, p3]);
-
-var i = board.create(&#39;intersection&#39;, [c1, l1, 0]);
-var j = board.create(&#39;otherintersection&#39;, [c1, l1, i]);</code></pre>
 </li>
 </ul>
 <h2 id="Parabola-抛物线-JXG-GeometryElement-gt-JXG-Curve-gt-Conic-gt-Parabola"><a href="#Parabola-抛物线-JXG-GeometryElement-gt-JXG-Curve-gt-Conic-gt-Parabola" class="headerlink" title="Parabola 抛物线 JXG.GeometryElement -&gt; JXG.Curve -&gt; Conic -&gt; Parabola"></a>Parabola 抛物线 JXG.GeometryElement -&gt; JXG.Curve -&gt; Conic -&gt; Parabola</h2><ul>
 <li><p>param<br>point—-JXG.Point|array<br>Line—–JXG.line</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a parabola by a point C and a line l.
-var A = board.create(&#39;point&#39;, [-1,4]);
-var B = board.create(&#39;point&#39;, [-1,-4]);
-var l = board.create(&#39;line&#39;, [A,B]);
-var C = board.create(&#39;point&#39;, [1,1]);
-var el = board.create(&#39;parabola&#39;,[C,l]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a parabola by a point C and a line l.</span></span><br><span class="line"><span class="keyword">var</span> A = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">4</span>]);</span><br><span class="line"><span class="keyword">var</span> B = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>,<span class="number">-4</span>]);</span><br><span class="line"><span class="keyword">var</span> l = board.create(<span class="string">'line'</span>, [A,B]);</span><br><span class="line"><span class="keyword">var</span> C = board.create(<span class="string">'point'</span>, [<span class="number">1</span>,<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">var</span> el = board.create(<span class="string">'parabola'</span>,[C,l]);</span><br></pre></td></tr></table></figure>
 <h2 id="Parallel-平行线-JXG-GeometryElement-gt-JXG-Line-gt-Line-gt-Parallel"><a href="#Parallel-平行线-JXG-GeometryElement-gt-JXG-Line-gt-Line-gt-Parallel" class="headerlink" title="Parallel 平行线 JXG.GeometryElement -&gt; JXG.Line -&gt; Line -&gt; Parallel"></a>Parallel 平行线 JXG.GeometryElement -&gt; JXG.Line -&gt; Line -&gt; Parallel</h2></li>
 <li><p>param<br>l—-JXG.Line<br>p—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a parallel
-var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a parallel</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> pl1 = board.create(<span class="string">'parallel'</span>, [l1, p3]);</span><br></pre></td></tr></table></figure>
 
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-var pl1 = board.create(&#39;parallel&#39;, [l1, p3]);</code></pre>
 </li>
 </ul>
 <h2 id="Parallelpoint-平行点-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Parallelpoint"><a href="#Parallelpoint-平行点-JXG-GeometryElement-JXG-CoordsElement-gt-JXG-Point-gt-Parallelpoint" class="headerlink" title="Parallelpoint 平行点 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Parallelpoint"></a>Parallelpoint 平行点 JXG.GeometryElement,JXG.CoordsElement -&gt; JXG.Point -&gt; Parallelpoint</h2><ul>
@@ -1440,50 +1078,31 @@ var pl1 = board.create(&#39;parallel&#39;, [l1, p3]);</code></pre>
 <li><p>example<br>l—-JXG.Line<br>p—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pp1 = board.create(<span class="string">'parallelpoint'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 
-var pp1 = board.create(&#39;parallelpoint&#39;, [p1, p2, p3]);</code></pre>
 </li>
 </ul>
 <h2 id="Perpendicular-垂直线-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-Perpendicular"><a href="#Perpendicular-垂直线-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-Perpendicular" class="headerlink" title="Perpendicular 垂直线 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; Perpendicular"></a>Perpendicular 垂直线 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; Perpendicular</h2><p>  Defined in composition.js<br>  Extends Segment<br>  JXG.Borad#create type:’perpendicular’</p>
 <ul>
-<li><p>param<br>l—-JXG.Line<br>p—-JXG.Point</p>
-</li>
-<li><p>example</p>
-<pre><code class="javascript">// Create a perpendicular
-var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
+<li>param<br>l—-JXG.Line<br>p—-JXG.Point</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a perpendicular</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> perp1 = board.create(<span class="string">'perpendicular'</span>, [l1, p3]);</span><br></pre></td></tr></table></figure>
 
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-var perp1 = board.create(&#39;perpendicular&#39;, [l1, p3]);</code></pre>
 </li>
 </ul>
 <h2 id="PerpendicularPoint-垂直点-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-PerpendicularPoint"><a href="#PerpendicularPoint-垂直点-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-PerpendicularPoint" class="headerlink" title="PerpendicularPoint 垂直点 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; PerpendicularPoint"></a>PerpendicularPoint 垂直点 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; PerpendicularPoint</h2><ul>
 <li><p>param<br>p—-JXG.Line<br>l—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 4.0]);
-var p2 = board.create(&#39;point&#39;, [6.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">6.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pp1 = board.create(<span class="string">'perpendicularpoint'</span>, [p3, l1]);</span><br></pre></td></tr></table></figure>
 
-var pp1 = board.create(&#39;perpendicularpoint&#39;, [p3, l1]);</code></pre>
 </li>
 </ul>
 <h2 id="PerpendicularSegment-垂线段-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-PerpendicularSegment"><a href="#PerpendicularSegment-垂线段-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-PerpendicularSegment" class="headerlink" title="PerpendicularSegment 垂线段 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; PerpendicularSegment"></a>PerpendicularSegment 垂线段 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; PerpendicularSegment</h2><ul>
 <li><p>param<br>l—-JXG.Line<br>p—-JXG.Point</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a perpendicular
-var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a perpendicular</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">3.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> perp1 = board.create(<span class="string">'perpendicularsegment'</span>, [l1, p3]);</span><br></pre></td></tr></table></figure>
 
-var p3 = board.create(&#39;point&#39;, [3.0, 3.0]);
-var perp1 = board.create(&#39;perpendicularsegment&#39;, [l1, p3]);</code></pre>
 </li>
 </ul>
 <h2 id="Point-点-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-Point"><a href="#Point-点-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Point-gt-Point" class="headerlink" title="Point 点 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; Point"></a>Point 点 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Point -&gt; Point</h2><p>  Defined in point.js<br>  Extends JXG.Point<br>  JXG.Board#create type:’point’</p>
@@ -1491,14 +1110,9 @@ var perp1 = board.create(&#39;perpendicularsegment&#39;, [l1, p3]);</code></pre>
 <li><p>param<br>z—-number|string|function optional<br>x—-number|string|function<br>y—-number|string|function</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a free point using affine euclidean coordinates
-var p1 = board.create(&#39;point&#39;, [3.5, 2.0]);</code></pre>
-<pre><code class="javascript">// Create a constrained point using anonymous function
-var p2 = board.create(&#39;point&#39;, [3.5, function () { return p1.X(); }]);</code></pre>
-<pre><code class="javascript">// Create a point using transformations
-var trans = board.create(&#39;transform&#39;, [2, 0.5], {type:&#39;scale&#39;});
-var p3 = board.create(&#39;point&#39;, [p2, trans]);</code></pre>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a free point using affine euclidean coordinates</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">3.5</span>, <span class="number">2.0</span>]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a constrained point using anonymous function</span></span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">3.5</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> p1.X(); &#125;]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a point using transformations</span></span><br><span class="line"><span class="keyword">var</span> trans = board.create(<span class="string">'transform'</span>, [<span class="number">2</span>, <span class="number">0.5</span>], &#123;<span class="attr">type</span>:<span class="string">'scale'</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [p2, trans]);</span><br></pre></td></tr></table></figure></li>
 <li><p>Attributes</p>
 <ul>
 <li>attractorDistance<br>If the distance of the point to one of its attractors is less than this number the point will be a glider on this attracting element.<br>If set to zero nothing happens<br>default:0</li>
@@ -1529,44 +1143,26 @@ var p3 = board.create(&#39;point&#39;, [p2, trans]);</code></pre>
 <li><p>param<br>list points<br>a list of points or<br>a list of coordinate arrays or<br>a function returning a list of coordinate arrays.</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var p3 = board.create(&#39;point&#39;, [4.0, 6.0]);
-var p4 = board.create(&#39;point&#39;, [1.0, 4.0]);
-var pol = board.create(&#39;polygon&#39;, [p1, p2, p3, p4]);</code></pre>
-<pre><code class="javascript">var p = [[0.0, 2.0], [2.0, 1.0], [4.0, 6.0], [4.0, 6.0], [4.0, 6.0], [1.0, 3.0]];
-var pol = board.create(&#39;polygon&#39;, p, {hasInnerPoints: true});</code></pre>
-<pre><code class="javascript">var f1 = function() { return [0.0, 2.0]; }, 
-  f2 = function() { return [2.0, 1.0]; }, 
-  f3 = function() { return [4.0, 6.0]; }, 
-  f4 = function() { return [1.0, 4.0]; }, 
-  cc1 = board.create(&#39;polygon&#39;, [f1, f2, f3, f4]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">4.0</span>, <span class="number">6.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p4 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> pol = board.create(<span class="string">'polygon'</span>, [p1, p2, p3, p4]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = [[<span class="number">0.0</span>, <span class="number">2.0</span>], [<span class="number">2.0</span>, <span class="number">1.0</span>], [<span class="number">4.0</span>, <span class="number">6.0</span>], [<span class="number">4.0</span>, <span class="number">6.0</span>], [<span class="number">4.0</span>, <span class="number">6.0</span>], [<span class="number">1.0</span>, <span class="number">3.0</span>]];</span><br><span class="line"><span class="keyword">var</span> pol = board.create(<span class="string">'polygon'</span>, p, &#123;<span class="attr">hasInnerPoints</span>: <span class="literal">true</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [<span class="number">0.0</span>, <span class="number">2.0</span>]; &#125;, </span><br><span class="line">    f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [<span class="number">2.0</span>, <span class="number">1.0</span>]; &#125;, </span><br><span class="line">    f3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [<span class="number">4.0</span>, <span class="number">6.0</span>]; &#125;, </span><br><span class="line">    f4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [<span class="number">1.0</span>, <span class="number">4.0</span>]; &#125;, </span><br><span class="line">    cc1 = board.create(<span class="string">'polygon'</span>, [f1, f2, f3, f4]);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="RadicalAxis-根轴-JXG-GeometryElement-gt-JXG-Line-gt-RadicalAxis"><a href="#RadicalAxis-根轴-JXG-GeometryElement-gt-JXG-Line-gt-RadicalAxis" class="headerlink" title="RadicalAxis 根轴 JXG.GeometryElement -&gt; JXG.Line -&gt; RadicalAxis"></a>RadicalAxis 根轴 JXG.GeometryElement -&gt; JXG.Line -&gt; RadicalAxis</h2><p>  defined in line.js<br>  Extends JXG.Line<br>  JXG.Board#create type:’line’</p>
 <ul>
 <li><p>example</p>
-<pre><code class="javascript">// Create the radical axis line with respect to two circles
-var board = JXG.JSXGraph.initBoard(&#39;7b7233a0-f363-47dd-9df5-5018d0d17a98&#39;, {boundingbox: [-1, 9, 9, -1], axis: true, showcopyright: false, shownavigation: false});
-var p1 = board.create(&#39;point&#39;, [2, 3]);
-var p2 = board.create(&#39;point&#39;, [1, 4]);
-var c1 = board.create(&#39;circle&#39;, [p1, p2]);
-var p3 = board.create(&#39;point&#39;, [6, 5]);
-var p4 = board.create(&#39;point&#39;, [8, 6]);
-var c2 = board.create(&#39;circle&#39;, [p3, p4]);
-var r1 = board.create(&#39;radicalaxis&#39;, [c1, c2]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the radical axis line with respect to two circles</span></span><br><span class="line"><span class="keyword">var</span> board = JXG.JSXGraph.initBoard(<span class="string">'7b7233a0-f363-47dd-9df5-5018d0d17a98'</span>, &#123;<span class="attr">boundingbox</span>: [<span class="number">-1</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">-1</span>], <span class="attr">axis</span>: <span class="literal">true</span>, <span class="attr">showcopyright</span>: <span class="literal">false</span>, <span class="attr">shownavigation</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1</span>, <span class="number">4</span>]);</span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'circle'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">6</span>, <span class="number">5</span>]);</span><br><span class="line"><span class="keyword">var</span> p4 = board.create(<span class="string">'point'</span>, [<span class="number">8</span>, <span class="number">6</span>]);</span><br><span class="line"><span class="keyword">var</span> c2 = board.create(<span class="string">'circle'</span>, [p3, p4]);</span><br><span class="line"><span class="keyword">var</span> r1 = board.create(<span class="string">'radicalaxis'</span>, [c1, c2]);</span><br></pre></td></tr></table></figure>
 <h2 id="Reflection-反射-JXG-GeometryElement-gt-JXG-Point-gt-Reflection"><a href="#Reflection-反射-JXG-GeometryElement-gt-JXG-Point-gt-Reflection" class="headerlink" title="Reflection 反射 JXG.GeometryElement -&gt; JXG.Point -&gt; Reflection"></a>Reflection 反射 JXG.GeometryElement -&gt; JXG.Point -&gt; Reflection</h2><h2 id="ReflexAngle-反射角-JXG-GeometryElement-gt-JXG-Curve-gt-Sector-gt-ReflexAngle"><a href="#ReflexAngle-反射角-JXG-GeometryElement-gt-JXG-Curve-gt-Sector-gt-ReflexAngle" class="headerlink" title="ReflexAngle 反射角 JXG.GeometryElement -&gt; JXG.Curve -&gt; Sector -&gt; ReflexAngle"></a>ReflexAngle 反射角 JXG.GeometryElement -&gt; JXG.Curve -&gt; Sector -&gt; ReflexAngle</h2><h2 id="RegularPolygon-正多边形-JXG-GeometryElement-gt-JXG-polygon-gt-Polygon-gt-RegularPolygon"><a href="#RegularPolygon-正多边形-JXG-GeometryElement-gt-JXG-polygon-gt-Polygon-gt-RegularPolygon" class="headerlink" title="RegularPolygon 正多边形 JXG.GeometryElement -&gt; JXG.polygon -&gt; Polygon -&gt; RegularPolygon"></a>RegularPolygon 正多边形 JXG.GeometryElement -&gt; JXG.polygon -&gt; Polygon -&gt; RegularPolygon</h2><p>Defined In Polygon.js<br>Extends Polygon<br>JXG.Board#create type:’regularpolygon’</p>
 </li>
 <li><p>param<br>p1—-JXG.Point<br>p2—-JXG.Point<br>n—–number</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [2.0, 1.0]);
-var pol = board.create(&#39;regularpolygon&#39;, [p1, p2, 5]);</code></pre>
-<pre><code class="javascript">var p1 = board.create(&#39;point&#39;, [0.0, 2.0]);
-var p2 = board.create(&#39;point&#39;, [4.0,4.0]);
-var p3 = board.create(&#39;point&#39;, [2.0,0.0]);
-var pol = board.create(&#39;regularpolygon&#39;, [p1, p2, p3]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> pol = board.create(<span class="string">'regularpolygon'</span>, [p1, p2, <span class="number">5</span>]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">4.0</span>,<span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">2.0</span>,<span class="number">0.0</span>]);</span><br><span class="line"><span class="keyword">var</span> pol = board.create(<span class="string">'regularpolygon'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -1589,22 +1185,9 @@ var pol = board.create(&#39;regularpolygon&#39;, [p1, p2, p3]);</code></pre>
 <li><p>param<br>p1—-JXG.Point 弧心<br>p2—-JXG.Point 弧的起点（p1到p2的距离–半径）<br>p3—-JXG.Point 弧的终点</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a sector out of three free points
-var p1 = board.create(&#39;point&#39;, [1.5, 5.0]),
-    p2 = board.create(&#39;point&#39;, [1.0, 0.5]),
-    p3 = board.create(&#39;point&#39;, [5.0, 3.0]),
-    a = board.create(&#39;sector&#39;, [p1, p2, p3]);</code></pre>
-<pre><code class="javascript">// Create a sector out of two lines, two directions and a radius
-var p1 = board.create(&#39;point&#39;, [-1, 4]),
-p2 = board.create(&#39;point&#39;, [4, 1]),
-q1 = board.create(&#39;point&#39;, [-2, -3]),
-q2 = board.create(&#39;point&#39;, [4,3]),
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a sector out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">1.5</span>, <span class="number">5.0</span>]),</span><br><span class="line">    p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]),</span><br><span class="line">    p3 = board.create(<span class="string">'point'</span>, [<span class="number">5.0</span>, <span class="number">3.0</span>]),</span><br><span class="line">    a = board.create(<span class="string">'sector'</span>, [p1, p2, p3]);</span><br></pre></td></tr></table></figure>
 
-li1 = board.create(&#39;line&#39;, [p1,p2], {strokeColor:&#39;black&#39;, lastArrow:true}),
-li2 = board.create(&#39;line&#39;, [q1,q2], {lastArrow:true}),
-
-sec1 = board.create(&#39;sector&#39;, [li1, li2, [5.5, 0], [4, 3], 3]),
-sec2 = board.create(&#39;sector&#39;, [li1, li2, 1, -1, 4]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a sector out of two lines, two directions and a radius</span></span><br><span class="line">  <span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">-1</span>, <span class="number">4</span>]),</span><br><span class="line">  p2 = board.create(<span class="string">'point'</span>, [<span class="number">4</span>, <span class="number">1</span>]),</span><br><span class="line">  q1 = board.create(<span class="string">'point'</span>, [<span class="number">-2</span>, <span class="number">-3</span>]),</span><br><span class="line">  q2 = board.create(<span class="string">'point'</span>, [<span class="number">4</span>,<span class="number">3</span>]),</span><br><span class="line"></span><br><span class="line">  li1 = board.create(<span class="string">'line'</span>, [p1,p2], &#123;<span class="attr">strokeColor</span>:<span class="string">'black'</span>, <span class="attr">lastArrow</span>:<span class="literal">true</span>&#125;),</span><br><span class="line">  li2 = board.create(<span class="string">'line'</span>, [q1,q2], &#123;<span class="attr">lastArrow</span>:<span class="literal">true</span>&#125;),</span><br><span class="line"></span><br><span class="line">  sec1 = board.create(<span class="string">'sector'</span>, [li1, li2, [<span class="number">5.5</span>, <span class="number">0</span>], [<span class="number">4</span>, <span class="number">3</span>], <span class="number">3</span>]),</span><br><span class="line">  sec2 = board.create(<span class="string">'sector'</span>, [li1, li2, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">4</span>]);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -1639,28 +1222,14 @@ sec2 = board.create(&#39;sector&#39;, [li1, li2, 1, -1, 4]);</code></pre>
 <li><p>param<br>point1—-JXG.Point|array<br>point2 </p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a segment providing two points.
-var p1 = board.create(&#39;point&#39;, [4.5, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 1.0]);
-var l1 = board.create(&#39;segment&#39;, [p1, p2]);</code></pre>
-<pre><code class="javascript">// Create a segment providing two points.
-var p1 = board.create(&#39;point&#39;, [4.0, 1.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 1.0]);
-var l1 = board.create(&#39;segment&#39;, [p1, p2]);
-var p3 = board.create(&#39;point&#39;, [4.0, 2.0]);
-var p4 = board.create(&#39;point&#39;, [1.0, 2.0]);
-var l2 = board.create(&#39;segment&#39;, [p3, p4, 3]);
-var p5 = board.create(&#39;point&#39;, [4.0, 3.0]);
-var p6 = board.create(&#39;point&#39;, [1.0, 4.0]);
-var l3 = board.create(&#39;segment&#39;, [p5, p6, function(){ return l1.L();} ]);</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a segment providing two points.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">4.5</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'segment'</span>, [p1, p2]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a segment providing two points.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">4.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">1.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'segment'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> p3 = board.create(<span class="string">'point'</span>, [<span class="number">4.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p4 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l2 = board.create(<span class="string">'segment'</span>, [p3, p4, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">var</span> p5 = board.create(<span class="string">'point'</span>, [<span class="number">4.0</span>, <span class="number">3.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p6 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">4.0</span>]);</span><br><span class="line"><span class="keyword">var</span> l3 = board.create(<span class="string">'segment'</span>, [p5, p6, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> l1.L();&#125; ]);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="Semicircle-半圆形-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-Arc-gt-Semicircle"><a href="#Semicircle-半圆形-JXG-GeometryElement-gt-JXG-Curve-gt-Curve-gt-Arc-gt-Semicircle" class="headerlink" title="Semicircle 半圆形 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; Arc -&gt; Semicircle"></a>Semicircle 半圆形 JXG.GeometryElement -&gt; JXG.Curve -&gt; Curve -&gt; Arc -&gt; Semicircle</h2><ul>
-<li>example<pre><code class="javascript">// Create an arc out of three free points
-var p1 = board.create(&#39;point&#39;, [4.5, 2.0]);
-var p2 = board.create(&#39;point&#39;, [1.0, 0.5]);
-var a = board.create(&#39;semicircle&#39;, [p1, p2]);</code></pre>
-</li>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an arc out of three free points</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">4.5</span>, <span class="number">2.0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1.0</span>, <span class="number">0.5</span>]);</span><br><span class="line"><span class="keyword">var</span> a = board.create(<span class="string">'semicircle'</span>, [p1, p2]);</span><br></pre></td></tr></table></figure></li>
 <li>Attributes<ul>
 <li>midpoint<br>center point of the semicircle</li>
 <li>其他<br>借用其他元素的属性：JXG.Curve</li>
@@ -1678,10 +1247,7 @@ var a = board.create(&#39;semicircle&#39;, [p1, p2]);</code></pre>
 </ul>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a slider with values between 1 and 10, initial position is 5.
-var s = board.create(&#39;slider&#39;, [[1, 2], [3, 2], [1, 5, 10]]);</code></pre>
-<pre><code class="javascript">// Create a slider taking integer values between 1 and 50. Initial value is 50.
-var s = board.create(&#39;slider&#39;, [[1, 3], [3, 1], [1, 10, 50]], {snapWidth: 1});</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// Create a slider with values between 1 and 10, initial position is 5.</span></span><br><span class="line">  <span class="keyword">var</span> s = board.create(<span class="string">'slider'</span>, [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>]]);</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line">  <span class="comment">// Create a slider taking integer values between 1 and 50. Initial value is 50.</span></span><br><span class="line">  <span class="keyword">var</span> s = board.create(<span class="string">'slider'</span>, [[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">10</span>, <span class="number">50</span>]], &#123;<span class="attr">snapWidth</span>: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -1712,15 +1278,13 @@ var s = board.create(&#39;slider&#39;, [[1, 3], [3, 1], [1, 10, 50]], {snapWidth
 </li>
 </ul>
 <h2 id="Slopetriangle-斜三角形-JXG-GeometryElement-gt-JXG-Line-gt-Slopetriangle"><a href="#Slopetriangle-斜三角形-JXG-GeometryElement-gt-JXG-Line-gt-Slopetriangle" class="headerlink" title="Slopetriangle 斜三角形 JXG.GeometryElement -&gt; JXG.Line -&gt; Slopetriangle"></a>Slopetriangle 斜三角形 JXG.GeometryElement -&gt; JXG.Line -&gt; Slopetriangle</h2><h2 id="Spline-样条-JXG-GeometryElement-gt-JXG-Curve-gt-Spline"><a href="#Spline-样条-JXG-GeometryElement-gt-JXG-Curve-gt-Spline" class="headerlink" title="Spline 样条 JXG.GeometryElement -&gt; JXG.Curve -&gt; Spline"></a>Spline 样条 JXG.GeometryElement -&gt; JXG.Curve -&gt; Spline</h2><h2 id="Stepfunction-阶跃函数-JXG-GeometryElement-gt-JXG-Curve-gt-Stepfunction"><a href="#Stepfunction-阶跃函数-JXG-GeometryElement-gt-JXG-Curve-gt-Stepfunction" class="headerlink" title="Stepfunction 阶跃函数 JXG.GeometryElement -&gt; JXG.Curve -&gt; Stepfunction"></a>Stepfunction 阶跃函数 JXG.GeometryElement -&gt; JXG.Curve -&gt; Stepfunction</h2><ul>
-<li>example <pre><code class="javascript">// Create step function.
-var curve = board.create(&#39;stepfunction&#39;, [[0,1,2,3,4,5], [1,3,0,2,2,1]]);</code></pre>
+<li>example <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create step function.</span></span><br><span class="line"><span class="keyword">var</span> curve = board.create(<span class="string">'stepfunction'</span>, [[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>], [<span class="number">1</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]]);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="Tangent-数-正切-JXG-GeometryElement-gt-JXG-Line-gt-Tangent"><a href="#Tangent-数-正切-JXG-GeometryElement-gt-JXG-Line-gt-Tangent" class="headerlink" title="Tangent (数)正切 JXG.GeometryElement -&gt; JXG.Line -&gt; Tangent"></a>Tangent (数)正切 JXG.GeometryElement -&gt; JXG.Line -&gt; Tangent</h2><ul>
-<li>example<pre><code class="javascript">// Create a tangent providing a glider on a function graph
-var c1 = board.create(&#39;curve&#39;, [function(t){return t},function(t){return t*t*t;}]);
-var g1 = board.create(&#39;glider&#39;, [0.6, 1.2, c1]);
-var t1 = board.create(&#39;tangent&#39;, [g1]);</code></pre>
+<li>example<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a tangent providing a glider on a function graph</span></span><br><span class="line"><span class="keyword">var</span> c1 = board.create(<span class="string">'curve'</span>, [<span class="function"><span class="keyword">function</span>(<span class="params">t</span>)</span>&#123;<span class="keyword">return</span> t&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">t</span>)</span>&#123;<span class="keyword">return</span> t*t*t;&#125;]);</span><br><span class="line"><span class="keyword">var</span> g1 = board.create(<span class="string">'glider'</span>, [<span class="number">0.6</span>, <span class="number">1.2</span>, c1]);</span><br><span class="line"><span class="keyword">var</span> t1 = board.create(<span class="string">'tangent'</span>, [g1]);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="Tapemeasure-卷尺-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-Tapemeasure"><a href="#Tapemeasure-卷尺-JXG-GeometryElement-gt-JXG-Line-gt-Segment-gt-Tapemeasure" class="headerlink" title="Tapemeasure 卷尺 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; Tapemeasure"></a>Tapemeasure 卷尺 JXG.GeometryElement -&gt; JXG.Line -&gt; Segment -&gt; Tapemeasure</h2><h2 id="Text-文本-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Text-gt-Text"><a href="#Text-文本-JXG-CoordsElement-JXG-GeometryElement-gt-JXG-Text-gt-Text" class="headerlink" title="Text 文本 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Text -&gt; Text"></a>Text 文本 JXG.CoordsElement,JXG.GeometryElement -&gt; JXG.Text -&gt; Text</h2><p>  Defined in text.js<br>  Extends JXG.Text<br>  JXG.Board#create type:’text’</p>
@@ -1728,18 +1292,9 @@ var t1 = board.create(&#39;tangent&#39;, [g1]);</code></pre>
 <li><p>param<br>z——number|function  optional<br>x——number|function<br>y——number|function<br>str—-string|function</p>
 </li>
 <li><p>example</p>
-<pre><code class="javascript">// Create a fixed text at position [0,1].
-var t1 = board.create(&#39;text&#39;,[0,1,&quot;Hello World&quot;]);</code></pre>
-<pre><code class="javascript">// Create a variable text at a variable position.
-var s = board.create(&#39;slider&#39;,[[0,4],[3,4],[-2,0,2]]);
-var graph = board.create(
-                  &#39;text&#39;,
-                  [
-                    function(x){ return s.Value();},
-                    1,
-                    function(){return &quot;The value of s is&quot;+s.Value().toFixed(2);}
-                  ]
-                );</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a fixed text at position [0,1].</span></span><br><span class="line"><span class="keyword">var</span> t1 = board.create(<span class="string">'text'</span>,[<span class="number">0</span>,<span class="number">1</span>,<span class="string">"Hello World"</span>]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a variable text at a variable position.</span></span><br><span class="line"><span class="keyword">var</span> s = board.create(<span class="string">'slider'</span>,[[<span class="number">0</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">-2</span>,<span class="number">0</span>,<span class="number">2</span>]]);</span><br><span class="line"><span class="keyword">var</span> graph = board.create(</span><br><span class="line">                  <span class="string">'text'</span>,</span><br><span class="line">                  [</span><br><span class="line">                    <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="keyword">return</span> s.Value();&#125;,</span><br><span class="line">                    <span class="number">1</span>,</span><br><span class="line">                    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="string">"The value of s is"</span>+s.Value().toFixed(<span class="number">2</span>);&#125;</span><br><span class="line">                  ]</span><br><span class="line">                );</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>
@@ -1758,23 +1313,9 @@ var graph = board.create(
 </ul>
 <h2 id="Ticks-记号-JXG-GeometryElement-gt-JXG-Ticks-gt-Ticks"><a href="#Ticks-记号-JXG-GeometryElement-gt-JXG-Ticks-gt-Ticks" class="headerlink" title="Ticks 记号 JXG.GeometryElement -&gt; JXG.Ticks -&gt; Ticks"></a>Ticks 记号 JXG.GeometryElement -&gt; JXG.Ticks -&gt; Ticks</h2><ul>
 <li><p>example</p>
-<pre><code class="javascript">// Create an axis providing two coord pairs.
-var p1 = board.create(&#39;point&#39;, [0, 3]);
-var p2 = board.create(&#39;point&#39;, [1, 3]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-var t = board.create(&#39;ticks&#39;, [l1], {ticksDistance: 2});</code></pre>
-<pre><code class="javascript">// Create an axis providing two coord pairs.
-var p1 = board.create(&#39;point&#39;, [0, 0]);
-var p2 = board.create(&#39;point&#39;, [50, 25]);
-var l1 = board.create(&#39;line&#39;, [p1, p2]);
-var t = board.create(&#39;ticks&#39;, [l1, 1], {
-  insertTicks: true,
-  majorHeight: -1,
-  label: {
-      offset: [4, -9]
-  },
-  drawLabels: true
-});</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an axis providing two coord pairs.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">1</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> t = board.create(<span class="string">'ticks'</span>, [l1], &#123;<span class="attr">ticksDistance</span>: <span class="number">2</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an axis providing two coord pairs.</span></span><br><span class="line"><span class="keyword">var</span> p1 = board.create(<span class="string">'point'</span>, [<span class="number">0</span>, <span class="number">0</span>]);</span><br><span class="line"><span class="keyword">var</span> p2 = board.create(<span class="string">'point'</span>, [<span class="number">50</span>, <span class="number">25</span>]);</span><br><span class="line"><span class="keyword">var</span> l1 = board.create(<span class="string">'line'</span>, [p1, p2]);</span><br><span class="line"><span class="keyword">var</span> t = board.create(<span class="string">'ticks'</span>, [l1, <span class="number">1</span>], &#123;</span><br><span class="line">  insertTicks: <span class="literal">true</span>,</span><br><span class="line">  majorHeight: <span class="number">-1</span>,</span><br><span class="line">  label: &#123;</span><br><span class="line">      offset: [<span class="number">4</span>, <span class="number">-9</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  drawLabels: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Attributes</p>
 <ul>

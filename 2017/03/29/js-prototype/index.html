@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -472,203 +472,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="原型基础"><a href="#原型基础" class="headerlink" title="原型基础"></a>原型基础</h2><pre><code class="javascript">function Foo(){};
-console.log(Foo.prototype.constructor === Foo) //true</code></pre>
-<pre><code class="javascript">function Foo();
-var foo = new Foo();
-console.log(foo.__proto__ === Foo.prototype) //true</code></pre>
-<pre><code class="javascript">function Foo(){};
-console.log(Foo.prototype.__proto__ === Object.prototype); // true</code></pre>
+                <h2 id="原型基础"><a href="#原型基础" class="headerlink" title="原型基础"></a>原型基础</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.constructor === Foo) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>);</span></span><br><span class="line"><span class="function"><span class="title">var</span> <span class="title">foo</span> = <span class="title">new</span> <span class="title">Foo</span>(<span class="params"></span>);</span></span><br><span class="line"><span class="function"><span class="title">console</span>.<span class="title">log</span>(<span class="params">foo.__proto__ === Foo.prototype</span>) //<span class="title">true</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__ === <span class="built_in">Object</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>Foo.prototype 是Object预创建的一个对象，是Object创建的一个实例，所以，Foo.prototype.<em>_proto</em> 是Object.prototype的引用</p>
 <p>原型链：</p>
-<pre><code class="javascript">     __proto__                   __proto__                        __proto__
-foo  ---------- Foo.prototype --------------- Object.prototype ------------ null
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">     __proto__                   __proto__                        __proto__</span><br><span class="line">foo  ---------- Foo.prototype --------------- <span class="built_in">Object</span>.prototype ------------ <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
 <p>在javascript中，函数式特殊对象，所有函数都是构造函数Function的实例</p>
-<pre><code class="javascript">function Foo() {};
-console.log(Foo.__proto__ === Object.prototype); //false
-console.log(Foo.__proto__ === Function.prototype); // true</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(Foo.__proto__ === <span class="built_in">Object</span>.prototype); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.__proto__ === <span class="built_in">Function</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>函数Foo.<em>_proto</em> 指向到 Function.prototype, 说明函数 Foo 是 Function的一个实例</p>
-<pre><code class="javascript"> function Foo(){};
- console.log(Foo.__proto__ === Function.prototype); //true
- console.log(Foo.prototype.__proto__ === Object.prototype);//true</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(Foo.__proto__ === <span class="built_in">Function</span>.prototype); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__ === <span class="built_in">Object</span>.prototype);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>Foo.prototype 是Object预定义的对象，构造函数为Object,所以<strong>proto</strong>指向 Object.prototype</p>
-<pre><code class="javascript">     __proto__                   __proto__                        __proto__
-foo  ---------- Foo.prototype --------------- Object.prototype ------------ null
-     __proto__                   __proto__                        __proto__
-Foo  ---------- Function.prototype --------------- Object.prototype ------------ null
-            __proto__                          __proto__                       __proto__
-Function  -------------  Function.prototype --------------- Object.prototype ------------ null
-         __proto__                         __proto__                        __proto__
-Object  ------------ Function.prototype --------------- Object.prototype ------------ null</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">     __proto__                   __proto__                        __proto__</span><br><span class="line">foo  ---------- Foo.prototype --------------- <span class="built_in">Object</span>.prototype ------------ <span class="literal">null</span></span><br><span class="line">     __proto__                   __proto__                        __proto__</span><br><span class="line">Foo  ---------- <span class="built_in">Function</span>.prototype --------------- <span class="built_in">Object</span>.prototype ------------ <span class="literal">null</span></span><br><span class="line">            __proto__                          __proto__                       __proto__</span><br><span class="line"><span class="built_in">Function</span>  -------------  <span class="built_in">Function</span>.prototype --------------- <span class="built_in">Object</span>.prototype ------------ <span class="literal">null</span></span><br><span class="line">         __proto__                         __proto__                        __proto__</span><br><span class="line"><span class="built_in">Object</span>  ------------ <span class="built_in">Function</span>.prototype --------------- <span class="built_in">Object</span>.prototype ------------ <span class="literal">null</span></span><br></pre></td></tr></table></figure>
 <p>Object、Function、Array 等这些函数，他们的构造函数都是 Function 的实例</p>
 <p>基于原型链的基础</p>
-<pre><code class="javascript">function A(){  
-  console.log(&#39;A init&#39;)
-}
-A.prototype.play = function(){
-  console.log(&#39;A play&#39;);
-}
-function B(){
-  console.log(&#39;B init&#39;)
-}
-function C(){}
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'A init'</span>)</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.play = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'A play'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'B init'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">C.prototype = A.prototype;</span><br><span class="line">B.prototype = <span class="keyword">new</span> C();</span><br><span class="line">C.constructor = C;</span><br><span class="line"><span class="keyword">var</span> B = <span class="keyword">new</span> B();</span><br><span class="line">B.play();</span><br><span class="line"><span class="comment">//output B init &gt;&gt; A play</span></span><br></pre></td></tr></table></figure>
 
-C.prototype = A.prototype;
-B.prototype = new C();
-C.constructor = C;
-var B = new B();
-B.play();
-//output B init &gt;&gt; A play</code></pre>
-<h2 id="ES6-class"><a href="#ES6-class" class="headerlink" title="ES6 class"></a>ES6 class</h2><h3 id="ES6的写法"><a href="#ES6的写法" class="headerlink" title="ES6的写法"></a>ES6的写法</h3><pre><code class="javascript">class Animal {
-    // 构造方法，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.
-    constructor(name,color) {
-      this.name = name;
-      this.color = color;
-    }
-    // toString 是原型对象上的属性
-    toString() {
-      console.log(&#39;name:&#39; + this.name + &#39;,color:&#39; + this.color);
 
-    }
-  }
+<h2 id="ES6-class"><a href="#ES6-class" class="headerlink" title="ES6 class"></a>ES6 class</h2><h3 id="ES6的写法"><a href="#ES6的写法" class="headerlink" title="ES6的写法"></a>ES6的写法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造方法，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.</span></span><br><span class="line">    <span class="keyword">constructor</span>(name,color) &#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">      <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// toString 是原型对象上的属性</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'name:'</span> + <span class="keyword">this</span>.name + <span class="string">',color:'</span> + <span class="keyword">this</span>.color);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line"> <span class="keyword">var</span> animal = <span class="keyword">new</span> Animal(<span class="string">'dog'</span>,<span class="string">'white'</span>);</span><br><span class="line"> animal.toString();</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(animal.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">//true</span></span><br><span class="line"> <span class="built_in">console</span>.log(animal.hasOwnProperty(<span class="string">'toString'</span>)); <span class="comment">// false</span></span><br><span class="line"> <span class="built_in">console</span>.log(animal.__proto__.hasOwnProperty(<span class="string">'toString'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(action) &#123;</span><br><span class="line">    <span class="comment">// 子类必须要在constructor中指定super 方法，否则在新建实例的时候会报错.</span></span><br><span class="line">    <span class="comment">// 如果没有置顶consructor,默认带super方法的constructor将会被添加、</span></span><br><span class="line">    <span class="keyword">super</span>(<span class="string">'cat'</span>,<span class="string">'white'</span>);</span><br><span class="line">    <span class="keyword">this</span>.action = action;</span><br><span class="line">  &#125;</span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">super</span>.toString());</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'catch'</span>)</span><br><span class="line"> cat.toString();</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 实例cat 是 Cat 和 Animal 的实例，和Es5完全一致。</span></span><br><span class="line"> <span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br><span class="line"> <span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
- var animal = new Animal(&#39;dog&#39;,&#39;white&#39;);
- animal.toString();
+<h3 id="ES5的写法（此处实现为typescript编译"><a href="#ES5的写法（此处实现为typescript编译" class="headerlink" title="ES5的写法（此处实现为typescript编译)"></a>ES5的写法（此处实现为typescript编译)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> __extends = (<span class="keyword">this</span> &amp;&amp; <span class="keyword">this</span>.__extends) || (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> extendStatics = <span class="built_in">Object</span>.setPrototypeOf ||</span><br><span class="line">        (&#123; <span class="attr">__proto__</span>: [] &#125; <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; <span class="function"><span class="keyword">function</span> (<span class="params">d, b</span>) </span>&#123; d.__proto__ = b; &#125;) ||</span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">d, b</span>) </span>&#123; <span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">in</span> b) <span class="keyword">if</span> (b.hasOwnProperty(p)) d[p] = b[p]; &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">d, b</span>) </span>&#123;</span><br><span class="line">        extendStatics(d, b);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__</span>(<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.constructor = d; &#125;</span><br><span class="line">        d.prototype = b === <span class="literal">null</span> ? <span class="built_in">Object</span>.create(b) : (__.prototype = b.prototype, <span class="keyword">new</span> __());</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">var</span> Animal = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造方法，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// toString 是原型对象上的属性</span></span><br><span class="line">    Animal.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'name:'</span> + <span class="keyword">this</span>.name + <span class="string">',color:'</span> + <span class="keyword">this</span>.color);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> Animal;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="keyword">var</span> Cat = (<span class="function"><span class="keyword">function</span> (<span class="params">_super</span>) </span>&#123;</span><br><span class="line">    __extends(Cat, _super);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _this = </span><br><span class="line">        <span class="comment">// 子类必须要在constructor中指定super 方法，否则在新建实例的时候会报错.</span></span><br><span class="line">        <span class="comment">// 如果没有置顶consructor,默认带super方法的constructor将会被添加、</span></span><br><span class="line">        _super.call(<span class="keyword">this</span>, <span class="string">'cat'</span>, <span class="string">'white'</span>) || <span class="keyword">this</span>;</span><br><span class="line">        _this.action = action;</span><br><span class="line">        <span class="keyword">return</span> _this;</span><br><span class="line">    &#125;</span><br><span class="line">    Cat.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(_super.prototype.toString.call(<span class="keyword">this</span>));</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> Cat;</span><br><span class="line">&#125;(Animal));</span><br></pre></td></tr></table></figure>
 
- console.log(animal.hasOwnProperty(&#39;name&#39;)); //true
- console.log(animal.hasOwnProperty(&#39;toString&#39;)); // false
- console.log(animal.__proto__.hasOwnProperty(&#39;toString&#39;)); // true
-
- class Cat extends Animal {
-  constructor(action) {
-    // 子类必须要在constructor中指定super 方法，否则在新建实例的时候会报错.
-    // 如果没有置顶consructor,默认带super方法的constructor将会被添加、
-    super(&#39;cat&#39;,&#39;white&#39;);
-    this.action = action;
-  }
-  toString() {
-    console.log(super.toString());
-  }
- }
-
- var cat = new Cat(&#39;catch&#39;)
- cat.toString();
-
- // 实例cat 是 Cat 和 Animal 的实例，和Es5完全一致。
- console.log(cat instanceof Cat); // true
- console.log(cat instanceof Animal); // true
-</code></pre>
-<h3 id="ES5的写法（此处实现为typescript编译"><a href="#ES5的写法（此处实现为typescript编译" class="headerlink" title="ES5的写法（此处实现为typescript编译)"></a>ES5的写法（此处实现为typescript编译)</h3><pre><code class="javascript">var __extends = (this &amp;&amp; this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array &amp;&amp; function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Animal = (function () {
-    // 构造方法，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.
-    function Animal(name, color) {
-        this.name = name;
-        this.color = color;
-    }
-    // toString 是原型对象上的属性
-    Animal.prototype.toString = function () {
-        console.log(&#39;name:&#39; + this.name + &#39;,color:&#39; + this.color);
-    };
-    return Animal;
-}());
-var Cat = (function (_super) {
-    __extends(Cat, _super);
-    function Cat(action) {
-        var _this = 
-        // 子类必须要在constructor中指定super 方法，否则在新建实例的时候会报错.
-        // 如果没有置顶consructor,默认带super方法的constructor将会被添加、
-        _super.call(this, &#39;cat&#39;, &#39;white&#39;) || this;
-        _this.action = action;
-        return _this;
-    }
-    Cat.prototype.toString = function () {
-        console.log(_super.prototype.toString.call(this));
-    };
-    return Cat;
-}(Animal));</code></pre>
 <p>类的<strong>prototype</strong>属性和<strong><strong>proto</strong></strong>属性<br>在 class 中。同时具有 <strong>proto</strong> 和 prototype 两个属性，存在两条继承链。</p>
 <ul>
 <li>子类的 <strong>proto</strong> 属性，表示构造函数的继承，总是指向父类。</li>
-<li>子类的 prototype 的 <strong>proto</strong> 属性表示方法的继承，总是指向父类的 prototype 属性<pre><code class="javascript">class Cat extends Animal {}
-console.log(Cat.__proto__ === Animal); // true
-console.log(Cat.prototype.__proto__ === Animal.prototype); // true</code></pre>
+<li>子类的 prototype 的 <strong>proto</strong> 属性表示方法的继承，总是指向父类的 prototype 属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Cat.__proto__ === Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Cat.prototype.__proto__ === Animal.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p>第一条 Cat.<strong>proto</strong> === Animal 这条原型链</p>
-<pre><code class="javascript">class Cat extends Animal {
-   construcotr() {
-     return Animal.__proto__.call(this);
-  }
-}</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   construcotr() &#123;</span><br><span class="line">     <span class="keyword">return</span> Animal.__proto__.call(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第二条对原型链 Cat.prototype.<strong>proto</strong> === Animal.prototype 完成方法的继承</p>
-<pre><code class="javascript">Cat.prototype.__proto__ = Animal.prototype</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype.__proto__ = Animal.prototype</span><br></pre></td></tr></table></figure>
+
 <p>特殊情况：</p>
 <ul>
 <li>1 </li>
 </ul>
-<pre><code class="javascript"> class A extends Object {}
- console.log(A.__proto__ === Object); // true
- console.log(A.prototype.__proto__ === Object.prototype); </code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">extends</span> <span class="title">Object</span> </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(A.__proto__ === <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(A.prototype.__proto__ === <span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure>
+
 <p>A继承Object，A的<strong>prototype</strong> 指向父类Object. A的 prototype.<strong>proto</strong> 指向父类Object的prototype</p>
 <ul>
 <li>2</li>
 </ul>
-<pre><code class="javascript">class Cat {}
-console.log(Cat.__proto__ === Function.prototype); //true
-console.log(Cat.prototype.__proto__ === Object.prototype); //true</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Cat.__proto__ === <span class="built_in">Function</span>.prototype); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Cat.prototype.__proto__ === <span class="built_in">Object</span>.prototype); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>由于Cat不存在任何继承，就相当于一个普通函数，由于函数都是Function 的实例，所以 Cat.<strong>proto</strong>指向 Function.prototype. 第二条继承链指向父类（Function.prototype） 的prototype属性，所以 Cat.prototype.<strong>proto</strong> === Object.prototype. Cat调用后会返回Object实例，所以 A.prototype.<strong>proto</strong> 指向构造函数（Object）的prototype</p>
 <ul>
 <li>3</li>
 </ul>
-<pre><code class="javascript">class Cat extends null {};
-console.log(Cat.__proto__ === Function.prototype); // true;
-console.log(Cat.prototype.__proto__ === null); //true</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">null</span> </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(Cat.__proto__ === <span class="built_in">Function</span>.prototype); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">console</span>.log(Cat.prototype.__proto__ === <span class="literal">null</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>Cat是一个普通函数，所以继承 Function.prototype .第二条继承链不继承任何方法，所以 Cat.prototype.<strong>proto</strong> == null</p>
 <p>原型三角关系 prototype、proto(<strong>proto</strong>)、constructor<br>(原型三角关系图地址)[<a href="https://www.processon.com/embed/579c671de4b0e645bc6a0c10]" target="_blank" rel="noopener">https://www.processon.com/embed/579c671de4b0e645bc6a0c10]</a></p>
-<pre><code class="javascript">    -----                   -----
-    |对象|                  |函数|
-    -----                   ----- 
-                                        ------------------------------------------
-                                        |代码：function Foo(){};var f1 = new Foo()|
-                                        ------------------------------------------
-    ----               ----------                         
-    |f1| -------------&gt;|Foo(继承)|
-    ----               ----------
-     |
-    proto
-     |
-     ∨ 
-    ---------------  constructor    ---------
-    |Foo.prototype| --------------&gt; |  Foo  | ----------------------proto--------------
-    |             | &lt;-------------- |       |               |                         |   
-    ---------------  prototype      ---------               |                         ∨ 
-     |                                 |                 ----------               ---------------------
-     |   proto                     constructor ---------&gt;|Function|--prototype --&gt;|Function.prototype |
-     |                                 |                 |        |&lt;-constructor--|                   |      
-     |                                 |                 ----------               ---------------------
-     ∨                                 ∨                                              ∧             |
-    ------------------ constructor -----------                                        |             |
-    |Object.prototype|  --------&gt;  |  Object |                                        |             |
---- |                |  &lt;--------  |         |---------------------proto---------------             |
-|   ------------------  prototype  -----------                                                      |
-|           ∧                                                                                       |
-|           |                                                                                       |
-proto       -----------------------------------proto-------------------------------------------------
-|
-|     -------  
------&gt;| null|
-      -------
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    -----                   -----</span><br><span class="line">    |对象|                  |函数|</span><br><span class="line">    -----                   ----- </span><br><span class="line">                                        ------------------------------------------</span><br><span class="line">                                        |代码：<span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;;<span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo()|</span><br><span class="line">                                        ------------------------------------------</span><br><span class="line">    ----               ----------                         </span><br><span class="line">    |f1| -------------&gt;|Foo(继承)|</span><br><span class="line">    ----               ----------</span><br><span class="line">     |</span><br><span class="line">    proto</span><br><span class="line">     |</span><br><span class="line">     ∨ </span><br><span class="line">    ---------------  <span class="keyword">constructor</span>    ---------</span><br><span class="line">    |Foo.prototype| --------------&gt; |  Foo  | ----------------------proto--------------</span><br><span class="line">    |             | &lt;-------------- |       |               |                         |   </span><br><span class="line">    ---------------  prototype      ---------               |                         ∨ </span><br><span class="line">     |                                 |                 ----------               ---------------------</span><br><span class="line">     |   proto                     <span class="keyword">constructor</span> ---------&gt;|Function|--prototype --&gt;|Function.prototype |</span><br><span class="line">     |                                 |                 |        |&lt;-<span class="keyword">constructor</span>--|                   |      </span><br><span class="line">     |                                 |                 ----------               ---------------------</span><br><span class="line">     ∨                                 ∨                                              ∧             |</span><br><span class="line">    ------------------ <span class="keyword">constructor</span> -----------                                        |             |</span><br><span class="line">    |Object.prototype|  --------&gt;  |  Object |                                        |             |</span><br><span class="line">--- |                |  &lt;--------  |         |---------------------proto---------------             |</span><br><span class="line">|   ------------------  prototype  -----------                                                      |</span><br><span class="line">|           ∧                                                                                       |</span><br><span class="line">|           |                                                                                       |</span><br><span class="line">proto       -----------------------------------proto-------------------------------------------------</span><br><span class="line">|</span><br><span class="line">|     -------  </span><br><span class="line">-----&gt;| null|</span><br><span class="line">      -------</span><br></pre></td></tr></table></figure>
+
+
+
 <p>参考链接：<br><a href="https://segmentfault.com/a/1190000002904199" target="_blank" rel="noopener">ECMAScript 6 的新特性</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/5" target="_blank" rel="noopener">https://github.com/maxzhang/maxzhang.github.com/issues/5</a><br><a href="http://www.cnblogs.com/xiaohuochai/p/5721552.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaohuochai/p/5721552.html</a></p>
 
             </div>

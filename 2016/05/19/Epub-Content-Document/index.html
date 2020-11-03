@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -468,28 +468,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>EPUB Content Document</p>
-<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="http://www.idpf.org/epub3/latest/contentdocs" target="_blank" rel="noopener">http://www.idpf.org/epub3/latest/contentdocs</a></p>
-<p>*** 概述</p>
-<ul>
+                <h1 id="EPUB-Content-Document"><a href="#EPUB-Content-Document" class="headerlink" title="EPUB Content Document"></a>EPUB Content Document</h1><h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="http://www.idpf.org/epub3/latest/contentdocs" target="_blank" rel="noopener">http://www.idpf.org/epub3/latest/contentdocs</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
 <li><p>与h5（HTML 5）的关系<br>ecd 采用 XHTML 5语法，并有少量扩展。<br>XHTML5 与 HTML5 的差异和兼容请参考：HTML5 vs XHTML5.txt<br>h5中的部分特性是可选的，包括脚本、表单等。</p>
 </li>
 <li><p>SVG<br>SVG 1.1 也是ecd的一种，不过有一些限制。</p>
 </li>
 <li><p>CSS<br>ecd 采用CSS 2.1和部分 CSS 3特性，还定义了一些扩展。</p>
 </li>
-<li><p>命名空间<br>prefix     namespace URI<br>epub     <a href="http://www.idpf.org/2007/ops" target="_blank" rel="noopener">http://www.idpf.org/2007/ops</a><br>m     <a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a><br>pls     <a href="http://www.w3.org/2005/01/pronunciation-lexicon" target="_blank" rel="noopener">http://www.w3.org/2005/01/pronunciation-lexicon</a><br>ssml     <a href="http://www.w3.org/2001/10/synthesis" target="_blank" rel="noopener">http://www.w3.org/2001/10/synthesis</a><br>svg     <a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a></p>
+<li><p>命名空间</p>
+<table>
+<thead>
+<tr>
+<th>prefix</th>
+<th>namespace URI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>epub</td>
+<td><a href="http://www.idpf.org/2007/ops" target="_blank" rel="noopener">http://www.idpf.org/2007/ops</a></td>
+</tr>
+<tr>
+<td>m</td>
+<td><a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a></td>
+</tr>
+<tr>
+<td>pls</td>
+<td><a href="http://www.w3.org/2005/01/pronunciation-lexicon" target="_blank" rel="noopener">http://www.w3.org/2005/01/pronunciation-lexicon</a></td>
+</tr>
+<tr>
+<td>ssml</td>
+<td><a href="http://www.w3.org/2001/10/synthesis" target="_blank" rel="noopener">http://www.w3.org/2001/10/synthesis</a></td>
+</tr>
+<tr>
+<td>svg</td>
+<td><a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a></td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<p>*** 各种 Content Document<br>** XHTML 文档<br>ecd中的 HTML 文档必须用 XHTML 5 语法，并且以 .xhtml 作为扩展名。</p>
+<h3 id="各种-Content-Document"><a href="#各种-Content-Document" class="headerlink" title="各种 Content Document"></a>各种 Content Document</h3><p><strong>XHTML 文档</strong><br>ecd中的 HTML 文档必须用 XHTML 5 语法，并且以 .xhtml 作为扩展名。</p>
 <ul>
-<li>扩展 </li>
+<li>扩展</li>
 </ul>
 <ul>
-<li>epub:type 属性<br>语法是空格分割的值，可用于 h5 元素上扩展其语义。例如：<br><a epub:type="noteref" href="#n1">1</a><aside epub:type="footnote" id="n1">
+<li>epub:type 属性</li>
+</ul>
+<p>语法是空格分割的值，可用于 h5 元素上扩展其语义。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a epub:type="noteref" href="#n1"&gt;1&lt;/a&gt;</span><br><span class="line">&lt;aside epub:type=<span class="string">"footnote"</span> id=<span class="string">"n1"</span>&gt;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <p>可用的值选自“EPUB 3 Structural Semantics Vocabulary”：<br> <a href="http://www.idpf.org/epub/vocab/structure/#" target="_blank" rel="noopener">http://www.idpf.org/epub/vocab/structure/#</a></p>
 <p>不过并不要求 reader 对这个属性作出反应。</p>
 <ul>
@@ -501,40 +528,19 @@
 </li>
 </ul>
 <p>例子：</p>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:epub="http://www.idpf.org/2007/ops"
-  xmlns:ev="http://www.w3.org/2001/xml-events">
-  <head>
-    <epub:trigger ev:observer="pause" ev:event="click" action="pause" ref="test"/>
-    <epub:trigger ev:observer="resume" ev:event="click" action="resume" ref="test"/>
-    <epub:trigger ev:observer="mute" ev:event="click" action="mute" ref="test"/>
-    <epub:trigger ev:observer="mute" ev:event="click" action="show" ref="muted"/>
-    <epub:trigger ev:observer="unmute" ev:event="click" action="unmute" ref="test"/>
-    <epub:trigger ev:observer="unmute" ev:event="click" action="hide" ref="muted"/>
-  <meta name="generator" content="Hexo 4.2.0"></head>
-  <body>
-    <video id="test" src="birds.mp4" width="320" height="240"/>
-    <p>
-      <span class="button" id="resume">Play/Resume</span>
-      <span class="button" id="pause">Pause</span>
-      <span class="button" id="mute">Mute</span>
-      <span class="button" id="unmute">Unmute</span>
-      <span id="muted">MUTED</span>
-    </p>
-  </body>
-</html>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;</span><br><span class="line">  xmlns:epub&#x3D;&quot;http:&#x2F;&#x2F;www.idpf.org&#x2F;2007&#x2F;ops&quot;</span><br><span class="line">  xmlns:ev&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;xml-events&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;pause&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;pause&quot; ref&#x3D;&quot;test&quot;&#x2F;&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;resume&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;resume&quot; ref&#x3D;&quot;test&quot;&#x2F;&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;mute&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;mute&quot; ref&#x3D;&quot;test&quot;&#x2F;&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;mute&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;show&quot; ref&#x3D;&quot;muted&quot;&#x2F;&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;unmute&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;unmute&quot; ref&#x3D;&quot;test&quot;&#x2F;&gt;</span><br><span class="line">    &lt;epub:trigger ev:observer&#x3D;&quot;unmute&quot; ev:event&#x3D;&quot;click&quot; action&#x3D;&quot;hide&quot; ref&#x3D;&quot;muted&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;video id&#x3D;&quot;test&quot; src&#x3D;&quot;birds.mp4&quot; width&#x3D;&quot;320&quot; height&#x3D;&quot;240&quot;&#x2F;&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">      &lt;span class&#x3D;&quot;button&quot; id&#x3D;&quot;resume&quot;&gt;Play&#x2F;Resume&lt;&#x2F;span&gt;</span><br><span class="line">      &lt;span class&#x3D;&quot;button&quot; id&#x3D;&quot;pause&quot;&gt;Pause&lt;&#x2F;span&gt;</span><br><span class="line">      &lt;span class&#x3D;&quot;button&quot; id&#x3D;&quot;mute&quot;&gt;Mute&lt;&#x2F;span&gt;</span><br><span class="line">      &lt;span class&#x3D;&quot;button&quot; id&#x3D;&quot;unmute&quot;&gt;Unmute&lt;&#x2F;span&gt;</span><br><span class="line">      &lt;span id&#x3D;&quot;muted&quot;&gt;MUTED&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Alternate Style Tags<br>根据环境选择不同样式表的机制。例如<link rel="stylesheet" href="horizontal.css" class="horizontal"/>
-规范：http://www.idpf.org/epub/altss-tags/
-
-</li>
+<li>Alternate Style Tags</li>
 </ul>
-<p>reader应当支持此扩展。</p>
+<p>根据环境选择不同样式表的机制。例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"horizontal.css"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"horizontal"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>规范：<a href="http://www.idpf.org/epub/altss-tags/" target="_blank" rel="noopener">http://www.idpf.org/epub/altss-tags/</a><br>reader应当支持此扩展。</p>
 <ul>
 <li>MathML<br>reader必须支持MathML，但主要限于 Presentation MathML，Content MathML 支持是可选的。</li>
 </ul>
-<p>** CSS</p>
+<p><strong>CSS</strong></p>
 <ul>
 <li>规范<br>对CSS2.1的要求：<br>position 属性不能有fixed值；direction 和 unicode-bidi 属性不能用。</li>
 </ul>
@@ -547,28 +553,71 @@
 <ul>
 <li>分页<br>epub 并不要求reader支持分页显示流式文档，但很多reader是实现了此功能的。<br>在这类reader上，CSS 属性 page-break-inside, page-break-before 和 page-break-after 等可以用于控制分页行为，就像在打印设备上一样。<br>参考：<br><a href="http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/" target="_blank" rel="noopener">http://electricbookworks.com/kb/creating-epub-from-indesign/after-indesign-export-to-epub/page-breaks/</a></li>
 </ul>
-<p>** EPUB Navigation Documents<br>是XHTML 文档的一种，详见 EPub Navigation Documents.txt</p>
-<p>** SVG Content Documents<br>应当符合 SVG 1.1 (Second Edition) specification。<br>其它要求：<br>不能有动画（ Animation Elements and Animation event attributes）。<br>svg:foreignObject 只能包含 xhtml 内容。</p>
+<p><strong>EPUB Navigation Documents</strong><br>是XHTML 文档的一种，详见 EPub Navigation Documents.txt</p>
+<p><strong>SVG Content Documents</strong><br>应当符合 SVG 1.1 (Second Edition) specification。<br>其它要求：<br>不能有动画（ Animation Elements and Animation event attributes）。<br>svg:foreignObject 只能包含 xhtml 内容。</p>
 <p>SVG 可以独立作为文档，也可以被XHTML文档引用，也可以嵌入XHTML。</p>
-<p>** Scripted Content Documents</p>
+<p><strong>Scripted Content Documents</strong></p>
 <p>脚本可以出现在顶层内容文档中，也可以出现在顶层内容文档的iframe中。<br>前者称为 spine-level scripting，后者称为 container-constrained scripting。<br>reader必须支持后者，前者则是可选的。<br>reader必须阻止后者的脚本访问父文档以及其它文档，类似h5 sandboxed iframe。</p>
 <p>reader必须提供 navigator.epubReadingSystem 对象，有以下属性和方法：</p>
-<p>name     Returns a String value representing the name of the Reading System (e.g., iBooks, Kindle).<br>version     Returns a String value representing the version of the Reading System (e.g., 1.0, 2.1.1).<br>layoutStyle typically return one of the values paginated or scrolling, but may define values for any additional layout formats it supports.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>explain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Returns a String value representing the name of the Reading System (e.g., iBooks, Kindle).</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Returns a String value representing the version of the Reading System (e.g., 1.0, 2.1.1).</td>
+</tr>
+<tr>
+<td>layoutStyle</td>
+<td>typically return one of the values paginated or scrolling, but may define values for any additional layout formats it supports.</td>
+</tr>
+</tbody></table>
 <p>hasFeature(feature[, version]) 特性查询。以下特性名字必须被识别：</p>
-<p>dom-manipulation     Scripts may make structural changes to the document’s DOM (applies to spine-level scripting only).<br>layout-changes     Scripts may modify attributes and CSS styles that affect content layout (applies to spine-level scripting only).<br>touch-events     The device supports touch events and the Reading System passes touch events to the content.<br>mouse-events     The device supports mouse events and the Reading System passes mouse events to the content.<br>keyboard-events     The device supports keyboard events and the Reading System passes keyboard events to the content.<br>spine-scripting     Spine-level scripting is supported.</p>
-<p>*** 安全问题<br>以下均为建议。<br>每本epub书应被视为来自一个独立的域。如果提供本地存储，不同的书之间应该是被隔离的。</p>
-<p>*** 事件模型<br>采用h5事件。</p>
-<p>*** PLS Documents<br>The W3C Pronunciation Lexicon Specification [PLS] defines syntax and semantics for XML-based pronunciation lexicons to be used by Automatic Speech Recognition and Text-to-Speech (TTS) engines.</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dom-manipulation</td>
+<td>Scripts may make structural changes to the document’s DOM (applies to spine-level scripting only).</td>
+</tr>
+<tr>
+<td>layout-changes</td>
+<td>Scripts may modify attributes and CSS styles that affect content layout (applies to spine-level scripting only).</td>
+</tr>
+<tr>
+<td>touch-events</td>
+<td>The device supports touch events and the Reading System passes touch events to the content.</td>
+</tr>
+<tr>
+<td>mouse-events</td>
+<td>The device supports mouse events and the Reading System passes mouse events to the content.</td>
+</tr>
+<tr>
+<td>keyboard-events</td>
+<td>The device supports keyboard events and the Reading System passes keyboard events to the content.</td>
+</tr>
+<tr>
+<td>spine-scripting</td>
+<td>Spine-level scripting is supported.</td>
+</tr>
+</tbody></table>
+<p><strong><em>安全问题</em></strong><br>以下均为建议。<br>每本epub书应被视为来自一个独立的域。如果提供本地存储，不同的书之间应该是被隔离的。</p>
+<p><strong><em>事件模型</em></strong><br>采用h5事件。</p>
+<p><strong><em>PLS Documents</em></strong><br>The W3C Pronunciation Lexicon Specification [PLS] defines syntax and semantics for XML-based pronunciation lexicons to be used by Automatic Speech Recognition and Text-to-Speech (TTS) engines.</p>
 <p>reader如果支持TTS则必须支持PLS。</p>
 <p>例子：</p>
-<html … >    
-    <head>
-        …
-        <link rel="pronunciation" type="application/pls+xml" hreflang="zh" href="../speech/zh.pls"/>
-        <link rel="pronunciation" type="application/pls+xml" hreflang="mn" href="../speech/mn.pls"/>
-    </head>        
-    …
-</html>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html … &gt;    </span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        …</span><br><span class="line">        &lt;link rel&#x3D;&quot;pronunciation&quot; type&#x3D;&quot;application&#x2F;pls+xml&quot; hreflang&#x3D;&quot;zh&quot; href&#x3D;&quot;..&#x2F;speech&#x2F;zh.pls&quot;&#x2F;&gt;</span><br><span class="line">        &lt;link rel&#x3D;&quot;pronunciation&quot; type&#x3D;&quot;application&#x2F;pls+xml&quot; hreflang&#x3D;&quot;mn&quot; href&#x3D;&quot;..&#x2F;speech&#x2F;mn.pls&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;head&gt;        </span><br><span class="line">    …</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 

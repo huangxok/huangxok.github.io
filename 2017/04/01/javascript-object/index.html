@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -495,30 +495,8 @@
 </ul>
 <p>ES2015(ES6) 有了专门的 <a href="http://ju.outofmemory.cn/entry/49982" target="_blank" rel="noopener">Map、Set、WeakMap 数据结构</a>，解决了上述问题。</p>
 <h2 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h2><p>JS 中很方便的一个特性就是对象字面量，应该大量地使用。<br>例子：</p>
-<pre><code class="js">
-function createCircle(r) {
-  var circle = {
-    // 数据成员
-    radius: r,
-    // 方法
-    getArea: function () {
-        var radius = this.radius;
-        return Math.PI * radius * radius;
-    },
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> circle = &#123;</span><br><span class="line">    <span class="comment">// 数据成员</span></span><br><span class="line">    radius: r,</span><br><span class="line">    <span class="comment">// 方法</span></span><br><span class="line">    getArea: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> radius = <span class="keyword">this</span>.radius;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// getter 和 setter，ES5</span></span><br><span class="line">    <span class="keyword">get</span> area() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.getArea(); &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> area(a) &#123; <span class="keyword">this</span>.radius = <span class="built_in">Math</span>.sqrt(a / <span class="built_in">Math</span>.PI); &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 简略的方法语法，ES2015</span></span><br><span class="line">    scale(s) &#123; <span class="keyword">this</span>.radius = <span class="keyword">this</span>.radius * s; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> circle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c1 = createCircle(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 
-    // getter 和 setter，ES5
-    get area() { return this.getArea(); },
-
-    set area(a) { this.radius = Math.sqrt(a / Math.PI); },
-
-    // 简略的方法语法，ES2015
-    scale(s) { this.radius = this.radius * s; }
-  };
-  return circle;
-}
-
-var c1 = createCircle(3);
-</code></pre>
 <p>不过，字面量上的方法都是对象的直接属性，会占用不必要的内存。下面会讨论解决的方法。</p>
 <h2 id="基于原型的面向对象"><a href="#基于原型的面向对象" class="headerlink" title="基于原型的面向对象"></a>基于原型的面向对象</h2><h3 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h3><p>什么是基于原型的面向对象？我们按照 JS 中的实现总结如下：</p>
 <ul>
@@ -531,108 +509,46 @@ var c1 = createCircle(3);
 <p>可以看出，基于原型的面向对象机制非常简单，没有类、构造器、接口等概念；而且也非常灵活，原型中增删的属性会立即反映到到派生的对象上。</p>
 <p>JS 本质上只支持基于原型的面向对象，并没有类的概念。JS 最初创建的时候，为了实现起来简单，采用了基于原型的面向对象。<br>但当时出于营销的考虑，JS 被要求模仿 Java 的语法，因此糅合了一些基于类的面向对象的特征，主要是引入了构造器。<br>最终的结果是很糟糕的：两种面向对象风格都不完善，用起来都不顺手，造成了长达十几年的混乱。<br>直到最近，ES5 才完善了基于原型的面向对象，到 ES6 实现了基于类的面向对象。</p>
 <h3 id="实际的例子"><a href="#实际的例子" class="headerlink" title="实际的例子"></a>实际的例子</h3><p>下面我们利用基于原型的面向对象创建一些“圆”对象。</p>
-<pre><code class="js">//”圆“的原型
-var circle = {
-  r : 0, //这其实是不太必要，派生对象总是会覆盖它
-  getArea: function () { return this.r * this.r * 3.14; }
-};
-var c1 = Object.create(circle);
-c1.r = 1; //覆盖了circle.r
-var c2 = Object.create(circle);
-c2.r = 2;
-c1.getArea(); //3.14 //getArea 读到的是 c1.r 而不是 circle.r
-c2.getArea(); //12.56</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//”圆“的原型</span></span><br><span class="line"><span class="keyword">var</span> circle = &#123;</span><br><span class="line">  r : <span class="number">0</span>, <span class="comment">//这其实是不太必要，派生对象总是会覆盖它</span></span><br><span class="line">  getArea: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.r * <span class="keyword">this</span>.r * <span class="number">3.14</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c1 = <span class="built_in">Object</span>.create(circle);</span><br><span class="line">c1.r = <span class="number">1</span>; <span class="comment">//覆盖了circle.r</span></span><br><span class="line"><span class="keyword">var</span> c2 = <span class="built_in">Object</span>.create(circle);</span><br><span class="line">c2.r = <span class="number">2</span>;</span><br><span class="line">c1.getArea(); <span class="comment">//3.14 //getArea 读到的是 c1.r 而不是 circle.r</span></span><br><span class="line">c2.getArea(); <span class="comment">//12.56</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">Object.create(prototype)</a> 函数是 ES5 引入的，根据给定的原型创建一个新对象。在 ES5 之前，这是无法直接做的。</p>
 <p>还可以进一步继承：</p>
-<pre><code class="js">//positionedCircle 增加了圆心坐标和求原点到圆心距离的方法
-var positionedCircle = Object.create(circle);
-positionedCircle.x = positionedCircle.y = 0;
-positionedCircle.getRange = function () { 
-  return Math.sqrt(this.x * this.x + this.y * this.y); 
-};
-var c3 = Object.create(positionedCircle);
-c3.r = c3.x = c3.y = 2; //覆盖 positionedCircle.x/y
-c3.getArea(); //12.56 //circle 的方法仍然有效
-c3.getRange(); //2.828</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//positionedCircle 增加了圆心坐标和求原点到圆心距离的方法</span></span><br><span class="line"><span class="keyword">var</span> positionedCircle = <span class="built_in">Object</span>.create(circle);</span><br><span class="line">positionedCircle.x = positionedCircle.y = <span class="number">0</span>;</span><br><span class="line">positionedCircle.getRange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x * <span class="keyword">this</span>.x + <span class="keyword">this</span>.y * <span class="keyword">this</span>.y); </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c3 = <span class="built_in">Object</span>.create(positionedCircle);</span><br><span class="line">c3.r = c3.x = c3.y = <span class="number">2</span>; <span class="comment">//覆盖 positionedCircle.x/y</span></span><br><span class="line">c3.getArea(); <span class="comment">//12.56 //circle 的方法仍然有效</span></span><br><span class="line">c3.getRange(); <span class="comment">//2.828</span></span><br></pre></td></tr></table></figure>
+
 <p>这样，整体的继承关系可以用缩进表示为：</p>
-<pre><code>Object.prototype
-  circle
-    c1
-    c2
-    positionedCircle
-      c3</code></pre><p>通过字面量创建的对象，如 circle，其原型总是 <code>Object.prototype</code>，基本上这就是所有 JS 对象的根原型了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype</span><br><span class="line">  circle</span><br><span class="line">    c1</span><br><span class="line">    c2</span><br><span class="line">    positionedCircle</span><br><span class="line">      c3</span><br></pre></td></tr></table></figure>
+
+<p>通过字面量创建的对象，如 circle，其原型总是 <code>Object.prototype</code>，基本上这就是所有 JS 对象的根原型了。</p>
 <h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><p>不过，上面的代码还有一个不足：创建对象需要的步骤太多。相比之下，等效的基于类的OO就只要一个表达式 <code>new Circle(5)</code>。</p>
 <p>所以，基于原型的OO通常会提供“工厂方法”来创建对象，例如</p>
-<pre><code class="js">circle.New = function NewCircle(r) {
-  var c = Object.create(this);
-  c.r = r;
-  return c;
-};
-var c4 = circle.New(4);
-c4.r; //4</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">circle.New = <span class="function"><span class="keyword">function</span> <span class="title">NewCircle</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="built_in">Object</span>.create(<span class="keyword">this</span>);</span><br><span class="line">  c.r = r;</span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c4 = circle.New(<span class="number">4</span>);</span><br><span class="line">c4.r; <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
 <p>或者建立一种通用的“工厂方法”，利用命名参数：</p>
-<pre><code class="js">function newObject(prototype, args) {
-  var c = Object.create(prototype);
-  for(var key in args) {
-    c[key] = args[key];
-  }
-  return c;
-}
-var c5 = newObject(positionedCircle, {x:1,y:2,r:3});
-c5.getRange(); //2.236</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newObject</span>(<span class="params">prototype, args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="built_in">Object</span>.create(prototype);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> args) &#123;</span><br><span class="line">    c[key] = args[key];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c5 = newObject(positionedCircle, &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">r</span>:<span class="number">3</span>&#125;);</span><br><span class="line">c5.getRange(); <span class="comment">//2.236</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="基于原型的面向对象模式"><a href="#基于原型的面向对象模式" class="headerlink" title="基于原型的面向对象模式"></a>基于原型的面向对象模式</h3><p>从上面的例子中可以看出，基于原型的OO有一个模式：行为（即方法）通常定义在原型对象上，而数据则定义在末端的派生对象上；原型对象通常是单例的，而末端的派生对象则可以有许多。用基于类的OO来类比，则前者相当于类，后者相当于实例。</p>
 <p>JS 语言的内置对象基本上都应用了这个模式，例如数组的原型是 <code>Array.prototype</code> 对象，各种数组方法，如 push, concat, forEach, 都定义在这个对象上。</p>
 <p>但是，有一些设计模式将方法也定义在末端派生对象上，例如：</p>
-<pre><code class="js">//1.直接创建普通对象
-function makeCircle1(r) {
-  return {
-    r : r,
-    getArea: function () { return this.r * this.r * 3.14; }
-  };
-}
-//2.通过闭包封装数据
-function makeCircle2(r) {
-  return {
-    getRadius : function() { return r; },
-    getArea: function () { return r * r * 3.14; }
-  };
-}</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.直接创建普通对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCircle1</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    r : r,</span><br><span class="line">    getArea: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.r * <span class="keyword">this</span>.r * <span class="number">3.14</span>; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.通过闭包封装数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCircle2</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getRadius : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> r; &#125;,</span><br><span class="line">    getArea: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> r * r * <span class="number">3.14</span>; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这样做代码固然是简单，但也有个很大的缺点：对象的内存占用增加了，因为（1）对象要增加几个指向方法的条目（2）每次创建对象都要创建新方法 – 尤其是闭包模式，这是不可避免的。</p>
 <p>通过闭包封装数据还有一个缺点 – 不易调试，因为闭包捕获的变量对调试器也不可见（除非正好步入了闭包中）。而在 Java 等语言中，私有字段对调试器还是可见的，也可以通过反射获得。</p>
 <p>那么怎么解决 JS 对象缺乏私有成员的问题呢？很多人采用命名约定，例如下划线开头的是私有成员。我赞成这种做法。毕竟，私有成员只是一种编码契约，并不提供运行时安全，没必要为此走得太远。</p>
 <h3 id="运行时类型鉴别（RTTI）"><a href="#运行时类型鉴别（RTTI）" class="headerlink" title="运行时类型鉴别（RTTI）"></a>运行时类型鉴别（RTTI）</h3><p>运行时类型鉴别（RTTI）的方法是 <code>base.isPrototypeOf(derived)</code>，可以判断 base 是否在 derived 的原型链上。<br>这有点类似基于类的 Java 中的 <code>instanceof</code> 操作符。</p>
-<pre><code class="js">circle.isPrototypeOf(c1); //true
-circle.isPrototypeOf(c3); //true
-positionedCircle.isPrototypeOf(c3); //true
-positionedCircle.isPrototypeOf(c1); //false
-circle.isPrototypeOf(circle); //false
-Object.prototype.isPrototypeOf(circle); //true</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">circle.isPrototypeOf(c1); <span class="comment">//true</span></span><br><span class="line">circle.isPrototypeOf(c3); <span class="comment">//true</span></span><br><span class="line">positionedCircle.isPrototypeOf(c3); <span class="comment">//true</span></span><br><span class="line">positionedCircle.isPrototypeOf(c1); <span class="comment">//false</span></span><br><span class="line">circle.isPrototypeOf(circle); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(circle); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="动态修改类型"><a href="#动态修改类型" class="headerlink" title="动态修改类型"></a>动态修改类型</h3><p>由于原型也是普通对象，我们可以在运行时给它添加新的方法：</p>
-<pre><code class="js">positionedCircle.moveBy = function moveBy(dx, dy) { this.x += dx; this.y += dy;}
-c3.moveBy(-1, -1);
-c3.x; //1</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">positionedCircle.moveBy = <span class="function"><span class="keyword">function</span> <span class="title">moveBy</span>(<span class="params">dx, dy</span>) </span>&#123; <span class="keyword">this</span>.x += dx; <span class="keyword">this</span>.y += dy;&#125;</span><br><span class="line">c3.moveBy(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line">c3.x; <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 <h3 id="属性-proto"><a href="#属性-proto" class="headerlink" title="属性 __proto__"></a>属性 <code>__proto__</code></h3><p>JS 对象的 <code>__proto__</code> 属性可用于读、写其原型对象。在 ECMAScript 规范中，对象的原型用<code>[[Prototype]]</code> 内部属性来表示，在 <code>__proto__</code> 出现之前，没有办法直接操作这个属性。</p>
 <p><code>__proto__</code> 在 FF 和 webkit/Chrome 很早就实现，IE11 和 Edge 也实现了，并在 ES6 标准化。<br>同时，ES6 引入了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" target="_blank" rel="noopener"><code>Object.setPrototypeOf(o, prototype)</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf" target="_blank" rel="noopener"><code>Object.getPrototypeOf(o)</code></a>，与 <code>__proto__</code> 属性等效。</p>
 <p>利用它可以动态改变已有对象的原型：</p>
-<pre><code class="js">c1.__proto__ = positionedCircle; //动态变更原型
-c1.x = c1.y = 1;
-c1.getRange(); //1.414
-c1.getArea(); //3.14 //circle 的方法仍然有效</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c1.__proto__ = positionedCircle; <span class="comment">//动态变更原型</span></span><br><span class="line">c1.x = c1.y = <span class="number">1</span>;</span><br><span class="line">c1.getRange(); <span class="comment">//1.414</span></span><br><span class="line">c1.getArea(); <span class="comment">//3.14 //circle 的方法仍然有效</span></span><br></pre></td></tr></table></figure>
+
 <p><code>__proto__</code> 还可以用于对象字面量，极大地简化对象创建，很多情况下使工厂方法变得不必要：</p>
-<pre><code class="js">var c6 = {__proto__: positionedCircle, x:1, y:1, r:2};</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c6 = &#123;<span class="attr">__proto__</span>: positionedCircle, <span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">1</span>, <span class="attr">r</span>:<span class="number">2</span>&#125;;</span><br></pre></td></tr></table></figure>
+
 <h3 id="无原型的对象"><a href="#无原型的对象" class="headerlink" title="无原型的对象"></a>无原型的对象</h3><p>几乎所有 JS 对象的原型链的尽头都是 <code>Object.prototype</code>，但这不是绝对的，完全可以创建无原型的对象：<code>Object.create(null)</code>或<code>{__proto__: null}</code>。</p>
 <p>无原型对象有什么用呢？我能想到的一个用处是：作为真正的 Map 数据结构。因为普通对象从 <code>Object.prototype</code> 继承了许多属性，用做 Map 时会有意想不到的结果。</p>
-<pre><code class="js">//从用户 id 到用户信息的 Map
-var users = {};
-function setUser(user) {
-  users[user.id] = user;
-}
-function getUser(id) {
-  return users[id];
-}
-setUser({id: &#39;tiger&#39;, name: &#39;老虎&#39;});
-console.dir(getUser(&#39;tiger&#39;));
-console.dir(getUser(&#39;constructor&#39;)); //??? 应该没这个用户</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从用户 id 到用户信息的 Map</span></span><br><span class="line"><span class="keyword">var</span> users = &#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setUser</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  users[user.id] = user;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUser</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> users[id];</span><br><span class="line">&#125;</span><br><span class="line">setUser(&#123;<span class="attr">id</span>: <span class="string">'tiger'</span>, <span class="attr">name</span>: <span class="string">'老虎'</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.dir(getUser(<span class="string">'tiger'</span>));</span><br><span class="line"><span class="built_in">console</span>.dir(getUser(<span class="string">'constructor'</span>)); <span class="comment">//??? 应该没这个用户</span></span><br></pre></td></tr></table></figure>
+
 <p><code>constructor</code> 正是从 <code>Object.prototype</code> 继承的一个属性，我们当然不希望将它误当做用户对象。所以，将 JS 对象用做 Map 数据结构时，最好使用无原型对象。</p>
 <h2 id="基于类的面向对象"><a href="#基于类的面向对象" class="headerlink" title="基于类的面向对象"></a>基于类的面向对象</h2><p>到 ES5 为止，JS 并不真正支持基于类的面向对象，仅仅是在基于原型的体制上做了一点包装，看起来有点像 Java。</p>
 <h3 id="基本构造"><a href="#基本构造" class="headerlink" title="基本构造"></a>基本构造</h3><p>JS 中基于类的面向对象主要靠以下构造来支持：</p>
@@ -649,135 +565,21 @@ console.dir(getUser(&#39;constructor&#39;)); //??? 应该没这个用户</code><
 </ul>
 <p>JS 自带的 API 中大量利用了这种方式，例如数组的构造器是 <code>Array</code>，原型是 <code>Array.prototype</code>，创建数组的语法是<code>new Array(5)</code>。</p>
 <h3 id="实际的例子-1"><a href="#实际的例子-1" class="headerlink" title="实际的例子"></a>实际的例子</h3><p>下面我们“基于原型的面向对象”中的例子改写为基于类的方式。</p>
-<pre><code class="js">//”圆“的构造器
-function Circle(r) {
-  //new 方式调用时，系统创建对象，并绑定到 this。
-  //可以在这里初始化实例的字段。
-  this.r = r;
-  //尽管也可以在这里将方法直接定义到 this 上，但如前所述，会占用更多内存。
-  //构造函数无需返回值
-}
-//Circle.prototype 是系统提供的属性，自动成为新建对象的原型，
-//所以将方法定义在这里。注意 this 不能省略。
-Circle.prototype.getArea = function () {
-  return this.r * this.r * 3.14; 
-};
-var c1 = new Circle(5); //
-c1.getArea(); //78.5
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//”圆“的构造器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//new 方式调用时，系统创建对象，并绑定到 this。</span></span><br><span class="line">  <span class="comment">//可以在这里初始化实例的字段。</span></span><br><span class="line">  <span class="keyword">this</span>.r = r;</span><br><span class="line">  <span class="comment">//尽管也可以在这里将方法直接定义到 this 上，但如前所述，会占用更多内存。</span></span><br><span class="line">  <span class="comment">//构造函数无需返回值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Circle.prototype 是系统提供的属性，自动成为新建对象的原型，</span></span><br><span class="line"><span class="comment">//所以将方法定义在这里。注意 this 不能省略。</span></span><br><span class="line">Circle.prototype.getArea = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.r * <span class="keyword">this</span>.r * <span class="number">3.14</span>; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Circle(<span class="number">5</span>); <span class="comment">//</span></span><br><span class="line">c1.getArea(); <span class="comment">//78.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//RTTI验证</span></span><br><span class="line">Circle.prototype.isPrototypeOf(c1); <span class="comment">//true</span></span><br><span class="line"><span class="comment">//系统提供的.prototype 自动继承 Object.prototype</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(Circle.prototype); <span class="comment">//true</span></span><br><span class="line">c1 <span class="keyword">instanceof</span> Circle; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//继承的类，有位置的圆</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PositionedCircle</span>(<span class="params">r, x, y</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//调用基类构造器，也就继承了父类的字段</span></span><br><span class="line">  Circle.call(<span class="keyword">this</span>, r); </span><br><span class="line">  <span class="comment">//增加子类的字段</span></span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//为了继承父类的方法，要让子类的 .prototype 继承父类的 .prototype，</span></span><br><span class="line"><span class="comment">//这里暴露了基于原型的本质。</span></span><br><span class="line">PositionedCircle.prototype = <span class="built_in">Object</span>.create(Circle.prototype);</span><br><span class="line"><span class="comment">// 修正 .prototype.constructor 的指向。虽然没什么大用。</span></span><br><span class="line">PositionedCircle.prototype.constructor = PositionedCircle;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义子类的方法。</span></span><br><span class="line">PositionedCircle.prototype.getRange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x * <span class="keyword">this</span>.x + <span class="keyword">this</span>.y * <span class="keyword">this</span>.y); </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c2 = <span class="keyword">new</span> PositionedCircle(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">c2.getArea(); <span class="comment">//3.14</span></span><br><span class="line">c2.getRange(); <span class="comment">//2.236</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//RTTI验证</span></span><br><span class="line">c2 <span class="keyword">instanceof</span> PositionedCircle; <span class="comment">//true</span></span><br><span class="line">c2 <span class="keyword">instanceof</span> Circle; <span class="comment">//true</span></span><br><span class="line">Circle.prototype.isPrototypeOf(c2); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-//RTTI验证
-Circle.prototype.isPrototypeOf(c1); //true
-//系统提供的.prototype 自动继承 Object.prototype
-Object.prototype.isPrototypeOf(Circle.prototype); //true
-c1 instanceof Circle; //true
-
-//继承的类，有位置的圆
-function PositionedCircle(r, x, y) {
-  //调用基类构造器，也就继承了父类的字段
-  Circle.call(this, r); 
-  //增加子类的字段
-  this.x = x;
-  this.y = y;
-}
-//为了继承父类的方法，要让子类的 .prototype 继承父类的 .prototype，
-//这里暴露了基于原型的本质。
-PositionedCircle.prototype = Object.create(Circle.prototype);
-// 修正 .prototype.constructor 的指向。虽然没什么大用。
-PositionedCircle.prototype.constructor = PositionedCircle;
-
-//定义子类的方法。
-PositionedCircle.prototype.getRange = function() {
-  return Math.sqrt(this.x * this.x + this.y * this.y); 
-};
-var c2 = new PositionedCircle(1,1,2);
-c2.getArea(); //3.14
-c2.getRange(); //2.236
-
-//RTTI验证
-c2 instanceof PositionedCircle; //true
-c2 instanceof Circle; //true
-Circle.prototype.isPrototypeOf(c2); //true</code></pre>
 <p>基于类的方式有一个隐患：构造器是普通函数，也可以在没有 <code>new</code> 的情况下调用，这时 <code>this</code> 就成了全局对象，创建的字段就成了全局变量！所以为了防止误用，一方面应该把构造器首字母大写，其它函数小写，另一方面可以在构造器开头检查 this 是否为全局对象。</p>
-<h3 id="ES2015-ES6-中的类"><a href="#ES2015-ES6-中的类" class="headerlink" title="ES2015(ES6) 中的类"></a>ES2015(ES6) 中的类</h3><pre><code class="js">//”圆“的构造器
-class Circle {
-  // r = 0; // 这种类似 Java 的成员初始化方法还是不支持的。
-  // 构造器。constructor 在此处是个关键字，而非普通函数。
-  constructor(r) {
-    //可以在这里初始化实例的字段。
-    this.r = r;
-  }
-  // 方法的定义。自动成为 Circle.prototype 上的属性。
-  // 注意不需要 function 关键字，也没有“:”。
-  getArea() {
-    return this.r * this.r * 3.14; 
-  }
-}
+<h3 id="ES2015-ES6-中的类"><a href="#ES2015-ES6-中的类" class="headerlink" title="ES2015(ES6) 中的类"></a>ES2015(ES6) 中的类</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//”圆“的构造器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="comment">// r = 0; // 这种类似 Java 的成员初始化方法还是不支持的。</span></span><br><span class="line">  <span class="comment">// 构造器。constructor 在此处是个关键字，而非普通函数。</span></span><br><span class="line">  <span class="keyword">constructor</span>(r) &#123;</span><br><span class="line">    <span class="comment">//可以在这里初始化实例的字段。</span></span><br><span class="line">    <span class="keyword">this</span>.r = r;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 方法的定义。自动成为 Circle.prototype 上的属性。</span></span><br><span class="line">  <span class="comment">// 注意不需要 function 关键字，也没有“:”。</span></span><br><span class="line">  getArea() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.r * <span class="keyword">this</span>.r * <span class="number">3.14</span>; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">c1.getArea(); <span class="comment">//78.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//RTTI验证</span></span><br><span class="line">Circle.prototype.isPrototypeOf(c1); <span class="comment">//true</span></span><br><span class="line">c1 <span class="keyword">instanceof</span> Circle; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承的类，有位置的圆</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositionedCircle</span> <span class="keyword">extends</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(r, x, y) &#123;</span><br><span class="line">    <span class="comment">// 调用基类构造器，必须在访问 this 前调用。super 在此处是个关键字。</span></span><br><span class="line">    <span class="keyword">super</span>(r); </span><br><span class="line">    <span class="comment">// 增加子类的字段</span></span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 定义子类的方法。</span></span><br><span class="line">  getRange() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x * <span class="keyword">this</span>.x + <span class="keyword">this</span>.y * <span class="keyword">this</span>.y);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c2 = <span class="keyword">new</span> PositionedCircle(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">c2.getArea(); <span class="comment">//3.14</span></span><br><span class="line">c2.getRange(); <span class="comment">//2.236</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//RTTI验证</span></span><br><span class="line">c2 <span class="keyword">instanceof</span> PositionedCircle; <span class="comment">//true</span></span><br><span class="line">c2 <span class="keyword">instanceof</span> Circle; <span class="comment">//true</span></span><br><span class="line">Circle.prototype.isPrototypeOf(c2); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-var c1 = new Circle(5);
-c1.getArea(); //78.5
-
-//RTTI验证
-Circle.prototype.isPrototypeOf(c1); //true
-c1 instanceof Circle; //true
-
-// 继承的类，有位置的圆
-class PositionedCircle extends Circle {
-  constructor(r, x, y) {
-    // 调用基类构造器，必须在访问 this 前调用。super 在此处是个关键字。
-    super(r); 
-    // 增加子类的字段
-    this.x = x;
-    this.y = y;
-  }
-
-  // 定义子类的方法。
-  getRange() {
-    return Math.sqrt(this.x * this.x + this.y * this.y);
-  }
-}
-
-var c2 = new PositionedCircle(1,1,2);
-c2.getArea(); //3.14
-c2.getRange(); //2.236
-
-//RTTI验证
-c2 instanceof PositionedCircle; //true
-c2 instanceof Circle; //true
-Circle.prototype.isPrototypeOf(c2); //true</code></pre>
 <p>可以看出，ES2015 中的类和的语法很接近 Java，比 ES5 中模拟类的语法简洁了不少。<br>不过两者的语义几乎是等效的，所以 Babel 等编译器可以把 ES2015 代码编译为 ES5 的代码。</p>
 <h3 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h3><p>直接定义在伪类上的属性就是静态成员。前面讲到的 <code>.prototype</code> 属性，<code>Object.create()</code>, <code>Object.keys()</code>, <code>Array.isArray()</code> 等函数都是静态成员。</p>
 <p>这与Java等语言的静态（static）成员是类似的。不过有一点不同：JS 类的静态成员不能通过其实例调用（道理应该很简单）。</p>
 <h3 id="继承内置类型"><a href="#继承内置类型" class="headerlink" title="继承内置类型"></a>继承内置类型</h3><p>前面提到的面向对象的做法，并非能适用于一切类型。JS 的内置类型，例如 <code>Array</code>, <code>Function</code> 等，在 ES5 时期是不可被继承的。<br>论及整个 Web 平台时，包括 Element 等类型也是无法被继承的。我们只能用一些动态修改 <code>__proto__</code> 这样的技巧来间接实现。</p>
 <p>如果我们尝试用 ES5 的方法继承 Array 类型：</p>
-<pre><code class="js">function ArrayEx(length) {
-  Array.call(this, length);
-}
-ArrayEx.prototype = Object.create(Array.prototype);
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayEx</span>(<span class="params">length</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Array</span>.call(<span class="keyword">this</span>, length);</span><br><span class="line">&#125;</span><br><span class="line">ArrayEx.prototype = <span class="built_in">Object</span>.create(<span class="built_in">Array</span>.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> ArrayEx(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鉴定类型</span></span><br><span class="line">aa <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// true; 但别高兴太早。</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(aa); <span class="comment">// false; 不是数组！</span></span><br><span class="line">aa.length; <span class="comment">// 0; 怎么回事？！</span></span><br><span class="line">aa[<span class="number">0</span>] = <span class="number">5</span>; <span class="comment">// 好吧，写入一个元素试试。</span></span><br><span class="line">aa[<span class="number">0</span>]; <span class="comment">// 5; 似乎成功了！</span></span><br><span class="line">aa.length; <span class="comment">// 0; 不行...</span></span><br><span class="line">aa.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(e) &#125;); <span class="comment">// 什么都没有输出。</span></span><br></pre></td></tr></table></figure>
 
-var aa = new ArrayEx(3);
-
-// 鉴定类型
-aa instanceof Array; // true; 但别高兴太早。
-Array.isArray(aa); // false; 不是数组！
-aa.length; // 0; 怎么回事？！
-aa[0] = 5; // 好吧，写入一个元素试试。
-aa[0]; // 5; 似乎成功了！
-aa.length; // 0; 不行...
-aa.forEach(function (e) { console.log(e) }); // 什么都没有输出。</code></pre>
 <p>改用 ES2015 的方法：</p>
-<pre><code class="js">class ArrayEx6 extends Array {
-  constructor(length) {
-    super(length);
-  }
-  // 增加一个方法
-  get last() { return this.length ? this[this.length - 1] : undefined; }
-}
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayEx6</span> <span class="keyword">extends</span> <span class="title">Array</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(length) &#123;</span><br><span class="line">    <span class="keyword">super</span>(length);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 增加一个方法</span></span><br><span class="line">  <span class="keyword">get</span> last() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.length ? <span class="keyword">this</span>[<span class="keyword">this</span>.length - <span class="number">1</span>] : <span class="literal">undefined</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> ArrayEx6(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(aa); <span class="comment">// true;</span></span><br><span class="line">aa.length; <span class="comment">// 3; 成了！</span></span><br><span class="line">aa[<span class="number">3</span>] = <span class="number">4</span>;</span><br><span class="line">aa.last; <span class="comment">// 4; 很好！</span></span><br></pre></td></tr></table></figure>
 
-var aa = new ArrayEx6(3);
-Array.isArray(aa); // true;
-aa.length; // 3; 成了！
-aa[3] = 4;
-aa.last; // 4; 很好！</code></pre>
 <p>目前，继承内置类型的唯一办法就是使用 ES2015 的语法。</p>
 <h3 id="基于原型还是基于类"><a href="#基于原型还是基于类" class="headerlink" title="基于原型还是基于类"></a>基于原型还是基于类</h3><p>可以看出，基于类的方式与基于原型的方式达到的效果类似，但本质还是基于原型。<br>那么，JS 中到底那种方式更好一些呢？很多人认为<a href="http://stackoverflow.com/questions/2800964/benefits-of-prototypal-inheritance-over-classical" target="_blank" rel="noopener">基于原型更好</a>。</p>
 <p>在 ES5 的时代，我会同意基于原型更好。比起纯粹的基于原型，伪类更加复杂，多了不少概念，绕了很大的弯子。<br>比起真正的基于类的语言，语法又很怪异：没有 class 关键字，定义字段和调用父构造器也很怪，暴露了不少基于原型的细节（prototype 属性）。</p>
@@ -785,103 +587,25 @@ aa.last; // 4; 很好！</code></pre>
 <p>不过，在 ES2015 引入了专门的类语法后，增进了代码的可读性，便于书写文档注释，这就使得基于类的方式更为可行。</p>
 <h3 id="继承的局限性"><a href="#继承的局限性" class="headerlink" title="继承的局限性"></a>继承的局限性</h3><p>尽管继承在一些时候很有用，但是必须强调一点：尽量少用继承！无论是基于类还是基于原型。这是从其它编程语言的发展史中得出的经验教训。</p>
 <p>假定我们要实现一个文本编辑器类（<code>TextEditor</code>），它要能产生一些事件，供客户代码来监听。为此我们还实现了一个用来发送事件的类 <code>EventEmitter</code>：</p>
-<pre><code class="js">class EventEmitter {
-  // 注册事件处理器
-  on(type/*事件类型，string */, handler/* 事件处理函数*/) { /* ... */ }
-  // 产生事件
-  emit(type/*事件类型，string */, ...args /* 事件的参数 */) { /* ... */ }
-}</code></pre>
-<p>如果用继承的方式，就是这样：</p>
-<pre><code class="js">class TextEditor1 extends EventEmitter {
-  deleteSelection() {
-    //触发事件
-    this.emit(&#39;change&#39;);
-  }
-}
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 注册事件处理器</span></span><br><span class="line">  on(type<span class="comment">/*事件类型，string */</span>, handler<span class="comment">/* 事件处理函数*/</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  <span class="comment">// 产生事件</span></span><br><span class="line">  emit(type<span class="comment">/*事件类型，string */</span>, ...args <span class="comment">/* 事件的参数 */</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// 使用
-var editor = new TextEditor1();
-editor.on(&#39;change&#39;, function() { /* ... */  });</code></pre>
+<p>如果用继承的方式，就是这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextEditor1</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">  deleteSelection() &#123;</span><br><span class="line">    <span class="comment">//触发事件</span></span><br><span class="line">    <span class="keyword">this</span>.emit(<span class="string">'change'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">var</span> editor = <span class="keyword">new</span> TextEditor1();</span><br><span class="line">editor.on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span>  &#125;);</span><br></pre></td></tr></table></figure>
+
 <p>由于 JS 只支持单继承，EventEmitter 这个相对外围的功能就占据了这唯一的机会。<br>此外，emit 方法也没必要作为公共的 API，因为客户代码并不会直接产生事件。</p>
 <p>不用继承，那么用什么呢？方法有多种，针对这里的具体情况，可以选择组合或者覆盖。</p>
-<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><pre><code class="js">class TextEditor2 {
-  constructor() {
-    // EventEmitter 变成成员。前置下划线表示私有成员，这是个惯例。
-    this._em = new EventEmitter();
-  }
+<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextEditor2</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="comment">// EventEmitter 变成成员。前置下划线表示私有成员，这是个惯例。</span></span><br><span class="line">    <span class="keyword">this</span>._em = <span class="keyword">new</span> EventEmitter();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  deleteSelection() &#123;</span><br><span class="line">    <span class="comment">// 触发事件，注意有一层间接</span></span><br><span class="line">    <span class="keyword">this</span>._em.emit(<span class="string">'change'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注册事件。简单包装一下。</span></span><br><span class="line">  <span class="comment">// 注意，EventEmitter.emit() 方法不再暴露出来。</span></span><br><span class="line">  on(type, handler) &#123; <span class="keyword">this</span>._em.on(type, handler); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  deleteSelection() {
-    // 触发事件，注意有一层间接
-    this._em.emit(&#39;change&#39;);
-  }
-
-  // 注册事件。简单包装一下。
-  // 注意，EventEmitter.emit() 方法不再暴露出来。
-  on(type, handler) { this._em.on(type, handler); }
-}</code></pre>
 <p>尽管组合会多出少量包装用的代码，但会使得代码更合理、更灵活。</p>
 <h4 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h4><p>如果预料事件处理的代码是相对固定的，不需要动态增删处理器，则可以更简单地使用“覆盖”法。<br>这是利用了 JS 的“对象的自有属性会覆盖原型上的同名属性”这一规则。</p>
-<pre><code class="js">class TextEditor3 {
-  deleteSelection() {
-    // 触发事件
-    this._emitChange();
-  }
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextEditor3</span> </span>&#123;</span><br><span class="line">  deleteSelection() &#123;</span><br><span class="line">    <span class="comment">// 触发事件</span></span><br><span class="line">    <span class="keyword">this</span>._emitChange();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这是留给客户代码的事件监听器。默认什么也不做。</span></span><br><span class="line">  <span class="comment">// 注意这个方法是定义在原型上的。</span></span><br><span class="line">  onChange() &#123; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 私有方法。调用事件监听器。</span></span><br><span class="line">  <span class="comment">// 想一想为什么要捕获异常？</span></span><br><span class="line">  _emitChange() &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.onChange();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户代码</span></span><br><span class="line"><span class="keyword">var</span> editor = <span class="keyword">new</span> TextEditor3();</span><br><span class="line"><span class="comment">// 注册事件监听器。覆盖原型上的方法。</span></span><br><span class="line">editor.onChange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span>  &#125;;</span><br></pre></td></tr></table></figure>
 
-  // 这是留给客户代码的事件监听器。默认什么也不做。
-  // 注意这个方法是定义在原型上的。
-  onChange() { }
-
-  // 私有方法。调用事件监听器。
-  // 想一想为什么要捕获异常？
-  _emitChange() {
-    try {
-      this.onChange();
-    } catch(e) {
-      console.log(e);
-    }
-  }
-}
-
-// 客户代码
-var editor = new TextEditor3();
-// 注册事件监听器。覆盖原型上的方法。
-editor.onChange = function() { /* ... */  };
-</code></pre>
 <p>在其它语言中也有类似的做法。例如 Android 的 <code>Activity</code> 类有 <code>onTouchEvent()</code> 方法，子类可以通过覆盖此方法来处理触摸事件。<br>由于 JS 的动态特性，无需继承就可以达到相同的目的。</p>
 <h2 id="命名空间和模块模式"><a href="#命名空间和模块模式" class="headerlink" title="命名空间和模块模式"></a>命名空间和模块模式</h2><p>JS 运行环境的全局变量（包括函数）太多了，在浏览器中尤其如此（输入<code>this</code>看结果），新出现的 web 技术还在不断扩大这个名单：localStorage、Worker、URL、Blob、FileReader… 一些著名JS 库也会创建自己的全局变量，如 jQuery。因此，如果像前面那些例子一样，用英语常用词作为全局变量的名字，那就太冒险了。让我们面对现实：常用词已经被浏览器预定了，简单前缀+常用词已经被其它 JS 库预定了。</p>
 <p>幸好，有几种技术可以解决这个问题，包括命名空间、CMD模块、AMD模块等。这里我们只讲命名空间，因为它比较简单，而且在浏览器中工作得很好（不适用node.js，请按其惯例操作）。</p>
 <p>JS 并不直接支持命名空间。Java 和 C# 中命名空间都是用 ‘.’ 分隔的标识符，JS 可以用对象来模拟。例如 <code>java.util.HashMap</code> 这个 Java 类用 JS 实现的话，<code>java</code> 和 <code>util</code> 都是普通对象，而 HashMap 是个伪类。</p>
-<pre><code class="js">//HashMap.js
-//用自执行函数包裹代码是个好习惯，这样其局部变量如 ju、HashMap 不会进入全局作用域。
-(function() {
-// 仅当 java 和 java.util 不存在时才初始化，这样允许在多个 JS 文件中共同定义一个命名空间
-this.java = this.java || {};
-var ju = this.java.util = this.java.util || {}; //取个短的别名 ju 方便后面使用
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//HashMap.js</span></span><br><span class="line"><span class="comment">//用自执行函数包裹代码是个好习惯，这样其局部变量如 ju、HashMap 不会进入全局作用域。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 仅当 java 和 java.util 不存在时才初始化，这样允许在多个 JS 文件中共同定义一个命名空间</span></span><br><span class="line"><span class="keyword">this</span>.java = <span class="keyword">this</span>.java || &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> ju = <span class="keyword">this</span>.java.util = <span class="keyword">this</span>.java.util || &#123;&#125;; <span class="comment">//取个短的别名 ju 方便后面使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数。先定义在局部作用域，方便内部引用。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HashMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">ju.HashMap = HashMap; <span class="comment">//“导出”了 HashMap 类</span></span><br><span class="line"></span><br><span class="line">HashMap.prototype.get = <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">HashMap.prototype.set = <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用的地方, testHashMap.js</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">//JS 没有 Java 的 import 或 C# 的 using，为了便于使用，取一个局部变量作为别名。</span></span><br><span class="line"><span class="comment">//同样放到自执行函数中，否则 HashMap 又成为全局变量了。</span></span><br><span class="line"><span class="keyword">var</span> HashMap = java.util.HashMap;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testHashMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> map = <span class="keyword">new</span> HashMap();</span><br><span class="line">  map.set(<span class="string">'JS'</span>, <span class="string">'JavaScript'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(map);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
-//构造函数。先定义在局部作用域，方便内部引用。
-function HashMap() {
-  //...
-}
-ju.HashMap = HashMap; //“导出”了 HashMap 类
-
-HashMap.prototype.get = function get(key) {
-}
-HashMap.prototype.set = function set(key, value) {
-}
-//...
-})();
-
-//使用的地方, testHashMap.js
-(function() {
-//JS 没有 Java 的 import 或 C# 的 using，为了便于使用，取一个局部变量作为别名。
-//同样放到自执行函数中，否则 HashMap 又成为全局变量了。
-var HashMap = java.util.HashMap;
-function testHashMap() {
-  var map = new HashMap();
-  map.set(&#39;JS&#39;, &#39;JavaScript&#39;);
-  console.log(map);
-}
-})();</code></pre>
 <p>不过，这样的 JS 的命名空间和 Java、C# 毕竟还是有区别：后者只是一种语法，几乎没有运行时开销；而前者是实际的对象，每个 ‘.’ 都意味着一次属性查找，这是有运行时开销的。所以取别名不只是为了简洁，还有性能的考虑。考虑到命名空间实际上是个整体，我主张用’_’代替’.’，例如 <code>java_util.HashMap</code>，这不但提高了性能，还进一步降低了命名冲突的可能。</p>
 <p>尽管命名空间模式解决了问题，但还是有些不足：语法有点晦涩，仪式性的代码有点多。我们将会看到，typescript 改善了语法，ES6 也可能做一些改进。</p>
 <h2 id="类型策略"><a href="#类型策略" class="headerlink" title="类型策略"></a>类型策略</h2><p>在设计 API 的时候，如何保证传入的对象的类型符合期望？静态类型语言的编译器/虚拟机会检查类型，我们只需要给参数指定适当的类或接口即可。但 JS 如何呢？有两种常见策略：RTTI 和“鸭子类型”。</p>

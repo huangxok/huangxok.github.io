@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -468,173 +468,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="函数式编程笔记"><a href="#函数式编程笔记" class="headerlink" title="函数式编程笔记"></a>函数式编程笔记</h1><h2 id="柯里化示例1"><a href="#柯里化示例1" class="headerlink" title="柯里化示例1"></a>柯里化示例1</h2><pre><code class="javascript">var adder = function () {
-    var _args = [];
-    return function () {
-        if (arguments.length === 0) {
-            return _args.reduce(function (a, b) {
-                return a + b;
-            });
-        }
-        [].push.apply(_args, [].slice.call(arguments));
-        return arguments.callee;
-    }
-};
-var sum = adder();
-console.log(sum);     // Function
-sum(100,200)(300);    // 调用形式灵活，一次调用可输入一个或者多个参数，并且支持链式调用
-sum(400);
-console.log(sum());   // 1000 （加总计算）</code></pre>
-<h2 id="柯里化示例2-currying"><a href="#柯里化示例2-currying" class="headerlink" title="柯里化示例2 currying"></a>柯里化示例2 currying</h2><pre><code class="javascript">var currying = function (fn) {
-    var _args = [];
-    return function () {
-        if (arguments.length === 0) {
-            return fn.apply(this, _args);
-        }
-        Array.prototype.push.apply(_args, [].slice.call(arguments));
-        return arguments.callee;
-    }
-};
+                <h1 id="函数式编程笔记"><a href="#函数式编程笔记" class="headerlink" title="函数式编程笔记"></a>函数式编程笔记</h1><h2 id="柯里化示例1"><a href="#柯里化示例1" class="headerlink" title="柯里化示例1"></a>柯里化示例1</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> adder = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _args = [];</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> _args.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a + b;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        [].push.apply(_args, [].slice.call(<span class="built_in">arguments</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> sum = adder();</span><br><span class="line"><span class="built_in">console</span>.log(sum);     <span class="comment">// Function</span></span><br><span class="line">sum(<span class="number">100</span>,<span class="number">200</span>)(<span class="number">300</span>);    <span class="comment">// 调用形式灵活，一次调用可输入一个或者多个参数，并且支持链式调用</span></span><br><span class="line">sum(<span class="number">400</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum());   <span class="comment">// 1000 （加总计算）</span></span><br></pre></td></tr></table></figure>
 
-var multi=function () {
-    var total = 0;
-    for (var i = 0, c; c = arguments[i++];) {
-        total += c;
-    }
-    return total;
-};
+<h2 id="柯里化示例2-currying"><a href="#柯里化示例2-currying" class="headerlink" title="柯里化示例2 currying"></a>柯里化示例2 currying</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> currying = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _args = [];</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, _args);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Array</span>.prototype.push.apply(_args, [].slice.call(<span class="built_in">arguments</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> multi=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, c; c = <span class="built_in">arguments</span>[i++];) &#123;</span><br><span class="line">        total += c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> sum = currying(multi);  </span><br><span class="line">  </span><br><span class="line">sum(<span class="number">100</span>,<span class="number">200</span>)(<span class="number">300</span>);</span><br><span class="line">sum(<span class="number">400</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum());     <span class="comment">// 1000  （空白调用时才真正计算）</span></span><br></pre></td></tr></table></figure>
 
-var sum = currying(multi);  
-
-sum(100,200)(300);
-sum(400);
-console.log(sum());     // 1000  （空白调用时才真正计算）</code></pre>
 <h2 id="柯里化示例3"><a href="#柯里化示例3" class="headerlink" title="柯里化示例3"></a>柯里化示例3</h2><p>柯里化的基础<br>上面的代码（示例2）其实是一个高阶函数（high-order function）, 高阶函数是指操作函数的函数，它接收一个或者多个函数作为参数，并返回一个新函数。此外，还依赖与闭包的特性，来保存中间过程中输入的参数。即：<br>函数可以作为参数传递<br>函数能够作为函数的返回值<br>闭包<br>柯里化的作用</p>
-<pre><code class="javascript">var addEvent = function(el, type, fn, capture) {
-     if (window.addEventListener) {
-         el.addEventListener(type, function(e) {
-             fn.call(el, e);
-         }, capture);
-     } else if (window.attachEvent) {
-         el.attachEvent(&quot;on&quot; + type, function(e) {
-             fn.call(el, e);
-         });
-     } 
- };</code></pre>
-<pre><code class="javascript">var addEvent = (function(){
-    if (window.addEventListener) {
-        return function(el, sType, fn, capture) {
-            el.addEventListener(sType, function(e) {
-                fn.call(el, e);
-            }, (capture));
-        };
-    } else if (window.attachEvent) {
-        return function(el, sType, fn, capture) {
-            el.attachEvent(&quot;on&quot; + sType, function(e) {
-                fn.call(el, e);
-            });
-        };
-    }
-})();</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">el, type, fn, capture</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">         el.addEventListener(type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">             fn.call(el, e);</span><br><span class="line">         &#125;, capture);</span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">         el.attachEvent(<span class="string">"on"</span> + type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">             fn.call(el, e);</span><br><span class="line">         &#125;);</span><br><span class="line">     &#125; </span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addEvent = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, sType, fn, capture</span>) </span>&#123;</span><br><span class="line">            el.addEventListener(sType, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                fn.call(el, e);</span><br><span class="line">            &#125;, (capture));</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, sType, fn, capture</span>) </span>&#123;</span><br><span class="line">            el.attachEvent(<span class="string">"on"</span> + sType, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                fn.call(el, e);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
 <p>Function.prototype.bind 方法也是柯里化应用<br>与 call/apply 方法直接执行不同，bind 方法 将第一个参数设置为函数执行的上下文，其他参数依次传递给调用方法（函数的主体本身不执行，可以看成是延迟执行），并动态创建返回一个新的函数， 这符合柯里化特点。</p>
-<pre><code class="javascript">var foo = {x: 888};
-var bar = function () {
-    console.log(this.x);
-}.bind(foo);               // 绑定
-bar();                     // 888</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">x</span>: <span class="number">888</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;.bind(foo);               <span class="comment">// 绑定</span></span><br><span class="line">bar();                     <span class="comment">// 888</span></span><br></pre></td></tr></table></figure>
+
 <p>下面是一个 bind 函数的模拟，testBind 创建并返回新的函数，在新的函数中将真正要执行业务的函数绑定到实参传入的上下文，延迟执行了。</p>
-<pre><code class="javascript">Function.prototype.testBind = function (scope) {
-    var fn = this;                    //// this 指向的是调用 testBind 方法的一个函数， 
-    return function () {
-        return fn.apply(scope);
-    }
-};
-var testBindBar = bar.testBind(foo);  // 绑定 foo，延迟执行
-console.log(testBindBar);             // Function (可见，bind之后返回的是一个延迟执行的新函数)
-testBindBar();                        // 888</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.testBind = <span class="function"><span class="keyword">function</span> (<span class="params">scope</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn = <span class="keyword">this</span>;                    <span class="comment">//// this 指向的是调用 testBind 方法的一个函数， </span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fn.apply(scope);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> testBindBar = bar.testBind(foo);  <span class="comment">// 绑定 foo，延迟执行</span></span><br><span class="line"><span class="built_in">console</span>.log(testBindBar);             <span class="comment">// Function (可见，bind之后返回的是一个延迟执行的新函数)</span></span><br><span class="line">testBindBar();                        <span class="comment">// 888</span></span><br></pre></td></tr></table></figure>
+
 <p>这里要注意 prototype 中 this 的理解。</p>
 <h2 id="组合-compose"><a href="#组合-compose" class="headerlink" title="组合 compose"></a>组合 compose</h2><p>示例1</p>
-<pre><code class="javascript">var compose = function(f,g) {
-  return function(x) {
-    return f(g(x));
-  };
-};</code></pre>
-<pre><code class="javascript">var toUpperCase = function(x) { return x.toUpperCase(); };
-var exclaim = function(x) { return x + &#39;!&#39;; };
-var shout = compose(exclaim, toUpperCase);
-shout(&quot;send in the clowns&quot;);</code></pre>
-<pre><code class="javascript">var shout = function(x){
-  return exclaim(toUpperCase(x));
-};</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> compose = <span class="function"><span class="keyword">function</span>(<span class="params">f,g</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f(g(x));</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toUpperCase = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x.toUpperCase(); &#125;;</span><br><span class="line"><span class="keyword">var</span> exclaim = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x + <span class="string">'!'</span>; &#125;;</span><br><span class="line"><span class="keyword">var</span> shout = compose(exclaim, toUpperCase);</span><br><span class="line">shout(<span class="string">"send in the clowns"</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> shout = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> exclaim(toUpperCase(x));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>示例2</p>
-<pre><code class="javascript">var head = function(x) { return x[0]; };
-var reverse = reduce(function(acc, x){ return [x].concat(acc); }, []);
-var last = compose(head, reverse);
-
-last([&#39;jumpkick&#39;, &#39;roundhouse&#39;, &#39;uppercut&#39;]);
-//=&gt; &#39;uppercut&#39;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> head = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x[<span class="number">0</span>]; &#125;;</span><br><span class="line"><span class="keyword">var</span> reverse = reduce(<span class="function"><span class="keyword">function</span>(<span class="params">acc, x</span>)</span>&#123; <span class="keyword">return</span> [x].concat(acc); &#125;, []);</span><br><span class="line"><span class="keyword">var</span> last = compose(head, reverse);</span><br><span class="line"></span><br><span class="line">last([<span class="string">'jumpkick'</span>, <span class="string">'roundhouse'</span>, <span class="string">'uppercut'</span>]);</span><br><span class="line"><span class="comment">//=&gt; 'uppercut'</span></span><br></pre></td></tr></table></figure>
 <p>** head ** 取第一个元素,** reverse **反转元素序列</p>
-<pre><code class="javascript">// 结合律（associativity）
-var associative = compose(f, compose(g, h)) == compose(compose(f, g), h);
-// true</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结合律（associativity）</span></span><br><span class="line"><span class="keyword">var</span> associative = compose(f, compose(g, h)) == compose(compose(f, g), h);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>compose 的调用分组不重要，所以结果都是一样的</p>
-<pre><code class="javascript">compose(toUpperCase, compose(head, reverse));
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">compose(toUpperCase, compose(head, reverse));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">compose(compose(toUpperCase, head), reverse);</span><br></pre></td></tr></table></figure>
 
-// 或者
-compose(compose(toUpperCase, head), reverse);</code></pre>
-<pre><code class="javascript">// 前面的例子中我们必须要写两个组合才行，但既然组合是符合结合律的，我们就可以只写一个，
-// 而且想传给它多少个函数就传给它多少个，然后让它自己决定如何分组。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前面的例子中我们必须要写两个组合才行，但既然组合是符合结合律的，我们就可以只写一个，</span></span><br><span class="line"><span class="comment">// 而且想传给它多少个函数就传给它多少个，然后让它自己决定如何分组。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> lastUpper = compose(toUpperCase, head, reverse);</span><br><span class="line"></span><br><span class="line">lastUpper([<span class="string">'jumpkick'</span>, <span class="string">'roundhouse'</span>, <span class="string">'uppercut'</span>]);</span><br><span class="line"><span class="comment">//=&gt; 'UPPERCUT'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> loudLastUpper = compose(exclaim, toUpperCase, head, reverse)</span><br><span class="line"></span><br><span class="line">loudLastUpper([<span class="string">'jumpkick'</span>, <span class="string">'roundhouse'</span>, <span class="string">'uppercut'</span>]);</span><br><span class="line"><span class="comment">//=&gt; 'UPPERCUT!'</span></span><br></pre></td></tr></table></figure>
 
-var lastUpper = compose(toUpperCase, head, reverse);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loudLastUpper = compose(exclaim, toUpperCase, head, reverse);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> last = compose(head, reverse);</span><br><span class="line"><span class="keyword">var</span> loudLastUpper = compose(exclaim, toUpperCase, last);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> last = compose(head, reverse);</span><br><span class="line"><span class="keyword">var</span> angry = compose(exclaim, toUpperCase);</span><br><span class="line"><span class="keyword">var</span> loudLastUpper = compose(angry, last);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多变种...</span></span><br></pre></td></tr></table></figure>
 
-lastUpper([&#39;jumpkick&#39;, &#39;roundhouse&#39;, &#39;uppercut&#39;]);
-//=&gt; &#39;UPPERCUT&#39;
 
-var loudLastUpper = compose(exclaim, toUpperCase, head, reverse)
 
-loudLastUpper([&#39;jumpkick&#39;, &#39;roundhouse&#39;, &#39;uppercut&#39;]);
-//=&gt; &#39;UPPERCUT!&#39;</code></pre>
-<pre><code class="javascript">var loudLastUpper = compose(exclaim, toUpperCase, head, reverse);
+<h3 id="pointerfree"><a href="#pointerfree" class="headerlink" title="pointerfree"></a>pointerfree</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非 pointfree，因为提到了数据：word</span></span><br><span class="line"><span class="keyword">var</span> snakeCase = <span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> word.toLowerCase().replace(<span class="regexp">/\s+/ig</span>, <span class="string">'_'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pointfree</span></span><br><span class="line"><span class="keyword">var</span> snakeCase = compose(replace(<span class="regexp">/\s+/ig</span>, <span class="string">'_'</span>), toLowerCase);</span><br></pre></td></tr></table></figure>
 
-// 或
-var last = compose(head, reverse);
-var loudLastUpper = compose(exclaim, toUpperCase, last);
-
-// 或
-var last = compose(head, reverse);
-var angry = compose(exclaim, toUpperCase);
-var loudLastUpper = compose(angry, last);
-
-// 更多变种...</code></pre>
-<h3 id="pointerfree"><a href="#pointerfree" class="headerlink" title="pointerfree"></a>pointerfree</h3><pre><code class="javascript">// 非 pointfree，因为提到了数据：word
-var snakeCase = function (word) {
-  return word.toLowerCase().replace(/\s+/ig, &#39;_&#39;);
-};
-
-// pointfree
-var snakeCase = compose(replace(/\s+/ig, &#39;_&#39;), toLowerCase);</code></pre>
 <p>示例</p>
-<pre><code class="javascript">// 非 pointfree，因为提到了数据：name
-var initials = function (name) {
-  return name.split(&#39; &#39;).map(compose(toUpperCase, head)).join(&#39;. &#39;);
-};
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非 pointfree，因为提到了数据：name</span></span><br><span class="line"><span class="keyword">var</span> initials = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> name.split(<span class="string">' '</span>).map(compose(toUpperCase, head)).join(<span class="string">'. '</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pointfree</span></span><br><span class="line"><span class="keyword">var</span> initials = compose(join(<span class="string">'. '</span>), map(compose(toUpperCase, head)), split(<span class="string">' '</span>));</span><br><span class="line"></span><br><span class="line">initials(<span class="string">"hunter stockton thompson"</span>);</span><br></pre></td></tr></table></figure>
 
-// pointfree
-var initials = compose(join(&#39;. &#39;), map(compose(toUpperCase, head)), split(&#39; &#39;));
-
-initials(&quot;hunter stockton thompson&quot;);</code></pre>
 <h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>组合的一个常见错误是，在没有局部调用之前，就组合类似 map 这样接受两个参数的函数。</p>
-<pre><code class="javascript">// 错误做法：我们传给了 `angry` 一个数组，根本不知道最后传给 `map` 的是什么东西。
-var latin = compose(map, angry, reverse);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误做法：我们传给了 `angry` 一个数组，根本不知道最后传给 `map` 的是什么东西。</span></span><br><span class="line"><span class="keyword">var</span> latin = compose(map, angry, reverse);</span><br><span class="line"></span><br><span class="line">latin([<span class="string">"frog"</span>, <span class="string">"eyes"</span>]);</span><br><span class="line"><span class="comment">// error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确做法：每个函数都接受一个实际参数。</span></span><br><span class="line"><span class="keyword">var</span> latin = compose(map(angry), reverse);</span><br><span class="line"></span><br><span class="line">latin([<span class="string">"frog"</span>, <span class="string">"eyes"</span>]);</span><br><span class="line"><span class="comment">// ["EYES!", "FROG!"])</span></span><br></pre></td></tr></table></figure>
 
-latin([&quot;frog&quot;, &quot;eyes&quot;]);
-// error
 
-// 正确做法：每个函数都接受一个实际参数。
-var latin = compose(map(angry), reverse);
-
-latin([&quot;frog&quot;, &quot;eyes&quot;]);
-// [&quot;EYES!&quot;, &quot;FROG!&quot;])</code></pre>
 <p><a href="http://www.2cto.com/kf/201412/357997.html" target="_blank" rel="noopener">http://www.2cto.com/kf/201412/357997.html</a></p>
 <p><a href="https://www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details" target="_blank" rel="noopener">https://www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details</a></p>
 

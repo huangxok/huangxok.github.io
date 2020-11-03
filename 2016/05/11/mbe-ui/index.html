@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/huangxok/huangxok.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/huangxok/huangxok.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -482,12 +482,8 @@
 <p>mbe_ui 允许用普通的 JS 对象字面量（称作”虚拟元素”）来描述 DOM 树的结构，因此既是声明式的，又可以利用已有的 JS 技能，无需另外学习模板语言；<br>而且，在 DOM 树的描述中可以直接绑定事件监听器。例如 HTML button 的虚拟元素可以是：</p>
 </li>
 </ul>
-<pre><code class="javascript">  {
-    Name: &#39;button&#39;,
-    Kids: [&#39;button1&#39;],
-    className: &#39;btn&#39;,
-    onclick: function() { alert(`clicked`); } 
-  }</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Name: <span class="string">'button'</span>,</span><br><span class="line">  Kids: [<span class="string">'button1'</span>],</span><br><span class="line">  className: <span class="string">'btn'</span>,</span><br><span class="line">  onclick: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">`clicked`</span>); &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>采用“单向数据流动”的界面更新模式</p>
 <p>这个模式的意思是大部分界面组件无状态，总是从上级发送“设置”数据到各级界面组件，决定其显示的样子（详见“mbe_ui 组件的设计思想”一节）。<br>采用这个模式可以简化界面更新的逻辑。</p>
@@ -531,50 +527,18 @@
 </li>
 </ul>
 <h2 id="mbe-ui-的应用"><a href="#mbe-ui-的应用" class="headerlink" title="mbe_ui 的应用"></a>mbe_ui 的应用</h2><p>mbe_ui 已经被用于开发“备课大师”的主用户界面，详见以下文件：</p>
-<pre><code>src/master-editor.xhtml
-src/mbe/shell/
-            MasterEditorApp.ts
-            MasterEditorShell.ts
-            MasterNav.ts
-            MasterTooBar.ts
-            MasterResourcePanel.ts
-            Buttons.ts
-            Tab.ts
-            ...</code></pre><p>“备课大师”之前的主用户界面没有用 mbe_ui，是采用较为原始的方法开发的，详见：</p>
-<pre><code>src/editor-shell.xhtml
-src/mbe/shell/
-            EditorShell.ts
-            PageNavigator.ts
-            PropertyPanel.ts</code></pre><p>可以对比一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src&#x2F;master-editor.xhtml</span><br><span class="line">src&#x2F;mbe&#x2F;shell&#x2F;</span><br><span class="line">            MasterEditorApp.ts</span><br><span class="line">            MasterEditorShell.ts</span><br><span class="line">            MasterNav.ts</span><br><span class="line">            MasterTooBar.ts</span><br><span class="line">            MasterResourcePanel.ts</span><br><span class="line">            Buttons.ts</span><br><span class="line">            Tab.ts</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+<p>“备课大师”之前的主用户界面没有用 mbe_ui，是采用较为原始的方法开发的，详见：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src&#x2F;editor-shell.xhtml</span><br><span class="line">src&#x2F;mbe&#x2F;shell&#x2F;</span><br><span class="line">            EditorShell.ts</span><br><span class="line">            PageNavigator.ts</span><br><span class="line">            PropertyPanel.ts</span><br></pre></td></tr></table></figure>
+<p>可以对比一下。</p>
 <p>另外，mbe_ui 有单元测试，即 <code>test/domer.html</code> 文件，从这个文件里可以看到一些 mbe_ui.Domer 的用法。</p>
 <h2 id="使用-mbe-ui-的虚拟-DOM"><a href="#使用-mbe-ui-的虚拟-DOM" class="headerlink" title="使用 mbe_ui 的虚拟 DOM"></a>使用 mbe_ui 的虚拟 DOM</h2><h3 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h3><p>先举个虚拟元素的例子：</p>
-<pre><code>// 例1
-{
-  Name: &#39;section&#39;, // HTML 元素名
-  Kids: // 子节点
-  [
-    { Name: &#39;h1&#39;, Kids: [&#39;大标题...&#39;] },
-    {
-      Name: &#39;button&#39;,
-      &#39;.btn&#39;: true, // HTML class 属性
-      Kids:
-      [
-        { Name: &#39;img&#39;, src: &#39;image/icon1.png&#39; },
-        &#39;按钮1&#39; // 文本节点
-      ],
-      onclick: function(ev) { alert(&#39;clicked&#39;); }, // 事件监听器
-      &#39;@data-action&#39;: &#39;insert&#39;, // 普通属性 data-action
-      &#39;-font-family&#39;: &#39;heiti, sans-serif&#39; // CSS 属性 font-family
-    }
-  ]
-}；</code></pre><p>等效于</p>
-<pre><code>&lt;section&gt;
-  &lt;h1&gt;大标题...&lt;/h1&gt;
-  &lt;button class=&quot;btn&quot; onclick=&quot;alert(&#39;clicked&#39;)&quot; data-action=&quot;insert&quot;
-    style=&quot;font-family: heiti, sans-serif&quot;&gt;
-    &lt;img src=&quot;image/icon1.png&quot; /&gt;&#39;按钮1&#39;
-  &lt;/button&gt;
-&lt;/section&gt;</code></pre><p>mbe_ui 虚拟元素就是一个普通的 JS 对象，你可以用 JS 对象字面量的写法来创建。它的各种属性的意义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例1</span><br><span class="line">&#123;</span><br><span class="line">  Name: &#39;section&#39;, &#x2F;&#x2F; HTML 元素名</span><br><span class="line">  Kids: &#x2F;&#x2F; 子节点</span><br><span class="line">  [</span><br><span class="line">    &#123; Name: &#39;h1&#39;, Kids: [&#39;大标题...&#39;] &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      Name: &#39;button&#39;,</span><br><span class="line">      &#39;.btn&#39;: true, &#x2F;&#x2F; HTML class 属性</span><br><span class="line">      Kids:</span><br><span class="line">      [</span><br><span class="line">        &#123; Name: &#39;img&#39;, src: &#39;image&#x2F;icon1.png&#39; &#125;,</span><br><span class="line">        &#39;按钮1&#39; &#x2F;&#x2F; 文本节点</span><br><span class="line">      ],</span><br><span class="line">      onclick: function(ev) &#123; alert(&#39;clicked&#39;); &#125;, &#x2F;&#x2F; 事件监听器</span><br><span class="line">      &#39;@data-action&#39;: &#39;insert&#39;, &#x2F;&#x2F; 普通属性 data-action</span><br><span class="line">      &#39;-font-family&#39;: &#39;heiti, sans-serif&#39; &#x2F;&#x2F; CSS 属性 font-family</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<p>等效于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">  &lt;h1&gt;大标题...&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;button class&#x3D;&quot;btn&quot; onclick&#x3D;&quot;alert(&#39;clicked&#39;)&quot; data-action&#x3D;&quot;insert&quot;</span><br><span class="line">    style&#x3D;&quot;font-family: heiti, sans-serif&quot;&gt;</span><br><span class="line">    &lt;img src&#x3D;&quot;image&#x2F;icon1.png&quot; &#x2F;&gt;&#39;按钮1&#39;</span><br><span class="line">  &lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br></pre></td></tr></table></figure>
+
+<p>mbe_ui 虚拟元素就是一个普通的 JS 对象，你可以用 JS 对象字面量的写法来创建。它的各种属性的意义如下：</p>
 <ul>
 <li><p><code>Name</code>：元素名。HTML 元素名应一律用小写。如果忽略，则被认为是 div 元素；如果是”?” 并且“与已有的实际元素相同”，则使用实际元素的名字（这个在后面介绍），否则也认为是 “div”。<br>由于在界面实现中 div 用得很多，所以这是比较方便的。</p>
 </li>
@@ -591,34 +555,15 @@ src/mbe/shell/
 </ul>
 <p>从上面的例子可以看出，虚拟元素的写法很直观，不过代码比起对应的 HTML 的确不那么紧凑，这需要开发者适应一下。<br>不过比起手工拼接 HTML 字符串，或者使用模板引擎来说，还是方便了不少。</p>
 <h3 id="从虚拟元素生成实际元素"><a href="#从虚拟元素生成实际元素" class="headerlink" title="从虚拟元素生成实际元素"></a>从虚拟元素生成实际元素</h3><p>这需要用到 <code>mbe_ui.Domer</code> 类的 <code>render()</code> 方法：</p>
-<pre><code>// 例2
-var domer = new mbe_ui.Domer();
-var a = domer.render({ Name: &#39;a&#39;, href: &#39;http://www.w3.org&#39;, Kids: [&#39;W3C&#39;]});</code></pre><p>这样就创建了一个相当于 <code>&lt;a href=&#39;http://www.w3.org&#39;&gt;W3C&lt;/a&gt;</code> 的元素对象（<code>HTMLAnchorElement</code> 的实例）。不过这个元素是独立的，并未添加到当前文档树中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例2</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line">var a &#x3D; domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;]&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样就创建了一个相当于 <code>&lt;a href=&#39;http://www.w3.org&#39;&gt;W3C&lt;/a&gt;</code> 的元素对象（<code>HTMLAnchorElement</code> 的实例）。不过这个元素是独立的，并未添加到当前文档树中。</p>
 <p>如果要用虚拟元素更新已有的实际元素，就要用 2 参数版的<code>render()</code> 方法，第二个参数是实际元素。例如，我们要更新一个 <code>&lt;a&gt;</code> 元素，就可以：</p>
-<pre><code>// 例3
-var domer = new mbe_ui.Domer();
-var a = document.createElement(&#39;a&#39;);
-//此时 a 是 `&lt;a&gt;&lt;/a&gt;`;
-domer.render({ Name: &#39;a&#39;, href: &#39;http://www.w3.org&#39;, Kids: [&#39;W3C&#39;]}, a);
-//此时 a 是 `&lt;a href=&#39;http://www.w3.org&#39;&gt;W3C&lt;/a&gt;`</code></pre><p>注意，尽管这个 <code>&lt;a&gt;</code> 元素是新建的，并没有位于文档树中，但 <code>domer.render()</code> 也是可以作用于文档树中已有的元素的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例3</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line">var a &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a&gt;&lt;&#x2F;a&gt;&#96;;</span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;]&#125;, a);</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a href&#x3D;&#39;http:&#x2F;&#x2F;www.w3.org&#39;&gt;W3C&lt;&#x2F;a&gt;&#96;</span><br></pre></td></tr></table></figure>
+<p>注意，尽管这个 <code>&lt;a&gt;</code> 元素是新建的，并没有位于文档树中，但 <code>domer.render()</code> 也是可以作用于文档树中已有的元素的。</p>
 <p>如果用 <code>render()</code> 多次作用于同一个实际元素，那么在虚拟元素中以前出现过、后来没有出现的属性、子节点会被删除，例如：</p>
-<pre><code>// 例3
-var domer = new mbe_ui.Domer();
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例3</span><br><span class="line">var domer &#x3D; new mbe_ui.Domer();</span><br><span class="line"></span><br><span class="line">var a &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">a.href &#x3D; &#39;about:blank&#39;;</span><br><span class="line">a.textContent &#x3D; &#39;blank&#39;</span><br><span class="line">&#x2F;&#x2F;此时 a 是 &#96;&lt;a href&#x3D;&#39;about:blank&#39;&gt;blank&lt;&#x2F;a&gt;&#96;;</span><br><span class="line"></span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, &#39;@data-role&#39;: &#39;link&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;,</span><br><span class="line">  Kids: [&#39;W3C&#39;, &#123;Name: &#39;img&#39;, src: &#39;w3c.png&#39;&#125; ] &#125;,</span><br><span class="line">  a);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;现在 a 是 &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&quot; data-role&#x3D;&quot;link&quot;&gt;W3C&lt;img href&#x3D;&quot;w3c.png&quot; &#x2F;&gt;&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">domer.render(&#123; Name: &#39;a&#39;, href: &#39;http:&#x2F;&#x2F;www.w3.org&#39;, Kids: [&#39;W3C&#39;] &#125;, a);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;现在 a 是 &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&quot;&gt;W3C&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
 
-var a = document.createElement(&#39;a&#39;);
-a.href = &#39;about:blank&#39;;
-a.textContent = &#39;blank&#39;
-//此时 a 是 `&lt;a href=&#39;about:blank&#39;&gt;blank&lt;/a&gt;`;
-
-domer.render({ Name: &#39;a&#39;, &#39;@data-role&#39;: &#39;link&#39;, href: &#39;http://www.w3.org&#39;,
-  Kids: [&#39;W3C&#39;, {Name: &#39;img&#39;, src: &#39;w3c.png&#39;} ] },
-  a);
-
-//现在 a 是 &lt;a href=&quot;http://www.w3.org&quot; data-role=&quot;link&quot;&gt;W3C&lt;img href=&quot;w3c.png&quot; /&gt;&lt;/a&gt;
-
-domer.render({ Name: &#39;a&#39;, href: &#39;http://www.w3.org&#39;, Kids: [&#39;W3C&#39;] }, a);
-
-//现在 a 是 &lt;a href=&quot;http://www.w3.org&quot;&gt;W3C&lt;/a&gt;</code></pre><p>也就是说，第二次调用 render() 时，没有再出现的 <code>data-role</code> 属性和 <code>&lt;img&gt;</code> 子元素都被删除了。<br>这是 mbe_ui.Domer 的一个重要特性，只有这样，才能保证虚拟元素和实际元素的一致性。</p>
+<p>也就是说，第二次调用 render() 时，没有再出现的 <code>data-role</code> 属性和 <code>&lt;img&gt;</code> 子元素都被删除了。<br>这是 mbe_ui.Domer 的一个重要特性，只有这样，才能保证虚拟元素和实际元素的一致性。</p>
 <p>mbe_ui.Domer 尽量保持局部更新。在这个例子中，<code>a</code> 元素本身没有被替换，文本节点 ‘W3C’ 和属性 <code>href</code> 也没有被修改。</p>
 <h3 id="重用子节点的规则"><a href="#重用子节点的规则" class="headerlink" title="重用子节点的规则"></a>重用子节点的规则</h3><p>在使用 <code>render(virtualElem: VElement, realElem?: Element): Element</code> 方法时，如果提供了真实元素（<code>realElem</code>），则渲染时会尽可能的重用它及其子节点。目前的重用/新建规则是：如果节点类型、名字和位置都相同，<br>则重用，否则就新建一个，并替换真实元素。如果虚拟元素的 Name 是 “?”，则认为总是与对应的真实元素的名字相同；如果没有对应的真实元素，则创建一个 div 元素。</p>
 <p>这个重用规则尽可能的减小了更新 DOM 的范围，提高了性能，并减小了失去滚动条位置、焦点、选区的可能性。</p>
@@ -629,37 +574,9 @@ domer.render({ Name: &#39;a&#39;, href: &#39;http://www.w3.org&#39;, Kids: [&#39
 <li><code>mbe_ui.UIDomer</code>：用于渲染界面组件的 Domer。它是 mbe_ui.Domer 的子类。</li>
 </ul>
 <p>先举一个例子：</p>
-<pre><code>// 假定已经导入了 mbe_ui.Component 和 mbe_ui.UIDomer。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 假定已经导入了 mbe_ui.Component 和 mbe_ui.UIDomer。</span><br><span class="line"></span><br><span class="line">class NumInput extends Component &#123; &#x2F;&#x2F; 组件都继承 Component 类</span><br><span class="line">  value &#x3D; 0; &#x2F;&#x2F; 组件实例的一个可变的状态</span><br><span class="line">  getView(): VElement &#123; &#x2F;&#x2F; getView() 应当返回表现当前状态的界面的“展开”后的虚拟元素。此方法由 UIDomer 适时调用。</span><br><span class="line">    var view &#x3D; &lt;VElement&gt;&#123;</span><br><span class="line">      &#x2F;&#x2F; 因为 NumInput 省略了 Name 属性，因此采用默认的元素名 div。</span><br><span class="line">      Kids: [</span><br><span class="line">        &#123;Name: &#39;span&#39;, Kids: [&#39;&#39; + this.value]&#125;, &#x2F;&#x2F; 让当前 value 值展现在 span 中</span><br><span class="line">        &#x2F;&#x2F; 绑定 click 事件到 NumInput::onclick() 方法</span><br><span class="line">        &#123;Name: &#39;button&#39;, onclick: this.onclick.bind(this), Kids: [&#39;increase&#39;]&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;;</span><br><span class="line">    return view;</span><br><span class="line">  &#125;</span><br><span class="line">  onclick(ev: MouseEvent) &#123;</span><br><span class="line">    this.value++; &#x2F;&#x2F; 更新本组件实例的状态</span><br><span class="line">    &#x2F;&#x2F; this.settings 属性是本组件实例的“展开”前的虚拟元素，即 &#123; Class: NumInput, onValueChange: function() &#123;...&#125;&#125; 那个对象。</span><br><span class="line">    if (this.settings[&#39;onValueChange&#39;])</span><br><span class="line">      this.settings[&#39;onValueChange&#39;].call(this); &#x2F;&#x2F; 调用 onValueChange 回调。</span><br><span class="line">    this.updateLater(); &#x2F;&#x2F; 请求 UIDomer 稍后更新界面（即将 geView() 得到的虚拟元素 render() 到对应的真实元素）。</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var uidomer &#x3D; new UIDomer();</span><br><span class="line">var vElement &#x3D; &#123;</span><br><span class="line">  Class: NumInput, &#x2F;&#x2F; Class 是 mbe_ui 组件框架定义的特殊属性，表示这个元素不是普通元素，而是对应一个 NumInput 组件。</span><br><span class="line">  onValueChange: function() &#123; alert(&#39;current value: &#39; + this.value)&#125; &#x2F;&#x2F; 从 NumInput 组件接收 onValueChange 的通知。</span><br><span class="line">&#125;;</span><br><span class="line">var rElement &#x3D; uidomer.render(vElement);</span><br><span class="line">document.body.appendChild(rElement);</span><br></pre></td></tr></table></figure>
 
-class NumInput extends Component { // 组件都继承 Component 类
-  value = 0; // 组件实例的一个可变的状态
-  getView(): VElement { // getView() 应当返回表现当前状态的界面的“展开”后的虚拟元素。此方法由 UIDomer 适时调用。
-    var view = &lt;VElement&gt;{
-      // 因为 NumInput 省略了 Name 属性，因此采用默认的元素名 div。
-      Kids: [
-        {Name: &#39;span&#39;, Kids: [&#39;&#39; + this.value]}, // 让当前 value 值展现在 span 中
-        // 绑定 click 事件到 NumInput::onclick() 方法
-        {Name: &#39;button&#39;, onclick: this.onclick.bind(this), Kids: [&#39;increase&#39;]}
-      ]
-    };
-    return view;
-  }
-  onclick(ev: MouseEvent) {
-    this.value++; // 更新本组件实例的状态
-    // this.settings 属性是本组件实例的“展开”前的虚拟元素，即 { Class: NumInput, onValueChange: function() {...}} 那个对象。
-    if (this.settings[&#39;onValueChange&#39;])
-      this.settings[&#39;onValueChange&#39;].call(this); // 调用 onValueChange 回调。
-    this.updateLater(); // 请求 UIDomer 稍后更新界面（即将 geView() 得到的虚拟元素 render() 到对应的真实元素）。
-  }
-}
-
-var uidomer = new UIDomer();
-var vElement = {
-  Class: NumInput, // Class 是 mbe_ui 组件框架定义的特殊属性，表示这个元素不是普通元素，而是对应一个 NumInput 组件。
-  onValueChange: function() { alert(&#39;current value: &#39; + this.value)} // 从 NumInput 组件接收 onValueChange 的通知。
-};
-var rElement = uidomer.render(vElement);
-document.body.appendChild(rElement);</code></pre><p>这里 <code>NumInput</code> 实现了一个文本（<code>span</code>）和按钮（<code>button</code>）的组合组件，点击按钮时，文本上的数字会增加1，并通过 <code>onValueChange</code> 回调报告值的改变。</p>
+<p>这里 <code>NumInput</code> 实现了一个文本（<code>span</code>）和按钮（<code>button</code>）的组合组件，点击按钮时，文本上的数字会增加1，并通过 <code>onValueChange</code> 回调报告值的改变。</p>
 <h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p>mbe_ui 组件框架的基本工作方式是“展开”。<code>uidomer.render(vElement)</code> 的流程大致如下：</p>
 <ol>
 <li><p>如果 <code>vElement.Class</code> 存在：</p>
@@ -675,16 +592,11 @@ document.body.appendChild(rElement);</code></pre><p>这里 <code>NumInput</code>
 </li>
 </ol>
 <p>在前面的例子中，1.2 步的 <code>component.settings</code> 和 <code>vElement</code> 是</p>
-<pre><code>{
-  Class: NumInput,
-  onValueChange: function() {...}
-}</code></pre><p>1.3 步的 <code>vElement</code> （展开后）则是</p>
-<pre><code>{
-  Kids: [
-    {Name: &#39;span&#39;, Kids: [...]},
-    {Name: &#39;button&#39;, Kids: [&#39;increase&#39;], onclick: NumInput::onclick }
-  ]
-}</code></pre><p>其它一些要点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Class: NumInput,</span><br><span class="line">  onValueChange: function() &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.3 步的 <code>vElement</code> （展开后）则是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Kids: [</span><br><span class="line">    &#123;Name: &#39;span&#39;, Kids: [...]&#125;,</span><br><span class="line">    &#123;Name: &#39;button&#39;, Kids: [&#39;increase&#39;], onclick: NumInput::onclick &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其它一些要点：</p>
 <ul>
 <li><p>组件是可以嵌套的。在一个组件的 <code>getView()</code> 方法返回的虚拟元素中，可以在其子节点中使用其他的组件，<code>UIDomer</code> 会自动地层层展开，<br>从而得到最终的虚拟 DOM 树和真实 DOM 树。</p>
 </li>
@@ -694,72 +606,21 @@ document.body.appendChild(rElement);</code></pre><p>这里 <code>NumInput</code>
 </li>
 </ul>
 <h3 id="虚拟元素接口"><a href="#虚拟元素接口" class="headerlink" title="虚拟元素接口"></a>虚拟元素接口</h3><p>虚拟元素的正式定义如下：</p>
-<pre><code>interface VElement {
-  /**
-   * 元素（本地）名，对 html 元素一定是小写，如&#39;div&#39;。省略时，采用相应实际元素的元素名；如果没有对应实际元素，
-   * 则认为是 &#39;div&#39;。
-   */
-  Name?: string;
-  /**
-   * 子节点。string 表示文本节点。
-   */
-  Kids?: Array&lt;VElement | string&gt;;
-  /**
-   * 本元素对应的组件的类。对自定义组件，用户应指定这个属性。
-   */
-  Class?: new() =&gt; mbe_ui.Component;
-  /**
-   * 本元素对应的组件的实例。用户无需指定此属性，它由 UIDomer 生成。
-   */
-  Component?: mbe_ui.Component;
-}</code></pre><h3 id="Component-类"><a href="#Component-类" class="headerlink" title="Component 类"></a>Component 类</h3><p>界面组件要继承 Component 类，并且至少要覆盖 getView() 方法来返回自己的界面表示。其他的一些重要的属性和方法如下：</p>
-<pre><code>class Component {
-  /**
-   * 对应的 html 元素。Component 不应直接修改它，只有 UIDomer 可以修改它。
-   */
-  element: Element;
-  /**
-   * 从上层传入的设定（展开前的虚拟元素）。Component 不应修改它，只有 UIDomer 可以修改它。
-   */
-  settings: VElement;
-  /**
-   * 子类应当覆盖。返回表现当前组件的视图。在每次要将本组件渲染到真实 DOM 前调用。
-   */
-  getView(): VElement;
-  /**
-   * 重新渲染本 Component。通常在更新了本组件的状态后调用此方法重新渲染界面。
-   * 这个方法是同步的，会立即修改 DOM。为了减少开销，一般应尽可能用 updateLater() 代替此方法。
-   */
-  update(): void;
-  /**
-   * 请求稍后异步地（通过 requestAnimationFrame）重新渲染本 Component。
-   * 通常在更新了本组件的状态后调用此方法重新渲染界面。
-   * 如果在一组操作中可能重复调用 update()，则用这个方法代替可以减少不必要的重复渲染，提高性能。
-   */
-  updateLater(): void;
-  /**
-   * 回调，子类可覆盖。当本组件创建并关联到 html 元素后调用，此时 element 属性可用。
-   */
-  onAttached(): void;
-  /**
-   * 回调，子类可覆盖。当本组件渲染到 html 元素（不论是否新建）后调用。如果是新建的 html 元素，则在 onAttached() 之后调用。
-   */
-  onRendered(): void;
-  /**
-   * 回调，子类可覆盖。当本组件即将与关联的 html 元素分离，或本组件关联的 html 元素即将被删除时调用。
-   */
-  onBeforeRemove(): void;
-}</code></pre><p>一些要点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">interface VElement &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 元素（本地）名，对 html 元素一定是小写，如&#39;div&#39;。省略时，采用相应实际元素的元素名；如果没有对应实际元素，</span><br><span class="line">   * 则认为是 &#39;div&#39;。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Name?: string;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 子节点。string 表示文本节点。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Kids?: Array&lt;VElement | string&gt;;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 本元素对应的组件的类。对自定义组件，用户应指定这个属性。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Class?: new() &#x3D;&gt; mbe_ui.Component;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 本元素对应的组件的实例。用户无需指定此属性，它由 UIDomer 生成。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  Component?: mbe_ui.Component;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Component-类"><a href="#Component-类" class="headerlink" title="Component 类"></a>Component 类</h3><p>界面组件要继承 Component 类，并且至少要覆盖 getView() 方法来返回自己的界面表示。其他的一些重要的属性和方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Component &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 对应的 html 元素。Component 不应直接修改它，只有 UIDomer 可以修改它。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  element: Element;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 从上层传入的设定（展开前的虚拟元素）。Component 不应修改它，只有 UIDomer 可以修改它。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  settings: VElement;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 子类应当覆盖。返回表现当前组件的视图。在每次要将本组件渲染到真实 DOM 前调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getView(): VElement;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 重新渲染本 Component。通常在更新了本组件的状态后调用此方法重新渲染界面。</span><br><span class="line">   * 这个方法是同步的，会立即修改 DOM。为了减少开销，一般应尽可能用 updateLater() 代替此方法。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  update(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 请求稍后异步地（通过 requestAnimationFrame）重新渲染本 Component。</span><br><span class="line">   * 通常在更新了本组件的状态后调用此方法重新渲染界面。</span><br><span class="line">   * 如果在一组操作中可能重复调用 update()，则用这个方法代替可以减少不必要的重复渲染，提高性能。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  updateLater(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件创建并关联到 html 元素后调用，此时 element 属性可用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onAttached(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件渲染到 html 元素（不论是否新建）后调用。如果是新建的 html 元素，则在 onAttached() 之后调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onRendered(): void;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 回调，子类可覆盖。当本组件即将与关联的 html 元素分离，或本组件关联的 html 元素即将被删除时调用。</span><br><span class="line">   *&#x2F;</span><br><span class="line">  onBeforeRemove(): void;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一些要点：</p>
 <ul>
 <li><p><code>update()</code> 和 <code>updateLater()</code> 会调用 <code>uidomer.render(this.settings, this.element)</code> 来更新 <code>this.element</code>。<br><code>render()</code> 则会调用 <code>this.getView()</code> 获得当前的视图形态。这两个方法对于刷新个别组件的视图是很有用的。</p>
 </li>
 <li><p>mbe_ui 并没有类似 React 组件的 refs 属性的机制来访问子组件。我们建议的做法是：给需要从父组件访问的子组件的元素以特定的 <code>id</code> 或 <code>class</code>，<br>然后用<code>this.element.querySelector(...).Component</code> 来得到子组件。</p>
 </li>
 </ul>
-<h3 id="对真实元素-Element-接口的扩展"><a href="#对真实元素-Element-接口的扩展" class="headerlink" title="对真实元素 Element 接口的扩展"></a>对真实元素 Element 接口的扩展</h3><pre><code>interface Element {
-  Class?: new() =&gt; mbe_ui.Component;
-  Component?: mbe_ui.Component;
-}</code></pre><p>UIDomer 在渲染出组件对应的真实元素后，会把相应的组件类和组件实例分别赋值给<code>Class</code>和<code>Component</code>属性。<br>后者尤其有用，因为可以通过真实元素访问到组件的实例，并调用其方法和属性（最常用的可能是<code>updateLater()</code>）。</p>
+<h3 id="对真实元素-Element-接口的扩展"><a href="#对真实元素-Element-接口的扩展" class="headerlink" title="对真实元素 Element 接口的扩展"></a>对真实元素 Element 接口的扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface Element &#123;</span><br><span class="line">  Class?: new() &#x3D;&gt; mbe_ui.Component;</span><br><span class="line">  Component?: mbe_ui.Component;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UIDomer 在渲染出组件对应的真实元素后，会把相应的组件类和组件实例分别赋值给<code>Class</code>和<code>Component</code>属性。<br>后者尤其有用，因为可以通过真实元素访问到组件的实例，并调用其方法和属性（最常用的可能是<code>updateLater()</code>）。</p>
 <p>此处 <code>Class</code> 和 <code>Component</code> 首字母大写的原因与也是为了避免与 WebIDL 属性发生冲突。</p>
 <h3 id="mbe-ui-组件的设计思想"><a href="#mbe-ui-组件的设计思想" class="headerlink" title="mbe_ui 组件的设计思想"></a>mbe_ui 组件的设计思想</h3><p>mbe_ui 强烈鼓励组件采用“单向数据流动”的设计模式，这也是 React 采用的模式。其特点是：</p>
 <ul>
@@ -776,26 +637,13 @@ document.body.appendChild(rElement);</code></pre><p>这里 <code>NumInput</code>
 </ul>
 <p>注意此处“事件名”没有 “on” 前缀，应为 “click” 而不是 “onclick”。</p>
 <p>例子：</p>
-<pre><code>var view = {
-  Name: &#39;button&#39;,
-  &#39;!pointerdown&#39;: [
-    function(ev): { console.log(&#39;pointerdown1&#39;);},
-    function(ev): { console.log(&#39;pointerdown2&#39;);}
-  ],
-  &#39;*pointerdown&#39;: function(ev): { console.log(&#39;pointerdown3&#39;);},
-}</code></pre><p>这个例子中，<code>pointerdown</code> 是个<a href="https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html" target="_blank" rel="noopener">指针事件</a>。因为尚未被浏览器广泛支持，所以我们只能用自定义事件来模拟它。在捕获阶段我们添加了两个监听函数，冒泡阶段添加了一个监听函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var view &#x3D; &#123;</span><br><span class="line">  Name: &#39;button&#39;,</span><br><span class="line">  &#39;!pointerdown&#39;: [</span><br><span class="line">    function(ev): &#123; console.log(&#39;pointerdown1&#39;);&#125;,</span><br><span class="line">    function(ev): &#123; console.log(&#39;pointerdown2&#39;);&#125;</span><br><span class="line">  ],</span><br><span class="line">  &#39;*pointerdown&#39;: function(ev): &#123; console.log(&#39;pointerdown3&#39;);&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个例子中，<code>pointerdown</code> 是个<a href="https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html" target="_blank" rel="noopener">指针事件</a>。因为尚未被浏览器广泛支持，所以我们只能用自定义事件来模拟它。在捕获阶段我们添加了两个监听函数，冒泡阶段添加了一个监听函数。</p>
 <p>比起直接使用 <code>Element::addEventListender()/removeEventListender()</code>，mbe_ui 的高级事件监听器有一个很好的特性：能确保监听器函数在不需要时总是能被删除——只要下一次渲染时提供的监听器函数与上一次的不是同一对象，<br>那么上一次提供的监听器函数函数就会被删除，因此可以“无忧使用”。相比之下，调用<code>removeEventListender()</code>时传入的函数与调用<br><code>addEventListender()</code> 时传入的函数必须是同一对象才行。</p>
 <h3 id="SVG-MathML-和命名空间"><a href="#SVG-MathML-和命名空间" class="headerlink" title="SVG, MathML 和命名空间"></a>SVG, MathML 和命名空间</h3><p>在 mbe_ui 的虚拟元素中也可以使用 SVG 和 MathML 元素名，例如</p>
-<pre><code>var ve =
-  {
-    Name: &#39;div&#39;, // HTML 元素
-    Kids:
-    [
-      {Name: &#39;span&#39;}, // HTML 元素
-      {Name: &#39;svg&#39;, Kids: [{Name: &#39;line&#39;}]}, // SVG 元素
-      {Name: &#39;math&#39;, Kids: [{Name:&#39;mn&#39;, Kids: [&#39;2&#39;]}]} // MathML 元素
-    ]
-  };</code></pre><p>我们知道，如果文档的类型是 XHTML 时，创建元素时要指定命名空间，尤其是不在 XHTML 命名空间中的 SVG 和 MathML 元素。<br>mbe_ui.Domer 在大多数情况下可以自动推断出合适的命名空间，让 svg 及其子元素采用 SVG 命名空间，让 math 及其子元素采用 MathML 命名空间。<br>不过，用户必须保证 SVG 元素都在 <code>&lt;svg&gt;</code> 之下， MathML 元素都在 <code>&lt;math&gt;</code> 之下，并且不带前缀，否则就无法自动推断了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var ve &#x3D;</span><br><span class="line">  &#123;</span><br><span class="line">    Name: &#39;div&#39;, &#x2F;&#x2F; HTML 元素</span><br><span class="line">    Kids:</span><br><span class="line">    [</span><br><span class="line">      &#123;Name: &#39;span&#39;&#125;, &#x2F;&#x2F; HTML 元素</span><br><span class="line">      &#123;Name: &#39;svg&#39;, Kids: [&#123;Name: &#39;line&#39;&#125;]&#125;, &#x2F;&#x2F; SVG 元素</span><br><span class="line">      &#123;Name: &#39;math&#39;, Kids: [&#123;Name:&#39;mn&#39;, Kids: [&#39;2&#39;]&#125;]&#125; &#x2F;&#x2F; MathML 元素</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们知道，如果文档的类型是 XHTML 时，创建元素时要指定命名空间，尤其是不在 XHTML 命名空间中的 SVG 和 MathML 元素。<br>mbe_ui.Domer 在大多数情况下可以自动推断出合适的命名空间，让 svg 及其子元素采用 SVG 命名空间，让 math 及其子元素采用 MathML 命名空间。<br>不过，用户必须保证 SVG 元素都在 <code>&lt;svg&gt;</code> 之下， MathML 元素都在 <code>&lt;math&gt;</code> 之下，并且不带前缀，否则就无法自动推断了。</p>
 <p>当 mbe_ui.Domer 的自动命名空间推断无法满足要求时，用户可以提供自定义的命名空间推断方法给它，即替换或覆盖<br><code>Domer::inferNamespace(tagName: string): string</code> 方法。参数是虚拟元素的 Name，返回值是命名空间。</p>
 <h3 id="className，-class-和-someClass-属性，style，-style-和-some-style-属性"><a href="#className，-class-和-someClass-属性，style，-style-和-some-style-属性" class="headerlink" title="className，@class 和 .someClass 属性，style，@style 和 -some-style 属性"></a><code>className</code>，<code>@class</code> 和 <code>.someClass</code> 属性，<code>style</code>，<code>@style</code> 和 <code>-some-style</code> 属性</h3><p>在 mbe_ui 中，使用 <code>{ className: &#39;a b&#39;}</code>，<code>{ &#39;@class&#39;: &#39;a b&#39;}</code>与 <code>{ &#39;.a&#39;: true, &#39;.b&#39;: true }</code> 大体上是等效的。在底层，它们分别利用<br><code>Element::className</code>，<code>Element::setAttribute(&#39;class&#39;, ...)</code> 和 <code>Element::classList</code> 来实现。那么如何选择呢？</p>
 <ul>
