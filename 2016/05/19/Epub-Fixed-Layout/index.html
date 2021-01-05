@@ -476,20 +476,20 @@
 <ul>
 <li>例子<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en" unique-identifier="pub-id" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
 
-</li>
+</package></li>
 </ul>
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
   ...
-    <meta property="rendition:layout">pre-paginated</meta>
-    <meta property="rendition:orientation">landscape</meta>
-    <meta property="rendition:spread">none</meta>
+    <meta property="rendition:layout">pre-paginated
+    <meta property="rendition:orientation">landscape
+    <meta property="rendition:spread">none
 </metadata>
 
 <p>…</p>
 <spine page-progression-direction="ltr">
-    <itemref idref="cover" linear="yes" properties="rendition:page-spread-center"/>
+    <itemref idref="cover" linear="yes" properties="rendition:page-spread-center">
     ...
-</spine>
+</itemref></spine>
 
 <p>根元素 package 的 prefix 属性定义了命名空间前缀rendition，不过这个不是xml命名空间，而是用于meta property、item properties、itemref properties等属性的值的。</p>
 <p>rendition的意思是翻译，但这里的意思更接近“版本”。</p>
@@ -513,14 +513,12 @@
 <ul>
 <li><p>XHTML<br>使用meta viewport，单位是CSS像素。</p>
 <head>
-  <meta name="viewport" content="width=1200, height=600"/>
+  <meta name="viewport" content="width=1200, height=600">
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="HKBlog" type="application/atom+xml">
 </head>
 </li>
-<li><p>SVG<br>使用viewBox属性，单位还是CSS像素。<br><svg xmlns="http://www.w3.org/2000/svg"
-  version="1.1" width="100%" height="100%"
-  viewBox="0 0 844 1200"><br>  …</p>
-</svg>
+<li><p>SVG<br>使用viewBox属性，单位还是CSS像素。<br><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewbox="0 0 844 1200"><br/>  …</svg></p>
+
 </li>
 <li><p>位图<br>把图像的物理像素当成CSS像素，作为视口尺寸。</p>
 </li>

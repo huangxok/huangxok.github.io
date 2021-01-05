@@ -487,7 +487,7 @@
 <p>*** 说明<br>** OPF文件包括的部分<br>  元数据 metadata<br>  文件清单 manifest<br>  书脊 spine：一个顶层的内容内容文件的序列，定义了阅读顺序<br>  以上子元素必须按如上顺序排列。</p>
 <p>  Fallback chains — an optional means for Publications to define an ordered list of top-level resources that can be considered content equivalents that a Reading System can choose between for rendering.</p>
 <p>** metadata<br>最小示例：</p>
-<p>&lt;package … unique-identifier=”pub-id”&gt;<br>    …<br>    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><br>        &lt;dc:identifier id=”pub-id”&gt;urn:uuid:A1B0D67E-2E81-4DF5-9E67-A64CBE366809</dc:identifier><br>        <a href="dc:title">dc:title</a>Norwegian Wood</dc:title><br>        <a href="dc:language">dc:language</a>en</dc:language><br>        <meta property="dcterms:modified">2011-01-01T12:00:00Z</meta><br>    </metadata><br>    …<br></package></p>
+<p>&lt;package … unique-identifier=”pub-id”&gt;<br>    …<br>    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><br>        &lt;dc:identifier id=”pub-id”&gt;urn:uuid:A1B0D67E-2E81-4DF5-9E67-A64CBE366809<br>        <a href="dc:title">dc:title</a>Norwegian Wood<br>        <a href="dc:language">dc:language</a>en<br>        <meta property="dcterms:modified">2011-01-01T12:00:00Z<br>    </metadata><br>    …<br></p>
 <p>** manifest<br>  manifest包含多个item子元素。<br>  manifest必须是本epub所使用的资源的完整清单。【不过，如果epub使用一些web服务，或者内嵌远程页面，则这要求难以满足】</p>
 <ul>
 <li><p>item<br>Attributes</p>

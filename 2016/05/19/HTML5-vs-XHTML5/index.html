@@ -476,14 +476,14 @@
 <p>** mime<br>text/html 和 application/xml or application/xhtml+xml<br>根据HTML5，如果给定 mime是text/html，那么解析模式就不是 xhtml。</p>
 <p>对于本地x5文件，可以给予扩展名 xhtml，这样浏览器会以 xhtml 模式加载。</p>
 <p>** doctype<br> DOCTYPE 对x5是可选的，h5则用来触发正常解析模式。<br> 给出 <!DOCTYPE html> 可以兼容h5和x5。</p>
-<p>** 字符编码<br> h5 忽略（或者不允许使用） xml 声明（<?xml encoding="..."?>），而x5会忽略 <meta charset="..." />（而且只允许值为UTF-8），因此没有两者通用的字符编码指定方法。<br> 相对可行的方法是：文档采用UTF-8编码，给出 meta charset，但是不给出 xml 声明。这样，xml解析器仍可自动识别编码。</p>
+<p>** 字符编码<br> h5 忽略（或者不允许使用） xml 声明（<?xml encoding="..."?>），而x5会忽略 <meta charset="...">（而且只允许值为UTF-8），因此没有两者通用的字符编码指定方法。<br> 相对可行的方法是：文档采用UTF-8编码，给出 meta charset，但是不给出 xml 声明。这样，xml解析器仍可自动识别编码。</p>
 <p>** 命名空间<br> h5 可以被认为不支持命名空间。<br> h5 中的内置元素的命名空间是隐式的，即 html、svg、mathml元素及其子元素分别在 xhtml、svg、mathml 命名空间中，外部元素不能声明自己的命名空间。<br> h5 允许内置元素使用xmlns属性，但是不能使用前缀，xmlns属性也不起任何作用。<br> x5 中，html、svg、mathml元素都必须给予恰当的命名空间：<br>   <a href="http://www.w3.org/1999/xhtml" target="_blank" rel="noopener">http://www.w3.org/1999/xhtml</a><br>   <a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a><br>   <a href="http://www.w3.org/1998/Math/MathML" target="_blank" rel="noopener">http://www.w3.org/1998/Math/MathML</a></p>
 <p> 为了兼容 h5和x5，应对html、svg、mathml元素声明命名空间，但不要使用前缀。</p>
 <p>** XML attributes<br>  x5中，有xml:前缀的属性，如 xml:id, xml:base, xml:lang 和 xml:space<br>  不需要声明命名空间，强制的命名空间是 <a href="http://www.w3.org/XML/1998/namespace，前缀也只能是" target="_blank" rel="noopener">http://www.w3.org/XML/1998/namespace，前缀也只能是</a> xml。<br>  h5中，html元素也可以使用 xml:lang，不过没什么效果。其它元素则可以自由使用所有 xml 属性。</p>
 <p>  为了兼容，html元素上应同时使用lang和xml:lang属性，如果需要的话；但不要在html元素上使用其它xml 属性。</p>
 <p>** 属性<br>  x5中属性名都是小写的，h5则不区分大小写，为了兼容应全部小写。<br>  不属于html词汇表的属性仍会包含在DOM中，不过为了避免冲突，建议使用data-属性。<br>  x5属性值中的空白会被正规化，h5则不会，因此不要依赖这个特性。</p>
-<p>** 必空（Void）与非必空（Non-void）元素<br>  h5 中，必空元素是指不能有内容的元素，它们不能写成开始标记紧跟结束标记的形式，只能写成仅有开始标记或自封闭标记的形式。<br>  例如<br>或<br/>不能写成<br></br>，否则h5解析器认为</br>是另一个<br>。<br>  x5 没有这个概念，<br/> 等效于 <br></br>，但是，仅有开始标记是不允许的。<br>  必空元素包括：base, link, meta, area, br, col, embed, hr, img, input, param。</p>
-<p>  h5 中，非必空元素是指可能有内容的元素，它们不能写成自封闭的形式。例如 <script></script>不能写成<script/>，否则该元素整个被忽略。<br>  x5 同样没有这个概念，没有内容的元素总是可以写成自封闭形式。</p>
+<p>** 必空（Void）与非必空（Non-void）元素<br>  h5 中，必空元素是指不能有内容的元素，它们不能写成开始标记紧跟结束标记的形式，只能写成仅有开始标记或自封闭标记的形式。<br>  例如<br>或<br>不能写成<br><br>，否则h5解析器认为<br>是另一个<br>。<br>  x5 没有这个概念，<br> 等效于 <br><br>，但是，仅有开始标记是不允许的。<br>  必空元素包括：base, link, meta, area, br, col, embed, hr, img, input, param。</p>
+<p>  h5 中，非必空元素是指可能有内容的元素，它们不能写成自封闭的形式。例如 <script></script>不能写成<script>，否则该元素整个被忽略。<br>  x5 同样没有这个概念，没有内容的元素总是可以写成自封闭形式。</p>
 <p>  为了兼容，必空元素应写成自封闭形式，非必空元素一定不要写成自封闭形式。</p>
 <p>** 可省略结束标记的元素和可省略的元素<br>  在h5中，某些元素允许省略结束标签或两个标签。</p>
 <pre><code>html (两个)
@@ -520,7 +520,7 @@ th (结束标签)</code></pre><p>  在 x5中，以上都不可省略。</p>
 <li><p>格式转换<br>在浏览器中将 h5 和 x5 文档或片段相互转换的方法是使用 Document.importNode/adoptNode 方法，详见：javascript_note_document_creation_parsing_serialization.txt</p>
 </li>
 </ul>
-
+</script></p>
             </div>
             <hr/>
 

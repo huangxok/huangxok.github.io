@@ -467,10 +467,10 @@
 <p>一个是官方网站上下载的.msi安装包，一个是通过npm install -g typescript安装的版本。</p>
 </li>
 <li><p>多文件编译及合并</p>
-<p>ts文件之间可以声明静态依赖关系，只要在文件头部给出引用的文件：<br>///<reference path='../core/UndoManager.ts'/><br>tsc可以自动寻找和编译依赖的文件，所以编译时可以只传入一个“根”ts文件，只要从这个文件出发能找到所有需要的文件。<br>要小心的是，如果这个引用声明中有任何语法错误，例如引号未闭合、少了结尾的’/‘等，编译器会悄悄的忽略这一行，从而产生难以理解的编译错误（也许是个bug）。<br>如果文件找不到，则编译器能给出正确的提示。<br>虽然一些js文件可以不加修改地作为ts文件编译，但是如果扩展名不改为.ts，则编译器会报错（也许是个bug）。</p>
+<p>ts文件之间可以声明静态依赖关系，只要在文件头部给出引用的文件：<br>///<reference path="../core/UndoManager.ts"><br>tsc可以自动寻找和编译依赖的文件，所以编译时可以只传入一个“根”ts文件，只要从这个文件出发能找到所有需要的文件。<br>要小心的是，如果这个引用声明中有任何语法错误，例如引号未闭合、少了结尾的’/‘等，编译器会悄悄的忽略这一行，从而产生难以理解的编译错误（也许是个bug）。<br>如果文件找不到，则编译器能给出正确的提示。<br>虽然一些js文件可以不加修改地作为ts文件编译，但是如果扩展名不改为.ts，则编译器会报错（也许是个bug）。</reference></p>
 </li>
 <li><p>监视文件修改（参考[21]）</p>
-<p>-watch 或 -w <file></p>
+<p>-watch 或 -w <file></file></p>
 <p>注意只有npm版本支持此选项。如果windows安装了两个版本，则要从path环境变量中把msi版本的tsc排除掉。</p>
 <p>当使用此选项时，tsc将不会退出。所以它只应该在调试的时候使用。</p>
 <p>另一个办法是利用grunt的监视功能。参考”用grunt编译“。</p>
@@ -594,7 +594,7 @@ stderr: true</code></pre><p>  }<br>},<br>watch: {<br>  files: ‘src/<em>*/</em>
 <li><p>接口之间的继承<br>接口可以继承接口，用extends关键字，与Java相同。</p>
 </li>
 </ul>
-<h3 id="强制类型转换（type-assertion）"><a href="#强制类型转换（type-assertion）" class="headerlink" title="强制类型转换（type assertion）"></a>强制类型转换（type assertion）</h3><p>语法：<br><type> expression<br>也就是将Java/C#中的圆括号改为尖括号。</p>
+<h3 id="强制类型转换（type-assertion）"><a href="#强制类型转换（type-assertion）" class="headerlink" title="强制类型转换（type assertion）"></a>强制类型转换（type assertion）</h3><p>语法：<br><type> expression<br>也就是将Java/C#中的圆括号改为尖括号。</type></p>
 <h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>对应js的模块模式。</p>
 <ul>
 <li>内部模块</li>

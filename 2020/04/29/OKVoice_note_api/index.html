@@ -475,13 +475,13 @@
 </li>
 <li><p>API验证机制</p>
 <ol>
-<li><p>signature=HMAC-SHA1(arg1=v1&amp;arg2=v2)<br>  生成签名字符串<br>  首先，对整个请求参数列表中的参数按照参数名字典序进行排序。(说明:按参数的字母排序)<br>  其次，把所有参数对以’&amp;’字符连接起来，最终形成待签名字符串。<br>关于参数的签名字符串组装问题:<br>如:apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018&amp;format=MP3<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊</py><br>&amp;voice=cnfemale<br>  上面的便是一个参数完整的待签名字符串。<br>参数说明如下</p>
+<li><p>signature=HMAC-SHA1(arg1=v1&amp;arg2=v2)<br>  生成签名字符串<br>  首先，对整个请求参数列表中的参数按照参数名字典序进行排序。(说明:按参数的字母排序)<br>  其次，把所有参数对以’&amp;’字符连接起来，最终形成待签名字符串。<br>关于参数的签名字符串组装问题:<br>如:apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018&amp;format=MP3<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊<br>&amp;voice=cnfemale<br>  上面的便是一个参数完整的待签名字符串。<br>参数说明如下</p>
 <ul>
 <li>apiKey : 为app的KEY，即apiKey                        </li>
 <li>expires: 为过期时间:可以这样处理 Date.now().slice(0,-3)取到当前时间的秒数 然后加上一定的时间 Date.now().slice(0,-3)+3600<br>这样设置过期时间为1小时。</li>
 <li>format : 语音的格式。WVA与MP3 默认为MP3</li>
 <li>speed  : 语速 取值0.2-5(官方文档为—- 负5到5 -&gt; -5到5 ) 小于1为慢速，大于1为快速，默认为1(正常情况)</li>
-<li>text   : 需要合成的文本，说明关于多音字的问题 如’啊’是一个多音字，那么需要将’啊’包裹在&lt;py=a1&gt;</py>中这里的啊为一声。</li>
+<li>text   : 需要合成的文本，说明关于多音字的问题 如’啊’是一个多音字，那么需要将’啊’包裹在&lt;py=a1&gt;中这里的啊为一声。</li>
 <li>voice  : 声音类型如下<ul>
 <li>cnmale         普通话男声</li>
 <li>cnfemale       普通话女声</li>
@@ -495,7 +495,7 @@
 </li>
 <li><p>使用hmac-sha1方法签名，其中Key为apiSecretKey<br>说明：hmac-sha1方法签名有很多库<br>目前MBEditor采用的是CryptoJS进行签名—-<a href="https://github.com/brix/crypto-js/" target="_blank" rel="noopener">https://github.com/brix/crypto-js/</a><br>CryptoJS.HmacSHA1(signature, okvoiceapisecretkey)<br>签名参数说明第一个为待签名的字符串，第二个为一个KEY。<br>这里对参数做下解释：signature为待签名的字符串，okvoiceapisecretkey为对应的apiKey/apiSecretKey中的apiSecretKey的值，即Secret</p>
 </li>
-<li><p>把”signature=签名结果字符串”加入请求参数列表<br>    apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊</py><br>&amp;voice=cnfemale<br>&amp;signature=CryptoJS.HmacSHA1(signture, okvoiceapisecretkey)<br>下面是一个完整okvoice的请求地址<br>ttp://api.okvoice.com/tts?apiKey=920c657431d374436117b00f9b18be78&amp;expires=1446445018&amp;speed=0.3&amp;text=&lt;py=a1&gt;啊</py>&amp;voice=cnfemale&amp;signature=d610bae4113e17de24475ab0c06396ab7dae7a74<br>说明signature参数后面的字符串是CryptoJS.HmacSHA1(signature, okvoiceapisecretkey)的返回值<br>    注意：待签名字符串必须是UTF-8编码</p>
+<li><p>把”signature=签名结果字符串”加入请求参数列表<br>    apiKey=920c657431d374436117b00f9b18be78<br>&amp;expires=1446445018<br>&amp;speed=0.3<br>&amp;text=&lt;py=a1&gt;啊<br>&amp;voice=cnfemale<br>&amp;signature=CryptoJS.HmacSHA1(signture, okvoiceapisecretkey)<br>下面是一个完整okvoice的请求地址<br>ttp://api.okvoice.com/tts?apiKey=920c657431d374436117b00f9b18be78&amp;expires=1446445018&amp;speed=0.3&amp;text=&lt;py=a1&gt;啊&amp;voice=cnfemale&amp;signature=d610bae4113e17de24475ab0c06396ab7dae7a74<br>说明signature参数后面的字符串是CryptoJS.HmacSHA1(signature, okvoiceapisecretkey)的返回值<br>    注意：待签名字符串必须是UTF-8编码</p>
 </li>
 </ol>
 </li>

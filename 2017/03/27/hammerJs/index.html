@@ -524,7 +524,7 @@ mc.<span class="hljs-keyword">on</span>(</span><span class="hljs-string">"quadru
 </div>
 
 <h4 id="浏览器-终端的支持"><a href="#浏览器-终端的支持" class="headerlink" title="浏览器/终端的支持"></a>浏览器/终端的支持</h4><p>无须担心你的浏览器或系统不在下方的列表上，Harmmer可以运行在除了IE8-的任何地方。浏览器若对触摸行为（touch-action）提供原生支持，那么对比那些不支持的浏览器，会有更好的体验。查看 <a href="http://hammerjs.github.io/touch-action/" target="_blank" rel="noopener">touch-action</a> 页面了解更多。</p>
-<p><img src="http://img0.tuicool.com/VnAVFn.jpg!web" alt=""></p>
+<p><img src="http://img0.tuicool.com/VnAVFn.jpg!web" alt></p>
 <h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p><a href="http://codepen.io/jtangelder/pen/lgELw" target="_blank" rel="noopener">1. 基础实例</a></p>
 <p><a href="http://codepen.io/jtangelder/pen/ABFnd" target="_blank" rel="noopener">2. 垂直方向的pan识别器</a></p>
 <p><a href="http://codepen.io/jtangelder/pen/zKHDk" target="_blank" rel="noopener">3. 同时识别（用RecognizeWith实现）Pinch和Rotate</a></p>
@@ -539,7 +539,7 @@ mc.<span class="hljs-keyword">on</span>(</span><span class="hljs-string">"quadru
 <p>Event object</p>
 <p>Constants</p>
 <p>Utils</p>
-<h4 id=""><a href="#" class="headerlink" title="=============================="></a>==============================</h4><h4 id="Hammer"><a href="#Hammer" class="headerlink" title="Hammer"></a>Hammer</h4><p>创建并返回一个带有系列默认识别器集合的Manager实例，该集合内包含了诸如 tap, doubletap, pan, swipe, press, pinch 和 rotate 识别器。你应该在初始化时执行它，其语法为：</p>
+<h4 id><a href="#" class="headerlink" title="=============================="></a>==============================</h4><h4 id="Hammer"><a href="#Hammer" class="headerlink" title="Hammer"></a>Hammer</h4><p>创建并返回一个带有系列默认识别器集合的Manager实例，该集合内包含了诸如 tap, doubletap, pan, swipe, press, pinch 和 rotate 识别器。你应该在初始化时执行它，其语法为：</p>
 <p>Contructor(HTMLElement, [options])</p>
 <p>参数里一个是你的页面元素，另一个是可选的识别器选项options，options会融入Hammer.defaults中去，当然，在Hammer.defaults.preset中定义的识别器集合也会被添加进来。</p>
 <p>如果识别器选项options为空，那么初始化的时候不会有额外的识别器被添加进来：</p>
@@ -651,17 +651,17 @@ mc.<span class="hljs-keyword">add</span>(pinch); <span style="color: #008000;"><
 
 <p>==============================</p>
 <h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>每一个Hammer触发的事件都会收到一个包含了如下属性的事件对象：</p>
-<p><img src="http://img0.tuicool.com/BR7zMn2.png!web" alt=""></p>
+<p><img src="http://img0.tuicool.com/BR7zMn2.png!web" alt></p>
 <p>==============================</p>
 <p>常量/Constants <em>（这个建议查阅源码338行起，主要是用于标志事件轮廓，可通过上文“事件对象”的direction、offsetDirection等属性来获取）</em></p>
 <p>所有常量都定义于Hammer对象中，因为它们都是二进制标识，你可以使用位运算来操作它们。MDN上有一些关于位运算的优秀 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" target="_blank" rel="noopener">文档</a> 。</p>
 <h4 id="方位-Directions"><a href="#方位-Directions" class="headerlink" title="方位/Directions"></a>方位/Directions</h4><p>用于定义一个识别器的方位，并用来读取一个事件的对应值。</p>
-<p><img src="http://img0.tuicool.com/NrmeUrq.png!web" alt=""></p>
+<p><img src="http://img0.tuicool.com/NrmeUrq.png!web" alt></p>
 <p>交互事件/Input Events</p>
 <p>Hammer匹配所有交互 (mousedown, mousemove, touchmove, pointercancel)事件类型为如下值：</p>
-<p><img src="http://img2.tuicool.com/nEVz22E.png!web" alt=""></p>
+<p><img src="http://img2.tuicool.com/nEVz22E.png!web" alt></p>
 <h4 id="识别器状态-Recognizer-States"><a href="#识别器状态-Recognizer-States" class="headerlink" title="识别器状态/Recognizer States"></a>识别器状态/Recognizer States</h4><p>由识别器在内部定义自己的状态：</p>
-<p><img src="http://img2.tuicool.com/uq2q2e3.png!web" alt=""></p>
+<p><img src="http://img2.tuicool.com/uq2q2e3.png!web" alt></p>
 <p>==============================</p>
 <h4 id="工具-Utils"><a href="#工具-Utils" class="headerlink" title="工具/Utils"></a>工具/Utils</h4><h4 id="Hammer-on-element-types-handler"><a href="#Hammer-on-element-types-handler" class="headerlink" title="Hammer.on(element, types, handler)"></a>Hammer.on(element, types, handler)</h4><p>addEventListener的封装，可以接受多个事件类型为参数：</p>
 <pre class="prettyprint hljs javascript">Hammer.on(<span class="hljs-built_in">window</span>, <span class="hljs-string">"load resize scroll"</span>, <span style="color: #0000ff;"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span style="color: #000000;"><span class="hljs-function">(<span class="hljs-params">ev</span>)</span> {
@@ -720,7 +720,7 @@ dog.bark();</span>
 <h4 id="Hammer-prefixed-obj-name"><a href="#Hammer-prefixed-obj-name" class="headerlink" title="Hammer.prefixed(obj, name)"></a>Hammer.prefixed(obj, name)</h4><p>获取浏览器的（前缀）属性值：</p>
 <pre class="prettyprint hljs coffeescript">Hammer.prefixed(<span class="hljs-built_in">document</span>.body.style, <span class="hljs-string">'userSelect'</span><span style="color: #000000;">);</span> <span style="color: #008000;"><span class="hljs-regexp">//</span></span> <span style="color: #008000;">returns <span class="hljs-string">"webkitUserSelect"</span> <span class="hljs-literal">on</span> Chrome <span class="hljs-number">35</span></span></pre>
 
-<p><img src="http://img2.tuicool.com/aqENNf.jpg!web" alt=""></p>
+<p><img src="http://img2.tuicool.com/aqENNf.jpg!web" alt></p>
 <p>关于hammer的API就翻译到这里，剩余的几个页面内容篇幅较少也较好读懂，请自行查阅和理解。</p>
 <p>这篇文章是10月8日提笔的，后续因为换工作、换城市的事宜被搁置、尘封在草稿箱，直到今天突然想起才决定把它写完，供打算入门hammer的朋友做个参考吧（再次吐槽hammer的api写的很草率）。</p>
 <p>共勉~</p>
