@@ -124,7 +124,7 @@ const tagCount = allTags.length;
     }
   </style>
 
-  <!-- APlayer + Meting.js 加载 -->
+  <!-- APlayer + 自定义 API 加载（不依赖 Meting.js） -->
   <script>
     (function() {
       // 1. 加载 APlayer CSS
@@ -134,34 +134,48 @@ const tagCount = allTags.length;
       document.head.appendChild(css);
 
       // 2. 加载 APlayer JS
-      const aplayer = document.createElement('script');
-      aplayer.src = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js';
-      aplayer.onload = function() {
-        // 3. 加载 Meting.js
-        const meting = document.createElement('script');
-        meting.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
-        meting.onload = function() {
-          // 4. 创建 meting-js 元素
-          const container = document.getElementById('aplayer-global');
-          if (container) {
-            const metingEl = document.createElement('meting-js');
-            metingEl.setAttribute('id', '18726943');
-            metingEl.setAttribute('server', 'netease');
-            metingEl.setAttribute('type', 'playlist');
-            metingEl.setAttribute('fixed', 'true');
-            metingEl.setAttribute('autoplay', 'false'); // 不自动播放，避免打扰
-            metingEl.setAttribute('theme', '#42b983');
-            metingEl.setAttribute('loop', 'all');
-            metingEl.setAttribute('order', 'random');
-            metingEl.setAttribute('preload', 'auto');
-            metingEl.setAttribute('volume', '0.7');
-            metingEl.setAttribute('list-folded', 'true');
-            container.appendChild(metingEl);
-          }
-        };
-        document.body.appendChild(meting);
+      const aplayerScript = document.createElement('script');
+      aplayerScript.src = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js';
+      aplayerScript.onload = function() {
+        // 3. APlayer 加载完成，从 api.injahow.cn 获取歌单
+        fetch('https://api.injahow.cn/meting/?server=netease&type=playlist&id=18726943')
+          .then(res => res.json())
+          .then(data => {
+            if (!data || !Array.isArray(data)) {
+              console.error('获取歌单失败');
+              return;
+            }
+            
+            // 转换数据格式为 APlayer 所需格式
+            const audio = data.map(song => ({
+              name: song.name,
+              artist: song.artist,
+              url: song.url,
+              cover: song.pic,
+              lrc: song.lrc
+            }));
+            
+            // 4. 初始化 APlayer
+            const ap = new APlayer({
+              container: document.getElementById('aplayer-global'),
+              fixed: true,
+              autoplay: false,
+              theme: '#42b983',
+              loop: 'all',
+              order: 'random',
+              preload: 'auto',
+              volume: 0.7,
+              listFolded: true,
+              listMaxHeight: 300,
+              audio: audio
+            });
+          })
+          .catch(err => console.error('播放器初始化失败:', err));
       };
-      document.body.appendChild(aplayer);
+      aplayerScript.onerror = function() {
+        console.error('APlayer 加载失败');
+      };
+      document.body.appendChild(aplayerScript);
     })();
   </script>
 </body>
