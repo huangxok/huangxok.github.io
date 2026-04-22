@@ -1,0 +1,34 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags: string[];
+  description?: string;
+}
+
+const { title, pubDate, updatedDate, tags, description } = Astro.props;
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <div class="article-header">
+      <h1>{title}</h1>
+      <div class="article-meta">
+        <span>📅 {formatDate(pubDate)}</span>
+        {updatedDate && <span>🔄 {formatDate(updatedDate)}</span>}
+      </div>
+      <div class="card-tags" style="margin-top:1rem">
+        {tags.map(t => <a href={`/tags/${t}`} class="tag">{t}</a>)}
+      </div>
+    </div>
+    <div class="article-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

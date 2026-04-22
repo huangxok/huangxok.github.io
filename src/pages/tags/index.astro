@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog');
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
+
+const tagCounts: Record<string, number> = {};
+for (const tag of allTags) {
+  tagCounts[tag] = posts.filter(p => p.data.tags.includes(tag)).length;
+}
+
+const slugFromId = (id: string) => id.replace(/\.md$/, '');
+---
+
+<BaseLayout title="标签" active="tags">
+  <div class="container tag-page">
+    <h1>🏷️ 标签</h1>
+    <div class="card-grid">
+      {allTags.map(tag => (
+        <a href={`/tags/${tag}`} class="card" style="text-align:center">
+          <div class="card-title">{tag}</div>
+          <div class="card-meta">{tagCounts[tag]} 篇</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
