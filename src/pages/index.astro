@@ -1,36 +1,25 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const slugFromId = (id: string) => id.replace(/\.md$/, '');
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
 ---
 
-<BaseLayout title="首页" active="home">
+<BaseLayout title="首页">
   <div class="container">
-    <section style="margin: 2rem 0 1rem; text-align: center;">
-      <h2 style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
-        时光岁月如流水，流水奔流入海不复回
-      </h2>
-      <p style="color: var(--text-secondary); font-size: 0.9rem;">
-        共 {posts.length} 篇文章
-      </p>
-    </section>
-    
-    <div class="card-grid">
-      {posts.map((post, i) => (
-        <PostCard
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-          tags={post.data.tags}
-          slug={slugFromId(post.id)}
-          description={post.data.description}
-          delay={i * 50}
-        />
+    <ul class="post-list">
+      {posts.map(post => (
+        <li class="post-list-item">
+          <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
+            {post.data.title}
+          </a>
+          <span class="post-list-date">{formatDate(post.data.pubDate)}</span>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </BaseLayout>

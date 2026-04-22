@@ -16,19 +16,16 @@ const formatDate = (d: Date) =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <article>
+  <div class="container">
     <div class="article-header">
       <h1>{title}</h1>
       <div class="article-meta">
-        <span>📅 {formatDate(pubDate)}</span>
-        {updatedDate && <span>🔄 {formatDate(updatedDate)}</span>}
-      </div>
-      <div class="card-tags" style="margin-top:1rem">
-        {tags.map(t => <a href={`/tags/${t}`} class="tag">{t}</a>)}
+        <span>{formatDate(pubDate)}</span>
+        {updatedDate && <span>更新于 {formatDate(updatedDate)}</span>}
       </div>
     </div>
     <div class="article-content">
       <slot />
     </div>
-  </article>
+  </div>
 </BaseLayout>

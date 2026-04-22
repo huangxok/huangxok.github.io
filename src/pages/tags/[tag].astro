@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PostCard from '../../components/PostCard.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -17,24 +16,25 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts } = Astro.props;
-const slugFromId = (id: string) => id.replace(/\.md$/, '');
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
 ---
 
-<BaseLayout title={`标签: ${tag}`} active="tags">
-  <div class="container tag-page">
-    <h1>🏷️ {tag} <span style="font-size:1rem; color:var(--text-secondary)">({posts.length})</span></h1>
-    <a href="/tags" style="color:var(--text-secondary)">← 所有标签</a>
-    <div class="card-grid">
-      {posts.map((post, i) => (
-        <PostCard
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-          tags={post.data.tags}
-          slug={slugFromId(post.id)}
-          description={post.data.description}
-          delay={i * 50}
-        />
-      ))}
+<BaseLayout title={`${tag} - 标签`}>
+  <div class="container" style="padding-top: 1rem;">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/tags" style="color: var(--text-secondary); font-size: 0.9rem;">← 所有标签</a>
     </div>
+    <ul class="post-list">
+      {posts.map(post => (
+        <li class="post-list-item">
+          <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
+            {post.data.title}
+          </a>
+          <span class="post-list-date">{formatDate(post.data.pubDate)}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </BaseLayout>
