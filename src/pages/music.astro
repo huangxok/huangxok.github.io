@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="音乐">
+  <div class="container">
+    <div class="page-header">
+      <h1>🎵 听听音乐</h1>
+    </div>
+    <div class="music-content">
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        点击左下角播放器展开歌单，随机播放我的网易云歌单。
+      </p>
+      <div id="aplayer-container"></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* APlayer 样式适配 */
+  :global(.aplayer .aplayer-lrc p) {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px !important;
+  }
+
+  :global(.aplayer .aplayer-lrc p.aplayer-lrc-current) {
+    font-size: 15px;
+    color: #42b983;
+  }
+
+  /* 吸底模式：左下角隐藏/展开 */
+  :global(.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body) {
+    left: -66px !important;
+  }
+
+  :global(.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover) {
+    left: 0px !important;
+  }
+</style>
+
+<script>
+  // 动态加载 APlayer + Meting.js
+  (function() {
+    // 1. 加载 APlayer CSS
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css';
+    document.head.appendChild(css);
+
+    // 2. 加载 APlayer JS
+    const aplayer = document.createElement('script');
+    aplayer.src = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js';
+    aplayer.onload = function() {
+      // 3. 加载 Meting.js
+      const meting = document.createElement('script');
+      meting.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
+      meting.onload = function() {
+        // 4. Meting.js 加载完成后，创建 meting-js 元素
+        const container = document.getElementById('aplayer-container');
+        if (container) {
+          const metingEl = document.createElement('meting-js');
+          metingEl.setAttribute('id', '18726943');
+          metingEl.setAttribute('server', 'netease');
+          metingEl.setAttribute('type', 'playlist');
+          metingEl.setAttribute('fixed', 'true');
+          metingEl.setAttribute('autoplay', 'true');
+          metingEl.setAttribute('theme', '#42b983');
+          metingEl.setAttribute('loop', 'all');
+          metingEl.setAttribute('order', 'random');
+          metingEl.setAttribute('preload', 'auto');
+          metingEl.setAttribute('volume', '0.7');
+          metingEl.setAttribute('list-folded', 'true');
+          container.appendChild(metingEl);
+        }
+      };
+      document.body.appendChild(meting);
+    };
+    document.body.appendChild(aplayer);
+  })();
+</script>
