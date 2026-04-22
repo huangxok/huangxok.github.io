@@ -25,6 +25,9 @@ const tagCount = allTags.length;
   <title>{title}</title>
 </head>
 <body>
+  <!-- APlayer 音乐播放器容器（全站左下角吸底） -->
+  <div id="aplayer-global"></div>
+
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -100,5 +103,66 @@ const tagCount = allTags.length;
       </footer>
     </main>
   </div>
+
+  <!-- APlayer 样式 -->
+  <style is:global>
+    .aplayer .aplayer-lrc p {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px !important;
+    }
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+      font-size: 15px;
+      color: #42b983;
+    }
+    /* 左下角吸底模式：默认隐藏，hover 展开 */
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+      left: -66px !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+      left: 0px !important;
+    }
+  </style>
+
+  <!-- APlayer + Meting.js 加载 -->
+  <script>
+    (function() {
+      // 1. 加载 APlayer CSS
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css';
+      document.head.appendChild(css);
+
+      // 2. 加载 APlayer JS
+      const aplayer = document.createElement('script');
+      aplayer.src = 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js';
+      aplayer.onload = function() {
+        // 3. 加载 Meting.js
+        const meting = document.createElement('script');
+        meting.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
+        meting.onload = function() {
+          // 4. 创建 meting-js 元素
+          const container = document.getElementById('aplayer-global');
+          if (container) {
+            const metingEl = document.createElement('meting-js');
+            metingEl.setAttribute('id', '18726943');
+            metingEl.setAttribute('server', 'netease');
+            metingEl.setAttribute('type', 'playlist');
+            metingEl.setAttribute('fixed', 'true');
+            metingEl.setAttribute('autoplay', 'false'); // 不自动播放，避免打扰
+            metingEl.setAttribute('theme', '#42b983');
+            metingEl.setAttribute('loop', 'all');
+            metingEl.setAttribute('order', 'random');
+            metingEl.setAttribute('preload', 'auto');
+            metingEl.setAttribute('volume', '0.7');
+            metingEl.setAttribute('list-folded', 'true');
+            container.appendChild(metingEl);
+          }
+        };
+        document.body.appendChild(meting);
+      };
+      document.body.appendChild(aplayer);
+    })();
+  </script>
 </body>
 </html>
