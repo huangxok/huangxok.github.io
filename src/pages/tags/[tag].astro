@@ -22,16 +22,19 @@ const formatDate = (d: Date) =>
 ---
 
 <BaseLayout title={`${tag} - 标签`}>
-  <div class="container" style="padding-top: 1rem;">
-    <div style="margin-bottom: 1.5rem;">
-      <a href="/tags" style="color: var(--text-secondary); font-size: 0.9rem;">← 所有标签</a>
+  <div class="container">
+    <div class="page-header">
+      <h1>{tag} <span style="font-size:0.9rem; color: var(--text-secondary); font-weight:normal;">({posts.length})</span></h1>
+      <a href="/tags" style="font-size:0.85rem; color: var(--text-secondary);">← 所有标签</a>
     </div>
     <ul class="post-list">
       {posts.map(post => (
         <li class="post-list-item">
-          <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
-            {post.data.title}
-          </a>
+          <div style="flex:1; min-width:0;">
+            <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
+              {post.data.title}
+            </a>
+          </div>
           <span class="post-list-date">{formatDate(post.data.pubDate)}</span>
         </li>
       ))}

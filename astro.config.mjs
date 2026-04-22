@@ -6,8 +6,8 @@ export default defineConfig({
   site: 'https://huangxok.github.io',
   markdown: {
     shikiConfig: {
-      theme: 'github-dark',
-      wrap: true,
+      theme: 'github-light',
+      wrap: false,
     },
   },
 });

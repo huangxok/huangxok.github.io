@@ -12,14 +12,15 @@ for (const tag of allTags) {
 ---
 
 <BaseLayout title="标签">
-  <div class="container" style="padding-top: 1rem;">
+  <div class="container">
+    <div class="page-header">
+      <h1>标签</h1>
+    </div>
     <ul class="tag-list">
       {allTags.map(tag => (
         <li>
           <a href={`/tags/${tag}`}>{tag}</a>
-          <span style="color: var(--text-secondary); margin-left: 0.5rem; font-size: 0.85rem;">
-            ({tagCounts[tag]})
-          </span>
+          <span class="tag-count">{tagCounts[tag]}</span>
         </li>
       ))}
     </ul>

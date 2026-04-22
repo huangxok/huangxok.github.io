@@ -1,13 +1,19 @@
 ---
 import '../styles/global.css';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = '技术博客，记录前端开发学习笔记、技术踩坑和生活感悟' } = Astro.props;
+const { title, description = '越努力，越幸运！' } = Astro.props;
 const currentPath = Astro.url.pathname;
+
+const allPosts = await getCollection('blog');
+const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
+const postCount = allPosts.length;
+const tagCount = allTags.length;
 ---
 
 <!DOCTYPE html>
@@ -19,25 +25,75 @@ const currentPath = Astro.url.pathname;
   <title>{title}</title>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/" class="site-name">HKBlog</a>
-      <nav>
-        <a href="/" class={currentPath === '/' ? 'active' : ''}>首页</a>
-        <a href="/tags" class={currentPath.startsWith('/tags') ? 'active' : ''}>标签</a>
-        <a href="/about" class={currentPath === '/about' ? 'active' : ''}>关于</a>
-      </nav>
-    </div>
-  </header>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <!-- Site Identity -->
+        <div class="site-meta">
+          <a href="/" class="site-title">HKBlog</a>
+          <p class="site-subtitle">越努力，越幸运</p>
+        </div>
 
-  <main>
-    <slot />
-  </main>
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="/" class={currentPath === '/' ? 'active' : ''}>
+                <span>📄</span>首页
+              </a>
+            </li>
+            <li>
+              <a href="/tags" class={currentPath.startsWith('/tags') ? 'active' : ''}>
+                <span>🏷️</span>标签
+              </a>
+            </li>
+            <li>
+              <a href="/about" class={currentPath === '/about' ? 'active' : ''}>
+                <span>👤</span>关于
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-  <footer>
-    <div class="container">
-      <p>&copy; {new Date().getFullYear()} HKBlog · 努力不一定成功，放弃一定会很轻松</p>
-    </div>
-  </footer>
+        <!-- Site Stats -->
+        <div class="site-state">
+          <div class="site-state-item">
+            <a href="/">
+              <span class="state-count">{postCount}</span>
+              <span class="state-label">文章</span>
+            </a>
+          </div>
+          <div class="site-state-item">
+            <a href="/tags">
+              <span class="state-count">{tagCount}</span>
+              <span class="state-label">标签</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- External Links -->
+        <div class="sidebar-links">
+          <ul>
+            <li>
+              <a href="https://github.com/huangxok" target="_blank" rel="noopener" class="ext-link">
+                <span>🐙</span>GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <slot />
+      <footer>
+        <div class="container">
+          <p>&copy; {new Date().getFullYear()} HKBlog · 越努力，越幸运</p>
+        </div>
+      </footer>
+    </main>
+  </div>
 </body>
 </html>

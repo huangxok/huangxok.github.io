@@ -12,16 +12,23 @@ interface Props {
 const { title, pubDate, updatedDate, tags, description } = Astro.props;
 
 const formatDate = (d: Date) =>
-  d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+  d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="container">
     <div class="article-header">
       <h1>{title}</h1>
-      <div class="article-meta">
-        <span>{formatDate(pubDate)}</span>
-        {updatedDate && <span>更新于 {formatDate(updatedDate)}</span>}
+      <div class="article-meta-row">
+        <span>📅 {formatDate(pubDate)}</span>
+        {updatedDate && <span>🔄 更新于 {formatDate(updatedDate)}</span>}
+        {tags.length > 0 && (
+          <div class="post-tags">
+            {tags.map(t => (
+              <a href={`/tags/${t}`} class="tag-label">{t}</a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
     <div class="article-content">

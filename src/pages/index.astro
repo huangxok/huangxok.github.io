@@ -11,12 +11,22 @@ const formatDate = (d: Date) =>
 
 <BaseLayout title="首页">
   <div class="container">
+    <div class="page-header">
+      <h1>文章</h1>
+    </div>
     <ul class="post-list">
       {posts.map(post => (
         <li class="post-list-item">
-          <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
-            {post.data.title}
-          </a>
+          <div style="flex:1; min-width:0;">
+            <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="post-list-title">
+              {post.data.title}
+            </a>
+            {post.data.tags.length > 0 && (
+              <div class="post-list-meta">
+                <a href={`/tags/${post.data.tags[0]}`}>{post.data.tags[0]}</a>
+              </div>
+            )}
+          </div>
           <span class="post-list-date">{formatDate(post.data.pubDate)}</span>
         </li>
       ))}
